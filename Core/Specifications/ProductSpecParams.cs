@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Specifications
+{
+    public class ProductSpecParams
+    {
+        public string? OrderBy { get; set; }
+        public int? SellerId { get; set; }
+        public int? PrevOwnerId { get; set; }
+       
+    }
+}
