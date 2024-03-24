@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "NewPhoneECommerce\API.csproj", "{C734009C-52CF-49E9-AF00-4A0D17B79B2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{F7CFEC3A-66F9-43FB-A4C1-589425F11DBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D4C203CC-9169-4D1F-B2ED-167216B99711}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C734009C-52CF-49E9-AF00-4A0D17B79B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C734009C-52CF-49E9-AF00-4A0D17B79B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C734009C-52CF-49E9-AF00-4A0D17B79B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C734009C-52CF-49E9-AF00-4A0D17B79B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CFEC3A-66F9-43FB-A4C1-589425F11DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CFEC3A-66F9-43FB-A4C1-589425F11DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CFEC3A-66F9-43FB-A4C1-589425F11DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CFEC3A-66F9-43FB-A4C1-589425F11DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C203CC-9169-4D1F-B2ED-167216B99711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C203CC-9169-4D1F-B2ED-167216B99711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C203CC-9169-4D1F-B2ED-167216B99711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C203CC-9169-4D1F-B2ED-167216B99711}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE958415-A38D-4A12-AF1E-3C2418E4E790}
+	EndGlobalSection
+EndGlobal
