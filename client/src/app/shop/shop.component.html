@@ -1,0 +1,28 @@
+<div class="container shop-container">
+
+  <div class="row">
+    <div class="p-2 col-3">
+      <app-sidebar-filter></app-sidebar-filter>
+    </div>
+
+    <div class="p-2 col-9">
+
+      <div class="row">
+        Another filter
+      </div>
+
+      <div class="row">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div *ngFor="let item of products">
+            <app-product [product]="item"></app-product>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>

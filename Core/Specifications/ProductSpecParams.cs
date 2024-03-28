@@ -12,6 +12,6 @@ namespace Core.Specifications
         public string? OrderBy { get; set; }
         public int? SellerId { get; set; }
         public int? PrevOwnerId { get; set; }
-       
+
     }
 }

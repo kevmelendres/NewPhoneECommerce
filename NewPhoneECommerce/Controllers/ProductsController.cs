@@ -1,4 +1,5 @@
-﻿using API.Dtos;
+﻿using System.Diagnostics;
+using API.Dtos;
 using API.Helpers;
 using Core.Interfaces;
 using Core.Models;
@@ -20,8 +21,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<ProductToReturnDto>> ListAllProducts()
         {
-
-            var specParam = new ProductSpecParams { SellerId = 17, PrevOwnerId = 84};
+            var specParam = new ProductSpecParams();
 
             var newSpecs = new ProductWithParamsSpec(specParam);
             var data = await _productsRepo.GetAllItems(newSpecs);
@@ -40,6 +40,30 @@ namespace API.Controllers
             var returnData = MapperHelper.MapProductItem(data);
 
             return Ok(returnData);
+        }
+
+        [HttpGet("UniqueBrands")]
+        public async Task<ActionResult<List<string>>> GetProductBrands(int id)
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = await _productsRepo.GetAllItems(specs);
+
+            List<string> distinctData = data.Select(x => x.Brand).Distinct().ToList();
+            distinctData.Sort();
+
+            return Ok(distinctData);
+        }
+
+        [HttpGet("UniqueColors")]
+        public async Task<ActionResult<List<string>>> GetProductColors(int id)
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = await _productsRepo.GetAllItems(specs);
+
+            List<string> distinctData = data.Select(x => x.Color).Distinct().ToList();
+            distinctData.Sort();
+
+            return Ok(distinctData);
         }
     }
 }
