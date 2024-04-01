@@ -1,31 +1,61 @@
-<nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white py-3">
+<nav class="navbar navbar-expand-lg shadow-sm navbar-light bg-white py-3">
 
-  <div class="container px-5 d-flex justify-content-start">
+  <div class="container px-5 d-flex justify-content-between">
 
-    <div class="d-flex flex-row align-items-center">
+    <div class="align-items-center">
       <a class="pe-4" href="#"><img src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo"></a>
-      <label class="justify-content-center" for="search_search">
+    </div>
+
+    <div class="d-flex flex-row align-items-center w-50">
+      <label class="justify-content-center px-2" for="search_search">
         <i class="fa fa-search"></i>
       </label>
-      <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search" placeholder="Search" aria-label="Search" type="search">
+      <input class="form-control form-control-sm border-0 shadow-0 bg-body-tertiary rounded" id="search_search" placeholder="Search" aria-label="Search" type="search">
+
     </div>
 
-    <div class="collapse navbar-collapse d-flex flex-row-reverse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">Sign in</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="signup.html">Sign up</a>
-        </li>
-        
-      </ul>
+    <div class="d-flex flex-row align-items-center">
+      <div class="px-4">
+        <div class="dropdown">
+          <a class="btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" style="width: 230px; font-size: 12px">
+            <div class="px-2">
+
+              <div class="d-flex flex-row justify-content-center py-0 h-auto">
+                <p class="my-2">Returning customer?</p>
+              </div>
+
+              <div class="d-flex flex-row justify-content-center my-1">
+                <button class="btn btn-warning btn-custom">
+                  <strong>Sign in</strong>
+                </button>
+              </div>
+
+            </div>
+
+            <hr class="w-75 mx-auto my-3" />
+
+            <div class="d-flex flex-row justify-content-center py-0 h-auto">
+              <p class="my-auto">Don't have an account?</p>
+            </div>
+
+            <div class="d-flex flex-row justify-content-center my-2">
+              <button class="btn btn-warning btn-custom">
+                <strong>Register</strong>
+              </button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <i class="fa-solid fa-cart-shopping"></i>
     </div>
+
+
   </div>
 </nav>

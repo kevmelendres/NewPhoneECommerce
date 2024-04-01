@@ -7,16 +7,20 @@
 
     <div class="p-2 col-9">
 
-      <div class="row">
-        Another filter
+      <div class="row justify-content-center">
+        <app-top-filter></app-top-filter>
       </div>
 
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div *ngFor="let item of products">
+          <div *ngFor="let item of products" class="mb-3 mt-0">
             <app-product [product]="item"></app-product>
           </div>
         </div>
+      </div>
+
+      <div class="row">
+        <app-pagination></app-pagination>
       </div>
 
     </div>

@@ -5,26 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
-import { ShopComponent } from './shop/shop.component';
-import { ProductComponent } from './shop/product/product.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SidebarFilterComponent } from './shop/sidebar-filter/sidebar-filter.component';
 import { FormsModule } from '@angular/forms';
+import { ShopModule } from './shop-module/shop-module.module';
+import { TopHeaderComponent } from './top-header/top-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShopComponent,
-    ProductComponent,
-    SidebarFilterComponent
+    TopHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ShopModule
   ],
   providers: [
     provideClientHydration()
