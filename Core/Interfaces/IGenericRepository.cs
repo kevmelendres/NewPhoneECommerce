@@ -16,8 +16,5 @@ namespace Core.Interfaces
         Task<T> GetItemById(int id, ISpecification<T> specs);
         Task<IReadOnlyList<T>> GetItemsWithSpecs(ISpecification<T> specs);
         IQueryable<T> ApplySpecification(ISpecification<T> specs);
-
-
-
     }
 }

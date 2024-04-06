@@ -15,5 +15,7 @@ namespace Core.Interfaces
         Expression<Func<T, object>> OrderByDescending { get; }
         List<Expression<Func<T, object>>> Includes { get; }
         Expression<Func<T, object>> Select { get; }
+        int ItemsToShow { get; set; }
+        int PageNumber { get; set; }
     }
 }

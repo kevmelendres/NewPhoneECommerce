@@ -19,13 +19,20 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ProductToReturnDto>> ListAllProducts()
+        public async Task<ActionResult<ProductToReturnDto>> ListAllProducts(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow)
         {
             var specParam = new ProductSpecParams();
+            specParam.ItemsToShow = 10;
+            specParam.PageNumber = 1;
+
+            Console.WriteLine(pageNumber);
+
+            if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
+            if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
 
             var newSpecs = new ProductWithParamsSpec(specParam);
             var data = await _productsRepo.GetAllItems(newSpecs);
-
             var returnData = MapperHelper.MapProductList(data);
 
             return Ok(returnData);
@@ -46,7 +53,7 @@ namespace API.Controllers
         public async Task<ActionResult<List<string>>> GetProductBrands(int id)
         {
             var specs = new ProductWithSellerAndPrevOwnerSpec();
-            var data = await _productsRepo.GetAllItems(specs);
+            var data = _productsRepo.ApplySpecification(specs);
 
             List<string> distinctData = data.Select(x => x.Brand).Distinct().ToList();
             distinctData.Sort();
@@ -58,7 +65,7 @@ namespace API.Controllers
         public async Task<ActionResult<List<string>>> GetProductColors(int id)
         {
             var specs = new ProductWithSellerAndPrevOwnerSpec();
-            var data = await _productsRepo.GetAllItems(specs);
+            var data = _productsRepo.ApplySpecification(specs);
 
             List<string> distinctData = data.Select(x => x.Color).Distinct().ToList();
             distinctData.Sort();

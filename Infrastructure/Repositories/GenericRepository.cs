@@ -23,7 +23,12 @@ namespace Infrastructure.Repositories
 
         public async Task<IReadOnlyList<T>> GetAllItems(ISpecification<T> specs)
         {
-            return await ApplySpecification(specs).ToListAsync();
+            var query = await ApplySpecification(specs).ToListAsync();
+            int skip = (specs.PageNumber - 1) * specs.ItemsToShow;
+            int take = specs.ItemsToShow;
+
+            IReadOnlyList<T> returnQuery = query.Skip(skip).Take(take).ToList().AsReadOnly();
+            return returnQuery;
         }
             
         public async Task<T> GetItemById(int id, ISpecification<T> specs)

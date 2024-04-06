@@ -14,7 +14,8 @@ namespace Core.Specifications
         {
             this.Criteria = x => (!paramSpecs.SellerId.HasValue || x.SellerID == paramSpecs.SellerId) &&
                     (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId);
-
+            this.PageNumber = paramSpecs.PageNumber;
+            this.ItemsToShow = paramSpecs.ItemsToShow;
         }
     }
 }
