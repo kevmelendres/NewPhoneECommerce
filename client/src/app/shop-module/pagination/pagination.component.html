@@ -3,18 +3,15 @@
     <li class="page-item" [class.disabled]="currentPage === 1">
       <a class="page-link" (click)="onPrevClick()"><i class="fas fa-backward-fast"></i></a>
     </li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage" (click)="pageNumberClick($event)">{{firstEntryPage}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 1" (click)="pageNumberClick($event)">{{firstEntryPage + 1}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 2" (click)="pageNumberClick($event)">{{firstEntryPage + 2}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 3" (click)="pageNumberClick($event)">{{firstEntryPage + 3}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 4" (click)="pageNumberClick($event)">{{firstEntryPage + 4}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 5" (click)="pageNumberClick($event)">{{firstEntryPage + 5}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 6" (click)="pageNumberClick($event)">{{firstEntryPage + 6}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 7" (click)="pageNumberClick($event)">{{firstEntryPage + 7}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 8" (click)="pageNumberClick($event)">{{firstEntryPage + 8}}</a></li>
-    <li class="page-item"><a class="page-link" [class.active]="currentPage == firstEntryPage + 9" (click)="pageNumberClick($event)">{{firstEntryPage + 9}}</a></li>
-    <li class="page-item">
-      <a class="page-link" (click)="onNextClick()"><i class="fas fa-fast-forward"></i></a>
+
+    <li class="page-item" *ngFor="let int of numOfPagings">
+        <div *ngIf="firstEntryPage + int <= maxPageNumber">
+            <a class="page-link" [class.active]="currentPage == firstEntryPage + int" (click)="pageNumberClick($event)">{{firstEntryPage + int}}</a>
+        </div>
+    </li>
+
+    <li class="page-item" [class.disabled]="firstEntryPage + numOfPagings.length > maxPageNumber">
+        <a class="page-link" (click)="onNextClick()"><i class="fas fa-fast-forward"></i></a>
     </li>
   </ul>
 </nav>

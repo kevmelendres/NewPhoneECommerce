@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
@@ -52,6 +53,14 @@ namespace Infrastructure
 
                 await context.SaveChangesAsync();
             }
+        }
+
+        public static async void ResetData(StoreContext context)
+        {
+            await context.Products.ExecuteDeleteAsync();
+
+            await context.Sellers.ExecuteDeleteAsync();
+            await context.PreviousOwners.ExecuteDeleteAsync();
         }
     }
 }

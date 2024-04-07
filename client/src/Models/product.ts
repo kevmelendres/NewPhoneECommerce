@@ -10,4 +10,9 @@ export interface IProduct {
   price: number;
   releaseDate: number;
   seller: string;
+  rating: number;
+  discount: number;
+  availableStocks: number;
+  soldItems: number;
+  discountedPrice: number;
 }

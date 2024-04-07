@@ -18,4 +18,8 @@ export class ShopService {
   getProductBrands() {
     return this.http.get<string[]>(this.baseUrl + 'Products/UniqueBrands');
   }
+
+  getAllProductsCount() {
+    return this.http.get<number>(this.baseUrl + 'Products/GetAllProductsCount');
+  }
 }

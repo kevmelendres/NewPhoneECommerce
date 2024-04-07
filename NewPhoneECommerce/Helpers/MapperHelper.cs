@@ -29,6 +29,10 @@ namespace API.Helpers
             addItem.Color = item.Color;
             addItem.Description = item.Description;
             addItem.Image = item.Image;
+            addItem.Rating = item.Rating;
+            addItem.Discount = item.Discount;
+            addItem.AvailableStocks = item.AvailableStocks;
+            addItem.SoldItems = item.SoldItems;
 
             if (item.Seller != null)
             {

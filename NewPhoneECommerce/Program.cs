@@ -31,6 +31,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
+    //StoreContextSeed.ResetData(context);
     StoreContextSeed.SeedData(context);
 }
 

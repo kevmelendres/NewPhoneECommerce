@@ -16,5 +16,10 @@ namespace API.Dtos
         public string Image { get; set; }
         public string Seller { get; set; }
         public string PreviousOwner { get; set; }
+
+        public double Rating { get; set; }
+        public int Discount { get; set; }
+        public int AvailableStocks { get; set; }
+        public int SoldItems { get; set; }
     }
 }

@@ -18,14 +18,17 @@ namespace Core.Models
         public string Description { get; set; }
         public string Image { get; set; }
 
-
         [ForeignKey("Seller")]
         public int SellerID { get; set; }
         public Seller Seller { get; set; }
 
-
         [ForeignKey("PreviousOwner")]
         public int PrevOwnerID { get; set; }
         public PreviousOwner PreviousOwner { get; set; }
+
+        public double Rating { get; set; }
+        public int Discount { get; set; }
+        public int AvailableStocks { get; set; }
+        public int SoldItems { get; set; }
     }
 }

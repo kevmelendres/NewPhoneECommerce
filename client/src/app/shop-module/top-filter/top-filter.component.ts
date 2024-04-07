@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class TopFilterComponent {
   sortBy: string[] = [
-    "Sort by popularity",
     "Sort by average rating",
     "Sort by latest",
     "Sort by price: low-to-high",
@@ -16,7 +15,7 @@ export class TopFilterComponent {
     "Sort by review count",
   ];
 
-  selectedSort: string = "Sort by popularity";
+  selectedSort: string = "Sort by price: low-to-high";
 
   onSortClick(value: any) {
     this.selectedSort = value.target.text;

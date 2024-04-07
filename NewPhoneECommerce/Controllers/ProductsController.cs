@@ -72,5 +72,14 @@ namespace API.Controllers
 
             return Ok(distinctData);
         }
+
+        [HttpGet("GetAllProductsCount")]
+        public async Task<ActionResult<ProductToReturnDto>> GetAllProductsCount()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs);
+
+            return Ok(data.Count());
+        }
     }
 }

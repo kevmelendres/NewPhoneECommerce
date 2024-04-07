@@ -1,4 +1,5 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
   selector: 'app-pagination',
@@ -7,12 +8,18 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class PaginationComponent {
   currentPage: number = 1;
-
   firstEntryPage: number;
   increment: number = 10;
+  numOfPagings: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  constructor() {
+  totalNumOfProducts: number;
+  itemsPerPage: number;
+  maxPageNumber: number;
+  constructor(private shopService: ShopService) {
     this.firstEntryPage = 1;
+    this.shopService.getAllProductsCount().subscribe(data => this.totalNumOfProducts = data);
+    this.shopService.getProducts().subscribe(data => this.itemsPerPage = data.length);
+    this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
   }
 
   validateFirstEntryPage() {

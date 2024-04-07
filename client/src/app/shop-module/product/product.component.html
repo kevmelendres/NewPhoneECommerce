@@ -1,18 +1,43 @@
 
-<div class="col">
-  <div class="card shadow-sm">
-    <img src="{{product.image}}" />
-    <div class="card-body">
-      <p class="card-text">{{product.description}}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+<div class="col hvr-grow">
+    <div class="card shadow-sm position-relative">
+        <p>{{product.brand}}, {{product.deviceOS}}</p>
+        <p>{{product.model}}</p>
+
+        <div class="position-relative h-100">
+            <img class="img-fluid" src="{{product.image}}" />
+            <span class="position-absolute discount-badge translate-middle-x badge bg-success  fw-bold">
+                -{{product.discount}}% OFF
+            </span>
         </div>
-        <small class="text-body-secondary">9 mins</small>
-      </div>
+        <!-- Star Rating -->
+        <div class="d-inline ">
+            <i [class]="star1()"></i>
+            <i [class]="star2()"></i>
+            <i [class]="star3()"></i>
+            <i [class]="star4()"></i>
+            <i [class]="star5()"></i>
+            <p class="d-inline">{{product.rating}}</p>
+        </div>
+        <!-- Star Rating -->
+
+        <p>In Stock: {{product.availableStocks}}</p>
+        <p [ngStyle]="{'text-decoration' : product.discount > 0 ? 'line-through' : ''}">{{product.price}}</p>
+        <p>{{product.discountedPrice}}</p>
+
+        <p>Recently Sold: {{product.soldItems}}</p>
+
+        <div class="card-body">
+            <p class="card-text">{{product.description}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
