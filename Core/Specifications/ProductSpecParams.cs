@@ -9,7 +9,7 @@ namespace Core.Specifications
 {
     public class ProductSpecParams
     {
-        public string? OrderBy { get; set; }
+        public string? SortBy { get; set; }
         public int? SellerId { get; set; }
         public int? PrevOwnerId { get; set; }
         public int ItemsToShow { get; set; }

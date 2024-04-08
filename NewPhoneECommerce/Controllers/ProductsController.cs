@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq.Expressions;
 using API.Dtos;
 using API.Helpers;
 using Core.Interfaces;
@@ -20,18 +21,19 @@ namespace API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<ProductToReturnDto>> ListAllProducts(
-            [FromQuery] int pageNumber, [FromQuery] int itemsToShow)
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy )
         {
             var specParam = new ProductSpecParams();
             specParam.ItemsToShow = 10;
             specParam.PageNumber = 1;
-
-            Console.WriteLine(pageNumber);
+            Console.WriteLine(sortBy);
 
             if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
             if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
+            if (sortBy != null) { specParam.SortBy = sortBy; }
 
             var newSpecs = new ProductWithParamsSpec(specParam);
+            
             var data = await _productsRepo.GetAllItems(newSpecs);
             var returnData = MapperHelper.MapProductList(data);
 

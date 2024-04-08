@@ -8,7 +8,8 @@
     <div class="p-2 col-9">
 
       <div class="row justify-content-center">
-        <app-top-filter></app-top-filter>
+          <app-top-filter (changeSort)="changeSortedItems($event)"
+          (changeNumOfItemsToShow)="changeNumberOfItemsToShow($event)"></app-top-filter>
       </div>
 
       <div class="row justify-content-center">
@@ -20,13 +21,8 @@
       </div>
 
       <div class="row">
-        <app-pagination></app-pagination>
+        <app-pagination (currentPageChange)="currentPageChange($event)"></app-pagination>
       </div>
-
     </div>
-
   </div>
-
-
-
 </div>

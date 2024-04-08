@@ -14,7 +14,8 @@
    "Rating": 0.2,
    "Discount": 20,
    "AvailableStocks": 471,
-   "SoldItems": 292
+   "SoldItems": 292,
+   "DiscountedPrice": 816.8
  },
  {
    "Id": 2,
@@ -31,7 +32,8 @@
    "Rating": 0.2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 360
+   "SoldItems": 360,
+   "DiscountedPrice": 3283.7
  },
  {
    "Id": 3,
@@ -48,7 +50,8 @@
    "Rating": 1.7,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 348
+   "SoldItems": 348,
+   "DiscountedPrice": 6396
  },
  {
    "Id": 4,
@@ -65,7 +68,8 @@
    "Rating": 0,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 238
+   "SoldItems": 238,
+   "DiscountedPrice": 5067.6
  },
  {
    "Id": 5,
@@ -82,7 +86,8 @@
    "Rating": 2.6,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 331
+   "SoldItems": 331,
+   "DiscountedPrice": 7701.3
  },
  {
    "Id": 6,
@@ -99,7 +104,8 @@
    "Rating": 3.6,
    "Discount": 40,
    "AvailableStocks": 413,
-   "SoldItems": 276
+   "SoldItems": 276,
+   "DiscountedPrice": 3840.6
  },
  {
    "Id": 7,
@@ -116,7 +122,8 @@
    "Rating": 0.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 44
+   "SoldItems": 44,
+   "DiscountedPrice": 1399.5
  },
  {
    "Id": 8,
@@ -133,7 +140,8 @@
    "Rating": 3.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 241
+   "SoldItems": 241,
+   "DiscountedPrice": 1224.6
  },
  {
    "Id": 9,
@@ -150,7 +158,8 @@
    "Rating": 4.7,
    "Discount": 15,
    "AvailableStocks": 377,
-   "SoldItems": 288
+   "SoldItems": 288,
+   "DiscountedPrice": 3511.35
  },
  {
    "Id": 10,
@@ -167,7 +176,8 @@
    "Rating": 3.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 122
+   "SoldItems": 122,
+   "DiscountedPrice": 2946.5
  },
  {
    "Id": 11,
@@ -184,7 +194,8 @@
    "Rating": 3.7,
    "Discount": 35,
    "AvailableStocks": 368,
-   "SoldItems": 306
+   "SoldItems": 306,
+   "DiscountedPrice": 5381.35
  },
  {
    "Id": 12,
@@ -201,7 +212,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 282
+   "SoldItems": 282,
+   "DiscountedPrice": 6306
  },
  {
    "Id": 13,
@@ -218,7 +230,8 @@
    "Rating": 0.3,
    "Discount": 40,
    "AvailableStocks": 169,
-   "SoldItems": 432
+   "SoldItems": 432,
+   "DiscountedPrice": 4355.4
  },
  {
    "Id": 14,
@@ -235,7 +248,8 @@
    "Rating": 2.8,
    "Discount": 20,
    "AvailableStocks": 563,
-   "SoldItems": 47
+   "SoldItems": 47,
+   "DiscountedPrice": 7208.8
  },
  {
    "Id": 15,
@@ -252,7 +266,8 @@
    "Rating": 1.4,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 320
+   "SoldItems": 320,
+   "DiscountedPrice": 8557.2
  },
  {
    "Id": 16,
@@ -269,7 +284,8 @@
    "Rating": 1.6,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 332
+   "SoldItems": 332,
+   "DiscountedPrice": 3727.8
  },
  {
    "Id": 17,
@@ -286,7 +302,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 445
+   "SoldItems": 445,
+   "DiscountedPrice": 2765.5
  },
  {
    "Id": 18,
@@ -303,7 +320,8 @@
    "Rating": 1.7,
    "Discount": 20,
    "AvailableStocks": 553,
-   "SoldItems": 75
+   "SoldItems": 75,
+   "DiscountedPrice": 5477.6
  },
  {
    "Id": 19,
@@ -320,7 +338,8 @@
    "Rating": 4.7,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 193
+   "SoldItems": 193,
+   "DiscountedPrice": 2776.8
  },
  {
    "Id": 20,
@@ -337,7 +356,8 @@
    "Rating": 0.6,
    "Discount": 25,
    "AvailableStocks": 404,
-   "SoldItems": 478
+   "SoldItems": 478,
+   "DiscountedPrice": 6432
  },
  {
    "Id": 21,
@@ -354,7 +374,8 @@
    "Rating": 0.3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 499
+   "SoldItems": 499,
+   "DiscountedPrice": 4266.9
  },
  {
    "Id": 22,
@@ -371,7 +392,8 @@
    "Rating": 3.3,
    "Discount": 35,
    "AvailableStocks": 206,
-   "SoldItems": 224
+   "SoldItems": 224,
+   "DiscountedPrice": 1760.85
  },
  {
    "Id": 23,
@@ -388,7 +410,8 @@
    "Rating": 2.4,
    "Discount": 15,
    "AvailableStocks": 360,
-   "SoldItems": 203
+   "SoldItems": 203,
+   "DiscountedPrice": 716.55
  },
  {
    "Id": 24,
@@ -405,7 +428,8 @@
    "Rating": 2.2,
    "Discount": 30,
    "AvailableStocks": 247,
-   "SoldItems": 224
+   "SoldItems": 224,
+   "DiscountedPrice": 5453
  },
  {
    "Id": 25,
@@ -422,7 +446,8 @@
    "Rating": 3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 242
+   "SoldItems": 242,
+   "DiscountedPrice": 387
  },
  {
    "Id": 26,
@@ -439,7 +464,8 @@
    "Rating": 2.5,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 95
+   "SoldItems": 95,
+   "DiscountedPrice": 5335.2
  },
  {
    "Id": 27,
@@ -456,7 +482,8 @@
    "Rating": 2.2,
    "Discount": 20,
    "AvailableStocks": 203,
-   "SoldItems": 207
+   "SoldItems": 207,
+   "DiscountedPrice": 4076.8
  },
  {
    "Id": 28,
@@ -473,7 +500,8 @@
    "Rating": 4.1,
    "Discount": 35,
    "AvailableStocks": 698,
-   "SoldItems": 364
+   "SoldItems": 364,
+   "DiscountedPrice": 3541.2
  },
  {
    "Id": 29,
@@ -490,7 +518,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 473,
-   "SoldItems": 10
+   "SoldItems": 10,
+   "DiscountedPrice": 4006.5
  },
  {
    "Id": 30,
@@ -507,7 +536,8 @@
    "Rating": 3.2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 2
+   "SoldItems": 2,
+   "DiscountedPrice": 6498
  },
  {
    "Id": 31,
@@ -524,7 +554,8 @@
    "Rating": 3.5,
    "Discount": 5,
    "AvailableStocks": 477,
-   "SoldItems": 80
+   "SoldItems": 80,
+   "DiscountedPrice": 3019.1
  },
  {
    "Id": 32,
@@ -541,7 +572,8 @@
    "Rating": 1,
    "Discount": 35,
    "AvailableStocks": 406,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 3035.5
  },
  {
    "Id": 33,
@@ -558,7 +590,8 @@
    "Rating": 1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 470
+   "SoldItems": 470,
+   "DiscountedPrice": 337
  },
  {
    "Id": 34,
@@ -575,7 +608,8 @@
    "Rating": 4.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 473
+   "SoldItems": 473,
+   "DiscountedPrice": 2508
  },
  {
    "Id": 35,
@@ -592,7 +626,8 @@
    "Rating": 4.6,
    "Discount": 35,
    "AvailableStocks": 262,
-   "SoldItems": 309
+   "SoldItems": 309,
+   "DiscountedPrice": 2142.4
  },
  {
    "Id": 36,
@@ -609,7 +644,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 308
+   "SoldItems": 308,
+   "DiscountedPrice": 5954.25
  },
  {
    "Id": 37,
@@ -626,7 +662,8 @@
    "Rating": 4.6,
    "Discount": 20,
    "AvailableStocks": 501,
-   "SoldItems": 266
+   "SoldItems": 266,
+   "DiscountedPrice": 6797.6
  },
  {
    "Id": 38,
@@ -643,7 +680,8 @@
    "Rating": 3.5,
    "Discount": 40,
    "AvailableStocks": 686,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 5019.6
  },
  {
    "Id": 39,
@@ -660,7 +698,8 @@
    "Rating": 2.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 110
+   "SoldItems": 110,
+   "DiscountedPrice": 4437.3
  },
  {
    "Id": 40,
@@ -677,7 +716,8 @@
    "Rating": 1.2,
    "Discount": 20,
    "AvailableStocks": 182,
-   "SoldItems": 497
+   "SoldItems": 497,
+   "DiscountedPrice": 2585.6
  },
  {
    "Id": 41,
@@ -694,7 +734,8 @@
    "Rating": 0.3,
    "Discount": 35,
    "AvailableStocks": 605,
-   "SoldItems": 336
+   "SoldItems": 336,
+   "DiscountedPrice": 2511.6
  },
  {
    "Id": 42,
@@ -711,7 +752,8 @@
    "Rating": 1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 412
+   "SoldItems": 412,
+   "DiscountedPrice": 4559.2
  },
  {
    "Id": 43,
@@ -728,7 +770,8 @@
    "Rating": 2.2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 278
+   "SoldItems": 278,
+   "DiscountedPrice": 1128.75
  },
  {
    "Id": 44,
@@ -745,7 +788,8 @@
    "Rating": 2.9,
    "Discount": 25,
    "AvailableStocks": 335,
-   "SoldItems": 416
+   "SoldItems": 416,
+   "DiscountedPrice": 5816.25
  },
  {
    "Id": 45,
@@ -762,7 +806,8 @@
    "Rating": 0.1,
    "Discount": 10,
    "AvailableStocks": 199,
-   "SoldItems": 342
+   "SoldItems": 342,
+   "DiscountedPrice": 4697.1
  },
  {
    "Id": 46,
@@ -779,7 +824,8 @@
    "Rating": 1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 268
+   "SoldItems": 268,
+   "DiscountedPrice": 7087.95
  },
  {
    "Id": 47,
@@ -796,7 +842,8 @@
    "Rating": 1.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 66
+   "SoldItems": 66,
+   "DiscountedPrice": 2024.1
  },
  {
    "Id": 48,
@@ -813,7 +860,8 @@
    "Rating": 3.8,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 50
+   "SoldItems": 50,
+   "DiscountedPrice": 3627.8
  },
  {
    "Id": 49,
@@ -830,7 +878,8 @@
    "Rating": 2.2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 342
+   "SoldItems": 342,
+   "DiscountedPrice": 6227.95
  },
  {
    "Id": 50,
@@ -847,7 +896,8 @@
    "Rating": 0.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 170
+   "SoldItems": 170,
+   "DiscountedPrice": 889.5
  },
  {
    "Id": 51,
@@ -864,7 +914,8 @@
    "Rating": 0.4,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 219
+   "SoldItems": 219,
+   "DiscountedPrice": 2746.25
  },
  {
    "Id": 52,
@@ -881,7 +932,8 @@
    "Rating": 4.9,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 317
+   "SoldItems": 317,
+   "DiscountedPrice": 1088.75
  },
  {
    "Id": 53,
@@ -898,7 +950,8 @@
    "Rating": 4.9,
    "Discount": 10,
    "AvailableStocks": 464,
-   "SoldItems": 254
+   "SoldItems": 254,
+   "DiscountedPrice": 6861.6
  },
  {
    "Id": 54,
@@ -915,7 +968,8 @@
    "Rating": 1.1,
    "Discount": 15,
    "AvailableStocks": 267,
-   "SoldItems": 229
+   "SoldItems": 229,
+   "DiscountedPrice": 5169.7
  },
  {
    "Id": 55,
@@ -932,7 +986,8 @@
    "Rating": 3.7,
    "Discount": 25,
    "AvailableStocks": 15,
-   "SoldItems": 70
+   "SoldItems": 70,
+   "DiscountedPrice": 6979.5
  },
  {
    "Id": 56,
@@ -949,7 +1004,8 @@
    "Rating": 2.4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 218
+   "SoldItems": 218,
+   "DiscountedPrice": 2706.4
  },
  {
    "Id": 57,
@@ -966,7 +1022,8 @@
    "Rating": 4.4,
    "Discount": 5,
    "AvailableStocks": 588,
-   "SoldItems": 420
+   "SoldItems": 420,
+   "DiscountedPrice": 1267.3
  },
  {
    "Id": 58,
@@ -983,7 +1040,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 103
+   "SoldItems": 103,
+   "DiscountedPrice": 3482.25
  },
  {
    "Id": 59,
@@ -1000,7 +1058,8 @@
    "Rating": 1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 396
+   "SoldItems": 396,
+   "DiscountedPrice": 6720.75
  },
  {
    "Id": 60,
@@ -1017,7 +1076,8 @@
    "Rating": 0.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 128
+   "SoldItems": 128,
+   "DiscountedPrice": 4789.6
  },
  {
    "Id": 61,
@@ -1034,7 +1094,8 @@
    "Rating": 3.8,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 264
+   "SoldItems": 264,
+   "DiscountedPrice": 4221.75
  },
  {
    "Id": 62,
@@ -1051,7 +1112,8 @@
    "Rating": 1,
    "Discount": 15,
    "AvailableStocks": 486,
-   "SoldItems": 137
+   "SoldItems": 137,
+   "DiscountedPrice": 1112.65
  },
  {
    "Id": 63,
@@ -1068,7 +1130,8 @@
    "Rating": 3.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 59
+   "SoldItems": 59,
+   "DiscountedPrice": 5097
  },
  {
    "Id": 64,
@@ -1085,7 +1148,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 291,
-   "SoldItems": 172
+   "SoldItems": 172,
+   "DiscountedPrice": 3625.2
  },
  {
    "Id": 65,
@@ -1102,7 +1166,8 @@
    "Rating": 3.8,
    "Discount": 15,
    "AvailableStocks": 658,
-   "SoldItems": 267
+   "SoldItems": 267,
+   "DiscountedPrice": 1038.7
  },
  {
    "Id": 66,
@@ -1119,7 +1184,8 @@
    "Rating": 1.3,
    "Discount": 30,
    "AvailableStocks": 412,
-   "SoldItems": 189
+   "SoldItems": 189,
+   "DiscountedPrice": 3935.4
  },
  {
    "Id": 67,
@@ -1136,7 +1202,8 @@
    "Rating": 2.1,
    "Discount": 5,
    "AvailableStocks": 276,
-   "SoldItems": 428
+   "SoldItems": 428,
+   "DiscountedPrice": 5777.9
  },
  {
    "Id": 68,
@@ -1153,7 +1220,8 @@
    "Rating": 1.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 44
+   "SoldItems": 44,
+   "DiscountedPrice": 6039.9
  },
  {
    "Id": 69,
@@ -1170,7 +1238,8 @@
    "Rating": 2.2,
    "Discount": 30,
    "AvailableStocks": 664,
-   "SoldItems": 130
+   "SoldItems": 130,
+   "DiscountedPrice": 5208.7
  },
  {
    "Id": 70,
@@ -1187,7 +1256,8 @@
    "Rating": 1.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 223
+   "SoldItems": 223,
+   "DiscountedPrice": 4726.25
  },
  {
    "Id": 71,
@@ -1204,7 +1274,8 @@
    "Rating": 0,
    "Discount": 5,
    "AvailableStocks": 335,
-   "SoldItems": 55
+   "SoldItems": 55,
+   "DiscountedPrice": 5366.55
  },
  {
    "Id": 72,
@@ -1221,7 +1292,8 @@
    "Rating": 3.9,
    "Discount": 35,
    "AvailableStocks": 424,
-   "SoldItems": 376
+   "SoldItems": 376,
+   "DiscountedPrice": 4106.05
  },
  {
    "Id": 73,
@@ -1238,7 +1310,8 @@
    "Rating": 3.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 161
+   "SoldItems": 161,
+   "DiscountedPrice": 5686.85
  },
  {
    "Id": 74,
@@ -1255,7 +1328,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 225,
-   "SoldItems": 203
+   "SoldItems": 203,
+   "DiscountedPrice": 4284.75
  },
  {
    "Id": 75,
@@ -1272,7 +1346,8 @@
    "Rating": 1.7,
    "Discount": 25,
    "AvailableStocks": 702,
-   "SoldItems": 459
+   "SoldItems": 459,
+   "DiscountedPrice": 3667.5
  },
  {
    "Id": 76,
@@ -1289,7 +1364,8 @@
    "Rating": 0.2,
    "Discount": 10,
    "AvailableStocks": 77,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 6849
  },
  {
    "Id": 77,
@@ -1306,7 +1382,8 @@
    "Rating": 4.1,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 457
+   "SoldItems": 457,
+   "DiscountedPrice": 3881.1
  },
  {
    "Id": 78,
@@ -1323,7 +1400,8 @@
    "Rating": 2.4,
    "Discount": 15,
    "AvailableStocks": 167,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 4161.6
  },
  {
    "Id": 79,
@@ -1340,7 +1418,8 @@
    "Rating": 3.8,
    "Discount": 5,
    "AvailableStocks": 731,
-   "SoldItems": 190
+   "SoldItems": 190,
+   "DiscountedPrice": 1181.8
  },
  {
    "Id": 80,
@@ -1357,7 +1436,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 386
+   "SoldItems": 386,
+   "DiscountedPrice": 6479.1
  },
  {
    "Id": 81,
@@ -1374,7 +1454,8 @@
    "Rating": 2.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 149
+   "SoldItems": 149,
+   "DiscountedPrice": 1435.2
  },
  {
    "Id": 82,
@@ -1391,7 +1472,8 @@
    "Rating": 3.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 452
+   "SoldItems": 452,
+   "DiscountedPrice": 715.4
  },
  {
    "Id": 83,
@@ -1408,7 +1490,8 @@
    "Rating": 0.8,
    "Discount": 50,
    "AvailableStocks": 545,
-   "SoldItems": 189
+   "SoldItems": 189,
+   "DiscountedPrice": 520.5
  },
  {
    "Id": 84,
@@ -1425,7 +1508,8 @@
    "Rating": 3.4,
    "Discount": 25,
    "AvailableStocks": 627,
-   "SoldItems": 47
+   "SoldItems": 47,
+   "DiscountedPrice": 5668.5
  },
  {
    "Id": 85,
@@ -1442,7 +1526,8 @@
    "Rating": 0.3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 459
+   "SoldItems": 459,
+   "DiscountedPrice": 1834.8
  },
  {
    "Id": 86,
@@ -1459,7 +1544,8 @@
    "Rating": 1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 8709.3
  },
  {
    "Id": 87,
@@ -1476,7 +1562,8 @@
    "Rating": 1.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 148
+   "SoldItems": 148,
+   "DiscountedPrice": 3688.5
  },
  {
    "Id": 88,
@@ -1493,7 +1580,8 @@
    "Rating": 1.5,
    "Discount": 50,
    "AvailableStocks": 104,
-   "SoldItems": 39
+   "SoldItems": 39,
+   "DiscountedPrice": 4114.5
  },
  {
    "Id": 89,
@@ -1510,7 +1598,8 @@
    "Rating": 0.9,
    "Discount": 50,
    "AvailableStocks": 128,
-   "SoldItems": 344
+   "SoldItems": 344,
+   "DiscountedPrice": 294
  },
  {
    "Id": 90,
@@ -1527,7 +1616,8 @@
    "Rating": 4.3,
    "Discount": 30,
    "AvailableStocks": 592,
-   "SoldItems": 321
+   "SoldItems": 321,
+   "DiscountedPrice": 4743.2
  },
  {
    "Id": 91,
@@ -1544,7 +1634,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 137
+   "SoldItems": 137,
+   "DiscountedPrice": 4776.3
  },
  {
    "Id": 92,
@@ -1561,7 +1652,8 @@
    "Rating": 0.7,
    "Discount": 40,
    "AvailableStocks": 61,
-   "SoldItems": 135
+   "SoldItems": 135,
+   "DiscountedPrice": 5905.8
  },
  {
    "Id": 93,
@@ -1578,7 +1670,8 @@
    "Rating": 0,
    "Discount": 25,
    "AvailableStocks": 333,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 5394
  },
  {
    "Id": 94,
@@ -1595,7 +1688,8 @@
    "Rating": 1.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 268
+   "SoldItems": 268,
+   "DiscountedPrice": 7487.2
  },
  {
    "Id": 95,
@@ -1612,7 +1706,8 @@
    "Rating": 0.4,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 75
+   "SoldItems": 75,
+   "DiscountedPrice": 1892.1
  },
  {
    "Id": 96,
@@ -1629,7 +1724,8 @@
    "Rating": 0.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 184
+   "SoldItems": 184,
+   "DiscountedPrice": 2868.5
  },
  {
    "Id": 97,
@@ -1646,7 +1742,8 @@
    "Rating": 3.4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 20
+   "SoldItems": 20,
+   "DiscountedPrice": 4649.6
  },
  {
    "Id": 98,
@@ -1663,7 +1760,8 @@
    "Rating": 4.5,
    "Discount": 5,
    "AvailableStocks": 252,
-   "SoldItems": 318
+   "SoldItems": 318,
+   "DiscountedPrice": 4562.85
  },
  {
    "Id": 99,
@@ -1680,7 +1778,8 @@
    "Rating": 3.7,
    "Discount": 30,
    "AvailableStocks": 157,
-   "SoldItems": 30
+   "SoldItems": 30,
+   "DiscountedPrice": 5497.1
  },
  {
    "Id": 100,
@@ -1697,7 +1796,8 @@
    "Rating": 3.2,
    "Discount": 25,
    "AvailableStocks": 663,
-   "SoldItems": 219
+   "SoldItems": 219,
+   "DiscountedPrice": 4368.75
  },
  {
    "Id": 101,
@@ -1714,7 +1814,8 @@
    "Rating": 0.8,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 485
+   "SoldItems": 485,
+   "DiscountedPrice": 7566
  },
  {
    "Id": 102,
@@ -1731,7 +1832,8 @@
    "Rating": 3.9,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 440
+   "SoldItems": 440,
+   "DiscountedPrice": 2936.45
  },
  {
    "Id": 103,
@@ -1748,7 +1850,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 126,
-   "SoldItems": 257
+   "SoldItems": 257,
+   "DiscountedPrice": 6837.4
  },
  {
    "Id": 104,
@@ -1765,7 +1868,8 @@
    "Rating": 5,
    "Discount": 45,
    "AvailableStocks": 527,
-   "SoldItems": 130
+   "SoldItems": 130,
+   "DiscountedPrice": 4568.85
  },
  {
    "Id": 105,
@@ -1782,7 +1886,8 @@
    "Rating": 3.7,
    "Discount": 45,
    "AvailableStocks": 567,
-   "SoldItems": 152
+   "SoldItems": 152,
+   "DiscountedPrice": 4598
  },
  {
    "Id": 106,
@@ -1799,7 +1904,8 @@
    "Rating": 0.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 426
+   "SoldItems": 426,
+   "DiscountedPrice": 745
  },
  {
    "Id": 107,
@@ -1816,7 +1922,8 @@
    "Rating": 0.8,
    "Discount": 10,
    "AvailableStocks": 460,
-   "SoldItems": 345
+   "SoldItems": 345,
+   "DiscountedPrice": 5451.3
  },
  {
    "Id": 108,
@@ -1833,7 +1940,8 @@
    "Rating": 5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 115
+   "SoldItems": 115,
+   "DiscountedPrice": 4476
  },
  {
    "Id": 109,
@@ -1850,7 +1958,8 @@
    "Rating": 4.3,
    "Discount": 15,
    "AvailableStocks": 568,
-   "SoldItems": 264
+   "SoldItems": 264,
+   "DiscountedPrice": 8175.3
  },
  {
    "Id": 110,
@@ -1867,7 +1976,8 @@
    "Rating": 0.8,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 473
+   "SoldItems": 473,
+   "DiscountedPrice": 4857.75
  },
  {
    "Id": 111,
@@ -1884,7 +1994,8 @@
    "Rating": 4,
    "Discount": 50,
    "AvailableStocks": 554,
-   "SoldItems": 277
+   "SoldItems": 277,
+   "DiscountedPrice": 4673.5
  },
  {
    "Id": 112,
@@ -1901,7 +2012,8 @@
    "Rating": 2.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 428
+   "SoldItems": 428,
+   "DiscountedPrice": 1420.25
  },
  {
    "Id": 113,
@@ -1918,7 +2030,8 @@
    "Rating": 1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 6157.9
  },
  {
    "Id": 114,
@@ -1935,7 +2048,8 @@
    "Rating": 0.5,
    "Discount": 20,
    "AvailableStocks": 212,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 7108
  },
  {
    "Id": 115,
@@ -1952,7 +2066,8 @@
    "Rating": 4.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 393
+   "SoldItems": 393,
+   "DiscountedPrice": 469.7
  },
  {
    "Id": 116,
@@ -1969,7 +2084,8 @@
    "Rating": 3.4,
    "Discount": 10,
    "AvailableStocks": 527,
-   "SoldItems": 492
+   "SoldItems": 492,
+   "DiscountedPrice": 2799.9
  },
  {
    "Id": 117,
@@ -1986,7 +2102,8 @@
    "Rating": 1.6,
    "Discount": 25,
    "AvailableStocks": 492,
-   "SoldItems": 462
+   "SoldItems": 462,
+   "DiscountedPrice": 3861.75
  },
  {
    "Id": 118,
@@ -2003,7 +2120,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 259,
-   "SoldItems": 84
+   "SoldItems": 84,
+   "DiscountedPrice": 4167.75
  },
  {
    "Id": 119,
@@ -2020,7 +2138,8 @@
    "Rating": 0.2,
    "Discount": 20,
    "AvailableStocks": 511,
-   "SoldItems": 295
+   "SoldItems": 295,
+   "DiscountedPrice": 2888.8
  },
  {
    "Id": 120,
@@ -2037,7 +2156,8 @@
    "Rating": 3.7,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 484
+   "SoldItems": 484,
+   "DiscountedPrice": 7144.5
  },
  {
    "Id": 121,
@@ -2054,7 +2174,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 183
+   "SoldItems": 183,
+   "DiscountedPrice": 559.8
  },
  {
    "Id": 122,
@@ -2071,7 +2192,8 @@
    "Rating": 3.6,
    "Discount": 15,
    "AvailableStocks": 325,
-   "SoldItems": 227
+   "SoldItems": 227,
+   "DiscountedPrice": 5983.15
  },
  {
    "Id": 123,
@@ -2088,7 +2210,8 @@
    "Rating": 1.9,
    "Discount": 30,
    "AvailableStocks": 714,
-   "SoldItems": 292
+   "SoldItems": 292,
+   "DiscountedPrice": 4998
  },
  {
    "Id": 124,
@@ -2105,7 +2228,8 @@
    "Rating": 2.7,
    "Discount": 5,
    "AvailableStocks": 276,
-   "SoldItems": 472
+   "SoldItems": 472,
+   "DiscountedPrice": 806.55
  },
  {
    "Id": 125,
@@ -2122,7 +2246,8 @@
    "Rating": 4.5,
    "Discount": 15,
    "AvailableStocks": 612,
-   "SoldItems": 51
+   "SoldItems": 51,
+   "DiscountedPrice": 3498.6
  },
  {
    "Id": 126,
@@ -2139,7 +2264,8 @@
    "Rating": 1.9,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 465
+   "SoldItems": 465,
+   "DiscountedPrice": 4276.5
  },
  {
    "Id": 127,
@@ -2156,7 +2282,8 @@
    "Rating": 3.8,
    "Discount": 50,
    "AvailableStocks": 323,
-   "SoldItems": 272
+   "SoldItems": 272,
+   "DiscountedPrice": 3571.5
  },
  {
    "Id": 128,
@@ -2173,7 +2300,8 @@
    "Rating": 0.9,
    "Discount": 20,
    "AvailableStocks": 248,
-   "SoldItems": 280
+   "SoldItems": 280,
+   "DiscountedPrice": 3518.4
  },
  {
    "Id": 129,
@@ -2190,7 +2318,8 @@
    "Rating": 3.3,
    "Discount": 25,
    "AvailableStocks": 501,
-   "SoldItems": 70
+   "SoldItems": 70,
+   "DiscountedPrice": 6807.75
  },
  {
    "Id": 130,
@@ -2207,7 +2336,8 @@
    "Rating": 2.7,
    "Discount": 20,
    "AvailableStocks": 312,
-   "SoldItems": 48
+   "SoldItems": 48,
+   "DiscountedPrice": 2477.6
  },
  {
    "Id": 131,
@@ -2224,7 +2354,8 @@
    "Rating": 0.3,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 375
+   "SoldItems": 375,
+   "DiscountedPrice": 7034.75
  },
  {
    "Id": 132,
@@ -2241,7 +2372,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 219
+   "SoldItems": 219,
+   "DiscountedPrice": 8558.55
  },
  {
    "Id": 133,
@@ -2258,7 +2390,8 @@
    "Rating": 0.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 341
+   "SoldItems": 341,
+   "DiscountedPrice": 1054.8
  },
  {
    "Id": 134,
@@ -2275,7 +2408,8 @@
    "Rating": 3.5,
    "Discount": 40,
    "AvailableStocks": 15,
-   "SoldItems": 213
+   "SoldItems": 213,
+   "DiscountedPrice": 487.2
  },
  {
    "Id": 135,
@@ -2292,7 +2426,8 @@
    "Rating": 0.1,
    "Discount": 5,
    "AvailableStocks": 268,
-   "SoldItems": 295
+   "SoldItems": 295,
+   "DiscountedPrice": 2036.8
  },
  {
    "Id": 136,
@@ -2309,7 +2444,8 @@
    "Rating": 3.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 236
+   "SoldItems": 236,
+   "DiscountedPrice": 3734.5
  },
  {
    "Id": 137,
@@ -2326,7 +2462,8 @@
    "Rating": 2.4,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 103
+   "SoldItems": 103,
+   "DiscountedPrice": 716.3
  },
  {
    "Id": 138,
@@ -2343,7 +2480,8 @@
    "Rating": 1.9,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 6789.8
  },
  {
    "Id": 139,
@@ -2360,7 +2498,8 @@
    "Rating": 4.7,
    "Discount": 45,
    "AvailableStocks": 529,
-   "SoldItems": 135
+   "SoldItems": 135,
+   "DiscountedPrice": 1669.25
  },
  {
    "Id": 140,
@@ -2377,7 +2516,8 @@
    "Rating": 2.6,
    "Discount": 25,
    "AvailableStocks": 72,
-   "SoldItems": 291
+   "SoldItems": 291,
+   "DiscountedPrice": 5081.25
  },
  {
    "Id": 141,
@@ -2394,7 +2534,8 @@
    "Rating": 4.9,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 57
+   "SoldItems": 57,
+   "DiscountedPrice": 4945.2
  },
  {
    "Id": 142,
@@ -2411,7 +2552,8 @@
    "Rating": 4.2,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 388
+   "SoldItems": 388,
+   "DiscountedPrice": 4647.6
  },
  {
    "Id": 143,
@@ -2428,7 +2570,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 83
+   "SoldItems": 83,
+   "DiscountedPrice": 2273.5
  },
  {
    "Id": 144,
@@ -2445,7 +2588,8 @@
    "Rating": 4.1,
    "Discount": 45,
    "AvailableStocks": 670,
-   "SoldItems": 56
+   "SoldItems": 56,
+   "DiscountedPrice": 5309.7
  },
  {
    "Id": 145,
@@ -2462,7 +2606,8 @@
    "Rating": 2,
    "Discount": 20,
    "AvailableStocks": 312,
-   "SoldItems": 230
+   "SoldItems": 230,
+   "DiscountedPrice": 2057.6
  },
  {
    "Id": 146,
@@ -2479,7 +2624,8 @@
    "Rating": 4.8,
    "Discount": 20,
    "AvailableStocks": 215,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 7924
  },
  {
    "Id": 147,
@@ -2496,7 +2642,8 @@
    "Rating": 3.6,
    "Discount": 35,
    "AvailableStocks": 549,
-   "SoldItems": 350
+   "SoldItems": 350,
+   "DiscountedPrice": 4504.5
  },
  {
    "Id": 148,
@@ -2513,7 +2660,8 @@
    "Rating": 3.7,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 404
+   "SoldItems": 404,
+   "DiscountedPrice": 4974.5
  },
  {
    "Id": 149,
@@ -2530,7 +2678,8 @@
    "Rating": 1.6,
    "Discount": 40,
    "AvailableStocks": 593,
-   "SoldItems": 442
+   "SoldItems": 442,
+   "DiscountedPrice": 774.6
  },
  {
    "Id": 150,
@@ -2547,7 +2696,8 @@
    "Rating": 0.7,
    "Discount": 30,
    "AvailableStocks": 504,
-   "SoldItems": 89
+   "SoldItems": 89,
+   "DiscountedPrice": 6716.5
  },
  {
    "Id": 151,
@@ -2564,7 +2714,8 @@
    "Rating": 2.4,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 90
+   "SoldItems": 90,
+   "DiscountedPrice": 1345.5
  },
  {
    "Id": 152,
@@ -2581,7 +2732,8 @@
    "Rating": 5,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 489
+   "SoldItems": 489,
+   "DiscountedPrice": 1348.1
  },
  {
    "Id": 153,
@@ -2598,7 +2750,8 @@
    "Rating": 5,
    "Discount": 30,
    "AvailableStocks": 188,
-   "SoldItems": 500
+   "SoldItems": 500,
+   "DiscountedPrice": 4883.2
  },
  {
    "Id": 154,
@@ -2615,7 +2768,8 @@
    "Rating": 4.7,
    "Discount": 15,
    "AvailableStocks": 95,
-   "SoldItems": 238
+   "SoldItems": 238,
+   "DiscountedPrice": 6932.6
  },
  {
    "Id": 155,
@@ -2632,7 +2786,8 @@
    "Rating": 4.5,
    "Discount": 40,
    "AvailableStocks": 365,
-   "SoldItems": 211
+   "SoldItems": 211,
+   "DiscountedPrice": 4296
  },
  {
    "Id": 156,
@@ -2649,7 +2804,8 @@
    "Rating": 4.5,
    "Discount": 25,
    "AvailableStocks": 530,
-   "SoldItems": 68
+   "SoldItems": 68,
+   "DiscountedPrice": 5334.75
  },
  {
    "Id": 157,
@@ -2666,7 +2822,8 @@
    "Rating": 4.4,
    "Discount": 15,
    "AvailableStocks": 53,
-   "SoldItems": 384
+   "SoldItems": 384,
+   "DiscountedPrice": 6908.8
  },
  {
    "Id": 158,
@@ -2683,7 +2840,8 @@
    "Rating": 4.2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 55
+   "SoldItems": 55,
+   "DiscountedPrice": 653.25
  },
  {
    "Id": 159,
@@ -2700,7 +2858,8 @@
    "Rating": 0.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 281
+   "SoldItems": 281,
+   "DiscountedPrice": 2646
  },
  {
    "Id": 160,
@@ -2717,7 +2876,8 @@
    "Rating": 1.1,
    "Discount": 20,
    "AvailableStocks": 691,
-   "SoldItems": 278
+   "SoldItems": 278,
+   "DiscountedPrice": 3511.2
  },
  {
    "Id": 161,
@@ -2734,7 +2894,8 @@
    "Rating": 3.6,
    "Discount": 15,
    "AvailableStocks": 20,
-   "SoldItems": 213
+   "SoldItems": 213,
+   "DiscountedPrice": 5068.55
  },
  {
    "Id": 162,
@@ -2751,7 +2912,8 @@
    "Rating": 2.8,
    "Discount": 15,
    "AvailableStocks": 128,
-   "SoldItems": 383
+   "SoldItems": 383,
+   "DiscountedPrice": 6855.25
  },
  {
    "Id": 163,
@@ -2768,7 +2930,8 @@
    "Rating": 1.9,
    "Discount": 5,
    "AvailableStocks": 494,
-   "SoldItems": 104
+   "SoldItems": 104,
+   "DiscountedPrice": 1569.4
  },
  {
    "Id": 164,
@@ -2785,7 +2948,8 @@
    "Rating": 0.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 65
+   "SoldItems": 65,
+   "DiscountedPrice": 5465.4
  },
  {
    "Id": 165,
@@ -2802,7 +2966,8 @@
    "Rating": 4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 326
+   "SoldItems": 326,
+   "DiscountedPrice": 3943.2
  },
  {
    "Id": 166,
@@ -2819,7 +2984,8 @@
    "Rating": 0.3,
    "Discount": 20,
    "AvailableStocks": 632,
-   "SoldItems": 237
+   "SoldItems": 237,
+   "DiscountedPrice": 3878.4
  },
  {
    "Id": 167,
@@ -2836,7 +3002,8 @@
    "Rating": 0.1,
    "Discount": 5,
    "AvailableStocks": 92,
-   "SoldItems": 164
+   "SoldItems": 164,
+   "DiscountedPrice": 3098.9
  },
  {
    "Id": 168,
@@ -2853,7 +3020,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 136
+   "SoldItems": 136,
+   "DiscountedPrice": 5924.5
  },
  {
    "Id": 169,
@@ -2870,7 +3038,8 @@
    "Rating": 3,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 447
+   "SoldItems": 447,
+   "DiscountedPrice": 4853.5
  },
  {
    "Id": 170,
@@ -2887,7 +3056,8 @@
    "Rating": 2.1,
    "Discount": 40,
    "AvailableStocks": 91,
-   "SoldItems": 196
+   "SoldItems": 196,
+   "DiscountedPrice": 2418.6
  },
  {
    "Id": 171,
@@ -2904,7 +3074,8 @@
    "Rating": 3.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 94
+   "SoldItems": 94,
+   "DiscountedPrice": 4177.2
  },
  {
    "Id": 172,
@@ -2921,7 +3092,8 @@
    "Rating": 2,
    "Discount": 15,
    "AvailableStocks": 454,
-   "SoldItems": 294
+   "SoldItems": 294,
+   "DiscountedPrice": 3326.05
  },
  {
    "Id": 173,
@@ -2938,7 +3110,8 @@
    "Rating": 3.3,
    "Discount": 10,
    "AvailableStocks": 663,
-   "SoldItems": 318
+   "SoldItems": 318,
+   "DiscountedPrice": 7639.2
  },
  {
    "Id": 174,
@@ -2955,7 +3128,8 @@
    "Rating": 3.5,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 67
+   "SoldItems": 67,
+   "DiscountedPrice": 691.9
  },
  {
    "Id": 175,
@@ -2972,7 +3146,8 @@
    "Rating": 2.8,
    "Discount": 25,
    "AvailableStocks": 336,
-   "SoldItems": 396
+   "SoldItems": 396,
+   "DiscountedPrice": 6291.75
  },
  {
    "Id": 176,
@@ -2989,7 +3164,8 @@
    "Rating": 3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 195
+   "SoldItems": 195,
+   "DiscountedPrice": 2367.6
  },
  {
    "Id": 177,
@@ -3006,7 +3182,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 572,
-   "SoldItems": 113
+   "SoldItems": 113,
+   "DiscountedPrice": 7488.9
  },
  {
    "Id": 178,
@@ -3023,7 +3200,8 @@
    "Rating": 1.7,
    "Discount": 20,
    "AvailableStocks": 45,
-   "SoldItems": 284
+   "SoldItems": 284,
+   "DiscountedPrice": 7700.8
  },
  {
    "Id": 179,
@@ -3040,7 +3218,8 @@
    "Rating": 2.4,
    "Discount": 25,
    "AvailableStocks": 364,
-   "SoldItems": 170
+   "SoldItems": 170,
+   "DiscountedPrice": 2427
  },
  {
    "Id": 180,
@@ -3057,7 +3236,8 @@
    "Rating": 1.9,
    "Discount": 35,
    "AvailableStocks": 232,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 5454.8
  },
  {
    "Id": 181,
@@ -3074,7 +3254,8 @@
    "Rating": 4.5,
    "Discount": 10,
    "AvailableStocks": 214,
-   "SoldItems": 379
+   "SoldItems": 379,
+   "DiscountedPrice": 4957.2
  },
  {
    "Id": 182,
@@ -3091,7 +3272,8 @@
    "Rating": 2.3,
    "Discount": 20,
    "AvailableStocks": 114,
-   "SoldItems": 89
+   "SoldItems": 89,
+   "DiscountedPrice": 7516
  },
  {
    "Id": 183,
@@ -3108,7 +3290,8 @@
    "Rating": 1.2,
    "Discount": 50,
    "AvailableStocks": 679,
-   "SoldItems": 33
+   "SoldItems": 33,
+   "DiscountedPrice": 2474.5
  },
  {
    "Id": 184,
@@ -3125,7 +3308,8 @@
    "Rating": 2.9,
    "Discount": 45,
    "AvailableStocks": 238,
-   "SoldItems": 151
+   "SoldItems": 151,
+   "DiscountedPrice": 330
  },
  {
    "Id": 185,
@@ -3142,7 +3326,8 @@
    "Rating": 3.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 276
+   "SoldItems": 276,
+   "DiscountedPrice": 1655.5
  },
  {
    "Id": 186,
@@ -3159,7 +3344,8 @@
    "Rating": 2.5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 295
+   "SoldItems": 295,
+   "DiscountedPrice": 1789.9
  },
  {
    "Id": 187,
@@ -3176,7 +3362,8 @@
    "Rating": 1.4,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 159
+   "SoldItems": 159,
+   "DiscountedPrice": 5852.95
  },
  {
    "Id": 188,
@@ -3193,7 +3380,8 @@
    "Rating": 3.5,
    "Discount": 30,
    "AvailableStocks": 329,
-   "SoldItems": 491
+   "SoldItems": 491,
+   "DiscountedPrice": 1879.5
  },
  {
    "Id": 189,
@@ -3210,7 +3398,8 @@
    "Rating": 4.5,
    "Discount": 45,
    "AvailableStocks": 470,
-   "SoldItems": 72
+   "SoldItems": 72,
+   "DiscountedPrice": 3513.95
  },
  {
    "Id": 190,
@@ -3227,7 +3416,8 @@
    "Rating": 1.1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 436
+   "SoldItems": 436,
+   "DiscountedPrice": 3870
  },
  {
    "Id": 191,
@@ -3244,7 +3434,8 @@
    "Rating": 2.5,
    "Discount": 20,
    "AvailableStocks": 352,
-   "SoldItems": 461
+   "SoldItems": 461,
+   "DiscountedPrice": 7974.4
  },
  {
    "Id": 192,
@@ -3261,7 +3452,8 @@
    "Rating": 1.3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 38
+   "SoldItems": 38,
+   "DiscountedPrice": 4528.15
  },
  {
    "Id": 193,
@@ -3278,7 +3470,8 @@
    "Rating": 1.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 270
+   "SoldItems": 270,
+   "DiscountedPrice": 4404.95
  },
  {
    "Id": 194,
@@ -3295,7 +3488,8 @@
    "Rating": 0.6,
    "Discount": 50,
    "AvailableStocks": 28,
-   "SoldItems": 83
+   "SoldItems": 83,
+   "DiscountedPrice": 3174.5
  },
  {
    "Id": 195,
@@ -3312,7 +3506,8 @@
    "Rating": 2.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 5654.4
  },
  {
    "Id": 196,
@@ -3329,7 +3524,8 @@
    "Rating": 2.4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 318
+   "SoldItems": 318,
+   "DiscountedPrice": 6428
  },
  {
    "Id": 197,
@@ -3346,7 +3542,8 @@
    "Rating": 3.2,
    "Discount": 5,
    "AvailableStocks": 566,
-   "SoldItems": 428
+   "SoldItems": 428,
+   "DiscountedPrice": 4618.9
  },
  {
    "Id": 198,
@@ -3363,7 +3560,8 @@
    "Rating": 4.7,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 306
+   "SoldItems": 306,
+   "DiscountedPrice": 688.1
  },
  {
    "Id": 199,
@@ -3380,7 +3578,8 @@
    "Rating": 4.1,
    "Discount": 50,
    "AvailableStocks": 43,
-   "SoldItems": 210
+   "SoldItems": 210,
+   "DiscountedPrice": 4461
  },
  {
    "Id": 200,
@@ -3397,7 +3596,8 @@
    "Rating": 4.6,
    "Discount": 30,
    "AvailableStocks": 294,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 5477.5
  },
  {
    "Id": 201,
@@ -3414,7 +3614,8 @@
    "Rating": 0.2,
    "Discount": 35,
    "AvailableStocks": 724,
-   "SoldItems": 467
+   "SoldItems": 467,
+   "DiscountedPrice": 5427.5
  },
  {
    "Id": 202,
@@ -3431,7 +3632,8 @@
    "Rating": 3.9,
    "Discount": 50,
    "AvailableStocks": 126,
-   "SoldItems": 315
+   "SoldItems": 315,
+   "DiscountedPrice": 3338.5
  },
  {
    "Id": 203,
@@ -3448,7 +3650,8 @@
    "Rating": 1.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 2
+   "SoldItems": 2,
+   "DiscountedPrice": 946
  },
  {
    "Id": 204,
@@ -3465,7 +3668,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 416,
-   "SoldItems": 39
+   "SoldItems": 39,
+   "DiscountedPrice": 5728.2
  },
  {
    "Id": 205,
@@ -3482,7 +3686,8 @@
    "Rating": 0.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 344
+   "SoldItems": 344,
+   "DiscountedPrice": 2033.95
  },
  {
    "Id": 206,
@@ -3499,7 +3704,8 @@
    "Rating": 0.3,
    "Discount": 20,
    "AvailableStocks": 327,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 1554.4
  },
  {
    "Id": 207,
@@ -3516,7 +3722,8 @@
    "Rating": 0.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 2
+   "SoldItems": 2,
+   "DiscountedPrice": 3073.4
  },
  {
    "Id": 208,
@@ -3533,7 +3740,8 @@
    "Rating": 4,
    "Discount": 40,
    "AvailableStocks": 325,
-   "SoldItems": 300
+   "SoldItems": 300,
+   "DiscountedPrice": 1884.6
  },
  {
    "Id": 209,
@@ -3550,7 +3758,8 @@
    "Rating": 3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 450
+   "SoldItems": 450,
+   "DiscountedPrice": 2585.7
  },
  {
    "Id": 210,
@@ -3567,7 +3776,8 @@
    "Rating": 4.2,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 69
+   "SoldItems": 69,
+   "DiscountedPrice": 5393.85
  },
  {
    "Id": 211,
@@ -3584,7 +3794,8 @@
    "Rating": 2.2,
    "Discount": 35,
    "AvailableStocks": 661,
-   "SoldItems": 275
+   "SoldItems": 275,
+   "DiscountedPrice": 1033.5
  },
  {
    "Id": 212,
@@ -3601,7 +3812,8 @@
    "Rating": 0.4,
    "Discount": 25,
    "AvailableStocks": 469,
-   "SoldItems": 453
+   "SoldItems": 453,
+   "DiscountedPrice": 968.25
  },
  {
    "Id": 213,
@@ -3618,7 +3830,8 @@
    "Rating": 0.7,
    "Discount": 10,
    "AvailableStocks": 335,
-   "SoldItems": 46
+   "SoldItems": 46,
+   "DiscountedPrice": 1635.3
  },
  {
    "Id": 214,
@@ -3635,7 +3848,8 @@
    "Rating": 4.9,
    "Discount": 45,
    "AvailableStocks": 135,
-   "SoldItems": 56
+   "SoldItems": 56,
+   "DiscountedPrice": 4788.85
  },
  {
    "Id": 215,
@@ -3652,7 +3866,8 @@
    "Rating": 0.1,
    "Discount": 30,
    "AvailableStocks": 495,
-   "SoldItems": 78
+   "SoldItems": 78,
+   "DiscountedPrice": 2698.5
  },
  {
    "Id": 216,
@@ -3669,7 +3884,8 @@
    "Rating": 3.8,
    "Discount": 20,
    "AvailableStocks": 746,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 1080.8
  },
  {
    "Id": 217,
@@ -3686,7 +3902,8 @@
    "Rating": 3.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 224
+   "SoldItems": 224,
+   "DiscountedPrice": 3479.5
  },
  {
    "Id": 218,
@@ -3703,7 +3920,8 @@
    "Rating": 1.1,
    "Discount": 20,
    "AvailableStocks": 732,
-   "SoldItems": 277
+   "SoldItems": 277,
+   "DiscountedPrice": 6606.4
  },
  {
    "Id": 219,
@@ -3720,7 +3938,8 @@
    "Rating": 4,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 120
+   "SoldItems": 120,
+   "DiscountedPrice": 4286.55
  },
  {
    "Id": 220,
@@ -3737,7 +3956,8 @@
    "Rating": 4.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 492
+   "SoldItems": 492,
+   "DiscountedPrice": 3345.55
  },
  {
    "Id": 221,
@@ -3754,7 +3974,8 @@
    "Rating": 4.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 217
+   "SoldItems": 217,
+   "DiscountedPrice": 1294.15
  },
  {
    "Id": 222,
@@ -3771,7 +3992,8 @@
    "Rating": 0.7,
    "Discount": 20,
    "AvailableStocks": 647,
-   "SoldItems": 305
+   "SoldItems": 305,
+   "DiscountedPrice": 7000.8
  },
  {
    "Id": 223,
@@ -3788,7 +4010,8 @@
    "Rating": 3.5,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 127
+   "SoldItems": 127,
+   "DiscountedPrice": 5988.6
  },
  {
    "Id": 224,
@@ -3805,7 +4028,8 @@
    "Rating": 0.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 483
+   "SoldItems": 483,
+   "DiscountedPrice": 5747.25
  },
  {
    "Id": 225,
@@ -3822,7 +4046,8 @@
    "Rating": 4.9,
    "Discount": 40,
    "AvailableStocks": 564,
-   "SoldItems": 164
+   "SoldItems": 164,
+   "DiscountedPrice": 4875.6
  },
  {
    "Id": 226,
@@ -3839,7 +4064,8 @@
    "Rating": 3.3,
    "Discount": 30,
    "AvailableStocks": 661,
-   "SoldItems": 238
+   "SoldItems": 238,
+   "DiscountedPrice": 3388.7
  },
  {
    "Id": 227,
@@ -3856,7 +4082,8 @@
    "Rating": 1.9,
    "Discount": 25,
    "AvailableStocks": 282,
-   "SoldItems": 41
+   "SoldItems": 41,
+   "DiscountedPrice": 6606.75
  },
  {
    "Id": 228,
@@ -3873,7 +4100,8 @@
    "Rating": 4.9,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 358
+   "SoldItems": 358,
+   "DiscountedPrice": 5474.3
  },
  {
    "Id": 229,
@@ -3890,7 +4118,8 @@
    "Rating": 0.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 484
+   "SoldItems": 484,
+   "DiscountedPrice": 1411.3
  },
  {
    "Id": 230,
@@ -3907,7 +4136,8 @@
    "Rating": 3.8,
    "Discount": 25,
    "AvailableStocks": 22,
-   "SoldItems": 159
+   "SoldItems": 159,
+   "DiscountedPrice": 6514.5
  },
  {
    "Id": 231,
@@ -3924,7 +4154,8 @@
    "Rating": 1.1,
    "Discount": 20,
    "AvailableStocks": 31,
-   "SoldItems": 465
+   "SoldItems": 465,
+   "DiscountedPrice": 3682.4
  },
  {
    "Id": 232,
@@ -3941,7 +4172,8 @@
    "Rating": 4.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 1038.75
  },
  {
    "Id": 233,
@@ -3958,7 +4190,8 @@
    "Rating": 1.3,
    "Discount": 45,
    "AvailableStocks": 403,
-   "SoldItems": 170
+   "SoldItems": 170,
+   "DiscountedPrice": 1624.7
  },
  {
    "Id": 234,
@@ -3975,7 +4208,8 @@
    "Rating": 0,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 123
+   "SoldItems": 123,
+   "DiscountedPrice": 2278.25
  },
  {
    "Id": 235,
@@ -3992,7 +4226,8 @@
    "Rating": 1.3,
    "Discount": 45,
    "AvailableStocks": 415,
-   "SoldItems": 400
+   "SoldItems": 400,
+   "DiscountedPrice": 1556.5
  },
  {
    "Id": 236,
@@ -4009,7 +4244,8 @@
    "Rating": 4.4,
    "Discount": 20,
    "AvailableStocks": 334,
-   "SoldItems": 433
+   "SoldItems": 433,
+   "DiscountedPrice": 6237.6
  },
  {
    "Id": 237,
@@ -4026,7 +4262,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 239
+   "SoldItems": 239,
+   "DiscountedPrice": 9092.45
  },
  {
    "Id": 238,
@@ -4043,7 +4280,8 @@
    "Rating": 0.3,
    "Discount": 30,
    "AvailableStocks": 171,
-   "SoldItems": 277
+   "SoldItems": 277,
+   "DiscountedPrice": 2636.2
  },
  {
    "Id": 239,
@@ -4060,7 +4298,8 @@
    "Rating": 4.2,
    "Discount": 20,
    "AvailableStocks": 623,
-   "SoldItems": 77
+   "SoldItems": 77,
+   "DiscountedPrice": 4324
  },
  {
    "Id": 240,
@@ -4077,7 +4316,8 @@
    "Rating": 2,
    "Discount": 35,
    "AvailableStocks": 725,
-   "SoldItems": 224
+   "SoldItems": 224,
+   "DiscountedPrice": 1495
  },
  {
    "Id": 241,
@@ -4094,7 +4334,8 @@
    "Rating": 1.3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 200
+   "SoldItems": 200,
+   "DiscountedPrice": 4308.7
  },
  {
    "Id": 242,
@@ -4111,7 +4352,8 @@
    "Rating": 2.4,
    "Discount": 0,
    "AvailableStocks": 218,
-   "SoldItems": 418
+   "SoldItems": 418,
+   "DiscountedPrice": 4043
  },
  {
    "Id": 243,
@@ -4128,7 +4370,8 @@
    "Rating": 0.3,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 182
+   "SoldItems": 182,
+   "DiscountedPrice": 2389.8
  },
  {
    "Id": 244,
@@ -4145,7 +4388,8 @@
    "Rating": 2.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 115
+   "SoldItems": 115,
+   "DiscountedPrice": 1290.6
  },
  {
    "Id": 245,
@@ -4162,7 +4406,8 @@
    "Rating": 2.3,
    "Discount": 20,
    "AvailableStocks": 475,
-   "SoldItems": 281
+   "SoldItems": 281,
+   "DiscountedPrice": 5156.8
  },
  {
    "Id": 246,
@@ -4179,7 +4424,8 @@
    "Rating": 4.4,
    "Discount": 45,
    "AvailableStocks": 562,
-   "SoldItems": 216
+   "SoldItems": 216,
+   "DiscountedPrice": 3804.35
  },
  {
    "Id": 247,
@@ -4196,7 +4442,8 @@
    "Rating": 0.6,
    "Discount": 25,
    "AvailableStocks": 115,
-   "SoldItems": 35
+   "SoldItems": 35,
+   "DiscountedPrice": 2703.75
  },
  {
    "Id": 248,
@@ -4213,7 +4460,8 @@
    "Rating": 1.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 211
+   "SoldItems": 211,
+   "DiscountedPrice": 5278.2
  },
  {
    "Id": 249,
@@ -4230,7 +4478,8 @@
    "Rating": 3.2,
    "Discount": 5,
    "AvailableStocks": 710,
-   "SoldItems": 232
+   "SoldItems": 232,
+   "DiscountedPrice": 4746.2
  },
  {
    "Id": 250,
@@ -4247,7 +4496,8 @@
    "Rating": 0.5,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 414
+   "SoldItems": 414,
+   "DiscountedPrice": 522
  },
  {
    "Id": 251,
@@ -4264,7 +4514,8 @@
    "Rating": 1.1,
    "Discount": 35,
    "AvailableStocks": 205,
-   "SoldItems": 344
+   "SoldItems": 344,
+   "DiscountedPrice": 2952.3
  },
  {
    "Id": 252,
@@ -4281,7 +4532,8 @@
    "Rating": 0,
    "Discount": 5,
    "AvailableStocks": 254,
-   "SoldItems": 224
+   "SoldItems": 224,
+   "DiscountedPrice": 6024.9
  },
  {
    "Id": 253,
@@ -4298,7 +4550,8 @@
    "Rating": 1.2,
    "Discount": 20,
    "AvailableStocks": 223,
-   "SoldItems": 201
+   "SoldItems": 201,
+   "DiscountedPrice": 5229.6
  },
  {
    "Id": 254,
@@ -4315,7 +4568,8 @@
    "Rating": 1,
    "Discount": 20,
    "AvailableStocks": 319,
-   "SoldItems": 166
+   "SoldItems": 166,
+   "DiscountedPrice": 3084
  },
  {
    "Id": 255,
@@ -4332,7 +4586,8 @@
    "Rating": 4.6,
    "Discount": 35,
    "AvailableStocks": 75,
-   "SoldItems": 305
+   "SoldItems": 305,
+   "DiscountedPrice": 2880.8
  },
  {
    "Id": 256,
@@ -4349,7 +4604,8 @@
    "Rating": 2.9,
    "Discount": 5,
    "AvailableStocks": 120,
-   "SoldItems": 114
+   "SoldItems": 114,
+   "DiscountedPrice": 6428.65
  },
  {
    "Id": 257,
@@ -4366,7 +4622,8 @@
    "Rating": 0.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 300
+   "SoldItems": 300,
+   "DiscountedPrice": 6524.7
  },
  {
    "Id": 258,
@@ -4383,7 +4640,8 @@
    "Rating": 4.2,
    "Discount": 20,
    "AvailableStocks": 616,
-   "SoldItems": 234
+   "SoldItems": 234,
+   "DiscountedPrice": 5289.6
  },
  {
    "Id": 259,
@@ -4400,7 +4658,8 @@
    "Rating": 3.7,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 102
+   "SoldItems": 102,
+   "DiscountedPrice": 4678.85
  },
  {
    "Id": 260,
@@ -4417,7 +4676,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 490,
-   "SoldItems": 380
+   "SoldItems": 380,
+   "DiscountedPrice": 4099.55
  },
  {
    "Id": 261,
@@ -4434,7 +4694,8 @@
    "Rating": 2.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 58
+   "SoldItems": 58,
+   "DiscountedPrice": 399
  },
  {
    "Id": 262,
@@ -4451,7 +4712,8 @@
    "Rating": 0.9,
    "Discount": 20,
    "AvailableStocks": 452,
-   "SoldItems": 345
+   "SoldItems": 345,
+   "DiscountedPrice": 1128.8
  },
  {
    "Id": 263,
@@ -4468,7 +4730,8 @@
    "Rating": 0.7,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 374
+   "SoldItems": 374,
+   "DiscountedPrice": 2579
  },
  {
    "Id": 264,
@@ -4485,7 +4748,8 @@
    "Rating": 1.3,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 183
+   "SoldItems": 183,
+   "DiscountedPrice": 2256
  },
  {
    "Id": 265,
@@ -4502,7 +4766,8 @@
    "Rating": 2.8,
    "Discount": 45,
    "AvailableStocks": 381,
-   "SoldItems": 470
+   "SoldItems": 470,
+   "DiscountedPrice": 1742.95
  },
  {
    "Id": 266,
@@ -4519,7 +4784,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 0
+   "SoldItems": 0,
+   "DiscountedPrice": 3109.5
  },
  {
    "Id": 267,
@@ -4536,7 +4802,8 @@
    "Rating": 3.1,
    "Discount": 40,
    "AvailableStocks": 379,
-   "SoldItems": 487
+   "SoldItems": 487,
+   "DiscountedPrice": 1708.8
  },
  {
    "Id": 268,
@@ -4553,7 +4820,8 @@
    "Rating": 1.7,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 246
+   "SoldItems": 246,
+   "DiscountedPrice": 6529.6
  },
  {
    "Id": 269,
@@ -4570,7 +4838,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 185
+   "SoldItems": 185,
+   "DiscountedPrice": 1660.6
  },
  {
    "Id": 270,
@@ -4587,7 +4856,8 @@
    "Rating": 0.2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 105
+   "SoldItems": 105,
+   "DiscountedPrice": 5210.25
  },
  {
    "Id": 271,
@@ -4604,7 +4874,8 @@
    "Rating": 2.2,
    "Discount": 10,
    "AvailableStocks": 572,
-   "SoldItems": 272
+   "SoldItems": 272,
+   "DiscountedPrice": 6793.2
  },
  {
    "Id": 272,
@@ -4621,7 +4892,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 689,
-   "SoldItems": 102
+   "SoldItems": 102,
+   "DiscountedPrice": 2163
  },
  {
    "Id": 273,
@@ -4638,7 +4910,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 326,
-   "SoldItems": 498
+   "SoldItems": 498,
+   "DiscountedPrice": 7951.5
  },
  {
    "Id": 274,
@@ -4655,7 +4928,8 @@
    "Rating": 2,
    "Discount": 20,
    "AvailableStocks": 81,
-   "SoldItems": 68
+   "SoldItems": 68,
+   "DiscountedPrice": 1406.4
  },
  {
    "Id": 275,
@@ -4672,7 +4946,8 @@
    "Rating": 0.2,
    "Discount": 10,
    "AvailableStocks": 58,
-   "SoldItems": 441
+   "SoldItems": 441,
+   "DiscountedPrice": 1384.2
  },
  {
    "Id": 276,
@@ -4689,7 +4964,8 @@
    "Rating": 4.6,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 473
+   "SoldItems": 473,
+   "DiscountedPrice": 3316
  },
  {
    "Id": 277,
@@ -4706,7 +4982,8 @@
    "Rating": 1.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 10
+   "SoldItems": 10,
+   "DiscountedPrice": 7869.8
  },
  {
    "Id": 278,
@@ -4723,7 +5000,8 @@
    "Rating": 4.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 7
+   "SoldItems": 7,
+   "DiscountedPrice": 5010
  },
  {
    "Id": 279,
@@ -4740,7 +5018,8 @@
    "Rating": 0.4,
    "Discount": 10,
    "AvailableStocks": 87,
-   "SoldItems": 223
+   "SoldItems": 223,
+   "DiscountedPrice": 8410.5
  },
  {
    "Id": 280,
@@ -4757,7 +5036,8 @@
    "Rating": 5,
    "Discount": 25,
    "AvailableStocks": 399,
-   "SoldItems": 292
+   "SoldItems": 292,
+   "DiscountedPrice": 6399.75
  },
  {
    "Id": 281,
@@ -4774,7 +5054,8 @@
    "Rating": 4.8,
    "Discount": 15,
    "AvailableStocks": 317,
-   "SoldItems": 481
+   "SoldItems": 481,
+   "DiscountedPrice": 1008.95
  },
  {
    "Id": 282,
@@ -4791,7 +5072,8 @@
    "Rating": 3.2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 135
+   "SoldItems": 135,
+   "DiscountedPrice": 1575
  },
  {
    "Id": 283,
@@ -4808,7 +5090,8 @@
    "Rating": 0.9,
    "Discount": 10,
    "AvailableStocks": 519,
-   "SoldItems": 121
+   "SoldItems": 121,
+   "DiscountedPrice": 6931.8
  },
  {
    "Id": 284,
@@ -4825,7 +5108,8 @@
    "Rating": 4.2,
    "Discount": 30,
    "AvailableStocks": 584,
-   "SoldItems": 44
+   "SoldItems": 44,
+   "DiscountedPrice": 2229.5
  },
  {
    "Id": 285,
@@ -4842,7 +5126,8 @@
    "Rating": 1.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 155
+   "SoldItems": 155,
+   "DiscountedPrice": 962
  },
  {
    "Id": 286,
@@ -4859,7 +5144,8 @@
    "Rating": 3.7,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 379
+   "SoldItems": 379,
+   "DiscountedPrice": 8065.8
  },
  {
    "Id": 287,
@@ -4876,7 +5162,8 @@
    "Rating": 3.1,
    "Discount": 20,
    "AvailableStocks": 383,
-   "SoldItems": 313
+   "SoldItems": 313,
+   "DiscountedPrice": 5995.2
  },
  {
    "Id": 288,
@@ -4893,7 +5180,8 @@
    "Rating": 5,
    "Discount": 35,
    "AvailableStocks": 643,
-   "SoldItems": 235
+   "SoldItems": 235,
+   "DiscountedPrice": 926.9
  },
  {
    "Id": 289,
@@ -4910,7 +5198,8 @@
    "Rating": 1.1,
    "Discount": 30,
    "AvailableStocks": 654,
-   "SoldItems": 499
+   "SoldItems": 499,
+   "DiscountedPrice": 1781.5
  },
  {
    "Id": 290,
@@ -4927,7 +5216,8 @@
    "Rating": 2.3,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 381
+   "SoldItems": 381,
+   "DiscountedPrice": 1923.55
  },
  {
    "Id": 291,
@@ -4944,7 +5234,8 @@
    "Rating": 4.8,
    "Discount": 20,
    "AvailableStocks": 741,
-   "SoldItems": 341
+   "SoldItems": 341,
+   "DiscountedPrice": 4872
  },
  {
    "Id": 292,
@@ -4961,7 +5252,8 @@
    "Rating": 0.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 454
+   "SoldItems": 454,
+   "DiscountedPrice": 5370.4
  },
  {
    "Id": 293,
@@ -4978,7 +5270,8 @@
    "Rating": 1.9,
    "Discount": 10,
    "AvailableStocks": 405,
-   "SoldItems": 334
+   "SoldItems": 334,
+   "DiscountedPrice": 1372.5
  },
  {
    "Id": 294,
@@ -4995,7 +5288,8 @@
    "Rating": 1.6,
    "Discount": 25,
    "AvailableStocks": 601,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 7327.5
  },
  {
    "Id": 295,
@@ -5012,7 +5306,8 @@
    "Rating": 0.5,
    "Discount": 10,
    "AvailableStocks": 507,
-   "SoldItems": 462
+   "SoldItems": 462,
+   "DiscountedPrice": 3493.8
  },
  {
    "Id": 296,
@@ -5029,7 +5324,8 @@
    "Rating": 2.2,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 315
+   "SoldItems": 315,
+   "DiscountedPrice": 2668.8
  },
  {
    "Id": 297,
@@ -5046,7 +5342,8 @@
    "Rating": 4.6,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 347
+   "SoldItems": 347,
+   "DiscountedPrice": 3582
  },
  {
    "Id": 298,
@@ -5063,7 +5360,8 @@
    "Rating": 0.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 436
+   "SoldItems": 436,
+   "DiscountedPrice": 4567.5
  },
  {
    "Id": 299,
@@ -5080,7 +5378,8 @@
    "Rating": 4.7,
    "Discount": 35,
    "AvailableStocks": 35,
-   "SoldItems": 270
+   "SoldItems": 270,
+   "DiscountedPrice": 1624.35
  },
  {
    "Id": 300,
@@ -5097,7 +5396,8 @@
    "Rating": 4.8,
    "Discount": 20,
    "AvailableStocks": 694,
-   "SoldItems": 12
+   "SoldItems": 12,
+   "DiscountedPrice": 6644
  },
  {
    "Id": 301,
@@ -5114,7 +5414,8 @@
    "Rating": 1.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 64
+   "SoldItems": 64,
+   "DiscountedPrice": 3034.5
  },
  {
    "Id": 302,
@@ -5131,7 +5432,8 @@
    "Rating": 2.2,
    "Discount": 45,
    "AvailableStocks": 242,
-   "SoldItems": 228
+   "SoldItems": 228,
+   "DiscountedPrice": 4126.65
  },
  {
    "Id": 303,
@@ -5148,7 +5450,8 @@
    "Rating": 3.5,
    "Discount": 5,
    "AvailableStocks": 509,
-   "SoldItems": 340
+   "SoldItems": 340,
+   "DiscountedPrice": 7914.45
  },
  {
    "Id": 304,
@@ -5165,7 +5468,8 @@
    "Rating": 1.8,
    "Discount": 25,
    "AvailableStocks": 518,
-   "SoldItems": 367
+   "SoldItems": 367,
+   "DiscountedPrice": 4451.25
  },
  {
    "Id": 305,
@@ -5182,7 +5486,8 @@
    "Rating": 2.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 191
+   "SoldItems": 191,
+   "DiscountedPrice": 4784.8
  },
  {
    "Id": 306,
@@ -5199,7 +5504,8 @@
    "Rating": 2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 244
+   "SoldItems": 244,
+   "DiscountedPrice": 7277.25
  },
  {
    "Id": 307,
@@ -5216,7 +5522,8 @@
    "Rating": 3.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 399
+   "SoldItems": 399,
+   "DiscountedPrice": 5104
  },
  {
    "Id": 308,
@@ -5233,7 +5540,8 @@
    "Rating": 0.6,
    "Discount": 50,
    "AvailableStocks": 565,
-   "SoldItems": 125
+   "SoldItems": 125,
+   "DiscountedPrice": 4027
  },
  {
    "Id": 309,
@@ -5250,7 +5558,8 @@
    "Rating": 0.8,
    "Discount": 50,
    "AvailableStocks": 632,
-   "SoldItems": 450
+   "SoldItems": 450,
+   "DiscountedPrice": 3593.5
  },
  {
    "Id": 310,
@@ -5267,7 +5576,8 @@
    "Rating": 5,
    "Discount": 20,
    "AvailableStocks": 693,
-   "SoldItems": 140
+   "SoldItems": 140,
+   "DiscountedPrice": 6496.8
  },
  {
    "Id": 311,
@@ -5284,7 +5594,8 @@
    "Rating": 2.2,
    "Discount": 45,
    "AvailableStocks": 17,
-   "SoldItems": 145
+   "SoldItems": 145,
+   "DiscountedPrice": 391.6
  },
  {
    "Id": 312,
@@ -5301,7 +5612,8 @@
    "Rating": 1.9,
    "Discount": 15,
    "AvailableStocks": 619,
-   "SoldItems": 97
+   "SoldItems": 97,
+   "DiscountedPrice": 6752.4
  },
  {
    "Id": 313,
@@ -5318,7 +5630,8 @@
    "Rating": 1.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 412
+   "SoldItems": 412,
+   "DiscountedPrice": 6549
  },
  {
    "Id": 314,
@@ -5335,7 +5648,8 @@
    "Rating": 4.6,
    "Discount": 50,
    "AvailableStocks": 403,
-   "SoldItems": 187
+   "SoldItems": 187,
+   "DiscountedPrice": 498.5
  },
  {
    "Id": 315,
@@ -5352,7 +5666,8 @@
    "Rating": 4.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 295
+   "SoldItems": 295,
+   "DiscountedPrice": 6819.1
  },
  {
    "Id": 316,
@@ -5369,7 +5684,8 @@
    "Rating": 0.5,
    "Discount": 30,
    "AvailableStocks": 336,
-   "SoldItems": 189
+   "SoldItems": 189,
+   "DiscountedPrice": 5606.3
  },
  {
    "Id": 317,
@@ -5386,7 +5702,8 @@
    "Rating": 4.3,
    "Discount": 30,
    "AvailableStocks": 409,
-   "SoldItems": 326
+   "SoldItems": 326,
+   "DiscountedPrice": 439.6
  },
  {
    "Id": 318,
@@ -5403,7 +5720,8 @@
    "Rating": 4.4,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 374
+   "SoldItems": 374,
+   "DiscountedPrice": 1659.7
  },
  {
    "Id": 319,
@@ -5420,7 +5738,8 @@
    "Rating": 4.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 321
+   "SoldItems": 321,
+   "DiscountedPrice": 5257.45
  },
  {
    "Id": 320,
@@ -5437,7 +5756,8 @@
    "Rating": 4.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 16
+   "SoldItems": 16,
+   "DiscountedPrice": 7022.4
  },
  {
    "Id": 321,
@@ -5454,7 +5774,8 @@
    "Rating": 1.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 222
+   "SoldItems": 222,
+   "DiscountedPrice": 304.8
  },
  {
    "Id": 322,
@@ -5471,7 +5792,8 @@
    "Rating": 0.3,
    "Discount": 30,
    "AvailableStocks": 725,
-   "SoldItems": 370
+   "SoldItems": 370,
+   "DiscountedPrice": 5013.4
  },
  {
    "Id": 323,
@@ -5488,7 +5810,8 @@
    "Rating": 0.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 270
+   "SoldItems": 270,
+   "DiscountedPrice": 3295.2
  },
  {
    "Id": 324,
@@ -5505,7 +5828,8 @@
    "Rating": 1.1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 151
+   "SoldItems": 151,
+   "DiscountedPrice": 2446.2
  },
  {
    "Id": 325,
@@ -5522,7 +5846,8 @@
    "Rating": 3.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 61
+   "SoldItems": 61,
+   "DiscountedPrice": 1588.5
  },
  {
    "Id": 326,
@@ -5539,7 +5864,8 @@
    "Rating": 1.7,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 432
+   "SoldItems": 432,
+   "DiscountedPrice": 1485.9
  },
  {
    "Id": 327,
@@ -5556,7 +5882,8 @@
    "Rating": 2.2,
    "Discount": 15,
    "AvailableStocks": 201,
-   "SoldItems": 448
+   "SoldItems": 448,
+   "DiscountedPrice": 3751.9
  },
  {
    "Id": 328,
@@ -5573,7 +5900,8 @@
    "Rating": 2.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 196
+   "SoldItems": 196,
+   "DiscountedPrice": 5172
  },
  {
    "Id": 329,
@@ -5590,7 +5918,8 @@
    "Rating": 0.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 456
+   "SoldItems": 456,
+   "DiscountedPrice": 5972.2
  },
  {
    "Id": 330,
@@ -5607,7 +5936,8 @@
    "Rating": 2.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 309
+   "SoldItems": 309,
+   "DiscountedPrice": 3853.2
  },
  {
    "Id": 331,
@@ -5624,7 +5954,8 @@
    "Rating": 0,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 234
+   "SoldItems": 234,
+   "DiscountedPrice": 628.2
  },
  {
    "Id": 332,
@@ -5641,7 +5972,8 @@
    "Rating": 2.7,
    "Discount": 40,
    "AvailableStocks": 317,
-   "SoldItems": 176
+   "SoldItems": 176,
+   "DiscountedPrice": 1609.2
  },
  {
    "Id": 333,
@@ -5658,7 +5990,8 @@
    "Rating": 0.1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 391
+   "SoldItems": 391,
+   "DiscountedPrice": 8623.15
  },
  {
    "Id": 334,
@@ -5675,7 +6008,8 @@
    "Rating": 3.1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 462
+   "SoldItems": 462,
+   "DiscountedPrice": 2245.2
  },
  {
    "Id": 335,
@@ -5692,7 +6026,8 @@
    "Rating": 3.2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 381
+   "SoldItems": 381,
+   "DiscountedPrice": 3667.75
  },
  {
    "Id": 336,
@@ -5709,7 +6044,8 @@
    "Rating": 0,
    "Discount": 20,
    "AvailableStocks": 714,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 7130.4
  },
  {
    "Id": 337,
@@ -5726,7 +6062,8 @@
    "Rating": 2.7,
    "Discount": 35,
    "AvailableStocks": 98,
-   "SoldItems": 142
+   "SoldItems": 142,
+   "DiscountedPrice": 4522.7
  },
  {
    "Id": 338,
@@ -5743,7 +6080,8 @@
    "Rating": 4.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 152
+   "SoldItems": 152,
+   "DiscountedPrice": 4968.15
  },
  {
    "Id": 339,
@@ -5760,7 +6098,8 @@
    "Rating": 0.1,
    "Discount": 20,
    "AvailableStocks": 459,
-   "SoldItems": 464
+   "SoldItems": 464,
+   "DiscountedPrice": 1202.4
  },
  {
    "Id": 340,
@@ -5777,7 +6116,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 447,
-   "SoldItems": 494
+   "SoldItems": 494,
+   "DiscountedPrice": 2211.95
  },
  {
    "Id": 341,
@@ -5794,7 +6134,8 @@
    "Rating": 0.8,
    "Discount": 5,
    "AvailableStocks": 135,
-   "SoldItems": 347
+   "SoldItems": 347,
+   "DiscountedPrice": 2581.15
  },
  {
    "Id": 342,
@@ -5811,7 +6152,8 @@
    "Rating": 1.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 77
+   "SoldItems": 77,
+   "DiscountedPrice": 4461.6
  },
  {
    "Id": 343,
@@ -5828,7 +6170,8 @@
    "Rating": 2.9,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 452
+   "SoldItems": 452,
+   "DiscountedPrice": 783.75
  },
  {
    "Id": 344,
@@ -5845,7 +6188,8 @@
    "Rating": 0.3,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 442
+   "SoldItems": 442,
+   "DiscountedPrice": 7225.85
  },
  {
    "Id": 345,
@@ -5862,7 +6206,8 @@
    "Rating": 4.7,
    "Discount": 15,
    "AvailableStocks": 504,
-   "SoldItems": 127
+   "SoldItems": 127,
+   "DiscountedPrice": 2947.8
  },
  {
    "Id": 346,
@@ -5879,7 +6224,8 @@
    "Rating": 1,
    "Discount": 35,
    "AvailableStocks": 306,
-   "SoldItems": 482
+   "SoldItems": 482,
+   "DiscountedPrice": 6117.15
  },
  {
    "Id": 347,
@@ -5896,7 +6242,8 @@
    "Rating": 3.4,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 226
+   "SoldItems": 226,
+   "DiscountedPrice": 5357.95
  },
  {
    "Id": 348,
@@ -5913,7 +6260,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 360
+   "SoldItems": 360,
+   "DiscountedPrice": 2597.4
  },
  {
    "Id": 349,
@@ -5930,7 +6278,8 @@
    "Rating": 2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 363
+   "SoldItems": 363,
+   "DiscountedPrice": 6391.15
  },
  {
    "Id": 350,
@@ -5947,7 +6296,8 @@
    "Rating": 3.4,
    "Discount": 45,
    "AvailableStocks": 678,
-   "SoldItems": 374
+   "SoldItems": 374,
+   "DiscountedPrice": 1228.7
  },
  {
    "Id": 351,
@@ -5964,7 +6314,8 @@
    "Rating": 3.3,
    "Discount": 30,
    "AvailableStocks": 47,
-   "SoldItems": 134
+   "SoldItems": 134,
+   "DiscountedPrice": 1115.8
  },
  {
    "Id": 352,
@@ -5981,7 +6332,8 @@
    "Rating": 3.5,
    "Discount": 10,
    "AvailableStocks": 320,
-   "SoldItems": 435
+   "SoldItems": 435,
+   "DiscountedPrice": 4860
  },
  {
    "Id": 353,
@@ -5998,7 +6350,8 @@
    "Rating": 2.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 324
+   "SoldItems": 324,
+   "DiscountedPrice": 650.7
  },
  {
    "Id": 354,
@@ -6015,7 +6368,8 @@
    "Rating": 3.3,
    "Discount": 10,
    "AvailableStocks": 46,
-   "SoldItems": 27
+   "SoldItems": 27,
+   "DiscountedPrice": 7293.6
  },
  {
    "Id": 355,
@@ -6032,7 +6386,8 @@
    "Rating": 2.4,
    "Discount": 5,
    "AvailableStocks": 124,
-   "SoldItems": 178
+   "SoldItems": 178,
+   "DiscountedPrice": 6683.25
  },
  {
    "Id": 356,
@@ -6049,7 +6404,8 @@
    "Rating": 2.2,
    "Discount": 30,
    "AvailableStocks": 388,
-   "SoldItems": 136
+   "SoldItems": 136,
+   "DiscountedPrice": 1498
  },
  {
    "Id": 357,
@@ -6066,7 +6422,8 @@
    "Rating": 0.9,
    "Discount": 40,
    "AvailableStocks": 88,
-   "SoldItems": 139
+   "SoldItems": 139,
+   "DiscountedPrice": 1458.6
  },
  {
    "Id": 358,
@@ -6083,7 +6440,8 @@
    "Rating": 3.4,
    "Discount": 30,
    "AvailableStocks": 58,
-   "SoldItems": 77
+   "SoldItems": 77,
+   "DiscountedPrice": 2244.2
  },
  {
    "Id": 359,
@@ -6100,7 +6458,8 @@
    "Rating": 1,
    "Discount": 10,
    "AvailableStocks": 211,
-   "SoldItems": 351
+   "SoldItems": 351,
+   "DiscountedPrice": 7745.4
  },
  {
    "Id": 360,
@@ -6117,7 +6476,8 @@
    "Rating": 1.3,
    "Discount": 5,
    "AvailableStocks": 376,
-   "SoldItems": 498
+   "SoldItems": 498,
+   "DiscountedPrice": 1380.35
  },
  {
    "Id": 361,
@@ -6134,7 +6494,8 @@
    "Rating": 2.9,
    "Discount": 50,
    "AvailableStocks": 654,
-   "SoldItems": 335
+   "SoldItems": 335,
+   "DiscountedPrice": 3354
  },
  {
    "Id": 362,
@@ -6151,7 +6512,8 @@
    "Rating": 1.1,
    "Discount": 50,
    "AvailableStocks": 383,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 3548
  },
  {
    "Id": 363,
@@ -6168,7 +6530,8 @@
    "Rating": 4.4,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 42
+   "SoldItems": 42,
+   "DiscountedPrice": 2995.5
  },
  {
    "Id": 364,
@@ -6185,7 +6548,8 @@
    "Rating": 2.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 69
+   "SoldItems": 69,
+   "DiscountedPrice": 4296.5
  },
  {
    "Id": 365,
@@ -6202,7 +6566,8 @@
    "Rating": 1.7,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 93
+   "SoldItems": 93,
+   "DiscountedPrice": 6399.2
  },
  {
    "Id": 366,
@@ -6219,7 +6584,8 @@
    "Rating": 2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 14
+   "SoldItems": 14,
+   "DiscountedPrice": 6887.5
  },
  {
    "Id": 367,
@@ -6236,7 +6602,8 @@
    "Rating": 1.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 182
+   "SoldItems": 182,
+   "DiscountedPrice": 5698
  },
  {
    "Id": 368,
@@ -6253,7 +6620,8 @@
    "Rating": 4.1,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 314
+   "SoldItems": 314,
+   "DiscountedPrice": 5435.95
  },
  {
    "Id": 369,
@@ -6270,7 +6638,8 @@
    "Rating": 1.7,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 280
+   "SoldItems": 280,
+   "DiscountedPrice": 3304.8
  },
  {
    "Id": 370,
@@ -6287,7 +6656,8 @@
    "Rating": 4.2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 270
+   "SoldItems": 270,
+   "DiscountedPrice": 6039.6
  },
  {
    "Id": 371,
@@ -6304,7 +6674,8 @@
    "Rating": 0,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 88
+   "SoldItems": 88,
+   "DiscountedPrice": 4592.7
  },
  {
    "Id": 372,
@@ -6321,7 +6692,8 @@
    "Rating": 4.4,
    "Discount": 45,
    "AvailableStocks": 298,
-   "SoldItems": 191
+   "SoldItems": 191,
+   "DiscountedPrice": 5210.7
  },
  {
    "Id": 373,
@@ -6338,7 +6710,8 @@
    "Rating": 3.2,
    "Discount": 5,
    "AvailableStocks": 632,
-   "SoldItems": 408
+   "SoldItems": 408,
+   "DiscountedPrice": 4375.7
  },
  {
    "Id": 374,
@@ -6355,7 +6728,8 @@
    "Rating": 2.6,
    "Discount": 15,
    "AvailableStocks": 734,
-   "SoldItems": 93
+   "SoldItems": 93,
+   "DiscountedPrice": 5009.05
  },
  {
    "Id": 375,
@@ -6372,7 +6746,8 @@
    "Rating": 2.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 34
+   "SoldItems": 34,
+   "DiscountedPrice": 983
  },
  {
    "Id": 376,
@@ -6389,7 +6764,8 @@
    "Rating": 3.7,
    "Discount": 40,
    "AvailableStocks": 212,
-   "SoldItems": 269
+   "SoldItems": 269,
+   "DiscountedPrice": 3438
  },
  {
    "Id": 377,
@@ -6406,7 +6782,8 @@
    "Rating": 1.3,
    "Discount": 30,
    "AvailableStocks": 219,
-   "SoldItems": 320
+   "SoldItems": 320,
+   "DiscountedPrice": 2649.5
  },
  {
    "Id": 378,
@@ -6423,7 +6800,8 @@
    "Rating": 4.3,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 340
+   "SoldItems": 340,
+   "DiscountedPrice": 5334.6
  },
  {
    "Id": 379,
@@ -6440,7 +6818,8 @@
    "Rating": 1.3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 281
+   "SoldItems": 281,
+   "DiscountedPrice": 5201.4
  },
  {
    "Id": 380,
@@ -6457,7 +6836,8 @@
    "Rating": 1.7,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 345
+   "SoldItems": 345,
+   "DiscountedPrice": 3342.1
  },
  {
    "Id": 381,
@@ -6474,7 +6854,8 @@
    "Rating": 0.1,
    "Discount": 25,
    "AvailableStocks": 102,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 5852.25
  },
  {
    "Id": 382,
@@ -6491,7 +6872,8 @@
    "Rating": 3,
    "Discount": 5,
    "AvailableStocks": 301,
-   "SoldItems": 43
+   "SoldItems": 43,
+   "DiscountedPrice": 4615.1
  },
  {
    "Id": 383,
@@ -6508,7 +6890,8 @@
    "Rating": 0.7,
    "Discount": 40,
    "AvailableStocks": 587,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 5940
  },
  {
    "Id": 384,
@@ -6525,7 +6908,8 @@
    "Rating": 0.3,
    "Discount": 25,
    "AvailableStocks": 225,
-   "SoldItems": 166
+   "SoldItems": 166,
+   "DiscountedPrice": 3329.25
  },
  {
    "Id": 385,
@@ -6542,7 +6926,8 @@
    "Rating": 4.3,
    "Discount": 5,
    "AvailableStocks": 673,
-   "SoldItems": 367
+   "SoldItems": 367,
+   "DiscountedPrice": 5975.5
  },
  {
    "Id": 386,
@@ -6559,7 +6944,8 @@
    "Rating": 2.7,
    "Discount": 25,
    "AvailableStocks": 445,
-   "SoldItems": 310
+   "SoldItems": 310,
+   "DiscountedPrice": 6849
  },
  {
    "Id": 387,
@@ -6576,7 +6962,8 @@
    "Rating": 1.3,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 99
+   "SoldItems": 99,
+   "DiscountedPrice": 6846.65
  },
  {
    "Id": 388,
@@ -6593,7 +6980,8 @@
    "Rating": 1.3,
    "Discount": 20,
    "AvailableStocks": 525,
-   "SoldItems": 420
+   "SoldItems": 420,
+   "DiscountedPrice": 3181.6
  },
  {
    "Id": 389,
@@ -6610,7 +6998,8 @@
    "Rating": 3.7,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 142
+   "SoldItems": 142,
+   "DiscountedPrice": 7993.3
  },
  {
    "Id": 390,
@@ -6627,7 +7016,8 @@
    "Rating": 4.8,
    "Discount": 45,
    "AvailableStocks": 387,
-   "SoldItems": 112
+   "SoldItems": 112,
+   "DiscountedPrice": 1707.2
  },
  {
    "Id": 391,
@@ -6644,7 +7034,8 @@
    "Rating": 4.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 344
+   "SoldItems": 344,
+   "DiscountedPrice": 2791.25
  },
  {
    "Id": 392,
@@ -6661,7 +7052,8 @@
    "Rating": 2.5,
    "Discount": 15,
    "AvailableStocks": 114,
-   "SoldItems": 383
+   "SoldItems": 383,
+   "DiscountedPrice": 3996.7
  },
  {
    "Id": 393,
@@ -6678,7 +7070,8 @@
    "Rating": 1.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 31
+   "SoldItems": 31,
+   "DiscountedPrice": 6318.65
  },
  {
    "Id": 394,
@@ -6695,7 +7088,8 @@
    "Rating": 0.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 472
+   "SoldItems": 472,
+   "DiscountedPrice": 3055.5
  },
  {
    "Id": 395,
@@ -6712,7 +7106,8 @@
    "Rating": 1.5,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 382
+   "SoldItems": 382,
+   "DiscountedPrice": 8100.9
  },
  {
    "Id": 396,
@@ -6729,7 +7124,8 @@
    "Rating": 0.2,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 22
+   "SoldItems": 22,
+   "DiscountedPrice": 2929.3
  },
  {
    "Id": 397,
@@ -6746,7 +7142,8 @@
    "Rating": 2.4,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 397
+   "SoldItems": 397,
+   "DiscountedPrice": 6920.2
  },
  {
    "Id": 398,
@@ -6763,7 +7160,8 @@
    "Rating": 2.8,
    "Discount": 40,
    "AvailableStocks": 209,
-   "SoldItems": 21
+   "SoldItems": 21,
+   "DiscountedPrice": 5970.6
  },
  {
    "Id": 399,
@@ -6780,7 +7178,8 @@
    "Rating": 4.2,
    "Discount": 10,
    "AvailableStocks": 266,
-   "SoldItems": 198
+   "SoldItems": 198,
+   "DiscountedPrice": 7565.4
  },
  {
    "Id": 400,
@@ -6797,7 +7196,8 @@
    "Rating": 3.5,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 1117.05
  },
  {
    "Id": 401,
@@ -6814,7 +7214,8 @@
    "Rating": 1.3,
    "Discount": 15,
    "AvailableStocks": 59,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 5786.8
  },
  {
    "Id": 402,
@@ -6831,7 +7232,8 @@
    "Rating": 1.1,
    "Discount": 15,
    "AvailableStocks": 304,
-   "SoldItems": 450
+   "SoldItems": 450,
+   "DiscountedPrice": 974.1
  },
  {
    "Id": 403,
@@ -6848,7 +7250,8 @@
    "Rating": 2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 410
+   "SoldItems": 410,
+   "DiscountedPrice": 3402.9
  },
  {
    "Id": 404,
@@ -6865,7 +7268,8 @@
    "Rating": 1.8,
    "Discount": 40,
    "AvailableStocks": 664,
-   "SoldItems": 32
+   "SoldItems": 32,
+   "DiscountedPrice": 2586.6
  },
  {
    "Id": 405,
@@ -6882,7 +7286,8 @@
    "Rating": 0.3,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 312
+   "SoldItems": 312,
+   "DiscountedPrice": 3132
  },
  {
    "Id": 406,
@@ -6899,7 +7304,8 @@
    "Rating": 3.7,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 242
+   "SoldItems": 242,
+   "DiscountedPrice": 3189.6
  },
  {
    "Id": 407,
@@ -6916,7 +7322,8 @@
    "Rating": 4.9,
    "Discount": 25,
    "AvailableStocks": 279,
-   "SoldItems": 225
+   "SoldItems": 225,
+   "DiscountedPrice": 6183.75
  },
  {
    "Id": 408,
@@ -6933,7 +7340,8 @@
    "Rating": 1.6,
    "Discount": 50,
    "AvailableStocks": 109,
-   "SoldItems": 387
+   "SoldItems": 387,
+   "DiscountedPrice": 4441
  },
  {
    "Id": 409,
@@ -6950,7 +7358,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 600,
-   "SoldItems": 472
+   "SoldItems": 472,
+   "DiscountedPrice": 3467.4
  },
  {
    "Id": 410,
@@ -6967,7 +7376,8 @@
    "Rating": 1.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 327
+   "SoldItems": 327,
+   "DiscountedPrice": 6155.25
  },
  {
    "Id": 411,
@@ -6984,7 +7394,8 @@
    "Rating": 4.7,
    "Discount": 40,
    "AvailableStocks": 143,
-   "SoldItems": 487
+   "SoldItems": 487,
+   "DiscountedPrice": 4049.4
  },
  {
    "Id": 412,
@@ -7001,7 +7412,8 @@
    "Rating": 4.6,
    "Discount": 30,
    "AvailableStocks": 666,
-   "SoldItems": 182
+   "SoldItems": 182,
+   "DiscountedPrice": 1103.9
  },
  {
    "Id": 413,
@@ -7018,7 +7430,8 @@
    "Rating": 3.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 38
+   "SoldItems": 38,
+   "DiscountedPrice": 1653.95
  },
  {
    "Id": 414,
@@ -7035,7 +7448,8 @@
    "Rating": 3.7,
    "Discount": 35,
    "AvailableStocks": 464,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 4092.4
  },
  {
    "Id": 415,
@@ -7052,7 +7466,8 @@
    "Rating": 0.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 364
+   "SoldItems": 364,
+   "DiscountedPrice": 3227.9
  },
  {
    "Id": 416,
@@ -7069,7 +7484,8 @@
    "Rating": 1,
    "Discount": 20,
    "AvailableStocks": 336,
-   "SoldItems": 212
+   "SoldItems": 212,
+   "DiscountedPrice": 6613.6
  },
  {
    "Id": 417,
@@ -7086,7 +7502,8 @@
    "Rating": 3.1,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 73
+   "SoldItems": 73,
+   "DiscountedPrice": 7343
  },
  {
    "Id": 418,
@@ -7103,7 +7520,8 @@
    "Rating": 2.4,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 495
+   "SoldItems": 495,
+   "DiscountedPrice": 6124.95
  },
  {
    "Id": 419,
@@ -7120,7 +7538,8 @@
    "Rating": 0.1,
    "Discount": 15,
    "AvailableStocks": 627,
-   "SoldItems": 55
+   "SoldItems": 55,
+   "DiscountedPrice": 425
  },
  {
    "Id": 420,
@@ -7137,7 +7556,8 @@
    "Rating": 1,
    "Discount": 30,
    "AvailableStocks": 446,
-   "SoldItems": 470
+   "SoldItems": 470,
+   "DiscountedPrice": 3669.4
  },
  {
    "Id": 421,
@@ -7154,7 +7574,8 @@
    "Rating": 4.1,
    "Discount": 50,
    "AvailableStocks": 638,
-   "SoldItems": 335
+   "SoldItems": 335,
+   "DiscountedPrice": 4377.5
  },
  {
    "Id": 422,
@@ -7171,7 +7592,8 @@
    "Rating": 2.2,
    "Discount": 40,
    "AvailableStocks": 232,
-   "SoldItems": 286
+   "SoldItems": 286,
+   "DiscountedPrice": 3435
  },
  {
    "Id": 423,
@@ -7188,7 +7610,8 @@
    "Rating": 0.4,
    "Discount": 35,
    "AvailableStocks": 170,
-   "SoldItems": 443
+   "SoldItems": 443,
+   "DiscountedPrice": 2565.55
  },
  {
    "Id": 424,
@@ -7205,7 +7628,8 @@
    "Rating": 3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 98
+   "SoldItems": 98,
+   "DiscountedPrice": 4687.15
  },
  {
    "Id": 425,
@@ -7222,7 +7646,8 @@
    "Rating": 1.9,
    "Discount": 40,
    "AvailableStocks": 527,
-   "SoldItems": 453
+   "SoldItems": 453,
+   "DiscountedPrice": 4594.8
  },
  {
    "Id": 426,
@@ -7239,7 +7664,8 @@
    "Rating": 2.1,
    "Discount": 20,
    "AvailableStocks": 653,
-   "SoldItems": 500
+   "SoldItems": 500,
+   "DiscountedPrice": 6634.4
  },
  {
    "Id": 427,
@@ -7256,7 +7682,8 @@
    "Rating": 4.3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 14
+   "SoldItems": 14,
+   "DiscountedPrice": 1525.2
  },
  {
    "Id": 428,
@@ -7273,7 +7700,8 @@
    "Rating": 4.5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 219
+   "SoldItems": 219,
+   "DiscountedPrice": 3087
  },
  {
    "Id": 429,
@@ -7290,7 +7718,8 @@
    "Rating": 3.2,
    "Discount": 45,
    "AvailableStocks": 629,
-   "SoldItems": 87
+   "SoldItems": 87,
+   "DiscountedPrice": 3249.95
  },
  {
    "Id": 430,
@@ -7307,7 +7736,8 @@
    "Rating": 2.3,
    "Discount": 40,
    "AvailableStocks": 333,
-   "SoldItems": 500
+   "SoldItems": 500,
+   "DiscountedPrice": 1332
  },
  {
    "Id": 431,
@@ -7324,7 +7754,8 @@
    "Rating": 4.7,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 407
+   "SoldItems": 407,
+   "DiscountedPrice": 8567.1
  },
  {
    "Id": 432,
@@ -7341,7 +7772,8 @@
    "Rating": 4.9,
    "Discount": 45,
    "AvailableStocks": 448,
-   "SoldItems": 85
+   "SoldItems": 85,
+   "DiscountedPrice": 2515.7
  },
  {
    "Id": 433,
@@ -7358,7 +7790,8 @@
    "Rating": 0.3,
    "Discount": 15,
    "AvailableStocks": 199,
-   "SoldItems": 27
+   "SoldItems": 27,
+   "DiscountedPrice": 4537.3
  },
  {
    "Id": 434,
@@ -7375,7 +7808,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 437,
-   "SoldItems": 356
+   "SoldItems": 356,
+   "DiscountedPrice": 3924
  },
  {
    "Id": 435,
@@ -7392,7 +7826,8 @@
    "Rating": 3.4,
    "Discount": 25,
    "AvailableStocks": 489,
-   "SoldItems": 340
+   "SoldItems": 340,
+   "DiscountedPrice": 2544
  },
  {
    "Id": 436,
@@ -7409,7 +7844,8 @@
    "Rating": 0.2,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 464
+   "SoldItems": 464,
+   "DiscountedPrice": 2913.6
  },
  {
    "Id": 437,
@@ -7426,7 +7862,8 @@
    "Rating": 2.9,
    "Discount": 25,
    "AvailableStocks": 551,
-   "SoldItems": 19
+   "SoldItems": 19,
+   "DiscountedPrice": 3933.75
  },
  {
    "Id": 438,
@@ -7443,7 +7880,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 31,
-   "SoldItems": 497
+   "SoldItems": 497,
+   "DiscountedPrice": 2814
  },
  {
    "Id": 439,
@@ -7460,7 +7898,8 @@
    "Rating": 4.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 294
+   "SoldItems": 294,
+   "DiscountedPrice": 4142.45
  },
  {
    "Id": 440,
@@ -7477,7 +7916,8 @@
    "Rating": 1.6,
    "Discount": 10,
    "AvailableStocks": 44,
-   "SoldItems": 279
+   "SoldItems": 279,
+   "DiscountedPrice": 8118.9
  },
  {
    "Id": 441,
@@ -7494,7 +7934,8 @@
    "Rating": 2.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 438
+   "SoldItems": 438,
+   "DiscountedPrice": 2314.5
  },
  {
    "Id": 442,
@@ -7511,7 +7952,8 @@
    "Rating": 2.7,
    "Discount": 15,
    "AvailableStocks": 519,
-   "SoldItems": 351
+   "SoldItems": 351,
+   "DiscountedPrice": 4874.75
  },
  {
    "Id": 443,
@@ -7528,7 +7970,8 @@
    "Rating": 2.3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 25
+   "SoldItems": 25,
+   "DiscountedPrice": 476.3
  },
  {
    "Id": 444,
@@ -7545,7 +7988,8 @@
    "Rating": 4.6,
    "Discount": 50,
    "AvailableStocks": 689,
-   "SoldItems": 449
+   "SoldItems": 449,
+   "DiscountedPrice": 614
  },
  {
    "Id": 445,
@@ -7562,7 +8006,8 @@
    "Rating": 0.2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 176
+   "SoldItems": 176,
+   "DiscountedPrice": 580.8
  },
  {
    "Id": 446,
@@ -7579,7 +8024,8 @@
    "Rating": 0.2,
    "Discount": 10,
    "AvailableStocks": 497,
-   "SoldItems": 48
+   "SoldItems": 48,
+   "DiscountedPrice": 8120.7
  },
  {
    "Id": 447,
@@ -7596,7 +8042,8 @@
    "Rating": 1.2,
    "Discount": 20,
    "AvailableStocks": 319,
-   "SoldItems": 273
+   "SoldItems": 273,
+   "DiscountedPrice": 7939.2
  },
  {
    "Id": 448,
@@ -7613,7 +8060,8 @@
    "Rating": 3.1,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 232
+   "SoldItems": 232,
+   "DiscountedPrice": 6420.9
  },
  {
    "Id": 449,
@@ -7630,7 +8078,8 @@
    "Rating": 3.1,
    "Discount": 45,
    "AvailableStocks": 283,
-   "SoldItems": 282
+   "SoldItems": 282,
+   "DiscountedPrice": 4380.2
  },
  {
    "Id": 450,
@@ -7647,7 +8096,8 @@
    "Rating": 1.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 68
+   "SoldItems": 68,
+   "DiscountedPrice": 9062.05
  },
  {
    "Id": 451,
@@ -7664,7 +8114,8 @@
    "Rating": 5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 377
+   "SoldItems": 377,
+   "DiscountedPrice": 2566.2
  },
  {
    "Id": 452,
@@ -7681,7 +8132,8 @@
    "Rating": 1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 4484.95
  },
  {
    "Id": 453,
@@ -7698,7 +8150,8 @@
    "Rating": 2.6,
    "Discount": 35,
    "AvailableStocks": 634,
-   "SoldItems": 248
+   "SoldItems": 248,
+   "DiscountedPrice": 5066.1
  },
  {
    "Id": 454,
@@ -7715,7 +8168,8 @@
    "Rating": 1.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 4146
  },
  {
    "Id": 455,
@@ -7732,7 +8186,8 @@
    "Rating": 3.8,
    "Discount": 15,
    "AvailableStocks": 414,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 6856.1
  },
  {
    "Id": 456,
@@ -7749,7 +8204,8 @@
    "Rating": 0.7,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 495
+   "SoldItems": 495,
+   "DiscountedPrice": 3057.75
  },
  {
    "Id": 457,
@@ -7766,7 +8222,8 @@
    "Rating": 3.6,
    "Discount": 45,
    "AvailableStocks": 229,
-   "SoldItems": 423
+   "SoldItems": 423,
+   "DiscountedPrice": 4505.6
  },
  {
    "Id": 458,
@@ -7783,7 +8240,8 @@
    "Rating": 2.5,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 356
+   "SoldItems": 356,
+   "DiscountedPrice": 3208.7
  },
  {
    "Id": 459,
@@ -7800,7 +8258,8 @@
    "Rating": 0.6,
    "Discount": 30,
    "AvailableStocks": 347,
-   "SoldItems": 134
+   "SoldItems": 134,
+   "DiscountedPrice": 3602.2
  },
  {
    "Id": 460,
@@ -7817,7 +8276,8 @@
    "Rating": 0.8,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 493
+   "SoldItems": 493,
+   "DiscountedPrice": 2412.05
  },
  {
    "Id": 461,
@@ -7834,7 +8294,8 @@
    "Rating": 0.9,
    "Discount": 35,
    "AvailableStocks": 535,
-   "SoldItems": 122
+   "SoldItems": 122,
+   "DiscountedPrice": 1093.95
  },
  {
    "Id": 462,
@@ -7851,7 +8312,8 @@
    "Rating": 1.4,
    "Discount": 15,
    "AvailableStocks": 512,
-   "SoldItems": 67
+   "SoldItems": 67,
+   "DiscountedPrice": 5617.65
  },
  {
    "Id": 463,
@@ -7868,7 +8330,8 @@
    "Rating": 0.7,
    "Discount": 15,
    "AvailableStocks": 719,
-   "SoldItems": 141
+   "SoldItems": 141,
+   "DiscountedPrice": 4955.5
  },
  {
    "Id": 464,
@@ -7885,7 +8348,8 @@
    "Rating": 0.1,
    "Discount": 15,
    "AvailableStocks": 479,
-   "SoldItems": 231
+   "SoldItems": 231,
+   "DiscountedPrice": 3749.35
  },
  {
    "Id": 465,
@@ -7902,7 +8366,8 @@
    "Rating": 0.5,
    "Discount": 20,
    "AvailableStocks": 246,
-   "SoldItems": 433
+   "SoldItems": 433,
+   "DiscountedPrice": 3350.4
  },
  {
    "Id": 466,
@@ -7919,7 +8384,8 @@
    "Rating": 3.9,
    "Discount": 15,
    "AvailableStocks": 619,
-   "SoldItems": 255
+   "SoldItems": 255,
+   "DiscountedPrice": 6295.95
  },
  {
    "Id": 467,
@@ -7936,7 +8402,8 @@
    "Rating": 3.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 313
+   "SoldItems": 313,
+   "DiscountedPrice": 4533.4
  },
  {
    "Id": 468,
@@ -7953,7 +8420,8 @@
    "Rating": 3.4,
    "Discount": 25,
    "AvailableStocks": 425,
-   "SoldItems": 355
+   "SoldItems": 355,
+   "DiscountedPrice": 2439
  },
  {
    "Id": 469,
@@ -7970,7 +8438,8 @@
    "Rating": 0.7,
    "Discount": 25,
    "AvailableStocks": 122,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 6591.75
  },
  {
    "Id": 470,
@@ -7987,7 +8456,8 @@
    "Rating": 3.8,
    "Discount": 40,
    "AvailableStocks": 402,
-   "SoldItems": 207
+   "SoldItems": 207,
+   "DiscountedPrice": 1130.4
  },
  {
    "Id": 471,
@@ -8004,7 +8474,8 @@
    "Rating": 3.8,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 244
+   "SoldItems": 244,
+   "DiscountedPrice": 9272.95
  },
  {
    "Id": 472,
@@ -8021,7 +8492,8 @@
    "Rating": 0.9,
    "Discount": 40,
    "AvailableStocks": 265,
-   "SoldItems": 17
+   "SoldItems": 17,
+   "DiscountedPrice": 1092.6
  },
  {
    "Id": 473,
@@ -8038,7 +8510,8 @@
    "Rating": 1.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 231
+   "SoldItems": 231,
+   "DiscountedPrice": 5835.6
  },
  {
    "Id": 474,
@@ -8055,7 +8528,8 @@
    "Rating": 4.7,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 18
+   "SoldItems": 18,
+   "DiscountedPrice": 1977.75
  },
  {
    "Id": 475,
@@ -8072,7 +8546,8 @@
    "Rating": 1.2,
    "Discount": 25,
    "AvailableStocks": 175,
-   "SoldItems": 322
+   "SoldItems": 322,
+   "DiscountedPrice": 3661.5
  },
  {
    "Id": 476,
@@ -8089,7 +8564,8 @@
    "Rating": 4.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 126
+   "SoldItems": 126,
+   "DiscountedPrice": 3035.2
  },
  {
    "Id": 477,
@@ -8106,7 +8582,8 @@
    "Rating": 0.7,
    "Discount": 15,
    "AvailableStocks": 234,
-   "SoldItems": 141
+   "SoldItems": 141,
+   "DiscountedPrice": 6460.85
  },
  {
    "Id": 478,
@@ -8123,7 +8600,8 @@
    "Rating": 0.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 193
+   "SoldItems": 193,
+   "DiscountedPrice": 8703
  },
  {
    "Id": 479,
@@ -8140,7 +8618,8 @@
    "Rating": 4.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 156
+   "SoldItems": 156,
+   "DiscountedPrice": 4411.2
  },
  {
    "Id": 480,
@@ -8157,7 +8636,8 @@
    "Rating": 2.6,
    "Discount": 20,
    "AvailableStocks": 199,
-   "SoldItems": 481
+   "SoldItems": 481,
+   "DiscountedPrice": 2027.2
  },
  {
    "Id": 481,
@@ -8174,7 +8654,8 @@
    "Rating": 2.2,
    "Discount": 15,
    "AvailableStocks": 155,
-   "SoldItems": 161
+   "SoldItems": 161,
+   "DiscountedPrice": 7703.55
  },
  {
    "Id": 482,
@@ -8191,7 +8672,8 @@
    "Rating": 2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 369
+   "SoldItems": 369,
+   "DiscountedPrice": 4831.45
  },
  {
    "Id": 483,
@@ -8208,7 +8690,8 @@
    "Rating": 2.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 261
+   "SoldItems": 261,
+   "DiscountedPrice": 1989
  },
  {
    "Id": 484,
@@ -8225,7 +8708,8 @@
    "Rating": 3.5,
    "Discount": 10,
    "AvailableStocks": 364,
-   "SoldItems": 500
+   "SoldItems": 500,
+   "DiscountedPrice": 5096.7
  },
  {
    "Id": 485,
@@ -8242,7 +8726,8 @@
    "Rating": 2,
    "Discount": 5,
    "AvailableStocks": 287,
-   "SoldItems": 312
+   "SoldItems": 312,
+   "DiscountedPrice": 5438.75
  },
  {
    "Id": 486,
@@ -8259,7 +8744,8 @@
    "Rating": 3.1,
    "Discount": 30,
    "AvailableStocks": 456,
-   "SoldItems": 246
+   "SoldItems": 246,
+   "DiscountedPrice": 1652
  },
  {
    "Id": 487,
@@ -8276,7 +8762,8 @@
    "Rating": 3.8,
    "Discount": 5,
    "AvailableStocks": 657,
-   "SoldItems": 38
+   "SoldItems": 38,
+   "DiscountedPrice": 4188.55
  },
  {
    "Id": 488,
@@ -8293,7 +8780,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 623,
-   "SoldItems": 252
+   "SoldItems": 252,
+   "DiscountedPrice": 2191.8
  },
  {
    "Id": 489,
@@ -8310,7 +8798,8 @@
    "Rating": 3.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 222
+   "SoldItems": 222,
+   "DiscountedPrice": 3789.6
  },
  {
    "Id": 490,
@@ -8327,7 +8816,8 @@
    "Rating": 4.8,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 463
+   "SoldItems": 463,
+   "DiscountedPrice": 637.5
  },
  {
    "Id": 491,
@@ -8344,7 +8834,8 @@
    "Rating": 1.8,
    "Discount": 40,
    "AvailableStocks": 505,
-   "SoldItems": 317
+   "SoldItems": 317,
+   "DiscountedPrice": 3381
  },
  {
    "Id": 492,
@@ -8361,7 +8852,8 @@
    "Rating": 0.5,
    "Discount": 25,
    "AvailableStocks": 591,
-   "SoldItems": 154
+   "SoldItems": 154,
+   "DiscountedPrice": 3982.5
  },
  {
    "Id": 493,
@@ -8378,7 +8870,8 @@
    "Rating": 3.8,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 241
+   "SoldItems": 241,
+   "DiscountedPrice": 6939.2
  },
  {
    "Id": 494,
@@ -8395,7 +8888,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 87,
-   "SoldItems": 483
+   "SoldItems": 483,
+   "DiscountedPrice": 735.8
  },
  {
    "Id": 495,
@@ -8412,7 +8906,8 @@
    "Rating": 4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 248
+   "SoldItems": 248,
+   "DiscountedPrice": 4176
  },
  {
    "Id": 496,
@@ -8429,7 +8924,8 @@
    "Rating": 0.1,
    "Discount": 25,
    "AvailableStocks": 183,
-   "SoldItems": 118
+   "SoldItems": 118,
+   "DiscountedPrice": 2316
  },
  {
    "Id": 497,
@@ -8446,7 +8942,8 @@
    "Rating": 4.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 19
+   "SoldItems": 19,
+   "DiscountedPrice": 3129.5
  },
  {
    "Id": 498,
@@ -8463,7 +8960,8 @@
    "Rating": 2.1,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 108
+   "SoldItems": 108,
+   "DiscountedPrice": 3417.85
  },
  {
    "Id": 499,
@@ -8480,7 +8978,8 @@
    "Rating": 3.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 449
+   "SoldItems": 449,
+   "DiscountedPrice": 2503.2
  },
  {
    "Id": 500,
@@ -8497,7 +8996,8 @@
    "Rating": 2.7,
    "Discount": 5,
    "AvailableStocks": 366,
-   "SoldItems": 41
+   "SoldItems": 41,
+   "DiscountedPrice": 8964.2
  },
  {
    "Id": 501,
@@ -8514,7 +9014,8 @@
    "Rating": 2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 405
+   "SoldItems": 405,
+   "DiscountedPrice": 3209.05
  },
  {
    "Id": 502,
@@ -8531,7 +9032,8 @@
    "Rating": 1.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 330
+   "SoldItems": 330,
+   "DiscountedPrice": 5952.8
  },
  {
    "Id": 503,
@@ -8548,7 +9050,8 @@
    "Rating": 3.6,
    "Discount": 15,
    "AvailableStocks": 631,
-   "SoldItems": 153
+   "SoldItems": 153,
+   "DiscountedPrice": 6499.1
  },
  {
    "Id": 504,
@@ -8565,7 +9068,8 @@
    "Rating": 4,
    "Discount": 40,
    "AvailableStocks": 542,
-   "SoldItems": 401
+   "SoldItems": 401,
+   "DiscountedPrice": 2937
  },
  {
    "Id": 505,
@@ -8582,7 +9086,8 @@
    "Rating": 0.4,
    "Discount": 40,
    "AvailableStocks": 504,
-   "SoldItems": 488
+   "SoldItems": 488,
+   "DiscountedPrice": 3784.2
  },
  {
    "Id": 506,
@@ -8599,7 +9104,8 @@
    "Rating": 2.1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 4360.5
  },
  {
    "Id": 507,
@@ -8616,7 +9122,8 @@
    "Rating": 2.6,
    "Discount": 15,
    "AvailableStocks": 574,
-   "SoldItems": 130
+   "SoldItems": 130,
+   "DiscountedPrice": 7834.45
  },
  {
    "Id": 508,
@@ -8633,7 +9140,8 @@
    "Rating": 2.8,
    "Discount": 45,
    "AvailableStocks": 179,
-   "SoldItems": 458
+   "SoldItems": 458,
+   "DiscountedPrice": 3784
  },
  {
    "Id": 509,
@@ -8650,7 +9158,8 @@
    "Rating": 0.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 253
+   "SoldItems": 253,
+   "DiscountedPrice": 590.15
  },
  {
    "Id": 510,
@@ -8667,7 +9176,8 @@
    "Rating": 4.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 36
+   "SoldItems": 36,
+   "DiscountedPrice": 3786.3
  },
  {
    "Id": 511,
@@ -8684,7 +9194,8 @@
    "Rating": 3.2,
    "Discount": 10,
    "AvailableStocks": 474,
-   "SoldItems": 55
+   "SoldItems": 55,
+   "DiscountedPrice": 8217.9
  },
  {
    "Id": 512,
@@ -8701,7 +9212,8 @@
    "Rating": 1,
    "Discount": 5,
    "AvailableStocks": 509,
-   "SoldItems": 192
+   "SoldItems": 192,
+   "DiscountedPrice": 5843.45
  },
  {
    "Id": 513,
@@ -8718,7 +9230,8 @@
    "Rating": 4,
    "Discount": 35,
    "AvailableStocks": 302,
-   "SoldItems": 187
+   "SoldItems": 187,
+   "DiscountedPrice": 4672.85
  },
  {
    "Id": 514,
@@ -8735,7 +9248,8 @@
    "Rating": 4.2,
    "Discount": 45,
    "AvailableStocks": 462,
-   "SoldItems": 53
+   "SoldItems": 53,
+   "DiscountedPrice": 3317.6
  },
  {
    "Id": 515,
@@ -8752,7 +9266,8 @@
    "Rating": 5,
    "Discount": 30,
    "AvailableStocks": 446,
-   "SoldItems": 387
+   "SoldItems": 387,
+   "DiscountedPrice": 2458.4
  },
  {
    "Id": 516,
@@ -8769,7 +9284,8 @@
    "Rating": 2.5,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 150
+   "SoldItems": 150,
+   "DiscountedPrice": 1906.4
  },
  {
    "Id": 517,
@@ -8786,7 +9302,8 @@
    "Rating": 4.9,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 225
+   "SoldItems": 225,
+   "DiscountedPrice": 821.5
  },
  {
    "Id": 518,
@@ -8803,7 +9320,8 @@
    "Rating": 0.7,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 379
+   "SoldItems": 379,
+   "DiscountedPrice": 6883.2
  },
  {
    "Id": 519,
@@ -8820,7 +9338,8 @@
    "Rating": 3.1,
    "Discount": 20,
    "AvailableStocks": 173,
-   "SoldItems": 427
+   "SoldItems": 427,
+   "DiscountedPrice": 2869.6
  },
  {
    "Id": 520,
@@ -8837,7 +9356,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 460
+   "SoldItems": 460,
+   "DiscountedPrice": 1768.8
  },
  {
    "Id": 521,
@@ -8854,7 +9374,8 @@
    "Rating": 4.4,
    "Discount": 15,
    "AvailableStocks": 661,
-   "SoldItems": 345
+   "SoldItems": 345,
+   "DiscountedPrice": 1812.2
  },
  {
    "Id": 522,
@@ -8871,7 +9392,8 @@
    "Rating": 0.4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 464
+   "SoldItems": 464,
+   "DiscountedPrice": 4540
  },
  {
    "Id": 523,
@@ -8888,7 +9410,8 @@
    "Rating": 4.5,
    "Discount": 10,
    "AvailableStocks": 736,
-   "SoldItems": 9
+   "SoldItems": 9,
+   "DiscountedPrice": 7179.3
  },
  {
    "Id": 524,
@@ -8905,7 +9428,8 @@
    "Rating": 3.9,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 300
+   "SoldItems": 300,
+   "DiscountedPrice": 2177.25
  },
  {
    "Id": 525,
@@ -8922,7 +9446,8 @@
    "Rating": 0.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 2291.5
  },
  {
    "Id": 526,
@@ -8939,7 +9464,8 @@
    "Rating": 1.6,
    "Discount": 30,
    "AvailableStocks": 30,
-   "SoldItems": 220
+   "SoldItems": 220,
+   "DiscountedPrice": 907.9
  },
  {
    "Id": 527,
@@ -8956,7 +9482,8 @@
    "Rating": 0.7,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 238
+   "SoldItems": 238,
+   "DiscountedPrice": 4187.6
  },
  {
    "Id": 528,
@@ -8973,7 +9500,8 @@
    "Rating": 4.9,
    "Discount": 25,
    "AvailableStocks": 277,
-   "SoldItems": 81
+   "SoldItems": 81,
+   "DiscountedPrice": 5632.5
  },
  {
    "Id": 529,
@@ -8990,7 +9518,8 @@
    "Rating": 4.3,
    "Discount": 35,
    "AvailableStocks": 298,
-   "SoldItems": 407
+   "SoldItems": 407,
+   "DiscountedPrice": 5001.1
  },
  {
    "Id": 530,
@@ -9007,7 +9536,8 @@
    "Rating": 2.7,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 39
+   "SoldItems": 39,
+   "DiscountedPrice": 2911.15
  },
  {
    "Id": 531,
@@ -9024,7 +9554,8 @@
    "Rating": 4.8,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 489
+   "SoldItems": 489,
+   "DiscountedPrice": 6158.85
  },
  {
    "Id": 532,
@@ -9041,7 +9572,8 @@
    "Rating": 2.9,
    "Discount": 30,
    "AvailableStocks": 385,
-   "SoldItems": 218
+   "SoldItems": 218,
+   "DiscountedPrice": 3392.9
  },
  {
    "Id": 533,
@@ -9058,7 +9590,8 @@
    "Rating": 4.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 276
+   "SoldItems": 276,
+   "DiscountedPrice": 1893.5
  },
  {
    "Id": 534,
@@ -9075,7 +9608,8 @@
    "Rating": 3,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 462
+   "SoldItems": 462,
+   "DiscountedPrice": 5183.2
  },
  {
    "Id": 535,
@@ -9092,7 +9626,8 @@
    "Rating": 4.7,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 308
+   "SoldItems": 308,
+   "DiscountedPrice": 2615.2
  },
  {
    "Id": 536,
@@ -9109,7 +9644,8 @@
    "Rating": 0.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 237
+   "SoldItems": 237,
+   "DiscountedPrice": 5059.45
  },
  {
    "Id": 537,
@@ -9126,7 +9662,8 @@
    "Rating": 0,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 348
+   "SoldItems": 348,
+   "DiscountedPrice": 997.5
  },
  {
    "Id": 538,
@@ -9143,7 +9680,8 @@
    "Rating": 5,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 474
+   "SoldItems": 474,
+   "DiscountedPrice": 7606.4
  },
  {
    "Id": 539,
@@ -9160,7 +9698,8 @@
    "Rating": 3.6,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 373
+   "SoldItems": 373,
+   "DiscountedPrice": 4332.45
  },
  {
    "Id": 540,
@@ -9177,7 +9716,8 @@
    "Rating": 3.9,
    "Discount": 20,
    "AvailableStocks": 412,
-   "SoldItems": 18
+   "SoldItems": 18,
+   "DiscountedPrice": 507.2
  },
  {
    "Id": 541,
@@ -9194,7 +9734,8 @@
    "Rating": 4.7,
    "Discount": 50,
    "AvailableStocks": 502,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 2154.5
  },
  {
    "Id": 542,
@@ -9211,7 +9752,8 @@
    "Rating": 3.3,
    "Discount": 35,
    "AvailableStocks": 175,
-   "SoldItems": 265
+   "SoldItems": 265,
+   "DiscountedPrice": 2599.35
  },
  {
    "Id": 543,
@@ -9228,7 +9770,8 @@
    "Rating": 1.8,
    "Discount": 50,
    "AvailableStocks": 229,
-   "SoldItems": 308
+   "SoldItems": 308,
+   "DiscountedPrice": 2691.5
  },
  {
    "Id": 544,
@@ -9245,7 +9788,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 146
+   "SoldItems": 146,
+   "DiscountedPrice": 8436.6
  },
  {
    "Id": 545,
@@ -9262,7 +9806,8 @@
    "Rating": 0.8,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 463
+   "SoldItems": 463,
+   "DiscountedPrice": 1796.05
  },
  {
    "Id": 546,
@@ -9279,7 +9824,8 @@
    "Rating": 1.1,
    "Discount": 0,
    "AvailableStocks": 559,
-   "SoldItems": 491
+   "SoldItems": 491,
+   "DiscountedPrice": 1679
  },
  {
    "Id": 547,
@@ -9296,7 +9842,8 @@
    "Rating": 4.2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 336
+   "SoldItems": 336,
+   "DiscountedPrice": 3035.2
  },
  {
    "Id": 548,
@@ -9313,7 +9860,8 @@
    "Rating": 1.1,
    "Discount": 50,
    "AvailableStocks": 425,
-   "SoldItems": 283
+   "SoldItems": 283,
+   "DiscountedPrice": 3279
  },
  {
    "Id": 549,
@@ -9330,7 +9878,8 @@
    "Rating": 1.3,
    "Discount": 40,
    "AvailableStocks": 589,
-   "SoldItems": 266
+   "SoldItems": 266,
+   "DiscountedPrice": 1914.6
  },
  {
    "Id": 550,
@@ -9347,7 +9896,8 @@
    "Rating": 4.2,
    "Discount": 20,
    "AvailableStocks": 739,
-   "SoldItems": 423
+   "SoldItems": 423,
+   "DiscountedPrice": 7009.6
  },
  {
    "Id": 551,
@@ -9364,7 +9914,8 @@
    "Rating": 0,
    "Discount": 35,
    "AvailableStocks": 501,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 1742.65
  },
  {
    "Id": 552,
@@ -9381,7 +9932,8 @@
    "Rating": 2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 291
+   "SoldItems": 291,
+   "DiscountedPrice": 3313.5
  },
  {
    "Id": 553,
@@ -9398,7 +9950,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 396
+   "SoldItems": 396,
+   "DiscountedPrice": 2374.9
  },
  {
    "Id": 554,
@@ -9415,7 +9968,8 @@
    "Rating": 0.7,
    "Discount": 50,
    "AvailableStocks": 523,
-   "SoldItems": 102
+   "SoldItems": 102,
+   "DiscountedPrice": 1219
  },
  {
    "Id": 555,
@@ -9432,7 +9986,8 @@
    "Rating": 0.5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 242
+   "SoldItems": 242,
+   "DiscountedPrice": 6096.3
  },
  {
    "Id": 556,
@@ -9449,7 +10004,8 @@
    "Rating": 1.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 374
+   "SoldItems": 374,
+   "DiscountedPrice": 5361.2
  },
  {
    "Id": 557,
@@ -9466,7 +10022,8 @@
    "Rating": 3.2,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 175
+   "SoldItems": 175,
+   "DiscountedPrice": 5435.1
  },
  {
    "Id": 558,
@@ -9483,7 +10040,8 @@
    "Rating": 2.7,
    "Discount": 50,
    "AvailableStocks": 654,
-   "SoldItems": 391
+   "SoldItems": 391,
+   "DiscountedPrice": 4050.5
  },
  {
    "Id": 559,
@@ -9500,7 +10058,8 @@
    "Rating": 3.8,
    "Discount": 45,
    "AvailableStocks": 501,
-   "SoldItems": 370
+   "SoldItems": 370,
+   "DiscountedPrice": 892.1
  },
  {
    "Id": 560,
@@ -9517,7 +10076,8 @@
    "Rating": 3.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 395
+   "SoldItems": 395,
+   "DiscountedPrice": 4826
  },
  {
    "Id": 561,
@@ -9534,7 +10094,8 @@
    "Rating": 1.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 91
+   "SoldItems": 91,
+   "DiscountedPrice": 3426
  },
  {
    "Id": 562,
@@ -9551,7 +10112,8 @@
    "Rating": 4.7,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 211
+   "SoldItems": 211,
+   "DiscountedPrice": 8235
  },
  {
    "Id": 563,
@@ -9568,7 +10130,8 @@
    "Rating": 4.9,
    "Discount": 20,
    "AvailableStocks": 617,
-   "SoldItems": 83
+   "SoldItems": 83,
+   "DiscountedPrice": 5148
  },
  {
    "Id": 564,
@@ -9585,7 +10148,8 @@
    "Rating": 4.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 159
+   "SoldItems": 159,
+   "DiscountedPrice": 1210
  },
  {
    "Id": 565,
@@ -9602,7 +10166,8 @@
    "Rating": 0.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 71
+   "SoldItems": 71,
+   "DiscountedPrice": 1260
  },
  {
    "Id": 566,
@@ -9619,7 +10184,8 @@
    "Rating": 0,
    "Discount": 30,
    "AvailableStocks": 70,
-   "SoldItems": 383
+   "SoldItems": 383,
+   "DiscountedPrice": 4687.9
  },
  {
    "Id": 567,
@@ -9636,7 +10202,8 @@
    "Rating": 1.1,
    "Discount": 30,
    "AvailableStocks": 61,
-   "SoldItems": 352
+   "SoldItems": 352,
+   "DiscountedPrice": 3892.7
  },
  {
    "Id": 568,
@@ -9653,7 +10220,8 @@
    "Rating": 2.5,
    "Discount": 15,
    "AvailableStocks": 261,
-   "SoldItems": 368
+   "SoldItems": 368,
+   "DiscountedPrice": 750.55
  },
  {
    "Id": 569,
@@ -9670,7 +10238,8 @@
    "Rating": 0.8,
    "Discount": 30,
    "AvailableStocks": 586,
-   "SoldItems": 304
+   "SoldItems": 304,
+   "DiscountedPrice": 5674.2
  },
  {
    "Id": 570,
@@ -9687,7 +10256,8 @@
    "Rating": 3.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 373
+   "SoldItems": 373,
+   "DiscountedPrice": 5643.3
  },
  {
    "Id": 571,
@@ -9704,7 +10274,8 @@
    "Rating": 2.6,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 336
+   "SoldItems": 336,
+   "DiscountedPrice": 3321.5
  },
  {
    "Id": 572,
@@ -9721,7 +10292,8 @@
    "Rating": 2.4,
    "Discount": 45,
    "AvailableStocks": 321,
-   "SoldItems": 485
+   "SoldItems": 485,
+   "DiscountedPrice": 2180.2
  },
  {
    "Id": 573,
@@ -9738,7 +10310,8 @@
    "Rating": 1.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 329
+   "SoldItems": 329,
+   "DiscountedPrice": 2039.65
  },
  {
    "Id": 574,
@@ -9755,7 +10328,8 @@
    "Rating": 4.5,
    "Discount": 10,
    "AvailableStocks": 221,
-   "SoldItems": 378
+   "SoldItems": 378,
+   "DiscountedPrice": 8861.4
  },
  {
    "Id": 575,
@@ -9772,7 +10346,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 721,
-   "SoldItems": 307
+   "SoldItems": 307,
+   "DiscountedPrice": 2307.75
  },
  {
    "Id": 576,
@@ -9789,7 +10364,8 @@
    "Rating": 1.5,
    "Discount": 5,
    "AvailableStocks": 355,
-   "SoldItems": 463
+   "SoldItems": 463,
+   "DiscountedPrice": 1074.45
  },
  {
    "Id": 577,
@@ -9806,7 +10382,8 @@
    "Rating": 2.3,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 258
+   "SoldItems": 258,
+   "DiscountedPrice": 3519.85
  },
  {
    "Id": 578,
@@ -9823,7 +10400,8 @@
    "Rating": 0.3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 382
+   "SoldItems": 382,
+   "DiscountedPrice": 1488.6
  },
  {
    "Id": 579,
@@ -9840,7 +10418,8 @@
    "Rating": 2.3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 449
+   "SoldItems": 449,
+   "DiscountedPrice": 943.15
  },
  {
    "Id": 580,
@@ -9857,7 +10436,8 @@
    "Rating": 1.2,
    "Discount": 20,
    "AvailableStocks": 400,
-   "SoldItems": 458
+   "SoldItems": 458,
+   "DiscountedPrice": 647.2
  },
  {
    "Id": 581,
@@ -9874,7 +10454,8 @@
    "Rating": 0.8,
    "Discount": 25,
    "AvailableStocks": 521,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 1219.5
  },
  {
    "Id": 582,
@@ -9891,7 +10472,8 @@
    "Rating": 3.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 356
+   "SoldItems": 356,
+   "DiscountedPrice": 4952.8
  },
  {
    "Id": 583,
@@ -9908,7 +10490,8 @@
    "Rating": 0.3,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 269
+   "SoldItems": 269,
+   "DiscountedPrice": 6298.4
  },
  {
    "Id": 584,
@@ -9925,7 +10508,8 @@
    "Rating": 0.9,
    "Discount": 30,
    "AvailableStocks": 459,
-   "SoldItems": 465
+   "SoldItems": 465,
+   "DiscountedPrice": 6821.5
  },
  {
    "Id": 585,
@@ -9942,7 +10526,8 @@
    "Rating": 1.4,
    "Discount": 20,
    "AvailableStocks": 584,
-   "SoldItems": 474
+   "SoldItems": 474,
+   "DiscountedPrice": 744.8
  },
  {
    "Id": 586,
@@ -9959,7 +10544,8 @@
    "Rating": 3.2,
    "Discount": 45,
    "AvailableStocks": 40,
-   "SoldItems": 193
+   "SoldItems": 193,
+   "DiscountedPrice": 3218.6
  },
  {
    "Id": 587,
@@ -9976,7 +10562,8 @@
    "Rating": 4.4,
    "Discount": 5,
    "AvailableStocks": 19,
-   "SoldItems": 126
+   "SoldItems": 126,
+   "DiscountedPrice": 5200.3
  },
  {
    "Id": 588,
@@ -9993,7 +10580,8 @@
    "Rating": 3.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 187
+   "SoldItems": 187,
+   "DiscountedPrice": 5787.9
  },
  {
    "Id": 589,
@@ -10010,7 +10598,8 @@
    "Rating": 2.4,
    "Discount": 10,
    "AvailableStocks": 391,
-   "SoldItems": 54
+   "SoldItems": 54,
+   "DiscountedPrice": 4277.7
  },
  {
    "Id": 590,
@@ -10027,7 +10616,8 @@
    "Rating": 0,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 253
+   "SoldItems": 253,
+   "DiscountedPrice": 6350.35
  },
  {
    "Id": 591,
@@ -10044,7 +10634,8 @@
    "Rating": 0.2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 243
+   "SoldItems": 243,
+   "DiscountedPrice": 8664
  },
  {
    "Id": 592,
@@ -10061,7 +10652,8 @@
    "Rating": 3.5,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 136
+   "SoldItems": 136,
+   "DiscountedPrice": 4088.15
  },
  {
    "Id": 593,
@@ -10078,7 +10670,8 @@
    "Rating": 0.7,
    "Discount": 15,
    "AvailableStocks": 197,
-   "SoldItems": 312
+   "SoldItems": 312,
+   "DiscountedPrice": 3109.3
  },
  {
    "Id": 594,
@@ -10095,7 +10688,8 @@
    "Rating": 3,
    "Discount": 30,
    "AvailableStocks": 216,
-   "SoldItems": 445
+   "SoldItems": 445,
+   "DiscountedPrice": 878.5
  },
  {
    "Id": 595,
@@ -10112,7 +10706,8 @@
    "Rating": 1.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 5430
  },
  {
    "Id": 596,
@@ -10129,7 +10724,8 @@
    "Rating": 3.2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 75
+   "SoldItems": 75,
+   "DiscountedPrice": 1617.55
  },
  {
    "Id": 597,
@@ -10146,7 +10742,8 @@
    "Rating": 3.3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 232
+   "SoldItems": 232,
+   "DiscountedPrice": 3362.4
  },
  {
    "Id": 598,
@@ -10163,7 +10760,8 @@
    "Rating": 4.2,
    "Discount": 5,
    "AvailableStocks": 335,
-   "SoldItems": 313
+   "SoldItems": 313,
+   "DiscountedPrice": 1508.6
  },
  {
    "Id": 599,
@@ -10180,7 +10778,8 @@
    "Rating": 3.6,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 437
+   "SoldItems": 437,
+   "DiscountedPrice": 5798.4
  },
  {
    "Id": 600,
@@ -10197,7 +10796,8 @@
    "Rating": 0,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 321
+   "SoldItems": 321,
+   "DiscountedPrice": 1503.6
  },
  {
    "Id": 601,
@@ -10214,7 +10814,8 @@
    "Rating": 3.5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 167
+   "SoldItems": 167,
+   "DiscountedPrice": 4855.9
  },
  {
    "Id": 602,
@@ -10231,7 +10832,8 @@
    "Rating": 3.6,
    "Discount": 40,
    "AvailableStocks": 578,
-   "SoldItems": 464
+   "SoldItems": 464,
+   "DiscountedPrice": 5803.2
  },
  {
    "Id": 603,
@@ -10248,7 +10850,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 732,
-   "SoldItems": 213
+   "SoldItems": 213,
+   "DiscountedPrice": 3673.8
  },
  {
    "Id": 604,
@@ -10265,7 +10868,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 235
+   "SoldItems": 235,
+   "DiscountedPrice": 5578.3
  },
  {
    "Id": 605,
@@ -10282,7 +10886,8 @@
    "Rating": 0.2,
    "Discount": 20,
    "AvailableStocks": 34,
-   "SoldItems": 404
+   "SoldItems": 404,
+   "DiscountedPrice": 4008.8
  },
  {
    "Id": 606,
@@ -10299,7 +10904,8 @@
    "Rating": 4.2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 347
+   "SoldItems": 347,
+   "DiscountedPrice": 3514.75
  },
  {
    "Id": 607,
@@ -10316,7 +10922,8 @@
    "Rating": 4.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 466
+   "SoldItems": 466,
+   "DiscountedPrice": 1860.8
  },
  {
    "Id": 608,
@@ -10333,7 +10940,8 @@
    "Rating": 1.6,
    "Discount": 35,
    "AvailableStocks": 26,
-   "SoldItems": 281
+   "SoldItems": 281,
+   "DiscountedPrice": 436.8
  },
  {
    "Id": 609,
@@ -10350,7 +10958,8 @@
    "Rating": 0,
    "Discount": 10,
    "AvailableStocks": 208,
-   "SoldItems": 471
+   "SoldItems": 471,
+   "DiscountedPrice": 3618
  },
  {
    "Id": 610,
@@ -10367,7 +10976,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 228
+   "SoldItems": 228,
+   "DiscountedPrice": 4401.75
  },
  {
    "Id": 611,
@@ -10384,7 +10994,8 @@
    "Rating": 4.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 342
+   "SoldItems": 342,
+   "DiscountedPrice": 2835
  },
  {
    "Id": 612,
@@ -10401,7 +11012,8 @@
    "Rating": 2.1,
    "Discount": 20,
    "AvailableStocks": 397,
-   "SoldItems": 174
+   "SoldItems": 174,
+   "DiscountedPrice": 4216.8
  },
  {
    "Id": 613,
@@ -10418,7 +11030,8 @@
    "Rating": 3.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 414
+   "SoldItems": 414,
+   "DiscountedPrice": 405.35
  },
  {
    "Id": 614,
@@ -10435,7 +11048,8 @@
    "Rating": 3.3,
    "Discount": 15,
    "AvailableStocks": 291,
-   "SoldItems": 43
+   "SoldItems": 43,
+   "DiscountedPrice": 4152.25
  },
  {
    "Id": 615,
@@ -10452,7 +11066,8 @@
    "Rating": 0.8,
    "Discount": 30,
    "AvailableStocks": 723,
-   "SoldItems": 254
+   "SoldItems": 254,
+   "DiscountedPrice": 3785.6
  },
  {
    "Id": 616,
@@ -10469,7 +11084,8 @@
    "Rating": 3,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 178
+   "SoldItems": 178,
+   "DiscountedPrice": 4566.8
  },
  {
    "Id": 617,
@@ -10486,7 +11102,8 @@
    "Rating": 0,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 395
+   "SoldItems": 395,
+   "DiscountedPrice": 7078.5
  },
  {
    "Id": 618,
@@ -10503,7 +11120,8 @@
    "Rating": 0.3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 490
+   "SoldItems": 490,
+   "DiscountedPrice": 6416.8
  },
  {
    "Id": 619,
@@ -10520,7 +11138,8 @@
    "Rating": 2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 146
+   "SoldItems": 146,
+   "DiscountedPrice": 4482.1
  },
  {
    "Id": 620,
@@ -10537,7 +11156,8 @@
    "Rating": 4,
    "Discount": 25,
    "AvailableStocks": 264,
-   "SoldItems": 262
+   "SoldItems": 262,
+   "DiscountedPrice": 1562.25
  },
  {
    "Id": 621,
@@ -10554,7 +11174,8 @@
    "Rating": 3.8,
    "Discount": 35,
    "AvailableStocks": 269,
-   "SoldItems": 436
+   "SoldItems": 436,
+   "DiscountedPrice": 707.2
  },
  {
    "Id": 622,
@@ -10571,7 +11192,8 @@
    "Rating": 2.5,
    "Discount": 0,
    "AvailableStocks": 446,
-   "SoldItems": 305
+   "SoldItems": 305,
+   "DiscountedPrice": 9200
  },
  {
    "Id": 623,
@@ -10588,7 +11210,8 @@
    "Rating": 1.8,
    "Discount": 40,
    "AvailableStocks": 749,
-   "SoldItems": 54
+   "SoldItems": 54,
+   "DiscountedPrice": 5599.8
  },
  {
    "Id": 624,
@@ -10605,7 +11228,8 @@
    "Rating": 2.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 201
+   "SoldItems": 201,
+   "DiscountedPrice": 649.6
  },
  {
    "Id": 625,
@@ -10622,7 +11246,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 340
+   "SoldItems": 340,
+   "DiscountedPrice": 3460.5
  },
  {
    "Id": 626,
@@ -10639,7 +11264,8 @@
    "Rating": 4.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 404
+   "SoldItems": 404,
+   "DiscountedPrice": 5402.8
  },
  {
    "Id": 627,
@@ -10656,7 +11282,8 @@
    "Rating": 1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 104
+   "SoldItems": 104,
+   "DiscountedPrice": 1539
  },
  {
    "Id": 628,
@@ -10673,7 +11300,8 @@
    "Rating": 2.8,
    "Discount": 15,
    "AvailableStocks": 573,
-   "SoldItems": 426
+   "SoldItems": 426,
+   "DiscountedPrice": 1792.65
  },
  {
    "Id": 629,
@@ -10690,7 +11318,8 @@
    "Rating": 3.6,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 25
+   "SoldItems": 25,
+   "DiscountedPrice": 6864.3
  },
  {
    "Id": 630,
@@ -10707,7 +11336,8 @@
    "Rating": 0.5,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 123
+   "SoldItems": 123,
+   "DiscountedPrice": 3157.6
  },
  {
    "Id": 631,
@@ -10724,7 +11354,8 @@
    "Rating": 3.4,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 487
+   "SoldItems": 487,
+   "DiscountedPrice": 5103.9
  },
  {
    "Id": 632,
@@ -10741,7 +11372,8 @@
    "Rating": 0.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 1521.6
  },
  {
    "Id": 633,
@@ -10758,7 +11390,8 @@
    "Rating": 4.1,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 409
+   "SoldItems": 409,
+   "DiscountedPrice": 5096
  },
  {
    "Id": 634,
@@ -10775,7 +11408,8 @@
    "Rating": 2.3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 214
+   "SoldItems": 214,
+   "DiscountedPrice": 1191.45
  },
  {
    "Id": 635,
@@ -10792,7 +11426,8 @@
    "Rating": 1.4,
    "Discount": 40,
    "AvailableStocks": 34,
-   "SoldItems": 341
+   "SoldItems": 341,
+   "DiscountedPrice": 1030.8
  },
  {
    "Id": 636,
@@ -10809,7 +11444,8 @@
    "Rating": 0.4,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 140
+   "SoldItems": 140,
+   "DiscountedPrice": 7246.8
  },
  {
    "Id": 637,
@@ -10826,7 +11462,8 @@
    "Rating": 3.9,
    "Discount": 10,
    "AvailableStocks": 371,
-   "SoldItems": 367
+   "SoldItems": 367,
+   "DiscountedPrice": 1208.7
  },
  {
    "Id": 638,
@@ -10843,7 +11480,8 @@
    "Rating": 0.9,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 402
+   "SoldItems": 402,
+   "DiscountedPrice": 2843
  },
  {
    "Id": 639,
@@ -10860,7 +11498,8 @@
    "Rating": 3.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 475
+   "SoldItems": 475,
+   "DiscountedPrice": 513
  },
  {
    "Id": 640,
@@ -10877,7 +11516,8 @@
    "Rating": 4.2,
    "Discount": 0,
    "AvailableStocks": 470,
-   "SoldItems": 481
+   "SoldItems": 481,
+   "DiscountedPrice": 3769
  },
  {
    "Id": 641,
@@ -10894,7 +11534,8 @@
    "Rating": 3.1,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 40
+   "SoldItems": 40,
+   "DiscountedPrice": 4613.05
  },
  {
    "Id": 642,
@@ -10911,7 +11552,8 @@
    "Rating": 2,
    "Discount": 5,
    "AvailableStocks": 457,
-   "SoldItems": 99
+   "SoldItems": 99,
+   "DiscountedPrice": 9198.85
  },
  {
    "Id": 643,
@@ -10928,7 +11570,8 @@
    "Rating": 1.7,
    "Discount": 45,
    "AvailableStocks": 210,
-   "SoldItems": 132
+   "SoldItems": 132,
+   "DiscountedPrice": 1554.85
  },
  {
    "Id": 644,
@@ -10945,7 +11588,8 @@
    "Rating": 5,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 197
+   "SoldItems": 197,
+   "DiscountedPrice": 3211.2
  },
  {
    "Id": 645,
@@ -10962,7 +11606,8 @@
    "Rating": 1.3,
    "Discount": 30,
    "AvailableStocks": 316,
-   "SoldItems": 188
+   "SoldItems": 188,
+   "DiscountedPrice": 5625.9
  },
  {
    "Id": 646,
@@ -10979,7 +11624,8 @@
    "Rating": 3.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 327
+   "SoldItems": 327,
+   "DiscountedPrice": 3522.75
  },
  {
    "Id": 647,
@@ -10996,7 +11642,8 @@
    "Rating": 1.7,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 286
+   "SoldItems": 286,
+   "DiscountedPrice": 6359.4
  },
  {
    "Id": 648,
@@ -11013,7 +11660,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 743,
-   "SoldItems": 453
+   "SoldItems": 453,
+   "DiscountedPrice": 2141.3
  },
  {
    "Id": 649,
@@ -11030,7 +11678,8 @@
    "Rating": 3.6,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 135
+   "SoldItems": 135,
+   "DiscountedPrice": 8658.9
  },
  {
    "Id": 650,
@@ -11047,7 +11696,8 @@
    "Rating": 4,
    "Discount": 35,
    "AvailableStocks": 106,
-   "SoldItems": 299
+   "SoldItems": 299,
+   "DiscountedPrice": 4026.1
  },
  {
    "Id": 651,
@@ -11064,7 +11714,8 @@
    "Rating": 4.3,
    "Discount": 45,
    "AvailableStocks": 702,
-   "SoldItems": 353
+   "SoldItems": 353,
+   "DiscountedPrice": 4800.4
  },
  {
    "Id": 652,
@@ -11081,7 +11732,8 @@
    "Rating": 4.3,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 338
+   "SoldItems": 338,
+   "DiscountedPrice": 1782.2
  },
  {
    "Id": 653,
@@ -11098,7 +11750,8 @@
    "Rating": 1.8,
    "Discount": 25,
    "AvailableStocks": 62,
-   "SoldItems": 155
+   "SoldItems": 155,
+   "DiscountedPrice": 2701.5
  },
  {
    "Id": 654,
@@ -11115,7 +11768,8 @@
    "Rating": 4.1,
    "Discount": 40,
    "AvailableStocks": 653,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 2323.2
  },
  {
    "Id": 655,
@@ -11132,7 +11786,8 @@
    "Rating": 0.8,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 427
+   "SoldItems": 427,
+   "DiscountedPrice": 5788.8
  },
  {
    "Id": 656,
@@ -11149,7 +11804,8 @@
    "Rating": 0.2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 208
+   "SoldItems": 208,
+   "DiscountedPrice": 7956.25
  },
  {
    "Id": 657,
@@ -11166,7 +11822,8 @@
    "Rating": 3.6,
    "Discount": 50,
    "AvailableStocks": 567,
-   "SoldItems": 155
+   "SoldItems": 155,
+   "DiscountedPrice": 1883.5
  },
  {
    "Id": 658,
@@ -11183,7 +11840,8 @@
    "Rating": 0.7,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 46
+   "SoldItems": 46,
+   "DiscountedPrice": 520.1
  },
  {
    "Id": 659,
@@ -11200,7 +11858,8 @@
    "Rating": 0.4,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 321
+   "SoldItems": 321,
+   "DiscountedPrice": 1587.75
  },
  {
    "Id": 660,
@@ -11217,7 +11876,8 @@
    "Rating": 4.6,
    "Discount": 25,
    "AvailableStocks": 687,
-   "SoldItems": 347
+   "SoldItems": 347,
+   "DiscountedPrice": 2224.5
  },
  {
    "Id": 661,
@@ -11234,7 +11894,8 @@
    "Rating": 1.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 9
+   "SoldItems": 9,
+   "DiscountedPrice": 1466.5
  },
  {
    "Id": 662,
@@ -11251,7 +11912,8 @@
    "Rating": 1.6,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 46
+   "SoldItems": 46,
+   "DiscountedPrice": 7559
  },
  {
    "Id": 663,
@@ -11268,7 +11930,8 @@
    "Rating": 3.9,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 485
+   "SoldItems": 485,
+   "DiscountedPrice": 3703.7
  },
  {
    "Id": 664,
@@ -11285,7 +11948,8 @@
    "Rating": 2.5,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 436
+   "SoldItems": 436,
+   "DiscountedPrice": 1441.2
  },
  {
    "Id": 665,
@@ -11302,7 +11966,8 @@
    "Rating": 0.8,
    "Discount": 5,
    "AvailableStocks": 309,
-   "SoldItems": 18
+   "SoldItems": 18,
+   "DiscountedPrice": 7913.5
  },
  {
    "Id": 666,
@@ -11319,7 +11984,8 @@
    "Rating": 1,
    "Discount": 0,
    "AvailableStocks": 144,
-   "SoldItems": 107
+   "SoldItems": 107,
+   "DiscountedPrice": 6430
  },
  {
    "Id": 667,
@@ -11336,7 +12002,8 @@
    "Rating": 0.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 9
+   "SoldItems": 9,
+   "DiscountedPrice": 3535.4
  },
  {
    "Id": 668,
@@ -11353,7 +12020,8 @@
    "Rating": 2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 480
+   "SoldItems": 480,
+   "DiscountedPrice": 2340.1
  },
  {
    "Id": 669,
@@ -11370,7 +12038,8 @@
    "Rating": 2.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 384
+   "SoldItems": 384,
+   "DiscountedPrice": 630.9
  },
  {
    "Id": 670,
@@ -11387,7 +12056,8 @@
    "Rating": 1,
    "Discount": 30,
    "AvailableStocks": 471,
-   "SoldItems": 61
+   "SoldItems": 61,
+   "DiscountedPrice": 6503.7
  },
  {
    "Id": 671,
@@ -11404,7 +12074,8 @@
    "Rating": 1.6,
    "Discount": 30,
    "AvailableStocks": 125,
-   "SoldItems": 17
+   "SoldItems": 17,
+   "DiscountedPrice": 4642.4
  },
  {
    "Id": 672,
@@ -11421,7 +12092,8 @@
    "Rating": 1.7,
    "Discount": 25,
    "AvailableStocks": 518,
-   "SoldItems": 179
+   "SoldItems": 179,
+   "DiscountedPrice": 3753.75
  },
  {
    "Id": 673,
@@ -11438,7 +12110,8 @@
    "Rating": 2.5,
    "Discount": 10,
    "AvailableStocks": 468,
-   "SoldItems": 236
+   "SoldItems": 236,
+   "DiscountedPrice": 4629.6
  },
  {
    "Id": 674,
@@ -11455,7 +12128,8 @@
    "Rating": 3.1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 312
+   "SoldItems": 312,
+   "DiscountedPrice": 9318.55
  },
  {
    "Id": 675,
@@ -11472,7 +12146,8 @@
    "Rating": 0,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 126
+   "SoldItems": 126,
+   "DiscountedPrice": 2248.65
  },
  {
    "Id": 676,
@@ -11489,7 +12164,8 @@
    "Rating": 3,
    "Discount": 30,
    "AvailableStocks": 716,
-   "SoldItems": 278
+   "SoldItems": 278,
+   "DiscountedPrice": 6008.8
  },
  {
    "Id": 677,
@@ -11506,7 +12182,8 @@
    "Rating": 1.1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 498
+   "SoldItems": 498,
+   "DiscountedPrice": 5762.25
  },
  {
    "Id": 678,
@@ -11523,7 +12200,8 @@
    "Rating": 1.8,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 609.6
  },
  {
    "Id": 679,
@@ -11540,7 +12218,8 @@
    "Rating": 2.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 416
+   "SoldItems": 416,
+   "DiscountedPrice": 4408
  },
  {
    "Id": 680,
@@ -11557,7 +12236,8 @@
    "Rating": 5,
    "Discount": 15,
    "AvailableStocks": 148,
-   "SoldItems": 203
+   "SoldItems": 203,
+   "DiscountedPrice": 1491.75
  },
  {
    "Id": 681,
@@ -11574,7 +12254,8 @@
    "Rating": 4.3,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 336
+   "SoldItems": 336,
+   "DiscountedPrice": 530.4
  },
  {
    "Id": 682,
@@ -11591,7 +12272,8 @@
    "Rating": 2.5,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 165
+   "SoldItems": 165,
+   "DiscountedPrice": 2405
  },
  {
    "Id": 683,
@@ -11608,7 +12290,8 @@
    "Rating": 0,
    "Discount": 5,
    "AvailableStocks": 691,
-   "SoldItems": 479
+   "SoldItems": 479,
+   "DiscountedPrice": 6467.6
  },
  {
    "Id": 684,
@@ -11625,7 +12308,8 @@
    "Rating": 0.8,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 306
+   "SoldItems": 306,
+   "DiscountedPrice": 5486.4
  },
  {
    "Id": 685,
@@ -11642,7 +12326,8 @@
    "Rating": 3.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 483
+   "SoldItems": 483,
+   "DiscountedPrice": 4027.8
  },
  {
    "Id": 686,
@@ -11659,7 +12344,8 @@
    "Rating": 4.9,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 50
+   "SoldItems": 50,
+   "DiscountedPrice": 6415.2
  },
  {
    "Id": 687,
@@ -11676,7 +12362,8 @@
    "Rating": 2,
    "Discount": 50,
    "AvailableStocks": 297,
-   "SoldItems": 45
+   "SoldItems": 45,
+   "DiscountedPrice": 2314
  },
  {
    "Id": 688,
@@ -11693,7 +12380,8 @@
    "Rating": 0.2,
    "Discount": 10,
    "AvailableStocks": 180,
-   "SoldItems": 254
+   "SoldItems": 254,
+   "DiscountedPrice": 4601.7
  },
  {
    "Id": 689,
@@ -11710,7 +12398,8 @@
    "Rating": 0.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 458
+   "SoldItems": 458,
+   "DiscountedPrice": 1327.2
  },
  {
    "Id": 690,
@@ -11727,7 +12416,8 @@
    "Rating": 0.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 292
+   "SoldItems": 292,
+   "DiscountedPrice": 7158.6
  },
  {
    "Id": 691,
@@ -11744,7 +12434,8 @@
    "Rating": 4.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 484
+   "SoldItems": 484,
+   "DiscountedPrice": 2634.5
  },
  {
    "Id": 692,
@@ -11761,7 +12452,8 @@
    "Rating": 0.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 18
+   "SoldItems": 18,
+   "DiscountedPrice": 5413.1
  },
  {
    "Id": 693,
@@ -11778,7 +12470,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 87,
-   "SoldItems": 189
+   "SoldItems": 189,
+   "DiscountedPrice": 751
  },
  {
    "Id": 694,
@@ -11795,7 +12488,8 @@
    "Rating": 0.7,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 430
+   "SoldItems": 430,
+   "DiscountedPrice": 6952
  },
  {
    "Id": 695,
@@ -11812,7 +12506,8 @@
    "Rating": 2.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 411
+   "SoldItems": 411,
+   "DiscountedPrice": 574.8
  },
  {
    "Id": 696,
@@ -11829,7 +12524,8 @@
    "Rating": 0.8,
    "Discount": 50,
    "AvailableStocks": 671,
-   "SoldItems": 112
+   "SoldItems": 112,
+   "DiscountedPrice": 4917
  },
  {
    "Id": 697,
@@ -11846,7 +12542,8 @@
    "Rating": 1.2,
    "Discount": 30,
    "AvailableStocks": 680,
-   "SoldItems": 127
+   "SoldItems": 127,
+   "DiscountedPrice": 5479.6
  },
  {
    "Id": 698,
@@ -11863,7 +12560,8 @@
    "Rating": 3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 13
+   "SoldItems": 13,
+   "DiscountedPrice": 3493.8
  },
  {
    "Id": 699,
@@ -11880,7 +12578,8 @@
    "Rating": 0,
    "Discount": 15,
    "AvailableStocks": 495,
-   "SoldItems": 150
+   "SoldItems": 150,
+   "DiscountedPrice": 2430.15
  },
  {
    "Id": 700,
@@ -11897,7 +12596,8 @@
    "Rating": 2.7,
    "Discount": 5,
    "AvailableStocks": 24,
-   "SoldItems": 164
+   "SoldItems": 164,
+   "DiscountedPrice": 1838.25
  },
  {
    "Id": 701,
@@ -11914,7 +12614,8 @@
    "Rating": 0.4,
    "Discount": 40,
    "AvailableStocks": 621,
-   "SoldItems": 113
+   "SoldItems": 113,
+   "DiscountedPrice": 3808.8
  },
  {
    "Id": 702,
@@ -11931,7 +12632,8 @@
    "Rating": 4.2,
    "Discount": 20,
    "AvailableStocks": 658,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 4822.4
  },
  {
    "Id": 703,
@@ -11948,7 +12650,8 @@
    "Rating": 2.3,
    "Discount": 35,
    "AvailableStocks": 441,
-   "SoldItems": 136
+   "SoldItems": 136,
+   "DiscountedPrice": 4022.85
  },
  {
    "Id": 704,
@@ -11965,7 +12668,8 @@
    "Rating": 3.3,
    "Discount": 45,
    "AvailableStocks": 193,
-   "SoldItems": 83
+   "SoldItems": 83,
+   "DiscountedPrice": 2563
  },
  {
    "Id": 705,
@@ -11982,7 +12686,8 @@
    "Rating": 3,
    "Discount": 40,
    "AvailableStocks": 374,
-   "SoldItems": 205
+   "SoldItems": 205,
+   "DiscountedPrice": 4208.4
  },
  {
    "Id": 706,
@@ -11999,7 +12704,8 @@
    "Rating": 3.1,
    "Discount": 40,
    "AvailableStocks": 420,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 2576.4
  },
  {
    "Id": 707,
@@ -12016,7 +12722,8 @@
    "Rating": 3.7,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 463
+   "SoldItems": 463,
+   "DiscountedPrice": 2057.7
  },
  {
    "Id": 708,
@@ -12033,7 +12740,8 @@
    "Rating": 0.3,
    "Discount": 5,
    "AvailableStocks": 189,
-   "SoldItems": 469
+   "SoldItems": 469,
+   "DiscountedPrice": 6307.05
  },
  {
    "Id": 709,
@@ -12050,7 +12758,8 @@
    "Rating": 0.3,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 498
+   "SoldItems": 498,
+   "DiscountedPrice": 954.75
  },
  {
    "Id": 710,
@@ -12067,7 +12776,8 @@
    "Rating": 3.4,
    "Discount": 25,
    "AvailableStocks": 213,
-   "SoldItems": 160
+   "SoldItems": 160,
+   "DiscountedPrice": 6825.75
  },
  {
    "Id": 711,
@@ -12084,7 +12794,8 @@
    "Rating": 1.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 425
+   "SoldItems": 425,
+   "DiscountedPrice": 6878.2
  },
  {
    "Id": 712,
@@ -12101,7 +12812,8 @@
    "Rating": 1.3,
    "Discount": 50,
    "AvailableStocks": 316,
-   "SoldItems": 28
+   "SoldItems": 28,
+   "DiscountedPrice": 1438
  },
  {
    "Id": 713,
@@ -12118,7 +12830,8 @@
    "Rating": 3.5,
    "Discount": 40,
    "AvailableStocks": 112,
-   "SoldItems": 364
+   "SoldItems": 364,
+   "DiscountedPrice": 4762.2
  },
  {
    "Id": 714,
@@ -12135,7 +12848,8 @@
    "Rating": 3.2,
    "Discount": 15,
    "AvailableStocks": 135,
-   "SoldItems": 150
+   "SoldItems": 150,
+   "DiscountedPrice": 827.9
  },
  {
    "Id": 715,
@@ -12152,7 +12866,8 @@
    "Rating": 0.8,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 437
+   "SoldItems": 437,
+   "DiscountedPrice": 2980.95
  },
  {
    "Id": 716,
@@ -12169,7 +12884,8 @@
    "Rating": 1.1,
    "Discount": 30,
    "AvailableStocks": 234,
-   "SoldItems": 125
+   "SoldItems": 125,
+   "DiscountedPrice": 2930.2
  },
  {
    "Id": 717,
@@ -12186,7 +12902,8 @@
    "Rating": 1.2,
    "Discount": 40,
    "AvailableStocks": 724,
-   "SoldItems": 330
+   "SoldItems": 330,
+   "DiscountedPrice": 816
  },
  {
    "Id": 718,
@@ -12203,7 +12920,8 @@
    "Rating": 0.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 451
+   "SoldItems": 451,
+   "DiscountedPrice": 299.75
  },
  {
    "Id": 719,
@@ -12220,7 +12938,8 @@
    "Rating": 1.7,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 327
+   "SoldItems": 327,
+   "DiscountedPrice": 2901.9
  },
  {
    "Id": 720,
@@ -12237,7 +12956,8 @@
    "Rating": 1.2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 23
+   "SoldItems": 23,
+   "DiscountedPrice": 5922
  },
  {
    "Id": 721,
@@ -12254,7 +12974,8 @@
    "Rating": 3.9,
    "Discount": 45,
    "AvailableStocks": 719,
-   "SoldItems": 18
+   "SoldItems": 18,
+   "DiscountedPrice": 4099.15
  },
  {
    "Id": 722,
@@ -12271,7 +12992,8 @@
    "Rating": 4.9,
    "Discount": 20,
    "AvailableStocks": 736,
-   "SoldItems": 255
+   "SoldItems": 255,
+   "DiscountedPrice": 3177.6
  },
  {
    "Id": 723,
@@ -12288,7 +13010,8 @@
    "Rating": 4.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 329
+   "SoldItems": 329,
+   "DiscountedPrice": 3811.5
  },
  {
    "Id": 724,
@@ -12305,7 +13028,8 @@
    "Rating": 4.5,
    "Discount": 40,
    "AvailableStocks": 575,
-   "SoldItems": 313
+   "SoldItems": 313,
+   "DiscountedPrice": 2447.4
  },
  {
    "Id": 725,
@@ -12322,7 +13046,8 @@
    "Rating": 4,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 392
+   "SoldItems": 392,
+   "DiscountedPrice": 928.15
  },
  {
    "Id": 726,
@@ -12339,7 +13064,8 @@
    "Rating": 1.7,
    "Discount": 35,
    "AvailableStocks": 576,
-   "SoldItems": 12
+   "SoldItems": 12,
+   "DiscountedPrice": 3024.45
  },
  {
    "Id": 727,
@@ -12356,7 +13082,8 @@
    "Rating": 1.9,
    "Discount": 25,
    "AvailableStocks": 372,
-   "SoldItems": 496
+   "SoldItems": 496,
+   "DiscountedPrice": 4515.75
  },
  {
    "Id": 728,
@@ -12373,7 +13100,8 @@
    "Rating": 3.6,
    "Discount": 30,
    "AvailableStocks": 255,
-   "SoldItems": 214
+   "SoldItems": 214,
+   "DiscountedPrice": 1273.3
  },
  {
    "Id": 729,
@@ -12390,7 +13118,8 @@
    "Rating": 0.2,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 155
+   "SoldItems": 155,
+   "DiscountedPrice": 2527.5
  },
  {
    "Id": 730,
@@ -12407,7 +13136,8 @@
    "Rating": 3.5,
    "Discount": 45,
    "AvailableStocks": 532,
-   "SoldItems": 388
+   "SoldItems": 388,
+   "DiscountedPrice": 4512.2
  },
  {
    "Id": 731,
@@ -12424,7 +13154,8 @@
    "Rating": 0,
    "Discount": 10,
    "AvailableStocks": 697,
-   "SoldItems": 349
+   "SoldItems": 349,
+   "DiscountedPrice": 2350.8
  },
  {
    "Id": 732,
@@ -12441,7 +13172,8 @@
    "Rating": 3.4,
    "Discount": 30,
    "AvailableStocks": 451,
-   "SoldItems": 186
+   "SoldItems": 186,
+   "DiscountedPrice": 2898
  },
  {
    "Id": 733,
@@ -12458,7 +13190,8 @@
    "Rating": 4.2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 107
+   "SoldItems": 107,
+   "DiscountedPrice": 4081
  },
  {
    "Id": 734,
@@ -12475,7 +13208,8 @@
    "Rating": 1.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 30
+   "SoldItems": 30,
+   "DiscountedPrice": 1066.8
  },
  {
    "Id": 735,
@@ -12492,7 +13226,8 @@
    "Rating": 4.9,
    "Discount": 5,
    "AvailableStocks": 681,
-   "SoldItems": 146
+   "SoldItems": 146,
+   "DiscountedPrice": 4877.3
  },
  {
    "Id": 736,
@@ -12509,7 +13244,8 @@
    "Rating": 0.1,
    "Discount": 20,
    "AvailableStocks": 248,
-   "SoldItems": 62
+   "SoldItems": 62,
+   "DiscountedPrice": 5305.6
  },
  {
    "Id": 737,
@@ -12526,7 +13262,8 @@
    "Rating": 3.5,
    "Discount": 35,
    "AvailableStocks": 405,
-   "SoldItems": 268
+   "SoldItems": 268,
+   "DiscountedPrice": 3834.35
  },
  {
    "Id": 738,
@@ -12543,7 +13280,8 @@
    "Rating": 2.5,
    "Discount": 5,
    "AvailableStocks": 204,
-   "SoldItems": 234
+   "SoldItems": 234,
+   "DiscountedPrice": 7634.2
  },
  {
    "Id": 739,
@@ -12560,7 +13298,8 @@
    "Rating": 2.5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 323
+   "SoldItems": 323,
+   "DiscountedPrice": 774
  },
  {
    "Id": 740,
@@ -12577,7 +13316,8 @@
    "Rating": 0.3,
    "Discount": 25,
    "AvailableStocks": 27,
-   "SoldItems": 251
+   "SoldItems": 251,
+   "DiscountedPrice": 2424.75
  },
  {
    "Id": 741,
@@ -12594,7 +13334,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 178
+   "SoldItems": 178,
+   "DiscountedPrice": 5769
  },
  {
    "Id": 742,
@@ -12611,7 +13352,8 @@
    "Rating": 1.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 492
+   "SoldItems": 492,
+   "DiscountedPrice": 5532.8
  },
  {
    "Id": 743,
@@ -12628,7 +13370,8 @@
    "Rating": 4.3,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 294
+   "SoldItems": 294,
+   "DiscountedPrice": 1489.6
  },
  {
    "Id": 744,
@@ -12645,7 +13388,8 @@
    "Rating": 2.4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 141
+   "SoldItems": 141,
+   "DiscountedPrice": 4419.5
  },
  {
    "Id": 745,
@@ -12662,7 +13406,8 @@
    "Rating": 4.5,
    "Discount": 30,
    "AvailableStocks": 449,
-   "SoldItems": 387
+   "SoldItems": 387,
+   "DiscountedPrice": 999.6
  },
  {
    "Id": 746,
@@ -12679,7 +13424,8 @@
    "Rating": 2.4,
    "Discount": 45,
    "AvailableStocks": 150,
-   "SoldItems": 110
+   "SoldItems": 110,
+   "DiscountedPrice": 1651.1
  },
  {
    "Id": 747,
@@ -12696,7 +13442,8 @@
    "Rating": 3.7,
    "Discount": 5,
    "AvailableStocks": 456,
-   "SoldItems": 91
+   "SoldItems": 91,
+   "DiscountedPrice": 6585.4
  },
  {
    "Id": 748,
@@ -12713,7 +13460,8 @@
    "Rating": 1.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 78
+   "SoldItems": 78,
+   "DiscountedPrice": 1253
  },
  {
    "Id": 749,
@@ -12730,7 +13478,8 @@
    "Rating": 0,
    "Discount": 20,
    "AvailableStocks": 559,
-   "SoldItems": 113
+   "SoldItems": 113,
+   "DiscountedPrice": 956.8
  },
  {
    "Id": 750,
@@ -12747,7 +13496,8 @@
    "Rating": 2.3,
    "Discount": 50,
    "AvailableStocks": 525,
-   "SoldItems": 156
+   "SoldItems": 156,
+   "DiscountedPrice": 3019.5
  },
  {
    "Id": 751,
@@ -12764,7 +13514,8 @@
    "Rating": 1.6,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 94
+   "SoldItems": 94,
+   "DiscountedPrice": 1506
  },
  {
    "Id": 752,
@@ -12781,7 +13532,8 @@
    "Rating": 1.2,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 378
+   "SoldItems": 378,
+   "DiscountedPrice": 6052
  },
  {
    "Id": 753,
@@ -12798,7 +13550,8 @@
    "Rating": 1.4,
    "Discount": 25,
    "AvailableStocks": 333,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 6873
  },
  {
    "Id": 754,
@@ -12815,7 +13568,8 @@
    "Rating": 2.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 161
+   "SoldItems": 161,
+   "DiscountedPrice": 1545.5
  },
  {
    "Id": 755,
@@ -12832,7 +13586,8 @@
    "Rating": 4.6,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 372
+   "SoldItems": 372,
+   "DiscountedPrice": 4606.5
  },
  {
    "Id": 756,
@@ -12849,7 +13604,8 @@
    "Rating": 0.2,
    "Discount": 50,
    "AvailableStocks": 17,
-   "SoldItems": 187
+   "SoldItems": 187,
+   "DiscountedPrice": 1600.5
  },
  {
    "Id": 757,
@@ -12866,7 +13622,8 @@
    "Rating": 2,
    "Discount": 35,
    "AvailableStocks": 611,
-   "SoldItems": 454
+   "SoldItems": 454,
+   "DiscountedPrice": 4698.2
  },
  {
    "Id": 758,
@@ -12883,7 +13640,8 @@
    "Rating": 3.6,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 314
+   "SoldItems": 314,
+   "DiscountedPrice": 636.75
  },
  {
    "Id": 759,
@@ -12900,7 +13658,8 @@
    "Rating": 4.1,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 53
+   "SoldItems": 53,
+   "DiscountedPrice": 1632.85
  },
  {
    "Id": 760,
@@ -12917,7 +13676,8 @@
    "Rating": 1.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 76
+   "SoldItems": 76,
+   "DiscountedPrice": 1374.5
  },
  {
    "Id": 761,
@@ -12934,7 +13694,8 @@
    "Rating": 1.3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 94
+   "SoldItems": 94,
+   "DiscountedPrice": 883.35
  },
  {
    "Id": 762,
@@ -12951,7 +13712,8 @@
    "Rating": 0.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 115
+   "SoldItems": 115,
+   "DiscountedPrice": 2097.9
  },
  {
    "Id": 763,
@@ -12968,7 +13730,8 @@
    "Rating": 1.9,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 205
+   "SoldItems": 205,
+   "DiscountedPrice": 3715.5
  },
  {
    "Id": 764,
@@ -12985,7 +13748,8 @@
    "Rating": 1,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 277
+   "SoldItems": 277,
+   "DiscountedPrice": 5140.1
  },
  {
    "Id": 765,
@@ -13002,7 +13766,8 @@
    "Rating": 0.2,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 485
+   "SoldItems": 485,
+   "DiscountedPrice": 7269.4
  },
  {
    "Id": 766,
@@ -13019,7 +13784,8 @@
    "Rating": 3,
    "Discount": 15,
    "AvailableStocks": 96,
-   "SoldItems": 126
+   "SoldItems": 126,
+   "DiscountedPrice": 3597.2
  },
  {
    "Id": 767,
@@ -13036,7 +13802,8 @@
    "Rating": 4.6,
    "Discount": 40,
    "AvailableStocks": 168,
-   "SoldItems": 68
+   "SoldItems": 68,
+   "DiscountedPrice": 2223
  },
  {
    "Id": 768,
@@ -13053,7 +13820,8 @@
    "Rating": 1.1,
    "Discount": 5,
    "AvailableStocks": 133,
-   "SoldItems": 425
+   "SoldItems": 425,
+   "DiscountedPrice": 6312.75
  },
  {
    "Id": 769,
@@ -13070,7 +13838,8 @@
    "Rating": 1.6,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 298
+   "SoldItems": 298,
+   "DiscountedPrice": 1667.6
  },
  {
    "Id": 770,
@@ -13087,7 +13856,8 @@
    "Rating": 2.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 255
+   "SoldItems": 255,
+   "DiscountedPrice": 2191
  },
  {
    "Id": 771,
@@ -13104,7 +13874,8 @@
    "Rating": 4.1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 221
+   "SoldItems": 221,
+   "DiscountedPrice": 2077.8
  },
  {
    "Id": 772,
@@ -13121,7 +13892,8 @@
    "Rating": 0.8,
    "Discount": 35,
    "AvailableStocks": 45,
-   "SoldItems": 487
+   "SoldItems": 487,
+   "DiscountedPrice": 726.05
  },
  {
    "Id": 773,
@@ -13138,7 +13910,8 @@
    "Rating": 4.5,
    "Discount": 25,
    "AvailableStocks": 409,
-   "SoldItems": 76
+   "SoldItems": 76,
+   "DiscountedPrice": 1353
  },
  {
    "Id": 774,
@@ -13155,7 +13928,8 @@
    "Rating": 1.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 64
+   "SoldItems": 64,
+   "DiscountedPrice": 9268.2
  },
  {
    "Id": 775,
@@ -13172,7 +13946,8 @@
    "Rating": 1,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 388
+   "SoldItems": 388,
+   "DiscountedPrice": 2869
  },
  {
    "Id": 776,
@@ -13189,7 +13964,8 @@
    "Rating": 3.2,
    "Discount": 45,
    "AvailableStocks": 292,
-   "SoldItems": 33
+   "SoldItems": 33,
+   "DiscountedPrice": 3001.35
  },
  {
    "Id": 777,
@@ -13206,7 +13982,8 @@
    "Rating": 3,
    "Discount": 45,
    "AvailableStocks": 664,
-   "SoldItems": 37
+   "SoldItems": 37,
+   "DiscountedPrice": 2827.55
  },
  {
    "Id": 778,
@@ -13223,7 +14000,8 @@
    "Rating": 4.5,
    "Discount": 40,
    "AvailableStocks": 417,
-   "SoldItems": 353
+   "SoldItems": 353,
+   "DiscountedPrice": 1989.6
  },
  {
    "Id": 779,
@@ -13240,7 +14018,8 @@
    "Rating": 3.2,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 281
+   "SoldItems": 281,
+   "DiscountedPrice": 3625.6
  },
  {
    "Id": 780,
@@ -13257,7 +14036,8 @@
    "Rating": 3.2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 438
+   "SoldItems": 438,
+   "DiscountedPrice": 5900.4
  },
  {
    "Id": 781,
@@ -13274,7 +14054,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 3425.4
  },
  {
    "Id": 782,
@@ -13291,7 +14072,8 @@
    "Rating": 2.5,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 51
+   "SoldItems": 51,
+   "DiscountedPrice": 4779
  },
  {
    "Id": 783,
@@ -13308,7 +14090,8 @@
    "Rating": 3.8,
    "Discount": 30,
    "AvailableStocks": 120,
-   "SoldItems": 314
+   "SoldItems": 314,
+   "DiscountedPrice": 1150.1
  },
  {
    "Id": 784,
@@ -13325,7 +14108,8 @@
    "Rating": 2.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 337
+   "SoldItems": 337,
+   "DiscountedPrice": 3599.55
  },
  {
    "Id": 785,
@@ -13342,7 +14126,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 208,
-   "SoldItems": 255
+   "SoldItems": 255,
+   "DiscountedPrice": 1816.45
  },
  {
    "Id": 786,
@@ -13359,7 +14144,8 @@
    "Rating": 1.4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 137
+   "SoldItems": 137,
+   "DiscountedPrice": 1784.5
  },
  {
    "Id": 787,
@@ -13376,7 +14162,8 @@
    "Rating": 3.8,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 497
+   "SoldItems": 497,
+   "DiscountedPrice": 4408
  },
  {
    "Id": 788,
@@ -13393,7 +14180,8 @@
    "Rating": 0.2,
    "Discount": 30,
    "AvailableStocks": 64,
-   "SoldItems": 485
+   "SoldItems": 485,
+   "DiscountedPrice": 2777.6
  },
  {
    "Id": 789,
@@ -13410,7 +14198,8 @@
    "Rating": 3.5,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 314
+   "SoldItems": 314,
+   "DiscountedPrice": 4264.15
  },
  {
    "Id": 790,
@@ -13427,7 +14216,8 @@
    "Rating": 2.2,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 5
+   "SoldItems": 5,
+   "DiscountedPrice": 4995.9
  },
  {
    "Id": 791,
@@ -13444,7 +14234,8 @@
    "Rating": 0.9,
    "Discount": 10,
    "AvailableStocks": 719,
-   "SoldItems": 133
+   "SoldItems": 133,
+   "DiscountedPrice": 5359.5
  },
  {
    "Id": 792,
@@ -13461,7 +14252,8 @@
    "Rating": 4.6,
    "Discount": 15,
    "AvailableStocks": 450,
-   "SoldItems": 185
+   "SoldItems": 185,
+   "DiscountedPrice": 4311.2
  },
  {
    "Id": 793,
@@ -13478,7 +14270,8 @@
    "Rating": 5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 473
+   "SoldItems": 473,
+   "DiscountedPrice": 3609.75
  },
  {
    "Id": 794,
@@ -13495,7 +14288,8 @@
    "Rating": 4.9,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 357
+   "SoldItems": 357,
+   "DiscountedPrice": 4495.8
  },
  {
    "Id": 795,
@@ -13512,7 +14306,8 @@
    "Rating": 1.3,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 80
+   "SoldItems": 80,
+   "DiscountedPrice": 6129.4
  },
  {
    "Id": 796,
@@ -13529,7 +14324,8 @@
    "Rating": 4.4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 23
+   "SoldItems": 23,
+   "DiscountedPrice": 5678.4
  },
  {
    "Id": 797,
@@ -13546,7 +14342,8 @@
    "Rating": 0,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 5374
  },
  {
    "Id": 798,
@@ -13563,7 +14360,8 @@
    "Rating": 4,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 438
+   "SoldItems": 438,
+   "DiscountedPrice": 5462.1
  },
  {
    "Id": 799,
@@ -13580,7 +14378,8 @@
    "Rating": 0.2,
    "Discount": 20,
    "AvailableStocks": 280,
-   "SoldItems": 190
+   "SoldItems": 190,
+   "DiscountedPrice": 3432
  },
  {
    "Id": 800,
@@ -13597,7 +14396,8 @@
    "Rating": 4.6,
    "Discount": 40,
    "AvailableStocks": 545,
-   "SoldItems": 420
+   "SoldItems": 420,
+   "DiscountedPrice": 3160.8
  },
  {
    "Id": 801,
@@ -13614,7 +14414,8 @@
    "Rating": 2.7,
    "Discount": 25,
    "AvailableStocks": 407,
-   "SoldItems": 410
+   "SoldItems": 410,
+   "DiscountedPrice": 4941
  },
  {
    "Id": 802,
@@ -13631,7 +14432,8 @@
    "Rating": 3.8,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 291
+   "SoldItems": 291,
+   "DiscountedPrice": 1165.2
  },
  {
    "Id": 803,
@@ -13648,7 +14450,8 @@
    "Rating": 4.2,
    "Discount": 30,
    "AvailableStocks": 284,
-   "SoldItems": 159
+   "SoldItems": 159,
+   "DiscountedPrice": 2851.8
  },
  {
    "Id": 804,
@@ -13665,7 +14468,8 @@
    "Rating": 0.3,
    "Discount": 10,
    "AvailableStocks": 363,
-   "SoldItems": 404
+   "SoldItems": 404,
+   "DiscountedPrice": 5036.4
  },
  {
    "Id": 805,
@@ -13682,7 +14486,8 @@
    "Rating": 0.6,
    "Discount": 30,
    "AvailableStocks": 648,
-   "SoldItems": 161
+   "SoldItems": 161,
+   "DiscountedPrice": 5529.3
  },
  {
    "Id": 806,
@@ -13699,7 +14504,8 @@
    "Rating": 1.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 329
+   "SoldItems": 329,
+   "DiscountedPrice": 774.9
  },
  {
    "Id": 807,
@@ -13716,7 +14522,8 @@
    "Rating": 0,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 129
+   "SoldItems": 129,
+   "DiscountedPrice": 1958.9
  },
  {
    "Id": 808,
@@ -13733,7 +14540,8 @@
    "Rating": 2.8,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 24
+   "SoldItems": 24,
+   "DiscountedPrice": 6150.75
  },
  {
    "Id": 809,
@@ -13750,7 +14558,8 @@
    "Rating": 4.9,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 98
+   "SoldItems": 98,
+   "DiscountedPrice": 2755.5
  },
  {
    "Id": 810,
@@ -13767,7 +14576,8 @@
    "Rating": 2.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 432
+   "SoldItems": 432,
+   "DiscountedPrice": 8795.7
  },
  {
    "Id": 811,
@@ -13784,7 +14594,8 @@
    "Rating": 4.1,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 285
+   "SoldItems": 285,
+   "DiscountedPrice": 1868
  },
  {
    "Id": 812,
@@ -13801,7 +14612,8 @@
    "Rating": 4.8,
    "Discount": 5,
    "AvailableStocks": 546,
-   "SoldItems": 358
+   "SoldItems": 358,
+   "DiscountedPrice": 3205.3
  },
  {
    "Id": 813,
@@ -13818,7 +14630,8 @@
    "Rating": 3.4,
    "Discount": 45,
    "AvailableStocks": 566,
-   "SoldItems": 433
+   "SoldItems": 433,
+   "DiscountedPrice": 837.65
  },
  {
    "Id": 814,
@@ -13835,7 +14648,8 @@
    "Rating": 3.8,
    "Discount": 5,
    "AvailableStocks": 307,
-   "SoldItems": 359
+   "SoldItems": 359,
+   "DiscountedPrice": 651.7
  },
  {
    "Id": 815,
@@ -13852,7 +14666,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 62
+   "SoldItems": 62,
+   "DiscountedPrice": 3270.75
  },
  {
    "Id": 816,
@@ -13869,7 +14684,8 @@
    "Rating": 3.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 332
+   "SoldItems": 332,
+   "DiscountedPrice": 4291.2
  },
  {
    "Id": 817,
@@ -13886,7 +14702,8 @@
    "Rating": 4.8,
    "Discount": 35,
    "AvailableStocks": 625,
-   "SoldItems": 8
+   "SoldItems": 8,
+   "DiscountedPrice": 5261.75
  },
  {
    "Id": 818,
@@ -13903,7 +14720,8 @@
    "Rating": 0.9,
    "Discount": 30,
    "AvailableStocks": 372,
-   "SoldItems": 489
+   "SoldItems": 489,
+   "DiscountedPrice": 6090
  },
  {
    "Id": 819,
@@ -13920,7 +14738,8 @@
    "Rating": 2.3,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 480
+   "SoldItems": 480,
+   "DiscountedPrice": 1582.5
  },
  {
    "Id": 820,
@@ -13937,7 +14756,8 @@
    "Rating": 1.4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 461
+   "SoldItems": 461,
+   "DiscountedPrice": 1844
  },
  {
    "Id": 821,
@@ -13954,7 +14774,8 @@
    "Rating": 5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 169
+   "SoldItems": 169,
+   "DiscountedPrice": 3301.5
  },
  {
    "Id": 822,
@@ -13971,7 +14792,8 @@
    "Rating": 4.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 428
+   "SoldItems": 428,
+   "DiscountedPrice": 521.1
  },
  {
    "Id": 823,
@@ -13988,7 +14810,8 @@
    "Rating": 0,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 189
+   "SoldItems": 189,
+   "DiscountedPrice": 4590
  },
  {
    "Id": 824,
@@ -14005,7 +14828,8 @@
    "Rating": 1,
    "Discount": 45,
    "AvailableStocks": 700,
-   "SoldItems": 57
+   "SoldItems": 57,
+   "DiscountedPrice": 3111.9
  },
  {
    "Id": 825,
@@ -14022,7 +14846,8 @@
    "Rating": 2.4,
    "Discount": 10,
    "AvailableStocks": 219,
-   "SoldItems": 323
+   "SoldItems": 323,
+   "DiscountedPrice": 720.9
  },
  {
    "Id": 826,
@@ -14039,7 +14864,8 @@
    "Rating": 0.7,
    "Discount": 35,
    "AvailableStocks": 201,
-   "SoldItems": 460
+   "SoldItems": 460,
+   "DiscountedPrice": 3680.95
  },
  {
    "Id": 827,
@@ -14056,7 +14882,8 @@
    "Rating": 1.1,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 471
+   "SoldItems": 471,
+   "DiscountedPrice": 2969.4
  },
  {
    "Id": 828,
@@ -14073,7 +14900,8 @@
    "Rating": 3.8,
    "Discount": 25,
    "AvailableStocks": 297,
-   "SoldItems": 451
+   "SoldItems": 451,
+   "DiscountedPrice": 2625.75
  },
  {
    "Id": 829,
@@ -14090,7 +14918,8 @@
    "Rating": 1.2,
    "Discount": 10,
    "AvailableStocks": 536,
-   "SoldItems": 361
+   "SoldItems": 361,
+   "DiscountedPrice": 3560.4
  },
  {
    "Id": 830,
@@ -14107,7 +14936,8 @@
    "Rating": 2.5,
    "Discount": 50,
    "AvailableStocks": 483,
-   "SoldItems": 141
+   "SoldItems": 141,
+   "DiscountedPrice": 1456.5
  },
  {
    "Id": 831,
@@ -14124,7 +14954,8 @@
    "Rating": 4.5,
    "Discount": 40,
    "AvailableStocks": 538,
-   "SoldItems": 442
+   "SoldItems": 442,
+   "DiscountedPrice": 5678.4
  },
  {
    "Id": 832,
@@ -14141,7 +14972,8 @@
    "Rating": 1.9,
    "Discount": 5,
    "AvailableStocks": 415,
-   "SoldItems": 246
+   "SoldItems": 246,
+   "DiscountedPrice": 3316.45
  },
  {
    "Id": 833,
@@ -14158,7 +14990,8 @@
    "Rating": 1.5,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 179
+   "SoldItems": 179,
+   "DiscountedPrice": 6128
  },
  {
    "Id": 834,
@@ -14175,7 +15008,8 @@
    "Rating": 2,
    "Discount": 45,
    "AvailableStocks": 97,
-   "SoldItems": 34
+   "SoldItems": 34,
+   "DiscountedPrice": 4154.15
  },
  {
    "Id": 835,
@@ -14192,7 +15026,8 @@
    "Rating": 2.4,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 487
+   "SoldItems": 487,
+   "DiscountedPrice": 435
  },
  {
    "Id": 836,
@@ -14209,7 +15044,8 @@
    "Rating": 1.7,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 401
+   "SoldItems": 401,
+   "DiscountedPrice": 4980.15
  },
  {
    "Id": 837,
@@ -14226,7 +15062,8 @@
    "Rating": 5,
    "Discount": 25,
    "AvailableStocks": 54,
-   "SoldItems": 144
+   "SoldItems": 144,
+   "DiscountedPrice": 7144.5
  },
  {
    "Id": 838,
@@ -14243,7 +15080,8 @@
    "Rating": 1,
    "Discount": 15,
    "AvailableStocks": 614,
-   "SoldItems": 412
+   "SoldItems": 412,
+   "DiscountedPrice": 6430.25
  },
  {
    "Id": 839,
@@ -14260,7 +15098,8 @@
    "Rating": 4.4,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 177
+   "SoldItems": 177,
+   "DiscountedPrice": 2362.25
  },
  {
    "Id": 840,
@@ -14277,7 +15116,8 @@
    "Rating": 3.1,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 180
+   "SoldItems": 180,
+   "DiscountedPrice": 1430.55
  },
  {
    "Id": 841,
@@ -14294,7 +15134,8 @@
    "Rating": 4.1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 372
+   "SoldItems": 372,
+   "DiscountedPrice": 2407.5
  },
  {
    "Id": 842,
@@ -14311,7 +15152,8 @@
    "Rating": 3.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 217
+   "SoldItems": 217,
+   "DiscountedPrice": 1032
  },
  {
    "Id": 843,
@@ -14328,7 +15170,8 @@
    "Rating": 1.8,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 4411
  },
  {
    "Id": 844,
@@ -14345,7 +15188,8 @@
    "Rating": 0.8,
    "Discount": 5,
    "AvailableStocks": 322,
-   "SoldItems": 257
+   "SoldItems": 257,
+   "DiscountedPrice": 7029.05
  },
  {
    "Id": 845,
@@ -14362,7 +15206,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 133,
-   "SoldItems": 407
+   "SoldItems": 407,
+   "DiscountedPrice": 5031.9
  },
  {
    "Id": 846,
@@ -14379,7 +15224,8 @@
    "Rating": 0.6,
    "Discount": 45,
    "AvailableStocks": 446,
-   "SoldItems": 283
+   "SoldItems": 283,
+   "DiscountedPrice": 2112
  },
  {
    "Id": 847,
@@ -14396,7 +15242,8 @@
    "Rating": 3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 109
+   "SoldItems": 109,
+   "DiscountedPrice": 533.7
  },
  {
    "Id": 848,
@@ -14413,7 +15260,8 @@
    "Rating": 0.9,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 207
+   "SoldItems": 207,
+   "DiscountedPrice": 7826.1
  },
  {
    "Id": 849,
@@ -14430,7 +15278,8 @@
    "Rating": 4.3,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 440
+   "SoldItems": 440,
+   "DiscountedPrice": 4331.25
  },
  {
    "Id": 850,
@@ -14447,7 +15296,8 @@
    "Rating": 1.6,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 352
+   "SoldItems": 352,
+   "DiscountedPrice": 6936.75
  },
  {
    "Id": 851,
@@ -14464,7 +15314,8 @@
    "Rating": 1.8,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 249
+   "SoldItems": 249,
+   "DiscountedPrice": 8903
  },
  {
    "Id": 852,
@@ -14481,7 +15332,8 @@
    "Rating": 0.4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 339
+   "SoldItems": 339,
+   "DiscountedPrice": 3834.4
  },
  {
    "Id": 853,
@@ -14498,7 +15350,8 @@
    "Rating": 5,
    "Discount": 15,
    "AvailableStocks": 516,
-   "SoldItems": 434
+   "SoldItems": 434,
+   "DiscountedPrice": 4612.1
  },
  {
    "Id": 854,
@@ -14515,7 +15368,8 @@
    "Rating": 3,
    "Discount": 40,
    "AvailableStocks": 418,
-   "SoldItems": 361
+   "SoldItems": 361,
+   "DiscountedPrice": 4833
  },
  {
    "Id": 855,
@@ -14532,7 +15386,8 @@
    "Rating": 3.7,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 72
+   "SoldItems": 72,
+   "DiscountedPrice": 3972.15
  },
  {
    "Id": 856,
@@ -14549,7 +15404,8 @@
    "Rating": 2.4,
    "Discount": 0,
    "AvailableStocks": 0,
-   "SoldItems": 464
+   "SoldItems": 464,
+   "DiscountedPrice": 7872
  },
  {
    "Id": 857,
@@ -14566,7 +15422,8 @@
    "Rating": 2.6,
    "Discount": 20,
    "AvailableStocks": 235,
-   "SoldItems": 282
+   "SoldItems": 282,
+   "DiscountedPrice": 3295.2
  },
  {
    "Id": 858,
@@ -14583,7 +15440,8 @@
    "Rating": 3.8,
    "Discount": 35,
    "AvailableStocks": 349,
-   "SoldItems": 82
+   "SoldItems": 82,
+   "DiscountedPrice": 3027.05
  },
  {
    "Id": 859,
@@ -14600,7 +15458,8 @@
    "Rating": 1.3,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 86
+   "SoldItems": 86,
+   "DiscountedPrice": 1352.4
  },
  {
    "Id": 860,
@@ -14617,7 +15476,8 @@
    "Rating": 1.2,
    "Discount": 25,
    "AvailableStocks": 122,
-   "SoldItems": 73
+   "SoldItems": 73,
+   "DiscountedPrice": 947.25
  },
  {
    "Id": 861,
@@ -14634,7 +15494,8 @@
    "Rating": 2.2,
    "Discount": 45,
    "AvailableStocks": 721,
-   "SoldItems": 421
+   "SoldItems": 421,
+   "DiscountedPrice": 3699.3
  },
  {
    "Id": 862,
@@ -14651,7 +15512,8 @@
    "Rating": 5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 456
+   "SoldItems": 456,
+   "DiscountedPrice": 3074.4
  },
  {
    "Id": 863,
@@ -14668,7 +15530,8 @@
    "Rating": 2,
    "Discount": 15,
    "AvailableStocks": 471,
-   "SoldItems": 202
+   "SoldItems": 202,
+   "DiscountedPrice": 3302.25
  },
  {
    "Id": 864,
@@ -14685,7 +15548,8 @@
    "Rating": 3.8,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 187
+   "SoldItems": 187,
+   "DiscountedPrice": 3835.15
  },
  {
    "Id": 865,
@@ -14702,7 +15566,8 @@
    "Rating": 0.5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 396
+   "SoldItems": 396,
+   "DiscountedPrice": 4652
  },
  {
    "Id": 866,
@@ -14719,7 +15584,8 @@
    "Rating": 0.8,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 298
+   "SoldItems": 298,
+   "DiscountedPrice": 5196.1
  },
  {
    "Id": 867,
@@ -14736,7 +15602,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 326
+   "SoldItems": 326,
+   "DiscountedPrice": 4137.6
  },
  {
    "Id": 868,
@@ -14753,7 +15620,8 @@
    "Rating": 0.7,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 302
+   "SoldItems": 302,
+   "DiscountedPrice": 5337.75
  },
  {
    "Id": 869,
@@ -14770,7 +15638,8 @@
    "Rating": 3.1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 489
+   "SoldItems": 489,
+   "DiscountedPrice": 1452.75
  },
  {
    "Id": 870,
@@ -14787,7 +15656,8 @@
    "Rating": 3.9,
    "Discount": 45,
    "AvailableStocks": 405,
-   "SoldItems": 84
+   "SoldItems": 84,
+   "DiscountedPrice": 4916.45
  },
  {
    "Id": 871,
@@ -14804,7 +15674,8 @@
    "Rating": 4.7,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 166
+   "SoldItems": 166,
+   "DiscountedPrice": 7069.45
  },
  {
    "Id": 872,
@@ -14821,7 +15692,8 @@
    "Rating": 2.6,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 455
+   "SoldItems": 455,
+   "DiscountedPrice": 2993.4
  },
  {
    "Id": 873,
@@ -14838,7 +15710,8 @@
    "Rating": 3.7,
    "Discount": 40,
    "AvailableStocks": 154,
-   "SoldItems": 23
+   "SoldItems": 23,
+   "DiscountedPrice": 1617.6
  },
  {
    "Id": 874,
@@ -14855,7 +15728,8 @@
    "Rating": 3,
    "Discount": 50,
    "AvailableStocks": 605,
-   "SoldItems": 319
+   "SoldItems": 319,
+   "DiscountedPrice": 4702
  },
  {
    "Id": 875,
@@ -14872,7 +15746,8 @@
    "Rating": 1.9,
    "Discount": 45,
    "AvailableStocks": 310,
-   "SoldItems": 52
+   "SoldItems": 52,
+   "DiscountedPrice": 744.15
  },
  {
    "Id": 876,
@@ -14889,7 +15764,8 @@
    "Rating": 3.1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 3142.2
  },
  {
    "Id": 877,
@@ -14906,7 +15782,8 @@
    "Rating": 4.4,
    "Discount": 50,
    "AvailableStocks": 484,
-   "SoldItems": 247
+   "SoldItems": 247,
+   "DiscountedPrice": 1265
  },
  {
    "Id": 878,
@@ -14923,7 +15800,8 @@
    "Rating": 1,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 425
+   "SoldItems": 425,
+   "DiscountedPrice": 2263.8
  },
  {
    "Id": 879,
@@ -14940,7 +15818,8 @@
    "Rating": 0.6,
    "Discount": 50,
    "AvailableStocks": 660,
-   "SoldItems": 3
+   "SoldItems": 3,
+   "DiscountedPrice": 2732
  },
  {
    "Id": 880,
@@ -14957,7 +15836,8 @@
    "Rating": 0.7,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 1
+   "SoldItems": 1,
+   "DiscountedPrice": 4945
  },
  {
    "Id": 881,
@@ -14974,7 +15854,8 @@
    "Rating": 1.4,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 148
+   "SoldItems": 148,
+   "DiscountedPrice": 4338.1
  },
  {
    "Id": 882,
@@ -14991,7 +15872,8 @@
    "Rating": 4.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 114
+   "SoldItems": 114,
+   "DiscountedPrice": 1802
  },
  {
    "Id": 883,
@@ -15008,7 +15890,8 @@
    "Rating": 1,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 89
+   "SoldItems": 89,
+   "DiscountedPrice": 1578.5
  },
  {
    "Id": 884,
@@ -15025,7 +15908,8 @@
    "Rating": 3.6,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 64
+   "SoldItems": 64,
+   "DiscountedPrice": 6101.1
  },
  {
    "Id": 885,
@@ -15042,7 +15926,8 @@
    "Rating": 3.3,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 271
+   "SoldItems": 271,
+   "DiscountedPrice": 6353.6
  },
  {
    "Id": 886,
@@ -15059,7 +15944,8 @@
    "Rating": 3.1,
    "Discount": 35,
    "AvailableStocks": 655,
-   "SoldItems": 32
+   "SoldItems": 32,
+   "DiscountedPrice": 1230.45
  },
  {
    "Id": 887,
@@ -15076,7 +15962,8 @@
    "Rating": 3.9,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 6
+   "SoldItems": 6,
+   "DiscountedPrice": 6666.8
  },
  {
    "Id": 888,
@@ -15093,7 +15980,8 @@
    "Rating": 0.5,
    "Discount": 25,
    "AvailableStocks": 703,
-   "SoldItems": 305
+   "SoldItems": 305,
+   "DiscountedPrice": 1356
  },
  {
    "Id": 889,
@@ -15110,7 +15998,8 @@
    "Rating": 1.3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 51
+   "SoldItems": 51,
+   "DiscountedPrice": 8483.4
  },
  {
    "Id": 890,
@@ -15127,7 +16016,8 @@
    "Rating": 3.9,
    "Discount": 5,
    "AvailableStocks": 557,
-   "SoldItems": 52
+   "SoldItems": 52,
+   "DiscountedPrice": 2962.1
  },
  {
    "Id": 891,
@@ -15144,7 +16034,8 @@
    "Rating": 3.9,
    "Discount": 15,
    "AvailableStocks": 291,
-   "SoldItems": 438
+   "SoldItems": 438,
+   "DiscountedPrice": 6619.8
  },
  {
    "Id": 892,
@@ -15161,7 +16052,8 @@
    "Rating": 2.5,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 17
+   "SoldItems": 17,
+   "DiscountedPrice": 5519.8
  },
  {
    "Id": 893,
@@ -15178,7 +16070,8 @@
    "Rating": 3,
    "Discount": 5,
    "AvailableStocks": 531,
-   "SoldItems": 69
+   "SoldItems": 69,
+   "DiscountedPrice": 2314.2
  },
  {
    "Id": 894,
@@ -15195,7 +16088,8 @@
    "Rating": 0.1,
    "Discount": 25,
    "AvailableStocks": 48,
-   "SoldItems": 489
+   "SoldItems": 489,
+   "DiscountedPrice": 2332.5
  },
  {
    "Id": 895,
@@ -15212,7 +16106,8 @@
    "Rating": 4.8,
    "Discount": 5,
    "AvailableStocks": 365,
-   "SoldItems": 119
+   "SoldItems": 119,
+   "DiscountedPrice": 1053.55
  },
  {
    "Id": 896,
@@ -15229,7 +16124,8 @@
    "Rating": 1.4,
    "Discount": 35,
    "AvailableStocks": 291,
-   "SoldItems": 91
+   "SoldItems": 91,
+   "DiscountedPrice": 1567.15
  },
  {
    "Id": 897,
@@ -15246,7 +16142,8 @@
    "Rating": 2.4,
    "Discount": 30,
    "AvailableStocks": 542,
-   "SoldItems": 9
+   "SoldItems": 9,
+   "DiscountedPrice": 1256.5
  },
  {
    "Id": 898,
@@ -15263,7 +16160,8 @@
    "Rating": 1.4,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 48
+   "SoldItems": 48,
+   "DiscountedPrice": 3096.8
  },
  {
    "Id": 899,
@@ -15280,7 +16178,8 @@
    "Rating": 2.7,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 368
+   "SoldItems": 368,
+   "DiscountedPrice": 4031.4
  },
  {
    "Id": 900,
@@ -15297,7 +16196,8 @@
    "Rating": 0.5,
    "Discount": 30,
    "AvailableStocks": 83,
-   "SoldItems": 276
+   "SoldItems": 276,
+   "DiscountedPrice": 4639.6
  },
  {
    "Id": 901,
@@ -15314,7 +16214,8 @@
    "Rating": 4.7,
    "Discount": 25,
    "AvailableStocks": 300,
-   "SoldItems": 384
+   "SoldItems": 384,
+   "DiscountedPrice": 2499.75
  },
  {
    "Id": 902,
@@ -15331,7 +16232,8 @@
    "Rating": 1.4,
    "Discount": 15,
    "AvailableStocks": 609,
-   "SoldItems": 76
+   "SoldItems": 76,
+   "DiscountedPrice": 6697.15
  },
  {
    "Id": 903,
@@ -15348,7 +16250,8 @@
    "Rating": 4.4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 117
+   "SoldItems": 117,
+   "DiscountedPrice": 4451
  },
  {
    "Id": 904,
@@ -15365,7 +16268,8 @@
    "Rating": 2.3,
    "Discount": 10,
    "AvailableStocks": 364,
-   "SoldItems": 331
+   "SoldItems": 331,
+   "DiscountedPrice": 7603.2
  },
  {
    "Id": 905,
@@ -15382,7 +16286,8 @@
    "Rating": 4.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 70
+   "SoldItems": 70,
+   "DiscountedPrice": 414
  },
  {
    "Id": 906,
@@ -15399,7 +16304,8 @@
    "Rating": 1.5,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 215
+   "SoldItems": 215,
+   "DiscountedPrice": 6839.1
  },
  {
    "Id": 907,
@@ -15416,7 +16322,8 @@
    "Rating": 1.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 216
+   "SoldItems": 216,
+   "DiscountedPrice": 3582.75
  },
  {
    "Id": 908,
@@ -15433,7 +16340,8 @@
    "Rating": 2.6,
    "Discount": 15,
    "AvailableStocks": 43,
-   "SoldItems": 466
+   "SoldItems": 466,
+   "DiscountedPrice": 3791.85
  },
  {
    "Id": 909,
@@ -15450,7 +16358,8 @@
    "Rating": 1.5,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 249
+   "SoldItems": 249,
+   "DiscountedPrice": 5809.5
  },
  {
    "Id": 910,
@@ -15467,7 +16376,8 @@
    "Rating": 3.9,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 126
+   "SoldItems": 126,
+   "DiscountedPrice": 3327.75
  },
  {
    "Id": 911,
@@ -15484,7 +16394,8 @@
    "Rating": 3.5,
    "Discount": 25,
    "AvailableStocks": 432,
-   "SoldItems": 460
+   "SoldItems": 460,
+   "DiscountedPrice": 852.75
  },
  {
    "Id": 912,
@@ -15501,7 +16412,8 @@
    "Rating": 4.7,
    "Discount": 30,
    "AvailableStocks": 264,
-   "SoldItems": 130
+   "SoldItems": 130,
+   "DiscountedPrice": 1974
  },
  {
    "Id": 913,
@@ -15518,7 +16430,8 @@
    "Rating": 0.3,
    "Discount": 10,
    "AvailableStocks": 431,
-   "SoldItems": 317
+   "SoldItems": 317,
+   "DiscountedPrice": 4068.9
  },
  {
    "Id": 914,
@@ -15535,7 +16448,8 @@
    "Rating": 1.8,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 92
+   "SoldItems": 92,
+   "DiscountedPrice": 3891.5
  },
  {
    "Id": 915,
@@ -15552,7 +16466,8 @@
    "Rating": 3.6,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 221
+   "SoldItems": 221,
+   "DiscountedPrice": 5414.5
  },
  {
    "Id": 916,
@@ -15569,7 +16484,8 @@
    "Rating": 3.1,
    "Discount": 50,
    "AvailableStocks": 74,
-   "SoldItems": 199
+   "SoldItems": 199,
+   "DiscountedPrice": 3117.5
  },
  {
    "Id": 917,
@@ -15586,7 +16502,8 @@
    "Rating": 2.5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 279
+   "SoldItems": 279,
+   "DiscountedPrice": 6787.9
  },
  {
    "Id": 918,
@@ -15603,7 +16520,8 @@
    "Rating": 4.5,
    "Discount": 45,
    "AvailableStocks": 261,
-   "SoldItems": 451
+   "SoldItems": 451,
+   "DiscountedPrice": 3397.9
  },
  {
    "Id": 919,
@@ -15620,7 +16538,8 @@
    "Rating": 1.5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 400
+   "SoldItems": 400,
+   "DiscountedPrice": 5918.25
  },
  {
    "Id": 920,
@@ -15637,7 +16556,8 @@
    "Rating": 0,
    "Discount": 15,
    "AvailableStocks": 699,
-   "SoldItems": 51
+   "SoldItems": 51,
+   "DiscountedPrice": 6487.2
  },
  {
    "Id": 921,
@@ -15654,7 +16574,8 @@
    "Rating": 4.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 182
+   "SoldItems": 182,
+   "DiscountedPrice": 2895.75
  },
  {
    "Id": 922,
@@ -15671,7 +16592,8 @@
    "Rating": 0.7,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 51
+   "SoldItems": 51,
+   "DiscountedPrice": 7159.55
  },
  {
    "Id": 923,
@@ -15688,7 +16610,8 @@
    "Rating": 1.8,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 468
+   "SoldItems": 468,
+   "DiscountedPrice": 3700.8
  },
  {
    "Id": 924,
@@ -15705,7 +16628,8 @@
    "Rating": 1.2,
    "Discount": 10,
    "AvailableStocks": 708,
-   "SoldItems": 362
+   "SoldItems": 362,
+   "DiscountedPrice": 6141.6
  },
  {
    "Id": 925,
@@ -15722,7 +16646,8 @@
    "Rating": 3.3,
    "Discount": 20,
    "AvailableStocks": 60,
-   "SoldItems": 32
+   "SoldItems": 32,
+   "DiscountedPrice": 7569.6
  },
  {
    "Id": 926,
@@ -15739,7 +16664,8 @@
    "Rating": 4.5,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 77
+   "SoldItems": 77,
+   "DiscountedPrice": 1462.3
  },
  {
    "Id": 927,
@@ -15756,7 +16682,8 @@
    "Rating": 2.2,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 416
+   "SoldItems": 416,
+   "DiscountedPrice": 1263.35
  },
  {
    "Id": 928,
@@ -15773,7 +16700,8 @@
    "Rating": 0.7,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 384
+   "SoldItems": 384,
+   "DiscountedPrice": 3677.7
  },
  {
    "Id": 929,
@@ -15790,7 +16718,8 @@
    "Rating": 1.6,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 480
+   "SoldItems": 480,
+   "DiscountedPrice": 3816.75
  },
  {
    "Id": 930,
@@ -15807,7 +16736,8 @@
    "Rating": 1.4,
    "Discount": 40,
    "AvailableStocks": 304,
-   "SoldItems": 307
+   "SoldItems": 307,
+   "DiscountedPrice": 3355.8
  },
  {
    "Id": 931,
@@ -15824,7 +16754,8 @@
    "Rating": 2.3,
    "Discount": 35,
    "AvailableStocks": 566,
-   "SoldItems": 471
+   "SoldItems": 471,
+   "DiscountedPrice": 2141.75
  },
  {
    "Id": 932,
@@ -15841,7 +16772,8 @@
    "Rating": 2.1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 39
+   "SoldItems": 39,
+   "DiscountedPrice": 3573.6
  },
  {
    "Id": 933,
@@ -15858,7 +16790,8 @@
    "Rating": 2.6,
    "Discount": 5,
    "AvailableStocks": 292,
-   "SoldItems": 90
+   "SoldItems": 90,
+   "DiscountedPrice": 2464.3
  },
  {
    "Id": 934,
@@ -15875,7 +16808,8 @@
    "Rating": 3.9,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 225
+   "SoldItems": 225,
+   "DiscountedPrice": 2434.8
  },
  {
    "Id": 935,
@@ -15892,7 +16826,8 @@
    "Rating": 4,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 145
+   "SoldItems": 145,
+   "DiscountedPrice": 3005.5
  },
  {
    "Id": 936,
@@ -15909,7 +16844,8 @@
    "Rating": 4,
    "Discount": 5,
    "AvailableStocks": 91,
-   "SoldItems": 495
+   "SoldItems": 495,
+   "DiscountedPrice": 1649.2
  },
  {
    "Id": 937,
@@ -15926,7 +16862,8 @@
    "Rating": 0.3,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 29
+   "SoldItems": 29,
+   "DiscountedPrice": 7647.3
  },
  {
    "Id": 938,
@@ -15943,7 +16880,8 @@
    "Rating": 1.5,
    "Discount": 10,
    "AvailableStocks": 546,
-   "SoldItems": 311
+   "SoldItems": 311,
+   "DiscountedPrice": 5955.3
  },
  {
    "Id": 939,
@@ -15960,7 +16898,8 @@
    "Rating": 4.6,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 478
+   "SoldItems": 478,
+   "DiscountedPrice": 804.65
  },
  {
    "Id": 940,
@@ -15977,7 +16916,8 @@
    "Rating": 0.8,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 441
+   "SoldItems": 441,
+   "DiscountedPrice": 1072.5
  },
  {
    "Id": 941,
@@ -15994,7 +16934,8 @@
    "Rating": 2.9,
    "Discount": 20,
    "AvailableStocks": 356,
-   "SoldItems": 48
+   "SoldItems": 48,
+   "DiscountedPrice": 1214.4
  },
  {
    "Id": 942,
@@ -16011,7 +16952,8 @@
    "Rating": 4,
    "Discount": 5,
    "AvailableStocks": 547,
-   "SoldItems": 94
+   "SoldItems": 94,
+   "DiscountedPrice": 3327.85
  },
  {
    "Id": 943,
@@ -16028,7 +16970,8 @@
    "Rating": 0.2,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 251
+   "SoldItems": 251,
+   "DiscountedPrice": 5009.4
  },
  {
    "Id": 944,
@@ -16045,7 +16988,8 @@
    "Rating": 4,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 196
+   "SoldItems": 196,
+   "DiscountedPrice": 1266.4
  },
  {
    "Id": 945,
@@ -16062,7 +17006,8 @@
    "Rating": 3.8,
    "Discount": 40,
    "AvailableStocks": 621,
-   "SoldItems": 115
+   "SoldItems": 115,
+   "DiscountedPrice": 3432.6
  },
  {
    "Id": 946,
@@ -16079,7 +17024,8 @@
    "Rating": 1,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 163
+   "SoldItems": 163,
+   "DiscountedPrice": 2963.4
  },
  {
    "Id": 947,
@@ -16096,7 +17042,8 @@
    "Rating": 3.3,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 121
+   "SoldItems": 121,
+   "DiscountedPrice": 5243.2
  },
  {
    "Id": 948,
@@ -16113,7 +17060,8 @@
    "Rating": 4.3,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 376
+   "SoldItems": 376,
+   "DiscountedPrice": 6433.05
  },
  {
    "Id": 949,
@@ -16130,7 +17078,8 @@
    "Rating": 3.4,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 182
+   "SoldItems": 182,
+   "DiscountedPrice": 2459.8
  },
  {
    "Id": 950,
@@ -16147,7 +17096,8 @@
    "Rating": 0.9,
    "Discount": 15,
    "AvailableStocks": 147,
-   "SoldItems": 367
+   "SoldItems": 367,
+   "DiscountedPrice": 7271.75
  },
  {
    "Id": 951,
@@ -16164,7 +17114,8 @@
    "Rating": 2.3,
    "Discount": 30,
    "AvailableStocks": 0,
-   "SoldItems": 195
+   "SoldItems": 195,
+   "DiscountedPrice": 1388.8
  },
  {
    "Id": 952,
@@ -16181,7 +17132,8 @@
    "Rating": 4.6,
    "Discount": 30,
    "AvailableStocks": 388,
-   "SoldItems": 323
+   "SoldItems": 323,
+   "DiscountedPrice": 972.3
  },
  {
    "Id": 953,
@@ -16198,7 +17150,8 @@
    "Rating": 1.2,
    "Discount": 50,
    "AvailableStocks": 576,
-   "SoldItems": 128
+   "SoldItems": 128,
+   "DiscountedPrice": 638.5
  },
  {
    "Id": 954,
@@ -16215,7 +17168,8 @@
    "Rating": 3.5,
    "Discount": 15,
    "AvailableStocks": 87,
-   "SoldItems": 354
+   "SoldItems": 354,
+   "DiscountedPrice": 1763.75
  },
  {
    "Id": 955,
@@ -16232,7 +17186,8 @@
    "Rating": 0.1,
    "Discount": 15,
    "AvailableStocks": 576,
-   "SoldItems": 408
+   "SoldItems": 408,
+   "DiscountedPrice": 3501.15
  },
  {
    "Id": 956,
@@ -16249,7 +17204,8 @@
    "Rating": 4,
    "Discount": 15,
    "AvailableStocks": 706,
-   "SoldItems": 328
+   "SoldItems": 328,
+   "DiscountedPrice": 810.9
  },
  {
    "Id": 957,
@@ -16266,7 +17222,8 @@
    "Rating": 1,
    "Discount": 15,
    "AvailableStocks": 391,
-   "SoldItems": 483
+   "SoldItems": 483,
+   "DiscountedPrice": 2263.55
  },
  {
    "Id": 958,
@@ -16283,7 +17240,8 @@
    "Rating": 0.9,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 289
+   "SoldItems": 289,
+   "DiscountedPrice": 1836.5
  },
  {
    "Id": 959,
@@ -16300,7 +17258,8 @@
    "Rating": 3.3,
    "Discount": 0,
    "AvailableStocks": 148,
-   "SoldItems": 101
+   "SoldItems": 101,
+   "DiscountedPrice": 1745
  },
  {
    "Id": 960,
@@ -16317,7 +17276,8 @@
    "Rating": 4,
    "Discount": 40,
    "AvailableStocks": 121,
-   "SoldItems": 490
+   "SoldItems": 490,
+   "DiscountedPrice": 5075.4
  },
  {
    "Id": 961,
@@ -16334,7 +17294,8 @@
    "Rating": 1.2,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 488
+   "SoldItems": 488,
+   "DiscountedPrice": 4583.15
  },
  {
    "Id": 962,
@@ -16351,7 +17312,8 @@
    "Rating": 0,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 483
+   "SoldItems": 483,
+   "DiscountedPrice": 5842.2
  },
  {
    "Id": 963,
@@ -16368,7 +17330,8 @@
    "Rating": 5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 229
+   "SoldItems": 229,
+   "DiscountedPrice": 4477.5
  },
  {
    "Id": 964,
@@ -16385,7 +17348,8 @@
    "Rating": 4.3,
    "Discount": 50,
    "AvailableStocks": 386,
-   "SoldItems": 203
+   "SoldItems": 203,
+   "DiscountedPrice": 1048
  },
  {
    "Id": 965,
@@ -16402,7 +17366,8 @@
    "Rating": 1,
    "Discount": 15,
    "AvailableStocks": 0,
-   "SoldItems": 91
+   "SoldItems": 91,
+   "DiscountedPrice": 4604.45
  },
  {
    "Id": 966,
@@ -16419,7 +17384,8 @@
    "Rating": 0.8,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 30
+   "SoldItems": 30,
+   "DiscountedPrice": 6370.4
  },
  {
    "Id": 967,
@@ -16436,7 +17402,8 @@
    "Rating": 0.6,
    "Discount": 40,
    "AvailableStocks": 610,
-   "SoldItems": 406
+   "SoldItems": 406,
+   "DiscountedPrice": 5539.8
  },
  {
    "Id": 968,
@@ -16453,7 +17420,8 @@
    "Rating": 4.9,
    "Discount": 30,
    "AvailableStocks": 367,
-   "SoldItems": 162
+   "SoldItems": 162,
+   "DiscountedPrice": 2564.1
  },
  {
    "Id": 969,
@@ -16470,7 +17438,8 @@
    "Rating": 1.3,
    "Discount": 45,
    "AvailableStocks": 683,
-   "SoldItems": 252
+   "SoldItems": 252,
+   "DiscountedPrice": 4143.15
  },
  {
    "Id": 970,
@@ -16487,7 +17456,8 @@
    "Rating": 1.4,
    "Discount": 40,
    "AvailableStocks": 0,
-   "SoldItems": 375
+   "SoldItems": 375,
+   "DiscountedPrice": 916.8
  },
  {
    "Id": 971,
@@ -16504,7 +17474,8 @@
    "Rating": 1.2,
    "Discount": 40,
    "AvailableStocks": 374,
-   "SoldItems": 462
+   "SoldItems": 462,
+   "DiscountedPrice": 5209.2
  },
  {
    "Id": 972,
@@ -16521,7 +17492,8 @@
    "Rating": 4.9,
    "Discount": 5,
    "AvailableStocks": 623,
-   "SoldItems": 142
+   "SoldItems": 142,
+   "DiscountedPrice": 1800.25
  },
  {
    "Id": 973,
@@ -16538,7 +17510,8 @@
    "Rating": 2.5,
    "Discount": 10,
    "AvailableStocks": 489,
-   "SoldItems": 69
+   "SoldItems": 69,
+   "DiscountedPrice": 3223.8
  },
  {
    "Id": 974,
@@ -16555,7 +17528,8 @@
    "Rating": 0.9,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 403
+   "SoldItems": 403,
+   "DiscountedPrice": 2356.25
  },
  {
    "Id": 975,
@@ -16572,7 +17546,8 @@
    "Rating": 4.8,
    "Discount": 50,
    "AvailableStocks": 412,
-   "SoldItems": 70
+   "SoldItems": 70,
+   "DiscountedPrice": 3591
  },
  {
    "Id": 976,
@@ -16589,7 +17564,8 @@
    "Rating": 4.4,
    "Discount": 50,
    "AvailableStocks": 522,
-   "SoldItems": 48
+   "SoldItems": 48,
+   "DiscountedPrice": 926
  },
  {
    "Id": 977,
@@ -16606,7 +17582,8 @@
    "Rating": 3.9,
    "Discount": 15,
    "AvailableStocks": 339,
-   "SoldItems": 373
+   "SoldItems": 373,
+   "DiscountedPrice": 3736.6
  },
  {
    "Id": 978,
@@ -16623,7 +17600,8 @@
    "Rating": 3.2,
    "Discount": 30,
    "AvailableStocks": 34,
-   "SoldItems": 105
+   "SoldItems": 105,
+   "DiscountedPrice": 6557.6
  },
  {
    "Id": 979,
@@ -16640,7 +17618,8 @@
    "Rating": 0.9,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 93
+   "SoldItems": 93,
+   "DiscountedPrice": 3324.6
  },
  {
    "Id": 980,
@@ -16657,7 +17636,8 @@
    "Rating": 3.5,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 375
+   "SoldItems": 375,
+   "DiscountedPrice": 4767
  },
  {
    "Id": 981,
@@ -16674,7 +17654,8 @@
    "Rating": 3.1,
    "Discount": 10,
    "AvailableStocks": 0,
-   "SoldItems": 479
+   "SoldItems": 479,
+   "DiscountedPrice": 1391.4
  },
  {
    "Id": 982,
@@ -16691,7 +17672,8 @@
    "Rating": 3.9,
    "Discount": 35,
    "AvailableStocks": 610,
-   "SoldItems": 366
+   "SoldItems": 366,
+   "DiscountedPrice": 954.2
  },
  {
    "Id": 983,
@@ -16708,7 +17690,8 @@
    "Rating": 5,
    "Discount": 15,
    "AvailableStocks": 637,
-   "SoldItems": 231
+   "SoldItems": 231,
+   "DiscountedPrice": 5938.95
  },
  {
    "Id": 984,
@@ -16725,7 +17708,8 @@
    "Rating": 3.2,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 52
+   "SoldItems": 52,
+   "DiscountedPrice": 800
  },
  {
    "Id": 985,
@@ -16742,7 +17726,8 @@
    "Rating": 0.8,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 53
+   "SoldItems": 53,
+   "DiscountedPrice": 1234.35
  },
  {
    "Id": 986,
@@ -16759,7 +17744,8 @@
    "Rating": 3.5,
    "Discount": 20,
    "AvailableStocks": 672,
-   "SoldItems": 373
+   "SoldItems": 373,
+   "DiscountedPrice": 6698.4
  },
  {
    "Id": 987,
@@ -16776,7 +17762,8 @@
    "Rating": 3.9,
    "Discount": 35,
    "AvailableStocks": 0,
-   "SoldItems": 90
+   "SoldItems": 90,
+   "DiscountedPrice": 5349.5
  },
  {
    "Id": 988,
@@ -16793,7 +17780,8 @@
    "Rating": 0,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 261
+   "SoldItems": 261,
+   "DiscountedPrice": 1114.85
  },
  {
    "Id": 989,
@@ -16810,7 +17798,8 @@
    "Rating": 0.9,
    "Discount": 0,
    "AvailableStocks": 434,
-   "SoldItems": 373
+   "SoldItems": 373,
+   "DiscountedPrice": 2520
  },
  {
    "Id": 990,
@@ -16827,7 +17816,8 @@
    "Rating": 0.8,
    "Discount": 50,
    "AvailableStocks": 0,
-   "SoldItems": 201
+   "SoldItems": 201,
+   "DiscountedPrice": 2855
  },
  {
    "Id": 991,
@@ -16844,7 +17834,8 @@
    "Rating": 1.7,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 181
+   "SoldItems": 181,
+   "DiscountedPrice": 5444
  },
  {
    "Id": 992,
@@ -16861,7 +17852,8 @@
    "Rating": 2.7,
    "Discount": 45,
    "AvailableStocks": 0,
-   "SoldItems": 157
+   "SoldItems": 157,
+   "DiscountedPrice": 2302.85
  },
  {
    "Id": 993,
@@ -16878,7 +17870,8 @@
    "Rating": 2.3,
    "Discount": 10,
    "AvailableStocks": 78,
-   "SoldItems": 136
+   "SoldItems": 136,
+   "DiscountedPrice": 1812.6
  },
  {
    "Id": 994,
@@ -16895,7 +17888,8 @@
    "Rating": 3.1,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 41
+   "SoldItems": 41,
+   "DiscountedPrice": 1929.75
  },
  {
    "Id": 995,
@@ -16912,7 +17906,8 @@
    "Rating": 5,
    "Discount": 25,
    "AvailableStocks": 0,
-   "SoldItems": 471
+   "SoldItems": 471,
+   "DiscountedPrice": 3292.5
  },
  {
    "Id": 996,
@@ -16929,7 +17924,8 @@
    "Rating": 2,
    "Discount": 40,
    "AvailableStocks": 378,
-   "SoldItems": 196
+   "SoldItems": 196,
+   "DiscountedPrice": 3596.4
  },
  {
    "Id": 997,
@@ -16946,7 +17942,8 @@
    "Rating": 0.7,
    "Discount": 15,
    "AvailableStocks": 203,
-   "SoldItems": 424
+   "SoldItems": 424,
+   "DiscountedPrice": 1493.45
  },
  {
    "Id": 998,
@@ -16963,7 +17960,8 @@
    "Rating": 4.1,
    "Discount": 30,
    "AvailableStocks": 158,
-   "SoldItems": 181
+   "SoldItems": 181,
+   "DiscountedPrice": 5072.2
  },
  {
    "Id": 999,
@@ -16980,7 +17978,8 @@
    "Rating": 0.5,
    "Discount": 5,
    "AvailableStocks": 0,
-   "SoldItems": 283
+   "SoldItems": 283,
+   "DiscountedPrice": 5326.65
  },
  {
    "Id": 1000,
@@ -16997,6 +17996,7 @@
    "Rating": 0.6,
    "Discount": 20,
    "AvailableStocks": 0,
-   "SoldItems": 411
+   "SoldItems": 411,
+   "DiscountedPrice": 5124.8
  }
 ]

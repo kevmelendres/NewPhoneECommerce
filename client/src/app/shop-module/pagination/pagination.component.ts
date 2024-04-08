@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
@@ -15,10 +15,18 @@ export class PaginationComponent {
   totalNumOfProducts: number;
   itemsPerPage: number;
   maxPageNumber: number;
+
+  @Output() currentPageChange = new EventEmitter<number>;
   constructor(private shopService: ShopService) {
     this.firstEntryPage = 1;
     this.shopService.getAllProductsCount().subscribe(data => this.totalNumOfProducts = data);
-    this.shopService.getProducts().subscribe(data => this.itemsPerPage = data.length);
+
+    this.shopService.getProducts().subscribe(data => {
+      if (data != null) {
+        this.itemsPerPage = data.length
+      }
+    });
+
     this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
   }
 
@@ -34,18 +42,21 @@ export class PaginationComponent {
 
   pageNumberClick(event: any) {
     this.currentPage = parseInt(event.target.text);
+    this.currentPageChange.emit(parseInt(event.target.text));
   }
 
   onPrevClick() {
     this.currentPage = this.currentPage - 10;
     this.firstEntryPage = this.firstEntryPage - 10;
     this.validateFirstEntryPage();
+    this.currentPageChange.emit(this.currentPage);
   }
 
   onNextClick() {
     this.currentPage = this.currentPage + 10;
     this.firstEntryPage = this.firstEntryPage + 10;
     this.validateFirstEntryPage();
+    this.currentPageChange.emit(this.currentPage);
   }
 
 }

@@ -21,5 +21,6 @@ namespace API.Dtos
         public int Discount { get; set; }
         public int AvailableStocks { get; set; }
         public int SoldItems { get; set; }
+        public double DiscountedPrice { get; set; }
     }
 }

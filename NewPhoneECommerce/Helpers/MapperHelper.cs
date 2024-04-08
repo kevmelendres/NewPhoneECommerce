@@ -33,6 +33,7 @@ namespace API.Helpers
             addItem.Discount = item.Discount;
             addItem.AvailableStocks = item.AvailableStocks;
             addItem.SoldItems = item.SoldItems;
+            addItem.DiscountedPrice = item.DiscountedPrice;
 
             if (item.Seller != null)
             {

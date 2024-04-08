@@ -8,9 +8,12 @@ import { IProduct } from '../../../Models/product';
 })
 export class ProductComponent implements OnInit{
   @Input() product: IProduct;
+  buttonText: string = "Add to Cart";
 
   ngOnInit(): void {
-    this.product.discountedPrice = this.product.price * (100 - this.product.discount) / 100;
+    if (this.product.availableStocks < 1) {
+      this.buttonText = "Not Available";
+    }
   }
 
   star1(): string {

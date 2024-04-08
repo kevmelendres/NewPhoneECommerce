@@ -16,6 +16,38 @@ namespace Core.Specifications
                     (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId);
             this.PageNumber = paramSpecs.PageNumber;
             this.ItemsToShow = paramSpecs.ItemsToShow;
+            this.OrderBy = x => x.Price; //default sorting
+
+            if (paramSpecs.SortBy != null)
+            {
+                this.OrderBy = null;
+
+                if (paramSpecs.SortBy == "Price: Low-to-High")
+                {
+                    this.OrderBy = x => x.DiscountedPrice;
+                }
+
+                if (paramSpecs.SortBy == "Price: High-to-Low")
+                {
+                    this.OrderByDescending = x => x.DiscountedPrice;
+                }
+
+                if (paramSpecs.SortBy == "Average Rating")
+                {
+                    this.OrderByDescending = x => x.Rating;
+                }
+
+                if (paramSpecs.SortBy == "Latest")
+                {
+                    this.OrderByDescending = x => x.ReleaseDate;
+                }
+
+                if (paramSpecs.SortBy == "Availability")
+                {
+                    this.OrderByDescending = x => x.AvailableStocks;
+                }
+            }
+
         }
     }
 }
