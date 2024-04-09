@@ -12,7 +12,6 @@ export class ShopComponent {
   sortBy: string = "Price: Low-to-High";
   itemsToShow: number = 10;
   pageNumber: number = 1;
-
   constructor(private shopService: ShopService) {
   }
 

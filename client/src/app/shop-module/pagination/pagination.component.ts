@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ShopService } from '../../../Services/shop-service.service';
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })
-export class PaginationComponent {
+export class PaginationComponent implements OnChanges{
   currentPage: number = 1;
   firstEntryPage: number;
   increment: number = 10;
@@ -14,6 +14,7 @@ export class PaginationComponent {
 
   totalNumOfProducts: number;
   itemsPerPage: number;
+  @Input() changeItemsPerPage: number;
   maxPageNumber: number;
 
   @Output() currentPageChange = new EventEmitter<number>;
@@ -26,7 +27,12 @@ export class PaginationComponent {
         this.itemsPerPage = data.length
       }
     });
+    console.log("initial max page number!!");
+    this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.itemsPerPage = this.changeItemsPerPage;
     this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
   }
 
@@ -43,6 +49,7 @@ export class PaginationComponent {
   pageNumberClick(event: any) {
     this.currentPage = parseInt(event.target.text);
     this.currentPageChange.emit(parseInt(event.target.text));
+    console.log(this.itemsPerPage);
   }
 
   onPrevClick() {

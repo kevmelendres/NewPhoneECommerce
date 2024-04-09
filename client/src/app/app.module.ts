@@ -9,12 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ShopModule } from './shop-module/shop-module.module';
 import { TopHeaderComponent } from './top-header/top-header.component';
+import { SearchBarComponent } from './header/search-bar/search-bar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TopHeaderComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

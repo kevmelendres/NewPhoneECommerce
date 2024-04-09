@@ -1,9 +1,9 @@
 
 
-<h5>Select by Brands:</h5>
+<h6><strong>Select by Brands:</strong></h6>
 <div class="form-check" *ngFor="let brand of productBrands">
-  <input class="form-check-input" type="radio" name="selectedProductBrand" [value]="brand" [id]="brand" [(ngModel)]="productBrandSelected">
-  <label class="form-check-label" [for]="brand">
+    <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="brand" [id]="brand">
+    <label class="form-check-label ps-1" [for]="brand">
     {{brand}}
-  </label>
+    </label>
 </div>

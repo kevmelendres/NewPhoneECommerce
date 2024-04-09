@@ -1,11 +1,11 @@
 <div class="container shop-container">
 
   <div class="row">
-    <div class="p-2 col-3">
+    <div class="p-2 col-2">
       <app-sidebar-filter></app-sidebar-filter>
     </div>
 
-    <div class="p-2 col-9">
+    <div class="p-2 col-10">
 
       <div class="row justify-content-center">
           <app-top-filter (changeSort)="changeSortedItems($event)"
@@ -21,7 +21,7 @@
       </div>
 
       <div class="row">
-        <app-pagination (currentPageChange)="currentPageChange($event)"></app-pagination>
+          <app-pagination (currentPageChange)="currentPageChange($event)" [changeItemsPerPage]="itemsToShow"></app-pagination>
       </div>
     </div>
   </div>

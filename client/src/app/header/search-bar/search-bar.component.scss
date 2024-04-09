@@ -1,0 +1,42 @@
+.autocomplete-wrapper {
+  position: relative;
+  height: 42px;
+  padding: 5px 10px;
+
+}
+
+.query-results {
+  display: none;
+  position: absolute;
+  top: 41px;
+  left: 0px;
+  border: solid 0px #CCC;
+  min-height: 0px;
+  max-height: 150px;
+  overflow-y: scroll;
+  list-style: none;
+  padding: 10px;
+  background-color: white;
+  border:medium;
+  width: 100%;
+  padding: 0 0 0px 0;
+  margin: 0 8px 0 8px;
+  height: auto;
+}
+
+
+.list-group-item {
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.list-group-item:hover {
+  background-color: #063970;
+  color: white;
+  cursor: pointer;
+}
+
+#searchInput:focus + #queryResults{
+    display: block;
+}

@@ -8,7 +8,6 @@ import { ShopService } from '../../../Services/shop-service.service';
 })
 export class SidebarFilterComponent implements OnInit{
   productBrands: string[];
-  productBrandSelected: string;
   constructor(private shopService: ShopService) { }
 
   ngOnInit() {
