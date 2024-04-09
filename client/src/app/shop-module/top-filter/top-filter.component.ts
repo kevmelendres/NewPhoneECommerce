@@ -21,8 +21,6 @@ export class TopFilterComponent {
   @Output() changeSort = new EventEmitter<string>;
   @Output() changeNumOfItemsToShow = new EventEmitter<number>;
 
-  selectedSort: string = "Sort by price: low-to-high";
-  selectedNumOfItemsToShow: number = 10;
 
   onSortClick(value: any) {
     this.selectedSort = value.target.text;
