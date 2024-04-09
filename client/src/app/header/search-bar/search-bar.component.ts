@@ -12,9 +12,7 @@ export class SearchBarComponent implements OnInit{
   searchArray: string[] = ["Martin", "James", "Jamie", "Jameson", "Jamelia", "Jamela", "StackOverflow"];
   searchResults: string[];
   products: IProduct[] | null;
-  @Input() sortBy: string;
-  @Input() itemsToShow: number;
-  @Input() pageNumber: number;
+
 
   searchString: string;
   @ViewChild('queryResults') queryResults: ElementRef;
@@ -23,7 +21,7 @@ export class SearchBarComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.shopService.getProducts(this.sortBy, this.itemsToShow, this.pageNumber)
+    this.shopService.getProducts()
       .subscribe(data => this.products = data);
   }
 

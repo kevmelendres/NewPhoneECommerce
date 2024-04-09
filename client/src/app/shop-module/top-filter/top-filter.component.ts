@@ -1,11 +1,24 @@
-import { Component, EventEmitter, Output, output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges, output } from '@angular/core';
+import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
   selector: 'app-top-filter',
   templateUrl: './top-filter.component.html',
   styleUrl: './top-filter.component.scss'
 })
-export class TopFilterComponent {
+export class TopFilterComponent implements OnInit{
+
+  selectedSort: string;
+  selectedNumOfItemsToShow: number;
+  constructor(private shopService: ShopService) {
+
+  }
+
+  ngOnInit(): void {
+    this.shopService.sortBy.subscribe(sortBy => this.selectedSort = sortBy);
+    this.shopService.itemsToShow.subscribe(sortBy => this.selectedNumOfItemsToShow = sortBy);
+  }
+
   sortBy: string[] = [
     "Sort by average rating",
     "Sort by latest",
@@ -20,7 +33,6 @@ export class TopFilterComponent {
 
   @Output() changeSort = new EventEmitter<string>;
   @Output() changeNumOfItemsToShow = new EventEmitter<number>;
-
 
   onSortClick(value: any) {
     this.selectedSort = value.target.text;

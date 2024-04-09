@@ -3,7 +3,7 @@
         <div class="dropdown">
             <button class="btn dropdown-toggle badge rounded-pill text-bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     style="font-size:13px; font-weight:500">
-                {{selectedSort}}
+                Sort by {{selectedSort}}
             </button>
             <ul class="dropdown-menu">
                 <li *ngFor="let item of sortBy" (click)="onSortClick($event)">

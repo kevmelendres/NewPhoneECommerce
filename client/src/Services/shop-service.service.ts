@@ -11,15 +11,19 @@ export class ShopService {
 
   baseUrl: string = 'http://localhost:5064/api/';
 
-  sortByInit: string = 'Price: High-to-Low'
+  sortByInit: string = 'Price: Low-to-High'
   itemsToShowInit: number = 10;
   pageNumberInit: number = 1;
 
-  private sortBy = new BehaviorSubject(this.sortByInit);
-  private itemsToShow = new BehaviorSubject(this.itemsToShowInit);
-  private pageNumber = new BehaviorSubject(this.pageNumberInit);
+  sortByGP: string;
+  itemsToShowGP: number;
+  pageNumberGP: number;
 
-  changeSortByBS(sortBy: string) {
+  public sortBy = new BehaviorSubject(this.sortByInit);
+  public itemsToShow = new BehaviorSubject(this.itemsToShowInit);
+  public pageNumber = new BehaviorSubject(this.pageNumberInit);
+
+  changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
   }
 
@@ -31,24 +35,25 @@ export class ShopService {
     this.pageNumber.next(pageNumber);
   }
 
-
-
   constructor(private http: HttpClient) { }
 
-  getProducts(sortBy?: string, itemsToShow?: number, pageNumber?: number) {
-
+  getProducts() {
     let params = new HttpParams();
+
+    this.sortBy.subscribe(val => this.sortByGP = val);
+    this.itemsToShow.subscribe(val => this.itemsToShowGP = val);
+    this.pageNumber.subscribe(val => this.pageNumberGP = val);
     
-    if (sortBy) {
-      params = params.append('sortBy', sortBy);
+    if (this.sortByGP) {
+      params = params.append('sortBy', this.sortByGP);
     }
 
-    if (itemsToShow) {
-      params = params.append('itemsToShow', itemsToShow.toString());
+    if (this.itemsToShowGP) {
+      params = params.append('itemsToShow', this.itemsToShowGP.toString());
     }
 
-    if (pageNumber) {
-      params = params.append('pageNumber', pageNumber.toString());
+    if (this.pageNumberGP) {
+      params = params.append('pageNumber', this.pageNumberGP.toString());
     }
 
     return this.http.get<IProduct[]>(this.baseUrl + 'Products',
