@@ -6,6 +6,7 @@ import { SidebarFilterComponent } from './sidebar-filter/sidebar-filter.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
 import { TopFilterComponent } from './top-filter/top-filter.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TopFilterComponent } from './top-filter/top-filter.component';
     SidebarFilterComponent,
     ShopComponent,
     PaginationComponent,
-    TopFilterComponent
+    TopFilterComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

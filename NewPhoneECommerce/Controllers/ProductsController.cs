@@ -21,16 +21,17 @@ namespace API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<ProductToReturnDto>> ListAllProducts(
-            [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy )
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy,
+            [FromQuery] string? searchString)
         {
             var specParam = new ProductSpecParams();
             specParam.ItemsToShow = 10;
             specParam.PageNumber = 1;
-            Console.WriteLine(sortBy);
 
             if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
             if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
             if (sortBy != null) { specParam.SortBy = sortBy; }
+            if (searchString != null) { specParam.SearchString = searchString; }
 
             var newSpecs = new ProductWithParamsSpec(specParam);
             
@@ -82,6 +83,17 @@ namespace API.Controllers
             var data = _productsRepo.ApplySpecification(specs);
 
             return Ok(data.Count());
+        }
+
+        [HttpGet("GetAllProductsModels")]
+        public async Task<ActionResult<List<string>>> GetAllProductsModels()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs);
+
+            List<string> returnData = data.Select(x => x.Model).Distinct().ToList();
+
+            return Ok(returnData);
         }
     }
 }

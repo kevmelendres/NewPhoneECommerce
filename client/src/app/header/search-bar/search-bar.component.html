@@ -2,14 +2,18 @@
     <label class="justify-content-center px-2" for="search_search">
         <i class="fa fa-search"></i>
     </label>
+    <form class="w-100">
+        <div class="w-100 autocomplete-wrapper" id="autocomplete-wrapper">
+            <input class="form-control form-control-sm border-0 shadow-0 bg-body-tertiary rounded"
+                   id="searchInput" #searchInput placeholder="Search" aria-label="Search" type="search"
+                   name="searchInput" [(ngModel)]="searchString" (ngModelChange)="onSearchStringTyping($event)"
+                   (focus)="onInputFocus()" (keypress)="checkSubmit($event)">
 
-    <div class="w-100 autocomplete-wrapper">
-        <input class="form-control form-control-sm border-0 shadow-0 bg-body-tertiary rounded"
-               id="searchInput" #searchInput placeholder="Search" aria-label="Search" type="search"
-               name="searchInput" [(ngModel)]="searchString" (ngModelChange)="onSearchStringTyping($event)">
-        <ul class="list-group query-results" #queryResults id="queryResults">
-            <li class="list-group-item" *ngFor="let item of searchResults">{{item}}</li>
-        </ul>
+            <ul class="list-group query-results" #queryResults id="queryResults">
+                <li class="list-group-item" *ngFor="let item of searchResults" (click)="onItemClick($event)">{{item}}</li>
+            </ul>
 
-    </div>
+        </div>
+    </form>
+    
 </div>

@@ -1,28 +1,37 @@
 <div class="container rounded bg-body-secondary py-1 w-100">
     <div class="d-flex justify-content-between">
-        <div class="dropdown">
-            <button class="btn dropdown-toggle badge rounded-pill text-bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="font-size:13px; font-weight:500">
-                Sort by {{selectedSort}}
-            </button>
-            <ul class="dropdown-menu">
-                <li *ngFor="let item of sortBy" (click)="onSortClick($event)">
-                    <a class="dropdown-item">{{item}}</a>
-                </li>
-            </ul>
+        <div class="p-0 m-0 h-auto">
+            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="searchString">Showing results for: <strong>{{searchString}}</strong></span>
+            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="!searchString">Showing all items</span>
         </div>
+        <div>
+            <div class="dropdown d-inline">
+                <button class="btn dropdown-toggle badge rounded-pill text-bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="font-size:13px; font-weight:500">
+                    Sort by {{selectedSort}}
+                </button>
+                <ul class="dropdown-menu">
+                    <li *ngFor="let item of sortBy" (click)="onSortClick($event)">
+                        <a class="dropdown-item">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="dropdown">
-            <button class="btn dropdown-toggle badge rounded-pill text-bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="font-size:13px; font-weight:500">
-                Show {{selectedNumOfItemsToShow}} items per page
-            </button>
-            <ul class="dropdown-menu">
-                <li *ngFor="let item of numOfItemsToShow" (click)="onNumOfItemsToShowClick($event)">
-                    <a class="dropdown-item">{{item}}</a>
-                </li>
-            </ul>
+            <div class="d-inline opacity-50 px-1"> | </div>
+
+            <div class="dropdown d-inline">
+                <button class="btn dropdown-toggle badge rounded-pill text-bg-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="font-size:13px; font-weight:500">
+                    Show {{selectedNumOfItemsToShow}} items per page
+                </button>
+                <ul class="dropdown-menu">
+                    <li *ngFor="let item of numOfItemsToShow" (click)="onNumOfItemsToShowClick($event)">
+                        <a class="dropdown-item">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        
     </div>
     
 

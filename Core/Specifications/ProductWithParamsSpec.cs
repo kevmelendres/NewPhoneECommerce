@@ -13,7 +13,9 @@ namespace Core.Specifications
         public ProductWithParamsSpec(ProductSpecParams paramSpecs) : base()
         {
             this.Criteria = x => (!paramSpecs.SellerId.HasValue || x.SellerID == paramSpecs.SellerId) &&
-                    (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId);
+                    (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId) &&
+                    (paramSpecs.SearchString == null || x.Model.ToString().ToLower().Contains(paramSpecs.SearchString.ToLower()));
+
             this.PageNumber = paramSpecs.PageNumber;
             this.ItemsToShow = paramSpecs.ItemsToShow;
             this.OrderBy = x => x.Price; //default sorting

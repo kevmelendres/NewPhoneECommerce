@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IProduct } from '../../../Models/product';
 
 @Component({
@@ -8,6 +8,10 @@ import { IProduct } from '../../../Models/product';
 })
 export class ProductComponent implements OnInit{
   @Input() product: IProduct;
+  @Output() emitClickedProduct = new EventEmitter<IProduct>();
+  @Output() emitToggle = new EventEmitter<boolean>();
+  toggleVal: boolean = true;
+
   buttonText: string = "Add to Cart";
 
   ngOnInit(): void {
@@ -56,5 +60,10 @@ export class ProductComponent implements OnInit{
     return "fa-star fa-regular";
   }
 
+  onProductCardClick() {
+    this.emitClickedProduct.emit(this.product);
+    this.emitToggle.emit(this.toggleVal);
+    this.toggleVal = !this.toggleVal;
+  }
 
 }

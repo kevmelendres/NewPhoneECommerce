@@ -10,6 +10,7 @@ export class TopFilterComponent implements OnInit{
 
   selectedSort: string;
   selectedNumOfItemsToShow: number;
+  searchString: string;
   constructor(private shopService: ShopService) {
 
   }
@@ -17,6 +18,7 @@ export class TopFilterComponent implements OnInit{
   ngOnInit(): void {
     this.shopService.sortBy.subscribe(sortBy => this.selectedSort = sortBy);
     this.shopService.itemsToShow.subscribe(sortBy => this.selectedNumOfItemsToShow = sortBy);
+    this.shopService.searchString.subscribe(searchString => this.searchString = searchString);
   }
 
   sortBy: string[] = [

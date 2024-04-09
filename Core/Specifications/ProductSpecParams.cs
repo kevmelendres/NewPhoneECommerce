@@ -14,6 +14,6 @@ namespace Core.Specifications
         public int? PrevOwnerId { get; set; }
         public int ItemsToShow { get; set; }
         public int PageNumber { get; set; }
-
+        public string? SearchString { get; set; }
     }
 }

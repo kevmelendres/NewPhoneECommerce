@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { IProduct } from '../../Models/product';
 import { ShopService } from '../../Services/shop-service.service';
 
@@ -7,16 +7,20 @@ import { ShopService } from '../../Services/shop-service.service';
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
-export class ShopComponent {
+export class ShopComponent implements OnChanges{
   products: IProduct[] | null = [];
-  //sortBy: string = "Price: Low-to-High";
-  //itemsToShow: number = 10;
-  //pageNumber: number = 1;
+  selectedProduct: IProduct;
+  toggle: boolean;
+
   constructor(private shopService: ShopService) {
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.getProducts();
+  } 
+
+  ngOnInit(): void {
+    this.shopService.searchString.subscribe(value => this.getProducts());
   }
 
   getProducts() {
@@ -37,5 +41,13 @@ export class ShopComponent {
   changeNumberOfItemsToShow(itemsToShow: number) {
     this.shopService.changeItemsToShow(itemsToShow);
     this.getProducts();
+  }
+
+  clickedProductOpenDetails(product: IProduct) {
+    this.selectedProduct = product;
+  }
+
+  emittedToggle(toggle: boolean) {
+    this.toggle = toggle;
   }
 }
