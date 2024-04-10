@@ -14,7 +14,8 @@ namespace Core.Specifications
         {
             this.Criteria = x => (!paramSpecs.SellerId.HasValue || x.SellerID == paramSpecs.SellerId) &&
                     (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId) &&
-                    (paramSpecs.SearchString == null || x.Model.ToString().ToLower().Contains(paramSpecs.SearchString.ToLower()));
+                    (paramSpecs.SearchString == null || x.Model.ToString().ToLower().Contains(paramSpecs.SearchString.ToLower())) &&
+                    (paramSpecs.BrandName == null || x.Brand == paramSpecs.BrandName);
 
             this.PageNumber = paramSpecs.PageNumber;
             this.ItemsToShow = paramSpecs.ItemsToShow;

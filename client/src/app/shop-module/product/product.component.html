@@ -1,57 +1,74 @@
 
-<div class="col hvr-glow hvr-grow card border border-0" (click)="onProductCardClick()">
-    <div class="card shadow-sm position-relative p-3">
-        <small class="text-body-secondary fw-light fs-xsmall pb-1">{{product.brand}}, {{product.deviceOS}} </small>
-        <p class="fs-5 pb-2 m-0"><strong>{{product.model}}</strong></p>
+<div class="col hvr-glow hvr-grow card border border-0" >
+    <div class="card shadow-sm position-relative">
+        <div class="p-0 m-0 px-3 pt-3" (click)="onProductCardClick()">
+            <small class="text-body-secondary fw-light fs-xsmall pb-1">{{product.brand}}, {{product.deviceOS}} </small>
+            <p class="fs-5 pb-2 m-0"><strong>{{product.model}}</strong></p>
 
-        <div class="position-relative h-100">
-            <img class="img-fluid" src="{{product.image}}" />
-            <span class="position-absolute discount-badge translate-middle-x badge bg-success fw-bold">
-                -{{product.discount}}% OFF
-            </span>
-        </div>
+            <div class="position-relative h-100">
+                <img class="img-fluid" src="{{product.image}}" />
+                <span class="position-absolute discount-badge translate-middle-x badge bg-success fw-bold">
+                    -{{product.discount}}% OFF
+                </span>
+            </div>
 
-        <!-- Star Rating -->
-        <div class="py-1 opacity-75">
-            <div class="col d-inline fs-small">
-                <i [class]="star1()"></i>
-                <i [class]="star2()"></i>
-                <i [class]="star3()"></i>
-                <i [class]="star4()"></i>
-                <i [class]="star5()"></i>
+            <!-- Star Rating -->
+            <div class="py-1 opacity-75">
+                <div class="col d-inline fs-small">
+                    <i [class]="star1()"></i>
+                    <i [class]="star2()"></i>
+                    <i [class]="star3()"></i>
+                    <i [class]="star4()"></i>
+                    <i [class]="star5()"></i>
+                </div>
+            </div>
+            <!-- Star Rating -->
+
+            <div class="py-1">
+                <p class="discountedPrice m-0 p-0 d-inline">
+                    {{product.discountedPrice.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </p>
+                <p [ngClass]="{origPrice: product.discount > 0}" class="m-0 p-0 d-inline">
+                    {{product.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </p>
+            </div>
+
+            <p class="card-text fs-smaller m-0">{{product.description}}</p>
+
+            <div class="fs-xsmall opacity-50 py-2">
+                <div class="row ">
+                    <p class="col-6 fs-xsmall my-0">In Stock: {{product.availableStocks}}</p>
+                    <p class="col-6 text-end my-0">Released: {{product.releaseDate}}</p>
+                </div>
+                <p class="my-0">Recently Sold: {{product.soldItems}}</p>
             </div>
         </div>
-        <!-- Star Rating -->
 
-        <div class="py-1">
-            <p class="discountedPrice m-0 p-0 d-inline">
-                {{product.discountedPrice.toLocaleString("en-US", {
-                style: "currency",
-                currency: "Php"
-                })}}
-            </p>
-            <p [ngClass]="{origPrice: product.discount > 0}" class="m-0 p-0 d-inline">
-                {{product.price.toLocaleString("en-US", {
-                style: "currency",
-                currency: "Php"
-                })}}
-            </p>
-        </div>
 
-        <p class="card-text fs-smaller m-0">{{product.description}}</p>
+        <div class="d-flex align-items-center justify-content-between align-items-center pt-2 p-3 buttonContainer">
+            <button type="button" class="btn btn-sm"
+                    [class.disabled]="(product.availableStocks < 1) || (+this.productQty < 1) || !this.productQty"
+                    [ngClass]="{'btn-outline-success': product.availableStocks > 0, 'btn-outline-danger': product.availableStocks <= 0}"
+                    (click)="addToCart(product)">
+                {{buttonText}}
+            </button>
 
-        <div class="fs-xsmall opacity-50 py-2">
-            <div class="row ">
-                <p class="col-6 fs-xsmall my-0">In Stock: {{product.availableStocks}}</p>
-                <p class="col-6 text-end my-0">Released: {{product.releaseDate}}</p>
+            <div class="m-0 w-50 border-0 d-flex align-items-center justify-content-end" *ngIf="product.availableStocks>0">
+                <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="addQty()" [class.disabled]="+this.productQty >= product.availableStocks">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <input type="text" class="form-control m-0 p-1 w-25 m-1 qtyInput" [(ngModel)]="productQty" placeholder="" aria-label="Example text with two button addons">
+                <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="subtractQty()" [class.disabled]="+this.productQty < 1 || !this.productQty">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
             </div>
-            <p class="my-0">Recently Sold: {{product.soldItems}}</p>
-        </div>
 
-        <div class="d-flex justify-content-between align-items-center pt-2">
-            <div class="">
-                <button type="button" class="btn btn-sm btn-outline-secondary" [class.disabled]="product.availableStocks < 1">{{buttonText}}</button>
-            </div>
         </div>
 
     </div>

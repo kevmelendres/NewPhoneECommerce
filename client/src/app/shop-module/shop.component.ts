@@ -2,6 +2,7 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { IProduct } from '../../Models/product';
 import { ShopService } from '../../Services/shop-service.service';
 
+
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -49,5 +50,6 @@ export class ShopComponent implements OnChanges{
 
   emittedToggle(toggle: boolean) {
     this.toggle = toggle;
+
   }
 }

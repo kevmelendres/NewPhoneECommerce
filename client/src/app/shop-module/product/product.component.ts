@@ -1,16 +1,23 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
 import { IProduct } from '../../../Models/product';
+import { CartService } from '../../../Services/cart-service.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit{
   @Input() product: IProduct;
   @Output() emitClickedProduct = new EventEmitter<IProduct>();
   @Output() emitToggle = new EventEmitter<boolean>();
   toggleVal: boolean = true;
+  productQty: string;
+
+  show: boolean = true;
+
+  @ViewChild('standardToast') standardToast: TemplateRef<any>;
+  constructor(private cartService: CartService) { }
 
   buttonText: string = "Add to Cart";
 
@@ -18,6 +25,7 @@ export class ProductComponent implements OnInit{
     if (this.product.availableStocks < 1) {
       this.buttonText = "Not Available";
     }
+
   }
 
   star1(): string {
@@ -65,5 +73,25 @@ export class ProductComponent implements OnInit{
     this.emitToggle.emit(this.toggleVal);
     this.toggleVal = !this.toggleVal;
   }
+
+  addToCart(product: IProduct) {
+    this.cartService.addToCart(product, +this.productQty);
+  }
+
+  addQty() {
+    if (this.productQty != undefined) {
+      let val = +this.productQty + 1;
+      this.productQty = val.toString();
+    } else {
+      this.productQty = "1"
+    }
+  }
+
+  subtractQty() {
+    let val = +this.productQty - 1;
+    this.productQty = val.toString();
+  }
+
+
 
 }

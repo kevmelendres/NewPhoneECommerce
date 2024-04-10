@@ -1,9 +1,91 @@
 <ng-template #productInfoTemplate let-offcanvas>
-    <div class="container pt-3 px-3">
-        <p>{{selectedProduct.model}}</p>
+    <div class="offCanvas">
+        <div class="card position-relative px-4 pt-4 pb-2 b-0">
+            <small class="text-body-secondary fw-light fs-xsmall pb-1">{{selectedProduct.brand}}, {{selectedProduct.deviceOS}} </small>
+            <p class="fs-5 pb-2 m-0"><strong>{{selectedProduct.model}}</strong></p>
+
+            <div class="position-relative h-100">
+                <img class="img-fluid" src="{{selectedProduct.image}}" />
+                <span class="position-absolute discount-badge translate-middle-x badge bg-success fw-bold">
+                    -{{selectedProduct.discount}}% OFF
+                </span>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="py-1 opacity-75">
+                <div class="col d-inline fs-small">
+                    <i [class]="star1()"></i>
+                    <i [class]="star2()"></i>
+                    <i [class]="star3()"></i>
+                    <i [class]="star4()"></i>
+                    <i [class]="star5()"></i>
+                </div>
+            </div>
+            <!-- Star Rating -->
+
+            <div class="py-1">
+                <p class="discountedPrice m-0 p-0 d-inline">
+                    {{selectedProduct.discountedPrice.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </p>
+                <p [ngClass]="{origPrice: selectedProduct.discount > 0}" class="m-0 p-0 d-inline">
+                    {{selectedProduct.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </p>
+            </div>
+
+            <p class="card-text fs-smaller m-0">{{selectedProduct.description}}</p>
+
+            <div class="fs-xsmall opacity-50 py-2">
+                <div class="row ">
+                    <p class="col-6 fs-xsmall my-0">In Stock: {{selectedProduct.availableStocks}}</p>
+                    <p class="col-6 text-end my-0">Released: {{selectedProduct.releaseDate}}</p>
+                </div>
+                <p class="my-0">Recently Sold: {{selectedProduct.soldItems}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center pt-2">
+                <div class="">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                        [class.disabled]="selectedProduct.availableStocks < 1"
+                        [ngClass]="{'btn-outline-success': selectedProduct.availableStocks > 0, 'btn-outline-danger': selectedProduct.availableStocks <= 0}">
+                        {{buttonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="px-4">
+            <hr />
+        </div>
+        
+        <div class="px-4 b-0 py-0">
+            <p class="p-0 m-0 fs-smaller">You may also like:</p>
+            <div class="d-flex flex-column align-content-around flex-wrap">
+                <div class="p-0 m-0" *ngFor="let similarItem of similarItems">
+                    <div class="w-100 border-bottom py-2 px-0 m-0 similarItemContainer row"
+                        *ngIf="isNotSameAsSelectedProduct(similarItem)" (click)="selectSimilarItem(similarItem)">
+                        <div class="col-9 p-0 m-0">
+                            <p class="d-block m-0 p-0 fs-6 modelName"><strong>{{similarItem.model}}</strong></p>
+                            <p class="m-0 p-0 d-block fs-smaller">
+                                ({{selectedProduct.discountedPrice.toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "Php"
+                                })}})
+                            </p>
+                            <p class="d-block m-0 p-0 fs-xsmall"><i>{{similarItem.description}}</i></p>
+                        </div>
+                        <div class="col-3 p-0 m-0">
+                            <img src="{{similarItem.image}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
+    
 
 </ng-template>
