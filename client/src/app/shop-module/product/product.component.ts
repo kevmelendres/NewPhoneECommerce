@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, Renderer2, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
 import { IProduct } from '../../../Models/product';
 import { CartService } from '../../../Services/cart-service.service';
 
@@ -13,11 +13,12 @@ export class ProductComponent implements OnInit{
   @Output() emitToggle = new EventEmitter<boolean>();
   toggleVal: boolean = true;
   productQty: string;
+  @ViewChild('snackbar') snackbar: ElementRef;
 
   show: boolean = true;
 
   @ViewChild('standardToast') standardToast: TemplateRef<any>;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private renderer: Renderer2) { }
 
   buttonText: string = "Add to Cart";
 
@@ -76,6 +77,7 @@ export class ProductComponent implements OnInit{
 
   addToCart(product: IProduct) {
     this.cartService.addToCart(product, +this.productQty);
+    this.openSnackBar();
   }
 
   addQty() {
@@ -92,6 +94,12 @@ export class ProductComponent implements OnInit{
     this.productQty = val.toString();
   }
 
+  openSnackBar() {
+    this.renderer.addClass(this.snackbar.nativeElement, 'show');
 
+    setTimeout(() => {
+      this.renderer.removeClass(this.snackbar.nativeElement, 'show');
+    }, 2000);
+  }
 
 }

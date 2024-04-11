@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { ShopModule } from './shop-module/shop-module.module';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { SearchBarComponent } from './header/search-bar/search-bar.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -26,10 +30,14 @@ import { SearchBarComponent } from './header/search-bar/search-bar.component';
     HttpClientModule,
     FormsModule,
     ShopModule,
-    NgbToastModule
+    NgbToastModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

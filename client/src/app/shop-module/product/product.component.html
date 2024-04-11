@@ -1,5 +1,5 @@
 
-<div class="col hvr-glow hvr-grow card border border-0" >
+<div class="col hvr-glow hvr-grow card border border-0">
     <div class="card shadow-sm position-relative">
         <div class="p-0 m-0 px-3 pt-3" (click)="onProductCardClick()">
             <small class="text-body-secondary fw-light fs-xsmall pb-1">{{product.brand}}, {{product.deviceOS}} </small>
@@ -73,6 +73,12 @@
 
     </div>
 </div>
+
+<!-- Snackbar -->
+<div class="toast shadow" id="snackbar" #snackbar>
+    <div class="toast-body"><strong>Product successfully added to cart!</strong></div>
+</div>
+
 
 
 
