@@ -30,5 +30,9 @@ export class HeaderComponent implements OnInit{
   getTotalPriceInCart(): number {
     return this.cartService.getTotalPriceInCart();
   }
+
+  viewCartClick() {
+    console.log("View cart clicked");
+  }
   
 }

@@ -7,10 +7,12 @@
             <input class="form-control form-control-sm border-0 shadow-0 bg-body-tertiary rounded"
                    id="searchInput" #searchInput placeholder="Search" aria-label="Search" type="search"
                    name="searchInput" [(ngModel)]="searchString" (ngModelChange)="onSearchStringTyping($event)"
-                   (focus)="onInputFocus()" (keypress)="checkSubmit($event)">
+                   (focus)="onInputFocus()" (keypress)="checkSubmit($event)" (keydown)="onKeyDown($event)">
 
             <ul class="list-group query-results" #queryResults id="queryResults">
-                <li class="list-group-item" *ngFor="let item of searchResults" (click)="onItemClick($event)">{{item}}</li>
+                <li class="list-group-item" *ngFor="let item of searchResults; let i = index"
+                    (click)="onItemClick($event)" [class.active]="i==arrowkeyLocation"
+                    style="height: 32.6px;">{{item}}</li>
             </ul>
 
         </div>
