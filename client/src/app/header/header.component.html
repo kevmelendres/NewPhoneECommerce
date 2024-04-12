@@ -49,22 +49,21 @@
         <!-- Shopping cart dropdown -->
         <div class="px-2">
             <div class="dropdown">
-                <a class="btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn" role="button" data-bs-toggle="dropdown" aria-expanded="false" #shopBtn>
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-end p-4 shadow"
-                    style="width: 425px;">
-
+                <div class="dropdown-menu dropdown-menu-end p-4 shadow" #dropDownMenu (click)="$event.stopPropagation()"
+                     style="width: 425px;">
                     <div class="d-flex flex-column justify-content-center pt-2 pb-0">
-                        <div class="d-flex justify-content-center" style="max-height: 350px; overflow-y:scroll;">
+                        <div class="d-flex justify-content-center" style="max-height: 350px; overflow-y:scroll; overflow-x: hidden">
                             <div class="container">
                                 <p *ngIf="itemsOnCart.size == 0 " class="fs-6 mb-3 row justify-content-center mx-0">No items to show.</p>
-                                <div class="row pb-3" *ngFor="let item of itemsOnCart | keyvalue">
+                                <div class="row pb-3 justify-content-center align-items-center hvr-grow product-container" *ngFor="let item of itemsOnCart | keyvalue">
                                     <div class="col-4">
                                         <img src="{{item.key.image}}" class="h-100 w-100" />
                                     </div>
-                                    <div class="col-8 flex-column">
+                                    <div class="col-6 flex-column">
                                         <span class="d-block" style="font-size: 14px"><strong>{{item.key.model}}</strong></span>
                                         <span class="d-block" style="font-size: 12px">Quantity: {{item.value}}</span>
                                         <span class="d-block" style="font-size: 12px">
@@ -78,11 +77,27 @@
                                             })}}
                                         </span>
                                     </div>
+                                    <div class="col-2 py-0 ps-1 pe-0">
+                                        <button class="btn btn-outline-success d-block p-0 my-2 btn-plusminus" (click)="changeProductQty(item.key, 1, confirmDelete)"><i class="fa-solid fa-plus"></i></button>
+                                        <button class="btn btn-outline-danger d-block p-0 my-2 btn-plusminus"
+                                                [ngbPopover]="confirmRemoveProductFromCart" placement="end" triggers="manual"
+                                                container="body" #confirmDelete="ngbPopover" [disabled]="disablePopover(item.key,confirmDelete)" popoverClass="popoverCustom"
+                                                (click)="changeProductQty(item.key, -1, confirmDelete)">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+
+                                        <ng-template #confirmRemoveProductFromCart>
+                                            <span class="d-block pb-1" style="font-size: small">Remove item from cart?</span>
+                                            <button class="btn btn-danger d-block" style="height: 30px; font-size: small; vertical-align:middle" (click)="deleteProduct(item.key, $event)">Yes</button>
+                                        </ng-template>
+                                    </div>
+
+                                    <span type="button" class="x-button hvr-icon-pulse"
+                                        (click)="deleteProduct(item.key, $event)">
+                                        <i class="fa-solid fa-x fa-2xs hvr-icon"></i>
+                                    </span>
                                 </div>
-
-                                
                             </div>
-
                         </div>
 
                         <div class="container border-top">
@@ -104,11 +119,12 @@
                                     <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2"><strong>Checkout</strong></button>
                                 </div>
 
+                                
 
                             </div>
 
                         </div>
-                        
+
 
                     </div>
 

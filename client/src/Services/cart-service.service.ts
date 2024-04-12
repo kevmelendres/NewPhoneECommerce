@@ -6,29 +6,37 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  _itemsInCart = new Map<IProduct, number>();
+  private _itemsInCart = new Map<IProduct, number>();
   totalPriceInCartInit: number = 0;
 
   private totalPriceInCartGP: number = 0;
 
   public itemsInCart = new BehaviorSubject(this._itemsInCart);
   public totalPriceInCart = new BehaviorSubject(this.totalPriceInCartInit);
+  constructor() { }
 
   addToCart(product: IProduct, quantity: number) {
 
     if (!this._itemsInCart.has(product)) {
       this._itemsInCart.set(product, +quantity);
-    } else {
-      let currentVal = this._itemsInCart.get(product);
-
-      if (currentVal != undefined) {
-        this._itemsInCart.set(product, +currentVal + quantity);
+    }
+    else
+    {
+      if ((this._itemsInCart.get(product)! > 0 && quantity < 0) || quantity > 0) {
+        let currentVal = this._itemsInCart.get(product);
+        if (currentVal != undefined) {
+          this._itemsInCart.set(product, +currentVal + quantity);
+        }
       }
     }
-    
+    this.refreshDataInViews();
+  }
+
+
+
+  refreshDataInViews() {
     this.itemsInCart.next(this._itemsInCart);
     this.getTotalPriceInCart();
-
     this.totalPriceInCart.next(this.totalPriceInCartGP);
   }
 
@@ -41,11 +49,15 @@ export class CartService {
     this._itemsInCart.forEach((val, key) => {
       this.totalPriceInCartGP += (val * key.discountedPrice);
     });
-
     return this.totalPriceInCartGP;
   }
 
+  getQuantityOfProduct(product: IProduct): number {
+    return this._itemsInCart.get(product)!;
+  }
 
-
-  constructor() {}
+  deleteProduct(product: IProduct) {
+    this._itemsInCart.delete(product);
+    this.refreshDataInViews;
+  }
 }
