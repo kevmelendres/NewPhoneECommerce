@@ -1,9 +1,39 @@
 
+<div class="pb-3">
+    <h6><strong>Availability:</strong></h6>
+    <div class="form-check" *ngFor="let item of availability">
+        <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="item" [id]="item">
+        <label class="form-check-label ps-1" [for]="item">
+            {{item}}
+        </label>
+    </div>
+</div>
 
-<h6><strong>Select by Brands:</strong></h6>
-<div class="form-check" *ngFor="let brand of productBrands">
-    <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="brand" [id]="brand">
-    <label class="form-check-label ps-1" [for]="brand">
-    {{brand}}
-    </label>
+<div class="pb-3">
+    <h6 class="d-inline"><strong>{{brandsToShowLabel}}:</strong></h6>
+    <div class="form-check form-switch d-flex align-items-center">
+        <input class="form-check-input form-check-input-switch" type="checkbox" role="switch" id="brandsSwitch" [(ngModel)]="brandsSwitch" (change)="onBrandsToViewChange()"/>
+        <label class="form-check-label ps-2" for="brandsSwitch">{{toggleAllSwitch}}</label>
+    </div>
+    <div class="form-check" *ngFor="let brand of productBrands">
+        <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="brand" [id]="brand">
+        <label class="form-check-label ps-1" [for]="brand">
+            {{brand}}
+        </label>
+    </div>
+</div>
+
+<div class="pb-3">
+    <h6 class="d-inline"><strong>{{sellersToShowLabel}}:</strong></h6>
+    <div class="form-check form-switch d-flex align-items-center">
+        <input class="form-check-input form-check-input-switch" type="checkbox" role="switch" id="sellersSwitch" [(ngModel)]="sellersSwitch" (change)="onSellersToViewChange()" />
+        <label class="form-check-label ps-2" for="sellersSwitch">{{toggleAllSwitch}}</label>
+    </div>
+
+    <div class="form-check" *ngFor="let seller of productSellers">
+        <input class="form-check-input checkbox" type="checkbox" name="selectedProductSeller" [value]="seller" [id]="seller">
+        <label class="form-check-label ps-1" [for]="seller">
+            {{seller}}
+        </label>
+    </div>
 </div>

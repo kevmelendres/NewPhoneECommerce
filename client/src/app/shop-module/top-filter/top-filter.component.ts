@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges, output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
@@ -65,5 +65,11 @@ export class TopFilterComponent implements OnInit{
   onNumOfItemsToShowClick(value: any) {
     this.selectedNumOfItemsToShow = parseInt(value.target.text);  
     this.changeNumOfItemsToShow.emit(this.selectedNumOfItemsToShow);
+  }
+
+  deleteSearchResults() {
+    this.searchString = ""; 
+    this.shopService.changeSearchString(this.searchString);
+    this.shopService.getProducts();
   }
 }

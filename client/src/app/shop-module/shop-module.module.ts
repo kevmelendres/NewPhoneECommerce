@@ -7,7 +7,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
 import { TopFilterComponent } from './top-filter/top-filter.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
-import { NgbPopoverModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPopoverModule, NgbToastModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { NgbPopoverModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     NgbToastModule,
-    NgbPopoverModule
+    NgbPopoverModule,
+    NgbTooltip
   ],
   exports: [
     ProductComponent,

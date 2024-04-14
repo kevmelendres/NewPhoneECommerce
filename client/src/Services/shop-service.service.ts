@@ -73,8 +73,40 @@ export class ShopService {
       .pipe(map(response => { return response.body }));
   }
 
-  getProductBrands() {
-    return this.http.get<string[]>(this.baseUrl + 'Products/UniqueBrands');
+  getProductBrands(topItemsValue: number | undefined) {
+    let params = new HttpParams();
+
+    if (topItemsValue) {
+      params = params.append('topValue', topItemsValue);
+    }
+
+    return this.http.get<string[]>(this.baseUrl + 'Products/UniqueBrands',
+      { observe: 'response', params: params })
+      .pipe(map(response => { return response.body }));
+  }
+
+  getProductSellers(topItemsValue: number | undefined) {
+    let params = new HttpParams();
+
+    if (topItemsValue) {
+      params = params.append('topValue', topItemsValue);
+    }
+
+    return this.http.get<string[]>(this.baseUrl + 'Products/UniqueSellers',
+      { observe: 'response', params: params })
+      .pipe(map(response => { return response.body }));
+  }
+
+  getProductColors(topItemsValue: number | undefined) {
+    let params = new HttpParams();
+
+    if (topItemsValue) {
+      params = params.append('topValue', topItemsValue);
+    }
+
+    return this.http.get<string[]>(this.baseUrl + 'Products/UniqueColors',
+      { observe: 'response', params: params })
+      .pipe(map(response => { return response.body }));
   }
 
   getAllProductsCount() {

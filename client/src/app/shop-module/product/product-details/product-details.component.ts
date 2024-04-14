@@ -1,7 +1,8 @@
-import { AfterContentChecked, AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, TemplateRef, ViewChild, input } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, TemplateRef, ViewChild, ChangeDetectorRef, ContentChild } from '@angular/core';
 import { IProduct } from '../../../../Models/product';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { SimilarItemsService } from '../../../../Services/similar-items.service';
+import { CartService } from '../../../../Services/cart-service.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,14 +17,22 @@ export class ProductDetailsComponent implements OnChanges{
   similarItems: IProduct[] | null;
   buttonText: string = "Add to Cart";
 
+  productQty: string;
+  showSnackbar: boolean = false;
+
   @ViewChild('productInfoTemplate') productInfoTemplate: TemplateRef<any>;
+  @ViewChild('snackbarSidebar') snackbarSidebar: ElementRef;
   offCanvas: NgbOffcanvas;
 
 
   constructor(private offCanvasService: NgbOffcanvas,
-    private similarItemsService: SimilarItemsService) { }
+    private similarItemsService: SimilarItemsService,
+    private cartService: CartService,
+    private renderer: Renderer2) { }
+
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.productQty = "";
 
     if (changes['selectedProduct'] != undefined) {
       if (!changes['selectedProduct'].firstChange) {
@@ -108,5 +117,33 @@ export class ProductDetailsComponent implements OnChanges{
     } else {
       this.buttonText = "Add to Cart";
     }
+  }
+
+  addToCart(product: IProduct) {
+    this.cartService.addToCart(product, +this.productQty);
+    console.log(this.snackbarSidebar);
+    this.openSnackBar();
+  }
+
+  addQty() {
+    if (this.productQty != undefined) {
+      let val = +this.productQty + 1;
+      this.productQty = val.toString();
+    } else {
+      this.productQty = "1"
+    }
+  }
+
+  subtractQty() {
+    let val = +this.productQty - 1;
+    this.productQty = val.toString();
+  }
+
+  openSnackBar() {
+
+    this.showSnackbar = true;
+    setTimeout(() => {
+      this.showSnackbar = false;
+    }, 2000);
   }
 }

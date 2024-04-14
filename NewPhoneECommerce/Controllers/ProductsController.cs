@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using API.Dtos;
 using API.Helpers;
 using Core.Interfaces;
@@ -7,6 +8,7 @@ using Core.Models;
 using Core.Specifications;
 using Infrastructure.SpecificationEvaluator;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -34,7 +36,7 @@ namespace API.Controllers
             if (searchString != null) { specParam.SearchString = searchString; }
 
             var newSpecs = new ProductWithParamsSpec(specParam);
-            
+
             var data = await _productsRepo.GetAllItems(newSpecs);
             var returnData = MapperHelper.MapProductList(data);
 
@@ -53,7 +55,7 @@ namespace API.Controllers
         }
 
         [HttpGet("UniqueBrands")]
-        public async Task<ActionResult<List<string>>> GetProductBrands(int id)
+        public async Task<ActionResult<List<string>>> GetProductBrands([FromQuery] int topValue)
         {
             var specs = new ProductWithSellerAndPrevOwnerSpec();
             var data = _productsRepo.ApplySpecification(specs);
@@ -61,11 +63,32 @@ namespace API.Controllers
             List<string> distinctData = data.Select(x => x.Brand).Distinct().ToList();
             distinctData.Sort();
 
-            return Ok(distinctData);
+            IDictionary<string, int> distinctDataDict = new Dictionary<string, int>();
+
+            foreach (string item in distinctData)
+            {
+                distinctDataDict.Add(item, 0);
+            }
+
+            foreach (Product product in data)
+            {
+                distinctDataDict[product.Brand.ToString()] += 1;
+            }
+
+            List<string> sortedData = distinctDataDict.Keys.ToList();
+
+            if (topValue != 0)
+            {
+                IDictionary<string, int> takeOnlyFewDistinctDataDict = distinctDataDict.OrderBy(pair => pair.Value).Take(topValue)
+                    .ToDictionary(pair => pair.Key, pair => pair.Value);
+                sortedData = takeOnlyFewDistinctDataDict.Keys.ToList();
+            }
+
+            return Ok(sortedData);
         }
 
         [HttpGet("UniqueColors")]
-        public async Task<ActionResult<List<string>>> GetProductColors(int id)
+        public async Task<ActionResult<List<string>>> GetProductColors([FromQuery] int topValue)
         {
             var specs = new ProductWithSellerAndPrevOwnerSpec();
             var data = _productsRepo.ApplySpecification(specs);
@@ -73,7 +96,61 @@ namespace API.Controllers
             List<string> distinctData = data.Select(x => x.Color).Distinct().ToList();
             distinctData.Sort();
 
-            return Ok(distinctData);
+            IDictionary<string, int> distinctDataDict = new Dictionary<string, int>();
+
+            foreach (string item in distinctData)
+            {
+                distinctDataDict.Add(item, 0);
+            }
+
+            foreach (Product product in data)
+            {
+                distinctDataDict[product.Color.ToString()] += 1;
+            }
+
+            List<string> sortedData = distinctDataDict.Keys.ToList();
+
+            if (topValue != 0)
+            {
+                IDictionary<string, int> takeOnlyFewDistinctDataDict = distinctDataDict.OrderBy(pair => pair.Value).Take(topValue)
+                    .ToDictionary(pair => pair.Key, pair => pair.Value);
+                sortedData = takeOnlyFewDistinctDataDict.Keys.ToList();
+            }
+
+            return Ok(sortedData);
+        }
+
+        [HttpGet("UniqueSellers")]
+        public async Task<ActionResult<List<string>>> GetProductSellers([FromQuery] int topValue)
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs);
+         
+            List<string> distinctData = data.Select(x => x.Seller.Name).Distinct().ToList();
+            distinctData.Sort();
+
+            IDictionary<string, int> distinctDataDict = new Dictionary<string, int>();
+
+            foreach (string item in distinctData)
+            {
+                distinctDataDict.Add(item, 0);
+            }
+
+            foreach (Product product in data)
+            {
+                distinctDataDict[product.Seller.Name.ToString()] += 1;
+            }
+
+            List<string> sortedData = distinctDataDict.Keys.ToList();
+
+            if (topValue != 0)
+            {
+                IDictionary<string, int> takeOnlyFewDistinctDataDict = distinctDataDict.OrderBy(pair => pair.Value).Take(topValue)
+                    .ToDictionary(pair => pair.Key, pair => pair.Value);
+                sortedData = takeOnlyFewDistinctDataDict.Keys.ToList();
+            }
+
+            return Ok(sortedData);
         }
 
         [HttpGet("GetAllProductsCount")]

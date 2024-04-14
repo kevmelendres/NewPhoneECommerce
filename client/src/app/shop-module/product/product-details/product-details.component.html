@@ -51,9 +51,20 @@
             <div class="d-flex justify-content-between align-items-center pt-2">
                 <div class="">
                     <button type="button" class="btn btn-sm btn-outline-secondary"
-                        [class.disabled]="selectedProduct.availableStocks < 1"
-                        [ngClass]="{'btn-outline-success': selectedProduct.availableStocks > 0, 'btn-outline-danger': selectedProduct.availableStocks <= 0}">
+                            [class.disabled]="selectedProduct.availableStocks < 1 || productQty == '' || productQty == '0'"
+                            [ngClass]="{'btn-outline-success': selectedProduct.availableStocks > 0, 'btn-outline-danger': selectedProduct.availableStocks <= 0}"
+                            (click)="addToCart(selectedProduct)">
                         {{buttonText}}
+                    </button>
+                </div>
+
+                <div class="m-0 w-50 border-0 d-flex align-items-center justify-content-end" *ngIf="selectedProduct.availableStocks>0">
+                    <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="addQty()" [class.disabled]="+this.productQty >= selectedProduct.availableStocks">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <input type="text" class="form-control m-0 p-1 w-25 m-1 qtyInput" [(ngModel)]="productQty" placeholder="" aria-label="Example text with two button addons">
+                    <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="subtractQty()" [class.disabled]="+this.productQty < 1 || !this.productQty">
+                        <i class="fa-solid fa-minus"></i>
                     </button>
                 </div>
             </div>
@@ -61,13 +72,13 @@
         <div class="px-4">
             <hr />
         </div>
-        
+
         <div class="px-4 b-0 py-0">
             <p class="p-0 m-0 fs-smaller">You may also like:</p>
             <div class="d-flex flex-column align-content-around flex-wrap">
                 <div class="p-0 m-0" *ngFor="let similarItem of similarItems">
                     <div class="w-100 border-bottom py-2 px-0 m-0 similarItemContainer row"
-                        *ngIf="isNotSameAsSelectedProduct(similarItem)" (click)="selectSimilarItem(similarItem)">
+                         *ngIf="isNotSameAsSelectedProduct(similarItem)" (click)="selectSimilarItem(similarItem)">
                         <div class="col-9 p-0 m-0">
                             <p class="d-block m-0 p-0 fs-6 modelName"><strong>{{similarItem.model}}</strong></p>
                             <p class="m-0 p-0 d-block fs-smaller">
@@ -85,7 +96,15 @@
                 </div>
             </div>
         </div>
+
     </div>
-    
+
+    <!-- Snackbar -->
+    <div class="toast shadow" id="snackbarSidebar" #snackbarSidebar [class.show]="showSnackbar">
+        <div class="toast-body"><strong>Product successfully added to cart!</strong></div>
+    </div>
+    <!-- Snackbar -->
 
 </ng-template>
+
+

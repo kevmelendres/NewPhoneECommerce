@@ -5,3 +5,11 @@ li {
 .fs-smaller {
     font-size: smaller
 }
+
+.tooltip-custom {
+    cursor: pointer;
+}
+
+.tooltip-custom:hover {
+    color: darkred
+}
