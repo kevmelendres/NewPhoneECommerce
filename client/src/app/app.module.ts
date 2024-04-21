@@ -14,6 +14,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HomeModule } from './home-module/home-module.module';
 
 
 @NgModule({
@@ -29,13 +30,13 @@ import { MatButtonModule } from '@angular/material/button';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ShopModule,
     NgbToastModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     NgbPopoverModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    HomeModule
   ],
   providers: [
     provideClientHydration(),

@@ -23,7 +23,7 @@ export class ShopComponent implements OnChanges{
   ngOnInit(): void {
     this.shopService.searchString.subscribe(value => this.getProducts());
   }
-
+  
   getProducts() {
     this.shopService.getProducts()
       .subscribe(data => this.products = data);
