@@ -49,8 +49,11 @@
         <!-- Shopping cart dropdown -->
         <div class="px-2">
             <div class="dropdown">
-                <a class="btn" role="button" data-bs-toggle="dropdown" aria-expanded="false" #shopBtn>
+                <a class="btn position-relative" role="button" data-bs-toggle="dropdown" aria-expanded="false" #shopBtn>
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span *ngIf="itemsOnCart.size" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{itemsOnCart.size}}
+                    </span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end p-4 shadow" #dropDownMenu (click)="$event.stopPropagation()"

@@ -40,7 +40,8 @@ import { HomeModule } from './home-module/home-module.module';
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    
   ],
   bootstrap: [AppComponent]
 })

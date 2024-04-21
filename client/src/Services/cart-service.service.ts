@@ -1,6 +1,8 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { EventEmitter, Inject, Injectable, Output } from '@angular/core';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { count } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +15,24 @@ export class CartService {
 
   public itemsInCart = new BehaviorSubject(this._itemsInCart);
   public totalPriceInCart = new BehaviorSubject(this.totalPriceInCartInit);
-  constructor() { }
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    const localStorage = document.defaultView?.localStorage;
+
+    if (localStorage) {
+      if (localStorage.getItem("shoppingCartLocalStored")) {
+        var localCartStored = localStorage.getItem("shoppingCartLocalStored");
+        //var parsed = JSON.parse(localCartStored!);
+        //console.log(localCartStored);
+        //console.log(JSON.parse(localCartStored!));
+      }
+
+    }
+
+  }
 
   addToCart(product: IProduct, quantity: number) {
-
+    
     if (!this._itemsInCart.has(product)) {
       this._itemsInCart.set(product, +quantity);
     }
@@ -30,6 +46,17 @@ export class CartService {
       }
     }
     this.refreshDataInViews();
+    this.storeDataToLocalStorage(this._itemsInCart);
+  }
+
+  storeDataToLocalStorage(cart: Map<IProduct, number>) {
+    let cartArray: any = [];
+
+    cart.forEach((qty, product) => {
+      cartArray.push(JSON.stringify({ product }));
+    })
+
+    localStorage.setItem("shoppingCartLocalStored", cartArray);
   }
 
 
