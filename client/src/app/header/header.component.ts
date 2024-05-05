@@ -1,8 +1,12 @@
-import { AfterViewInit, Component, ElementRef, NgZone, OnChanges, OnInit, Renderer2, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnChanges, OnInit, Renderer2, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { CartService } from '../../Services/cart-service.service';
 import { IProduct } from '../../Models/product';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../Services/auth-service.service';
+import { ICurrentUser } from '../../Models/currentuser';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +16,16 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 export class HeaderComponent implements OnInit{
   itemsOnCart: Map<IProduct, number>;
   totalPriceInCart: number;
+  isAuthenticated: boolean;
+  currentUser: ICurrentUser | null;
+
+  @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
+
   
-  constructor(private cartService: CartService) {
-    
+  constructor(private cartService: CartService, private authService: AuthService, @Inject(DOCUMENT) private document: Document, private router: Router, private renderer: Renderer2) {
+    this.isAuthenticated = authService.isAuthenticatedUser();
+    this.currentUser = authService.getCurrentUser();
+    const localStorage = document.defaultView?.localStorage;
   }
 
   ngOnInit(): void {
@@ -54,4 +65,12 @@ export class HeaderComponent implements OnInit{
     event.stopPropagation();
   }
 
+  onLogoutClick() {
+    const dropdown = this.signinDropdown.nativeElement;
+    this.renderer.removeClass(dropdown,"show");
+    this.isAuthenticated = false;
+    this.currentUser = null;
+    localStorage.removeItem("currentAppUser");
+    this.router.navigate(["/home"]);
+  }
 }

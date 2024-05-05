@@ -9,6 +9,7 @@ import { TopFilterComponent } from './top-filter/top-filter.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { NgbPopoverModule, NgbToastModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { ShopRoutingModule } from './shop-routing.module';
+import { AccountRoutingModule } from '../account-module/account-routing';
 
 
 @NgModule({

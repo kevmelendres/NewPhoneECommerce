@@ -12,23 +12,23 @@ i {
   --bs-btn-font-size: .75rem;
 }
 
-fs-small{
+.fs-small{
     font-size: small;
 }
 
-fs-smaller {
+.fs-smaller {
   font-size: smaller;
 }
 
-fs-xsmall {
+.fs-xsmall {
   font-size: x-small;
 }
 
-fs-med {
+.fs-med {
   font-size: medium;
 }
 
-fs-cust {
+.fs-cust {
     font-size: 30px;
 }
 
@@ -124,5 +124,19 @@ fs-cust {
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+}
+
+.custom-list-item {
+  border: none;
+  padding: 10px 0 10px 0;
+  list-style-type: none;
+  padding-left: 15px;
+  cursor: pointer;
+  font-size: small
+}
+
+.custom-list-item:hover {
+    background-color: midnightblue;
+    color: white;
 }
 

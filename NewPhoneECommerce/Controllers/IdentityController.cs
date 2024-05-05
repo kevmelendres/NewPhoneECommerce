@@ -54,7 +54,7 @@ namespace API.Controllers
             {
                 return new UserDto
                 {
-                    UserName = user.UserName,
+                    DisplayName = user.DisplayName,
                     Token = token,
                     Email = user.Email
                 };
@@ -84,7 +84,7 @@ namespace API.Controllers
                 return Ok(new UserDto
                 {
                     Email = model.Email,
-                    UserName = user.UserName,
+                    DisplayName = user.DisplayName,
                     Token = token
                 });
             }
@@ -138,7 +138,7 @@ namespace API.Controllers
             {
                 return new UserDto
                 {
-                    UserName = user.UserName,
+                    DisplayName = user.DisplayName,
                     Token = token,
                     Email = user.Email
                 };

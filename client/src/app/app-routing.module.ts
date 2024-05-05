@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShopComponent } from './shop-module/shop.component';
 import { HomeComponent } from './home-module/home/home.component';
 
 
@@ -10,6 +9,14 @@ const routes: Routes = [
     path: 'shop',
       loadChildren: () => import('./shop-module/shop-module.module').then(m => m.ShopModule)
   },
+  {
+    path: 'account',
+      loadChildren: () => import('./account-module/account.module').then(m => m.AccountModule)
+  },
+
+
+
+
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

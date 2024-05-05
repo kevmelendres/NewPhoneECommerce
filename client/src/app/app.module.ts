@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeModule } from './home-module/home-module.module';
+import { AccountModule } from './account-module/account.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HomeModule } from './home-module/home-module.module';
     MatButtonModule,
     NgbPopoverModule,
     NgbTooltipModule,
-    HomeModule
+    HomeModule,
+    AccountModule
   ],
   providers: [
     provideClientHydration(),

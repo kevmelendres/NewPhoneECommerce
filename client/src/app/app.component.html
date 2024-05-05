@@ -1,8 +1,6 @@
-<div class="fixed-top bg-white">
+<div class="fixed-top bg-white" *ngIf="renderHeaders">
   <app-top-header></app-top-header>
   <app-header></app-header>
 </div>
 
-
-
-<router-outlet></router-outlet>
+<router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
