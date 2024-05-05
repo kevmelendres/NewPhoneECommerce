@@ -1,7 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using API.Dtos;
-using Azure;
 using Core.Models.Identity;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -48,8 +47,8 @@ namespace API.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-            var tokenService = new TokenService(_configuration);
-            var token = tokenService.CreateToken(user);
+            var tokenService = new TokenService(_configuration, _userManager);
+            var token = await tokenService.CreateToken(user);
 
             if (result.Succeeded)
             {
@@ -62,7 +61,6 @@ namespace API.Controllers
             }
 
             return BadRequest(result.Errors);
-                
         }
 
         [HttpPost]
@@ -80,8 +78,8 @@ namespace API.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
-                var tokenService = new TokenService(_configuration);
-                var token = tokenService.CreateToken(user);
+                var tokenService = new TokenService(_configuration, _userManager);
+                var token = await tokenService.CreateToken(user);
 
                 return Ok(new UserDto
                 {
@@ -93,7 +91,6 @@ namespace API.Controllers
             return Unauthorized();
         }
 
-        //[Authorize(Roles = UserRoles.Admin)]
         [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("register-admin")]
@@ -134,8 +131,8 @@ namespace API.Controllers
                 await _userManager.AddToRoleAsync(user, UserRoles.User);
             }
 
-            var tokenService = new TokenService(_configuration);
-            var token = tokenService.CreateToken(user);
+            var tokenService = new TokenService(_configuration, _userManager);
+            var token = await tokenService.CreateToken(user);
 
             if (result.Succeeded)
             {
@@ -150,5 +147,30 @@ namespace API.Controllers
             return BadRequest(result.Errors);
         }
 
+
+        [Authorize(Roles = UserRoles.Admin)]
+        [HttpPost]
+        [Route("delete-user")]
+        public async Task<IActionResult> DeleteUser([FromBody] string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                return BadRequest("User not found.");
+            }
+            else
+            {
+                var result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return Ok("Delete succeeded");
+                }
+                else
+                {
+                    return BadRequest("Delete unsuccessful.");
+                }
+            }
+        }
     }
 }

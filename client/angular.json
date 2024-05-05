@@ -83,6 +83,11 @@
             },
             "development": {
               "buildTarget": "client:build:development"
+            },
+            "options": {
+              "ssl": true,
+              "sslKey": "<relative path from angular.json>/server.key",
+              "sslCert": "<relative path from angular.json>/server.crt"
             }
           },
           "defaultConfiguration": "development"
