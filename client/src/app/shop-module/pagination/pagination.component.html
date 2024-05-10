@@ -5,6 +5,7 @@
         </li>
 
         <li class="page-item" *ngFor="let int of numOfPagings">
+            <!-- <div *ngIf="firstEntryPage + int <= maxPageNumber"> -->
             <div *ngIf="firstEntryPage + int <= maxPageNumber">
                 <a class="page-link" [class.active]="currentPage == firstEntryPage + int" (click)="pageNumberClick($event)">{{firstEntryPage + int}}</a>
             </div>

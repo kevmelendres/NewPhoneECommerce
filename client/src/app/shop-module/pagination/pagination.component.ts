@@ -19,15 +19,21 @@ export class PaginationComponent implements OnInit{
   @Output() currentPageChange = new EventEmitter<number>;
   constructor(private shopService: ShopService) {
     this.firstEntryPage = 1;
-    this.shopService.getAllProductsCount().subscribe(data => this.totalNumOfProducts = data);
-    this.shopService.itemsToShow.subscribe(itemsToShow => this.itemsPerPage = itemsToShow);
-    this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
+    this.shopService.getAllProductsCount().subscribe(data => {
+      this.totalNumOfProducts = data;
+      this.shopService.itemsToShow.subscribe(itemsToShow => this.itemsPerPage = itemsToShow);
+      this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
+    });
   }
 
   ngOnInit(): void {
-    this.shopService.itemsToShow.subscribe(itemsToShow => {
-      this.itemsPerPage = itemsToShow;
-      this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
+    this.firstEntryPage = 1;
+    this.shopService.getAllProductsCount().subscribe(data => {
+      this.totalNumOfProducts = data;
+      this.shopService.itemsToShow.subscribe(itemsToShow => {
+        this.itemsPerPage = itemsToShow;
+        this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
+      });
     });
   }
 

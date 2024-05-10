@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { NgbPopoverModule, NgbToastModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { ShopRoutingModule } from './shop-routing.module';
 import { AccountRoutingModule } from '../account-module/account-routing';
+import { AppModule } from '../app.module';
 
 
 @NgModule({
