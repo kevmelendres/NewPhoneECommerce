@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule, NgbPopoverModule, NgbToastModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ShopModule } from './shop-module/shop-module.module';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { SearchBarComponent } from './header/search-bar/search-bar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -16,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeModule } from './home-module/home-module.module';
 import { AccountModule } from './account-module/account.module';
+import { HowtobuyModule } from './howtobuy-module/howtobuy.module';
 
 
 @NgModule({
@@ -38,7 +37,8 @@ import { AccountModule } from './account-module/account.module';
     NgbPopoverModule,
     NgbTooltipModule,
     HomeModule,
-    AccountModule
+    AccountModule,
+    HowtobuyModule
   ],
   providers: [
     provideClientHydration(),

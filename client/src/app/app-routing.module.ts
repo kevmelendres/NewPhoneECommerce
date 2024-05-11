@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home-module/home/home.component';
+import { HowtobuyMainComponent } from './howtobuy-module/howtobuy-main/howtobuy-main.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
+    path: 'how-to-buy', component: HowtobuyMainComponent
+  },
+  {
     path: 'shop',
-      loadChildren: () => import('./shop-module/shop-module.module').then(m => m.ShopModule)
+    loadChildren: () => import('./shop-module/shop-module.module').then(m => m.ShopModule)
   },
   {
     path: 'account',
-      loadChildren: () => import('./account-module/account.module').then(m => m.AccountModule)
+    loadChildren: () => import('./account-module/account.module').then(m => m.AccountModule)
   },
 
 
