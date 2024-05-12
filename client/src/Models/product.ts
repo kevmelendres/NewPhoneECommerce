@@ -16,3 +16,22 @@ export interface IProduct {
   soldItems: number;
   discountedPrice: number;
 }
+
+export interface IProductC {
+  Id: number;
+  Brand: string;
+  Color: string;
+  Description: string;
+  DeviceOS: string;
+  Image: string;
+  Model: string;
+  PreviousOwner: string;
+  Price: number;
+  ReleaseDate: number;
+  Seller: string;
+  Rating: number;
+  Discount: number;
+  AvailableStocks: number;
+  SoldItems: number;
+  DiscountedPrice: number;
+}

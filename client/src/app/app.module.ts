@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeModule } from './home-module/home-module.module';
 import { AccountModule } from './account-module/account.module';
 import { HowtobuyModule } from './howtobuy-module/howtobuy.module';
+import { ProductsFooterComponent } from './products-footer/products-footer.component';
+import { FooterItemComponent } from './products-footer/footer-item/footer-item.component';
+import { SiteFooterComponent } from './site-footer/site-footer.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { HowtobuyModule } from './howtobuy-module/howtobuy.module';
     HeaderComponent,
     TopHeaderComponent,
     SearchBarComponent,
+    ProductsFooterComponent,
+    FooterItemComponent,
+    SiteFooterComponent,
   ],
   imports: [
     BrowserModule,

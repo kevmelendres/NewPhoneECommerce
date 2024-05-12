@@ -194,5 +194,127 @@ namespace API.Controllers
 
             return Ok(returnData);
         }
+
+        [HttpGet("GetDealsOfTheDay")]
+        public async Task<ActionResult<ProductToReturnDto>> GetDealsOfTheDay()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs).ToList();
+
+            Random rnd = new Random();
+            HashSet<Product> uniqueRandomList = new HashSet<Product>();
+            
+            while (uniqueRandomList.Count < 5)
+            {
+                uniqueRandomList.Add(data[rnd.Next(data.Count)]);
+            }
+
+            List<Product> dealsOfTheDayList = uniqueRandomList.ToList();
+
+            var returnData = MapperHelper.MapProductList(dealsOfTheDayList);
+
+            return Ok(returnData);
+        }
+        
+        [HttpGet("GetOnSaleProducts")]
+        public async Task<ActionResult<ProductToReturnDto>> GetOnSaleProducts()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs).ToList();
+
+            data = data.OrderByDescending(x => x.Discount).ToList();
+
+            List<Product> onSaleProductList = new List<Product>();
+
+            for (int i =0; i < 5; i++)
+            {
+                onSaleProductList.Add(data[i]);
+            }
+
+            var returnData = MapperHelper.MapProductList(onSaleProductList);
+
+            return Ok(returnData);
+        }
+
+        [HttpGet("GetBestSellerProducts")]
+        public async Task<ActionResult<ProductToReturnDto>> GetBestSellerProducts()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs).ToList();
+
+            data = data.OrderByDescending(x => x.SoldItems).ToList();
+
+            List<Product> onSaleProductList = new List<Product>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                onSaleProductList.Add(data[i]);
+            }
+
+            var returnData = MapperHelper.MapProductList(onSaleProductList);
+
+            return Ok(returnData);
+        }
+
+        [HttpGet("GetWhatsNewProducts")]
+        public async Task<ActionResult<ProductToReturnDto>> GetWhatsNewProducts()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs).ToList();
+
+            data = data.OrderByDescending(x => x.ReleaseDate).ToList();
+
+            List<Product> onSaleProductList = new List<Product>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                onSaleProductList.Add(data[i]);
+            }
+
+            var returnData = MapperHelper.MapProductList(onSaleProductList);
+
+            return Ok(returnData);
+        }
+
+        [HttpGet("GetRandomSellersAndProducts")]
+        public async Task<ActionResult<string>> GetRandomSellersAndProducts()
+        {
+            var specs = new ProductWithSellerAndPrevOwnerSpec();
+            var data = _productsRepo.ApplySpecification(specs).ToList();
+
+            List<string> sellerList = data.Select(x => x.Seller.Name).Distinct().ToList();
+            List<string> randomSellers = new();
+            Random rnd = new();
+
+            while (randomSellers.Count < 6)
+            {
+                string addSeller = sellerList[rnd.Next(sellerList.Count)];
+                if (!randomSellers.Contains(addSeller))
+                    randomSellers.Add(addSeller);
+            }
+
+            Dictionary<string, IReadOnlyList<ProductToReturnDto>> randomSellerWithProducts= new();
+
+            foreach (string seller in randomSellers)
+            {
+                List<Product> sellerProducts = new();
+                var allSellerProducts = data.Where(x => x.Seller.Name == seller).ToList();
+
+                while (sellerProducts.Count < 20)
+                {
+                    Product addProduct = allSellerProducts[rnd.Next(allSellerProducts.Count)];
+                    if (!sellerProducts.Contains(addProduct))
+                        sellerProducts.Add(addProduct);
+                }
+
+                var sellerProductsValue = MapperHelper.MapProductList(sellerProducts);
+
+                randomSellerWithProducts.Add(seller, sellerProductsValue);
+            }
+
+            var returnData = Newtonsoft.Json.JsonConvert.SerializeObject(randomSellerWithProducts);
+
+            return Ok(returnData);
+        }
     }
 }

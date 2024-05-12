@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject } from 'rxjs';
+import { SellerProductListPair } from '../Models/keyvaluepair';
 
 @Injectable({
   providedIn: 'root'
@@ -115,5 +116,25 @@ export class ShopService {
 
   getAllProductsModels() {
     return this.http.get<string[]>(this.baseUrl + 'Products/GetAllProductsModels');
+  }
+
+  getDealsOfTheDay() {
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetDealsOfTheDay');
+  }
+
+  getOnSaleProducts() {
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetOnSaleProducts');
+  }
+
+  getBestSellerProducts() {
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetBestSellerProducts');
+  }
+
+  getWhatsNewProducts() {
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetWhatsNewProducts');
+  }
+
+  getRandomSellersAndProducts() {
+    return this.http.get<string>(this.baseUrl + 'Products/GetRandomSellersAndProducts');
   }
 }

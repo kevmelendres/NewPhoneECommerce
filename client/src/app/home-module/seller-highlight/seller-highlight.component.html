@@ -1,0 +1,21 @@
+<p>Best deals from {{seller}}</p>
+<div class=w-100>
+    <ngb-carousel [pauseOnHover]="true"
+                  [pauseOnFocus]="true"
+                  [wrap]="false">
+                  
+        <ng-template ngbSlide *ngFor="let slide of numberOfSlidesList; index as s" class="w-25">
+            <div class="d-flex flex-nowrap">
+                <div *ngFor="let product of products; index as i">
+                    <div *ngIf="(i > itemsToShowPerSlide * s) && (i <= itemsToShowPerSlide * (s+1))">
+                        <img class="img-fluid" [src]="product.Image" alt="Random first slide" />
+                        <p>{{i}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
+
+

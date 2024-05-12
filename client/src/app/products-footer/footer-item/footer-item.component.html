@@ -1,0 +1,16 @@
+<div class="w-100 border-bottom py-2 px-0 m-0 item-container row px-3 hvr-grow"
+     style="font-size: small">
+    <div class="col-9 p-0 m-0">
+        <p class="d-block m-0 p-0 fs-6 fw-medium">{{item.model}}</p>
+        <p class="m-0 p-0 d-block fs-smaller">
+            ({{item.discountedPrice.toLocaleString("en-US", {
+            style: "currency",
+            currency: "Php"
+            })}})
+        </p>
+        <p class="d-block m-0 p-0 fs-xsmall"><i>{{item.description}}</i></p>
+    </div>
+    <div class="col-3 p-0 m-0">
+        <img class="img-fluid" src="{{item.image}}" />
+    </div>
+</div>
