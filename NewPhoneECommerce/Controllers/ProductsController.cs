@@ -300,7 +300,7 @@ namespace API.Controllers
                 List<Product> sellerProducts = new();
                 var allSellerProducts = data.Where(x => x.Seller.Name == seller).ToList();
 
-                while (sellerProducts.Count < 20)
+                while (sellerProducts.Count < 21)
                 {
                     Product addProduct = allSellerProducts[rnd.Next(allSellerProducts.Count)];
                     if (!sellerProducts.Contains(addProduct))

@@ -1,21 +1,38 @@
-<p>Best deals from {{seller}}</p>
-<div class=w-100>
-    <ngb-carousel [pauseOnHover]="true"
-                  [pauseOnFocus]="true"
-                  [wrap]="false">
-                  
-        <ng-template ngbSlide *ngFor="let slide of numberOfSlidesList; index as s" class="w-25">
-            <div class="d-flex flex-nowrap">
-                <div *ngFor="let product of products; index as i">
-                    <div *ngIf="(i > itemsToShowPerSlide * s) && (i <= itemsToShowPerSlide * (s+1))">
-                        <img class="img-fluid" [src]="product.Image" alt="Random first slide" />
-                        <p>{{i}}</p>
-                    </div>
+<div class="seller-section-container m-0 py-3">
+    <div class="section-container">
+        <span class="fw-bold fs-5">Best deals from {{seller}}</span>
+        <div class="container">
+            <ngb-carousel [pauseOnHover]="true"
+                          [pauseOnFocus]="true"
+                          [wrap]="true">
 
-                </div>
-            </div>
-        </ng-template>
-    </ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slide of numberOfSlidesList; index as s" class="w-25">
+                    <div class="d-flex flex-nowrap pb-2 pt-3 my-2">
+                        <div *ngFor="let product of products; index as i">
+
+                            <div *ngIf="(i > itemsToShowPerSlide * s) && (i <= itemsToShowPerSlide * (s+1))"
+                                 [ngStyle]="{'padding-left': (i % itemsToShowPerSlide == 1) ? '30px' : '0.25em',
+                                    'padding-right': (i % itemsToShowPerSlide == 0) ? '30px' : '0.25em'}">
+
+                                <div class="hvr-grow hvr-glow px-2">
+                                    <img class="img-fluid" [src]="product.Image" alt="Random first slide" />
+                                    <p>{{i}}</p>
+                                    <p>{{product.Brand}}</p>
+                                    <p>{{product.Description}}</p>
+                                    <p>{{product.DeviceOS}}</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-template>
+
+            </ngb-carousel>
+        </div>
+    </div>
+    
 </div>
+
 
 

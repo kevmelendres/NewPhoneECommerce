@@ -23,7 +23,6 @@ export class SellerHighlightComponent implements OnInit {
   ngOnInit(): void {
     this.numberOfSlides = Math.floor(this.products.length / this.itemsToShowPerSlide);
     this.numberOfSlidesList = [...Array(this.numberOfSlides).keys()]
-    console.log(this.numberOfSlidesList);
   }
 
 }
