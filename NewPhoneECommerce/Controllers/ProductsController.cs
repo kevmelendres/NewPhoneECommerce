@@ -286,7 +286,7 @@ namespace API.Controllers
             List<string> randomSellers = new();
             Random rnd = new();
 
-            while (randomSellers.Count < 6)
+            while (randomSellers.Count < 4)
             {
                 string addSeller = sellerList[rnd.Next(sellerList.Count)];
                 if (!randomSellers.Contains(addSeller))

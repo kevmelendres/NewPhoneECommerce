@@ -7,3 +7,22 @@ body {
   width: 90%;
   padding: 115px 100px 50px 100px;
 }
+
+.fs-xsmall {
+  font-size: x-small;
+}
+
+.fs-smaller {
+  font-size: smaller;
+}
+
+.origPrice {
+  text-decoration: line-through;
+  font-weight: lighter;
+  color: black;
+  opacity: 50%;
+}
+
+.discountedPrice {
+  font-size: x-large
+}

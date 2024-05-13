@@ -1,4 +1,10 @@
 <div class="home-container">
+
+     <div class="text-center">
+         <img class="img fluid w-50"
+            src="https://marketplace.canva.com/EAE1gjmdjkQ/3/0/1600w/canva-yellow-and-black-super-weekend-sale-banner-qccqCrq6Umg.jpg" />
+     </div>
+    
     <div *ngFor="let object of sellerWithProductsList; index as i"
          [ngStyle]="{'background-color': (i % 2 == 0) ? '#F6F5F5' : 'white'}">
         <seller-highlight [seller]="object.seller" [products]="object.products"></seller-highlight>
