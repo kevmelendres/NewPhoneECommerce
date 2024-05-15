@@ -6,4 +6,35 @@ body {
   width: 100%;
   padding: 115px 0px 0px 0px;
 }
+.parabola {
+  width: 500px;
+  height: 100px;
+  border: solid 5px #000;
+  border-color: #000 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0;
+}
 
+.box {
+  --mask: radial-gradient(125.43px at 50% 173.4px,#000 99%,#0000 101%) calc(50% - 136px) 0/272px 100%, radial-gradient(125.43px at 50% -105.4px,#0000 99%,#000 101%) 50% 68px/272px 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  z-index: 1;
+}
+
+.message-container {
+  padding: 7rem 13.5rem 7rem 13.5rem;
+  position: relative
+}
+
+.phone-img-container {
+    position: absolute;
+    z-index: -999;
+    width: 55%;
+    right: 0%;
+    top:50%;
+    transform: rotate(18deg);
+}
+
+.main-message {
+    font-size: 4.3rem
+}

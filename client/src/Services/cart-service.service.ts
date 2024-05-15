@@ -28,6 +28,8 @@ export class CartService {
           let data = JSON.parse(item);
           this._itemsInCart.set(data["product"], +data["qty"]);
         });
+
+        this.refreshDataInViews();
       }
     }
   }

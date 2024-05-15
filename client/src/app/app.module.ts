@@ -46,6 +46,9 @@ import { SiteFooterComponent } from './site-footer/site-footer.component';
     AccountModule,
     HowtobuyModule
   ],
+  exports: [
+    SearchBarComponent
+  ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),

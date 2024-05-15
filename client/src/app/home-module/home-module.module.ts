@@ -7,12 +7,14 @@ import { SellerHighlightComponent } from './seller-highlight/seller-highlight.co
 @NgModule({
   declarations: [
     HomeComponent,
-    SellerHighlightComponent
+    SellerHighlightComponent,
+    
   ],
   imports: [
     CommonModule,
     NgbCarousel,
-    NgbCarouselModule
+    NgbCarouselModule,
+    
   ]
 })
 export class HomeModule { }

@@ -28,7 +28,9 @@
 
                                 <div class="hvr-grow hvr-glow p-3 border rounded-2 card-container">
                                     <p class="fs-xsmall mx-0 my-0 mb-2"><i>{{product.DeviceOS}}</i></p>
-                                    <img class="img-fluid" [src]="product.Image" alt="Random first slide" />
+                                    <div class="text-center">
+                                        <img class="img-fluid" style="height: 100%" [src]="getRandomImg(i)" alt="" />
+                                    </div>
                                     <p class="m-0 mt-2 mb-1 fw-medium fs-6">{{product.Brand}}</p>
                                     <p class="m-0 fs-smaller">{{product.Description}}</p>
 

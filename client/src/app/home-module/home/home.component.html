@@ -1,13 +1,30 @@
 <div class="home-container">
+    <div class="message-container text-start">
+        <span class="fw-bolder main-message d-block my-0 p-0">Upgrade</span>
+        <span class="fw-bolder main-message d-block p-0 mb-3">your phone today</span>
+        <span class="fw-light fs-4 d-block">and get a chance to win some amazing deals!</span>
+        <div class="phone-img-container">
+            <img class="img-fluid" src="https://www.samsungmobilepress.com/file/A20AFBC5AD503566965D392E91618742CB5DA27E14BFBBBADB87121B0A7ADA2078CC174B3F38A9FF96D50E1755011F979945C4E8CC725F605687D548951D40042242598D49AD0FD2FE86B85085CC6B6B90A646A444171535D60D76DF97C05E7A48C83E1E1A8078C5409B9376961B65778895555E5F9B8419B4A818F4E3E68C78B656E8256E34DA4C010E876A0E95755657DB1692B07772FA731AD9A0A333FB1F" />
+        </div>
+    </div>
 
-     <div class="text-center">
-         <img class="img fluid w-50"
-            src="https://marketplace.canva.com/EAE1gjmdjkQ/3/0/1600w/canva-yellow-and-black-super-weekend-sale-banner-qccqCrq6Umg.jpg" />
-     </div>
-    
+
+
+    <div class="box" style="background-color:#F6F5F5; height: 120px;"></div>
+
     <div *ngFor="let object of sellerWithProductsList; index as i"
          [ngStyle]="{'background-color': (i % 2 == 0) ? '#F6F5F5' : 'white'}">
         <seller-highlight [seller]="object.seller" [products]="object.products"></seller-highlight>
     </div>
+
+    <div class="text-center">
+        <img class="img fluid w-50"
+             src="https://marketplace.canva.com/EAE1gjmdjkQ/3/0/1600w/canva-yellow-and-black-super-weekend-sale-banner-qccqCrq6Umg.jpg" />
+    </div>
+
+
+
+
+
 </div>
 
