@@ -7,7 +7,7 @@ import { Component, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
-  renderHeaders: boolean;
+  renderComponent: boolean;
 
   constructor() {
 
@@ -18,6 +18,6 @@ export class AppComponent {
   }
 
   toRenderHeaders(componentLoaded: String) {
-    this.renderHeaders = !(componentLoaded == '_LoginComponent' || componentLoaded == '_RegisterComponent')
+    this.renderComponent = !(componentLoaded == '_LoginComponent' || componentLoaded == '_RegisterComponent')
   }
 }

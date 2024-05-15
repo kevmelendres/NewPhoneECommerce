@@ -16,7 +16,7 @@ export class SellerHighlightComponent implements OnInit {
   @Input() seller: string;
   @Input() products: IProductC[];
 
-  itemsToShowPerSlide: number = 5;
+  itemsToShowPerSlide: number = 7;
   numberOfSlides: number;
   numberOfSlidesList: number[];
   imageSrc: number[] = [];

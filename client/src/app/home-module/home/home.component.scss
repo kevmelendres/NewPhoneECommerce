@@ -22,7 +22,7 @@ body {
 }
 
 .message-container {
-  padding: 7rem 13.5rem 7rem 13.5rem;
+  padding: 6rem 13.5rem 6rem 13.5rem;
   position: relative
 }
 
@@ -37,4 +37,66 @@ body {
 
 .main-message {
     font-size: 4.3rem
+}
+
+.shop-link{
+    cursor: pointer;
+}
+
+.shop-link:hover {
+    
+}
+
+/* Pulse Grow */
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hvr-pulse-grow {
+  to {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+}
+
+.hvr-pulse-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
+    text-decoration: underline;
+    -webkit-animation-name: hvr-pulse-grow;
+    animation-name: hvr-pulse-grow;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+.section-container {
+  padding: 0px 13.5rem 0px 13.5rem
+}
+
+.sale-container {
+    padding: 9rem 0 9rem 0;
+}
+
+.brand-badge {
+    cursor:pointer;
+}
+
+.brand-badge:hover {
+  color: white !important;
+  background-color: #ffb303 !important;
 }

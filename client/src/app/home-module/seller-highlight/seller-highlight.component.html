@@ -19,7 +19,7 @@
                           [wrap]="true">
 
                 <ng-template ngbSlide *ngFor="let slide of numberOfSlidesList; index as s" class="w-25">
-                    <div class="d-flex flex-nowrap pb-2 pt-3 my-0">
+                    <div class="d-flex flex-nowrap pb-2 pt-3 my-0 text-center justify-content-center">
                         <div *ngFor="let product of products; index as i">
 
                             <div *ngIf="(i > itemsToShowPerSlide * s) && (i <= itemsToShowPerSlide * (s+1))"

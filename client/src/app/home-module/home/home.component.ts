@@ -17,12 +17,15 @@ export class HomeComponent implements OnInit{
   pauseOnFocus = true;
 
   sellerWithProductsList: SellerProductListPair[] = [];
+  productSellers: string[] | null = [];
 
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel;
 
   constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
+    this.getProductSellers();
+
     this.shopService.getRandomSellersAndProducts().subscribe(data => {
       Object.entries(data).map((entries) => {
         let i: number = 0;
@@ -61,5 +64,7 @@ export class HomeComponent implements OnInit{
     this.paused = !this.paused;
   }
 
-
+  getProductSellers(topValue?: number) {
+    this.shopService.getProductSellers(topValue).subscribe(data => this.productSellers = data)
+  }
 }
