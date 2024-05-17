@@ -3,6 +3,7 @@ import { ShopService } from '../../../Services/shop-service.service';
 import { SellerProductListPair } from '../../../Models/keyvaluepair';
 import { IProduct, IProductC } from '../../../Models/product';
 import { NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'seller-highlight',
@@ -20,6 +21,7 @@ export class SellerHighlightComponent implements OnInit {
   numberOfSlides: number;
   numberOfSlidesList: number[];
   imageSrc: number[] = [];
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.numberOfSlides = Math.floor(this.products.length / this.itemsToShowPerSlide);
@@ -40,6 +42,10 @@ export class SellerHighlightComponent implements OnInit {
     let randomImg = `https://picsum.photos/id/${getImage}/150/200`;
 
     return randomImg;
+  }
+
+  onProductClick(product: IProductC) {
+    this.router.navigateByUrl(`/shop/product/${product.Id}`)
   }
 
 }

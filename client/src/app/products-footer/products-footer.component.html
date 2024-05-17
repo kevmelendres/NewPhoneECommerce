@@ -5,7 +5,7 @@
                 <p class="px-3 product-list-label py-0 m-0">Deals of the Day</p>
                 <div class="px-3 w-50"><hr class="my-2" /></div>
                 <div class="d-flex flex-column align-content-around flex-wrap">
-                    <div class="p-0 m-0" *ngFor="let item of dealsOfTheDay">
+                    <div class="p-0 m-0" *ngFor="let item of dealsOfTheDay" (click)=onProductClick(item)>
                         <footer-item [item]=item></footer-item>
                     </div>
                 </div>
@@ -14,7 +14,7 @@
             <div class="col-lg-3 col-sm-6">
                 <p class="px-3 product-list-label py-0 m-0">Items on Sale</p>
                 <div class="px-3 w-50"><hr class="my-2" /></div>
-                <div class="p-0 m-0" *ngFor="let item of onSaleProducts">
+                <div class="p-0 m-0" *ngFor="let item of onSaleProducts" (click)=onProductClick(item)>
                     <footer-item [item]=item></footer-item>
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <div class="col-lg-3 col-sm-6">
                 <p class="px-3 product-list-label py-0 m-0">Our Best Sellers</p>
                 <div class="px-3 w-50"><hr class="my-2" /></div>
-                <div class="p-0 m-0" *ngFor="let item of bestSellerProducts">
+                <div class="p-0 m-0" *ngFor="let item of bestSellerProducts" (click)=onProductClick(item)>
                     <footer-item [item]=item></footer-item>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="col-lg-3 col-sm-6">
                 <p class="px-3 product-list-label py-0 m-0">What's New?</p>
                 <div class="px-3 w-50"><hr class="my-2" /></div>
-                <div class="p-0 m-0" *ngFor="let item of whatsNewProducts">
+                <div class="p-0 m-0" *ngFor="let item of whatsNewProducts" (click)=onProductClick(item)>
                     <footer-item [item]=item></footer-item>
                 </div>
             </div>

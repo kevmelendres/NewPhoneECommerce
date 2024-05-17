@@ -9,7 +9,7 @@
 
             <app-search-bar class="w-50"></app-search-bar>
 
-            <div class="d-flex flex-row align-items-center" style="padding-right: 13.5rem">
+            <div #test class="d-flex flex-row align-items-center" style="padding-right: 13.5rem">
 
                 <!-- Sign in dropdown -->
                 <div class="px-2">
@@ -18,7 +18,7 @@
                             <i class="fa-regular fa-user"></i>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" (click)="$event.stopPropagation()" #signinDropdown style="width: 230px; font-size: 12px">
+                        <div #signinDropdown class="dropdown-menu dropdown-menu-end" (click)="$event.stopPropagation()" style="width: 230px; font-size: 12px">
 
                             <div *ngIf="isAuthenticated" class="container">
 
@@ -83,7 +83,7 @@
                             </span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end p-4 shadow" #dropDownMenu (click)="$event.stopPropagation()"
+                        <div class="dropdown-menu dropdown-menu-end p-4 shadow" #dropDownMenu id="dropdown-cart" (click)="onCartClick($event)"
                              style="width: 425px;">
                             <div class="d-flex flex-column justify-content-center pt-2 pb-0">
                                 <div class="d-flex justify-content-center" style="max-height: 350px; overflow-y:scroll; overflow-x: hidden">

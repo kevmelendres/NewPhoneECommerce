@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 import { IProduct } from '../../../Models/product';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -18,7 +19,7 @@ export class SearchBarComponent implements OnInit{
   @ViewChild('searchInput') searchInput: ElementRef;
 
   arrowkeyLocation = 0;
-  constructor(private shopService: ShopService, private renderer: Renderer2) {
+  constructor(private shopService: ShopService, private renderer: Renderer2, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -58,6 +59,9 @@ export class SearchBarComponent implements OnInit{
     this.shopService.changeSearchString(this.searchString);
     this.shopService.changePageNumber(1);
     this.hideQueryResults();
+    if (this.router.url != "/shop") {
+      this.router.navigateByUrl("/shop");
+    }
   }
 
   hideQueryResults() {

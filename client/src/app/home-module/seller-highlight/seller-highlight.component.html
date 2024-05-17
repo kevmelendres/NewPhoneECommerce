@@ -20,7 +20,7 @@
 
                 <ng-template ngbSlide *ngFor="let slide of numberOfSlidesList; index as s" class="w-25">
                     <div class="d-flex flex-nowrap pb-2 pt-3 my-0 text-center justify-content-center">
-                        <div *ngFor="let product of products; index as i">
+                        <div *ngFor="let product of products; index as i" (click)="onProductClick(product)">
 
                             <div *ngIf="(i > itemsToShowPerSlide * s) && (i <= itemsToShowPerSlide * (s+1))"
                                  [ngStyle]="{'padding-left': (i % itemsToShowPerSlide == 1) ? '30px' : '0.25em',
@@ -31,7 +31,7 @@
                                     <div class="text-center">
                                         <img class="img-fluid" style="height: 100%" [src]="getRandomImg(i)" alt="" />
                                     </div>
-                                    <p class="m-0 mt-2 mb-1 fw-medium fs-6">{{product.Brand}}</p>
+                                    <p class="m-0 mt-2 mb-1 fw-medium fs-6">{{product.Model}}</p>
                                     <p class="m-0 fs-smaller">{{product.Description}}</p>
 
                                 </div>

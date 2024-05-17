@@ -23,4 +23,10 @@ export class LoginComponent {
       this.router.navigate(["/shop"]);
     }
   }
+
+  onInputTyping(event: KeyboardEvent) {
+    if (event.key == "Enter") {
+      this.onLoginClick();
+    }
+  }
 }

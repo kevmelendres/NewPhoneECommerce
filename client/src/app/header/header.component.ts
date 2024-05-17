@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnChanges, OnInit, Renderer2, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Inject, KeyValueDiffer, KeyValueDiffers, NgZone, OnChanges, OnInit, Renderer2, SimpleChanges, TemplateRef, ViewChild, contentChild } from '@angular/core';
 import { CartService } from '../../Services/cart-service.service';
 import { IProduct } from '../../Models/product';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
@@ -21,8 +21,12 @@ export class HeaderComponent implements OnInit{
 
   @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
 
-  
-  constructor(private cartService: CartService, private authService: AuthService, @Inject(DOCUMENT) private document: Document, private router: Router, private renderer: Renderer2) {
+  constructor(private cartService: CartService,
+    private authService: AuthService,
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router, private renderer: Renderer2,
+    private elem: ElementRef) {
+
     this.isAuthenticated = authService.isAuthenticatedUser();
     this.currentUser = authService.getCurrentUser();
     const localStorage = document.defaultView?.localStorage;
@@ -72,5 +76,9 @@ export class HeaderComponent implements OnInit{
     this.currentUser = null;
     localStorage.removeItem("currentAppUser");
     this.router.navigate(["/home"]);
+  }
+
+  onCartClick(event: any) {
+    event.stopPropagation();
   }
 }

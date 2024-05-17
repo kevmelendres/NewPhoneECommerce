@@ -18,7 +18,10 @@ export class CartService {
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     const localStorage = document.defaultView?.localStorage;
+    this.reloadLocalStorage(localStorage);
+  }
 
+  reloadLocalStorage(localStorage: Storage | undefined) {
     if (localStorage) {
       if (localStorage.getItem("shoppingCartLocalStored")) {
         this._itemsInCart.clear();
@@ -89,5 +92,6 @@ export class CartService {
   deleteProduct(product: IProduct) {
     this._itemsInCart.delete(product);
     this.refreshDataInViews;
+    this.storeDataToLocalStorage(this._itemsInCart);
   }
 }

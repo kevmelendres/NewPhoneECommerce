@@ -11,6 +11,7 @@ import { NgbPopoverModule, NgbToastModule, NgbTooltip } from '@ng-bootstrap/ng-b
 import { ShopRoutingModule } from './shop-routing.module';
 import { AccountRoutingModule } from '../account-module/account-routing';
 import { AppModule } from '../app.module';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AppModule } from '../app.module';
     ShopComponent,
     PaginationComponent,
     TopFilterComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductPageComponent
   ],
   imports: [
     CommonModule,

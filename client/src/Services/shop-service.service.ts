@@ -137,4 +137,8 @@ export class ShopService {
   getRandomSellersAndProducts() {
     return this.http.get<string>(this.baseUrl + 'Products/GetRandomSellersAndProducts');
   }
+
+  getProductByID(id: string | null) {
+    return this.http.get<IProduct>(this.baseUrl + `Products/${id}`);
+  }
 }
