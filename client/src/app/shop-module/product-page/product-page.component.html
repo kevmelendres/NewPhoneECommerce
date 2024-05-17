@@ -1,72 +1,128 @@
 <div class="page-container" *ngIf="selectedProduct">
 
-    <div class="position-relative px-4 pt-4 pb-2 b-0">
-        <small class="text-body-secondary fw-light fs-xsmall pb-1">{{selectedProduct.brand}}, {{selectedProduct.deviceOS}} </small>
-        <p class="fs-5 pb-2 m-0"><strong>{{selectedProduct.model}}</strong></p>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="position-relative ps-0 pe-4 pt-4 pb-2 b-0">
+                <small class="text-body-secondary fw-light fs-xsmall pb-1">{{selectedProduct.brand}}, {{selectedProduct.deviceOS}} </small>
+                <p class="fs-5 pb-2 m-0"><strong>{{selectedProduct.model}}</strong></p>
 
-        <div class="position-relative h-100">
-            <img class="img-fluid" src="{{selectedProduct.image}}" />
-            <span class="position-absolute discount-badge translate-middle-x badge bg-success fw-bold">
-                -{{selectedProduct.discount}}% OFF
-            </span>
-        </div>
+                <div class="position-relative h-100">
+                    <img class="img-fluid" src="{{selectedProduct.image}}" />
+                    <span class="position-absolute discount-badge translate-middle-x badge bg-success fw-bold">
+                        -{{selectedProduct.discount}}% OFF
+                    </span>
+                </div>
 
-        <!-- Star Rating -->
-        <div class="py-1 opacity-75">
-            <div class="col d-inline fs-small">
-                <i [class]="star1()"></i>
-                <i [class]="star2()"></i>
-                <i [class]="star3()"></i>
-                <i [class]="star4()"></i>
-                <i [class]="star5()"></i>
+                <!-- Star Rating -->
+                <div class="py-1 opacity-75">
+                    <div class="col d-inline fs-small">
+                        <i [class]="star1()"></i>
+                        <i [class]="star2()"></i>
+                        <i [class]="star3()"></i>
+                        <i [class]="star4()"></i>
+                        <i [class]="star5()"></i>
+                    </div>
+                </div>
+                <!-- Star Rating -->
+
+                <div class="py-1">
+                    <p class="discountedPrice m-0 p-0 d-inline">
+                        {{selectedProduct.discountedPrice.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </p>
+                    <p [ngClass]="{origPrice: selectedProduct.discount > 0}" class="m-0 p-0 d-inline">
+                        {{selectedProduct.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </p>
+                </div>
+
+                <p class="card-text fs-smaller m-0">{{selectedProduct.description}}</p>
+
+                <div class="fs-xsmall opacity-50 py-2">
+                    <div class="row ">
+                        <p class="col-6 fs-xsmall my-0">In Stock: {{selectedProduct.availableStocks}}</p>
+                        <p class="col-6 text-end my-0">Released: {{selectedProduct.releaseDate}}</p>
+                    </div>
+                    <p class="my-0">Recently Sold: {{selectedProduct.soldItems}}</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center pt-2">
+                    <div class="">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                [class.disabled]="selectedProduct.availableStocks < 1 || productQty == '' || productQty == '0'"
+                                [ngClass]="{'btn-outline-success': selectedProduct.availableStocks > 0, 'btn-outline-danger': selectedProduct.availableStocks <= 0}"
+                                (click)="addToCart(selectedProduct)">
+                            {{buttonText}}
+                        </button>
+                    </div>
+
+                    <div class="m-0 w-50 border-0 d-flex align-items-center justify-content-end" *ngIf="selectedProduct.availableStocks>0">
+                        <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="addQty()" [class.disabled]="+this.productQty >= selectedProduct.availableStocks">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <input type="text" class="form-control m-0 p-1 w-25 m-1 qtyInput" [(ngModel)]="productQty" placeholder="" aria-label="Example text with two button addons">
+                        <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="subtractQty()" [class.disabled]="+this.productQty < 1 || !this.productQty">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Star Rating -->
+        <div class="col-8 pt-4 px-5 mt-5">
+            <div class="row">
+                <div class="col-2">Availability: </div>
+                <div class="col-10">
+                    <span class="fw-bold" [ngStyle]="{'color': selectedProduct.availableStocks > 0 ? 'green' : 'red'}">{{availability}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Device OS: </div>
+                <div class="col-10">{{selectedProduct.deviceOS}}</div>
+            </div>
+            <div class="row">
+                <div class="col-2">Seller: </div>
+                <div class="col-10">{{selectedProduct.seller}}</div>
+            </div>
+            <div class="row">
+                <div class="col-2">Previous Owner: </div>
+                <div class="col-10">{{selectedProduct.previousOwner}}</div>
+            </div>
 
-        <div class="py-1">
-            <p class="discountedPrice m-0 p-0 d-inline">
-                {{selectedProduct.discountedPrice.toLocaleString("en-US", {
-                style: "currency",
-                currency: "Php"
-                })}}
-            </p>
-            <p [ngClass]="{origPrice: selectedProduct.discount > 0}" class="m-0 p-0 d-inline">
-                {{selectedProduct.price.toLocaleString("en-US", {
-                style: "currency",
-                currency: "Php"
-                })}}
-            </p>
+            <div class="d-block pt-4 w-75">
+                <span class="fw-bold">PRODUCT NOTES:</span>
+                <ul>
+                    <li>
+                        Thumbnail Photo is for reference only. Kindly check the details for exact items.
+                    </li>
+                    <li>
+                        This is dynamic posting where brands or models may change automatically based on available stocks but same specifications unless we manually edit.
+                    </li>
+                    <li>
+                        All items come with a 1-year warranty, as sold by the original manufacturers. See warranty papers provided before purchase.
+                    </li>
+                </ul>
+            </div>
+            <div class="pt-3">
+                <div class="fs-6 fw-semibold fst-italic mb-2">
+                    You might also like:
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div *ngFor="let similarItem of similarItems">
+                        <span class="badge rounded-pill text-bg-light me-2 my-1 similar-item" (click)="onSimilarItemClick(similarItem)">
+                            {{similarItem.model}}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <p class="card-text fs-smaller m-0">{{selectedProduct.description}}</p>
-
-        <div class="fs-xsmall opacity-50 py-2">
-            <div class="row ">
-                <p class="col-6 fs-xsmall my-0">In Stock: {{selectedProduct.availableStocks}}</p>
-                <p class="col-6 text-end my-0">Released: {{selectedProduct.releaseDate}}</p>
-            </div>
-            <p class="my-0">Recently Sold: {{selectedProduct.soldItems}}</p>
-        </div>
-
-        <!-- <div class="d-flex justify-content-between align-items-center pt-2">
-            <div class="">
-                <button type="button" class="btn btn-sm btn-outline-secondary"
-                        [class.disabled]="selectedProduct.availableStocks < 1 || productQty == '' || productQty == '0'"
-                        [ngClass]="{'btn-outline-success': selectedProduct.availableStocks > 0, 'btn-outline-danger': selectedProduct.availableStocks <= 0}"
-                        (click)="addToCart(selectedProduct)">
-                    {{buttonText}}
-                </button>
-            </div>
-
-            <div class="m-0 w-50 border-0 d-flex align-items-center justify-content-end" *ngIf="selectedProduct.availableStocks>0">
-                <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="addQty()" [class.disabled]="+this.productQty >= selectedProduct.availableStocks">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-                <input type="text" class="form-control m-0 p-1 w-25 m-1 qtyInput" [(ngModel)]="productQty" placeholder="" aria-label="Example text with two button addons">
-                <button class="btn btn-outline-secondary m-0 p-0 plusMinusBtn" type="button" (click)="subtractQty()" [class.disabled]="+this.productQty < 1 || !this.productQty">
-                    <i class="fa-solid fa-minus"></i>
-                </button>
-            </div>
-        </div> -->
     </div>
+</div>
+
+<!-- Snackbar -->
+<div class="toast shadow" id="snackbar" #snackbar>
+    <div class="toast-body"><strong>Product successfully added to cart!</strong></div>
 </div>

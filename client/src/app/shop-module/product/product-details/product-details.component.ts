@@ -102,6 +102,7 @@ export class ProductDetailsComponent implements OnChanges{
 
   getSimilarProducts() {
     this.similarItemsService.changeBrandName(this.selectedProduct.brand);
+    this.similarItemsService.changeItemsToShow(5);
     this.similarItemsService.getSimilarProducts().subscribe(data => this.similarItems = data);
   }
 

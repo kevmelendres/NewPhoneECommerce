@@ -71,7 +71,6 @@ body {
 }
 
 .hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
-    text-decoration: underline;
     -webkit-animation-name: hvr-pulse-grow;
     animation-name: hvr-pulse-grow;
     -webkit-animation-duration: 0.3s;
@@ -99,4 +98,23 @@ body {
 .brand-badge:hover {
   color: white !important;
   background-color: #ffb303 !important;
+}
+
+.blob {
+  transform: scale(1);
+  animation: pulse 0.75s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
 }
