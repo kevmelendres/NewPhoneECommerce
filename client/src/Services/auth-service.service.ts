@@ -1,9 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { IRegisterModel } from '../Models/registermodel';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
+import { decode } from 'querystring';
+import { EMPTY, EmptyError, Observable, catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +23,33 @@ export class AuthService {
       if (localStorage.getItem("currentAppUser")) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
+        console.log(this.currentUser);
         if (this.currentUser) {
           this.isAuthenticated = true;
-        }
-      }
+        };
+
+        const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(
+          catchError((error: HttpErrorResponse) => {
+            if (error.status == 401) {
+              return of("Unauthenticated");
+            }
+            return of("Authenticated");
+          })
+        );
+
+        sample.subscribe(data => {
+          if (data == "Authenticated") {
+            console.log("You are logged in!")
+          }
+          if (data == "Unauthenticated") {
+            this.logout();
+            console.log("You are logged out!")
+          }
+        });
+      };
     }
+
+    
   }
 
   register(data: IRegisterModel) {
@@ -41,6 +65,8 @@ export class AuthService {
         if (this.currentUser) {
           this.isAuthenticated = true;
         }
+
+        console.log(this.currentUser.token);
       },
       error: error => {
         console.log(error);
@@ -62,4 +88,12 @@ export class AuthService {
   }
 
 
+  getLoggedInUser(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    return this.http.get<any>(this.baseUrl + "validate-token", {headers: headers});
+  }
 }

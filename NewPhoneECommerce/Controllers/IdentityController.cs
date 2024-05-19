@@ -6,6 +6,8 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace API.Controllers
 {
@@ -47,6 +49,15 @@ namespace API.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (!await _roleManager.RoleExistsAsync(UserRoles.User))
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+            if (await _roleManager.RoleExistsAsync(UserRoles.User))
+            {
+                await _userManager.AddToRoleAsync(user, UserRoles.User);
+            }
+
             var tokenService = new TokenService(_configuration, _userManager);
             var token = await tokenService.CreateToken(user);
 
@@ -148,7 +159,7 @@ namespace API.Controllers
         }
 
 
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.User)]
         [HttpPost]
         [Route("delete-user")]
         public async Task<IActionResult> DeleteUser([FromBody] string email)
@@ -171,6 +182,14 @@ namespace API.Controllers
                     return BadRequest("Delete unsuccessful.");
                 }
             }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = UserRoles.User)]
+        [Route("validate-token")]
+        public ActionResult<string> ValidateToken()
+        {
+            return Ok(JsonConvert.SerializeObject("You are authorized."));
         }
     }
 }

@@ -4,12 +4,14 @@ using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Models.Identity;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -49,7 +51,7 @@ namespace Infrastructure.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddSeconds(20),
                 SigningCredentials = creds,
                 Issuer = _config["JWT:ValidIssuer"],
                 Audience = _config["JWT:ValidAudience"]
@@ -62,6 +64,5 @@ namespace Infrastructure.Services
             return tokenHandler.WriteToken(token);
         }
 
-        
     }
 }
