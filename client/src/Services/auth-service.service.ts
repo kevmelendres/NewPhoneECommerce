@@ -5,7 +5,7 @@ import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
 import { decode } from 'querystring';
-import { EMPTY, EmptyError, Observable, catchError, map, of } from 'rxjs';
+import { BehaviorSubject, EMPTY, EmptyError, Observable, catchError, map, of } from 'rxjs';
 import { subscribe } from 'diagnostics_channel';
 
 @Injectable({
@@ -14,9 +14,10 @@ import { subscribe } from 'diagnostics_channel';
 export class AuthService {
 
   baseUrl: string = 'http://localhost:5064/api/Identity/';
-  private isAuthenticated: boolean = false;
+  private _isAuthenticated: boolean = false;
   private currentUser: ICurrentUser | null = null;
 
+  public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticated);
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
     const localStorage = document.defaultView?.localStorage;
 
@@ -26,12 +27,13 @@ export class AuthService {
         this.currentUser = JSON.parse(currentUserLocal!);
         console.log(this.currentUser);
         if (this.currentUser) {
-          this.isAuthenticated = true;
+          this.isAuthenticated.next(true);
         };
 
         const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(
           catchError((error: HttpErrorResponse) => {
             if (error.status == 401) {
+              this.logout();
               return of("Unauthenticated");
             }
             return of("Authenticated");
@@ -43,7 +45,7 @@ export class AuthService {
             console.log("You are logged in!")
           }
           if (data == "Unauthenticated") {
-            this.logout();
+            
             console.log("You are logged out!")
           }
         });
@@ -63,10 +65,9 @@ export class AuthService {
           localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
 
           if (this.currentUser) {
-            this.isAuthenticated = true;
+            this.isAuthenticated.next(true);
           }
           console.log(this.currentUser.token);
-
           subscriber.complete();
         },
         error: error => {
@@ -76,13 +77,10 @@ export class AuthService {
     });
   }
 
-  isAuthenticatedUser(): boolean {
-    return this.isAuthenticated;
-  }
 
   logout(): void {
     localStorage.removeItem("currentAppUser");
-    this.isAuthenticated = false;
+    this.isAuthenticated.next(false);
   }
 
   getCurrentUser(): ICurrentUser | null {

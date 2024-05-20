@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit{
   isAuthenticated: boolean;
   currentUser: ICurrentUser | null;
 
+  private _isAuthenticated: boolean;
+
   @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
 
   constructor(private cartService: CartService,
@@ -26,13 +28,12 @@ export class HeaderComponent implements OnInit{
     @Inject(DOCUMENT) private document: Document,
     private router: Router, private renderer: Renderer2,
     private elem: ElementRef) {
-
-    this.isAuthenticated = authService.isAuthenticatedUser();
-    this.currentUser = authService.getCurrentUser();
-    const localStorage = document.defaultView?.localStorage;
   }
 
   ngOnInit(): void {
+    this.authService.isAuthenticated.subscribe(data => this._isAuthenticated = data);
+
+    this.currentUser = this.authService.getCurrentUser();
     this.cartService.itemsInCart.subscribe(data => {
       this.itemsOnCart = data;
     });
