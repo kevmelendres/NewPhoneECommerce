@@ -62,18 +62,17 @@ export class AuthService {
           this.currentUser = currentUserData;
           localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
 
-          console.log("initial authentication:" + this.isAuthenticated);
           if (this.currentUser) {
             this.isAuthenticated = true;
           }
-
           console.log(this.currentUser.token);
+
+          subscriber.complete();
         },
         error: error => {
           console.log(error);
-        }
+        },
       });
-      subscriber.complete();
     });
   }
 

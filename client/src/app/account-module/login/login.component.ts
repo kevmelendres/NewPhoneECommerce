@@ -18,10 +18,9 @@ export class LoginComponent {
     password: ['']
   });
 
-  async onLoginClick() {
-    await firstValueFrom(this.authService.loginUser(this.loginForm.value), { defaultValue: 0 }).then(
+  onLoginClick() {
+    firstValueFrom(this.authService.loginUser(this.loginForm.value), { defaultValue: 0 }).then(
       () => {
-        console.log(this.authService.isAuthenticatedUser());
         if (this.authService.isAuthenticatedUser()) {
           this.router.navigate(["/shop"]);
         }
