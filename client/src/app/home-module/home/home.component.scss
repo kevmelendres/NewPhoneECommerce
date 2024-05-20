@@ -41,6 +41,7 @@ body {
 
 .shop-link{
     cursor: pointer;
+    font-weight: 500;
 
 }
 
@@ -51,15 +52,15 @@ body {
 /* Pulse Grow */
 @-webkit-keyframes hvr-pulse-grow {
   to {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
   }
 }
 
 @keyframes hvr-pulse-grow {
   to {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
+      -webkit-transform: scale(1.04);
+      transform: scale(1.04);
   }
 }
 
