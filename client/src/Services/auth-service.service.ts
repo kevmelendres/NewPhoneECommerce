@@ -5,7 +5,8 @@ import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
 import { decode } from 'querystring';
-import { EMPTY, EmptyError, Observable, catchError, of } from 'rxjs';
+import { EMPTY, EmptyError, Observable, catchError, map, of } from 'rxjs';
+import { subscribe } from 'diagnostics_channel';
 
 @Injectable({
   providedIn: 'root'
@@ -48,29 +49,31 @@ export class AuthService {
         });
       };
     }
-
-    
   }
 
   register(data: IRegisterModel) {
     this.http.post<ICurrentUser>(this.baseUrl + "register", data).subscribe(response => console.log("registration success"));
   }
 
-  loginUser(loginData: ILoginModel) {
-    this.http.post<ICurrentUser>(this.baseUrl + "login", loginData).subscribe({
-      next: currentUserData => {
-        this.currentUser = currentUserData;
-        localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
+  loginUser(loginData: ILoginModel): Observable<any> {
+    return new Observable(subscriber => {
+      this.http.post<ICurrentUser>(this.baseUrl + "login", loginData).subscribe({
+        next: currentUserData => {
+          this.currentUser = currentUserData;
+          localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
 
-        if (this.currentUser) {
-          this.isAuthenticated = true;
+          console.log("initial authentication:" + this.isAuthenticated);
+          if (this.currentUser) {
+            this.isAuthenticated = true;
+          }
+
+          console.log(this.currentUser.token);
+        },
+        error: error => {
+          console.log(error);
         }
-
-        console.log(this.currentUser.token);
-      },
-      error: error => {
-        console.log(error);
-      }
+      });
+      subscriber.complete();
     });
   }
 
