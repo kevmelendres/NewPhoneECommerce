@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { IProduct } from '../../Models/product';
 import { ShopService } from '../../Services/shop-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class ShopComponent implements OnChanges{
   selectedProduct: IProduct;
   toggle: boolean;
 
-  constructor(private shopService: ShopService) {
+  constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
   ngOnChanges(): void {
@@ -22,6 +23,12 @@ export class ShopComponent implements OnChanges{
 
   ngOnInit(): void {
     this.shopService.searchString.subscribe(value => this.getProducts());
+
+    let sellerName: string | null = this.route.snapshot.queryParamMap.get("seller");
+    console.log(sellerName);
+    if (sellerName) {
+      this.shopService.getProductsBySeller(sellerName).subscribe(data => this.products = data);
+    }
   }
   
   getProducts() {

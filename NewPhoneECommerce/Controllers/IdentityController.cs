@@ -165,7 +165,7 @@ namespace API.Controllers
         public async Task<IActionResult> DeleteUser([FromBody] string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
-
+            
             if (user == null)
             {
                 return BadRequest("User not found.");

@@ -3,6 +3,7 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 import { SellerProductListPair } from '../../../Models/keyvaluepair';
 import { ShopService } from '../../../Services/shop-service.service';
 import { IProductC } from '../../../Models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit{
 
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel;
 
-  constructor(private shopService: ShopService) { }
+  constructor(private shopService: ShopService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProductSellers();
@@ -67,4 +68,8 @@ export class HomeComponent implements OnInit{
   getProductSellers(topValue?: number) {
     this.shopService.getProductSellers(topValue).subscribe(data => this.productSellers = data)
   }
+
+  onSellerClick(sellerName: string) {
+    this.router.navigate(['/shop'], { queryParams: { seller: sellerName } })
+  };
 }

@@ -34,7 +34,7 @@
             <div class="col-4 align-self-center">
                 <span class="d-block text-start ms-4 mb-3 fs-3 fw-medium">Get amazing deals from the following brands! </span>
                 <div class="d-flex flex-wrap ms-4 my-2 d-block">
-                    <p *ngFor="let seller of productSellers" class="my-2 mx-2 px-2 py-2 badge rounded-pill text-bg-light brand-badge">
+                    <p *ngFor="let seller of productSellers" class="my-2 mx-2 px-2 py-2 badge rounded-pill text-bg-light brand-badge" (click)="onSellerClick(seller)">
                         {{seller}}
                     </p>
                 </div>

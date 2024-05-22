@@ -316,5 +316,27 @@ namespace API.Controllers
 
             return Ok(returnData);
         }
+
+        [HttpGet("GetProductsBySeller")]
+        public async Task<ActionResult<ProductToReturnDto>> GetProductsBySeller(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy,
+            [FromQuery] string? seller)
+        {
+            var specParam = new ProductSpecParams();
+            specParam.ItemsToShow = 5;
+            specParam.PageNumber = 1;
+
+            if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
+            if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
+            if (sortBy != null) { specParam.SortBy = sortBy; }
+            if (seller != null) { specParam.Seller = seller; }
+
+            var newSpecs = new ProductWithParamsSpec(specParam);
+
+            var data = await _productsRepo.GetAllItems(newSpecs);
+            var returnData = MapperHelper.MapProductList(data);
+
+            return Ok(returnData);
+        }
     }
 }

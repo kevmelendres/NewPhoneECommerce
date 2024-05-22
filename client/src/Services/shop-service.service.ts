@@ -16,16 +16,19 @@ export class ShopService {
   itemsToShowInit: number = 10;
   pageNumberInit: number = 1;
   searchStringInit: string = "";
+  brandNameInit: string = "";
 
   sortByGP: string;
   itemsToShowGP: number;
   pageNumberGP: number;
   searchStringGP: string;
+  brandNameGP: string;
 
   public sortBy = new BehaviorSubject(this.sortByInit);
   public itemsToShow = new BehaviorSubject(this.itemsToShowInit);
   public pageNumber = new BehaviorSubject(this.pageNumberInit);
   public searchString = new BehaviorSubject(this.searchStringInit);
+  public brandName = new BehaviorSubject(this.brandNameInit);
 
   changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
@@ -43,6 +46,10 @@ export class ShopService {
     this.searchString.next(searchString);
   }
 
+  changeBrandName(brandName: string) {
+    this.brandName.next(brandName);
+  }
+
   constructor(private http: HttpClient) { }
 
   getProducts() {
@@ -52,6 +59,7 @@ export class ShopService {
     this.itemsToShow.subscribe(val => this.itemsToShowGP = val);
     this.pageNumber.subscribe(val => this.pageNumberGP = val);
     this.searchString.subscribe(val => this.searchStringGP = val);
+    this.brandName.subscribe(val => this.brandNameGP = val);
     
     if (this.sortByGP) {
       params = params.append('sortBy', this.sortByGP);
@@ -140,5 +148,22 @@ export class ShopService {
 
   getProductByID(id: string | null) {
     return this.http.get<IProduct>(this.baseUrl + `Products/${id}`);
+  }
+
+  getProductsBySeller(seller: string,
+    itemsToShow: number = 10,
+    sortBy: string = "Availability",
+    pageNumber: number = 1) {
+
+    let params = new HttpParams();
+
+    params = params.append('sortBy', sortBy);
+    params = params.append('itemsToShow', itemsToShow.toString());
+    params = params.append('pageNumber', pageNumber.toString());
+    params = params.append('seller', seller);
+
+    return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetProductsBySeller',
+      { observe: 'response', params: params })
+      .pipe(map(response => { return response.body }));
   }
 }

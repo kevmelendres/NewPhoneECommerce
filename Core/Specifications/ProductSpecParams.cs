@@ -16,5 +16,6 @@ namespace Core.Specifications
         public int PageNumber { get; set; }
         public string? SearchString { get; set; }
         public string? BrandName { get; set; }
+        public string? Seller { get; set; }
     }
 }
