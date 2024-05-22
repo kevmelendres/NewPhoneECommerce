@@ -2,7 +2,7 @@
     <div class="offCanvas">
         <div class="card position-relative px-4 pt-4 pb-2 b-0">
             <small class="text-body-secondary fw-light fs-xsmall pb-1">{{selectedProduct.brand}}, {{selectedProduct.deviceOS}} </small>
-            <p class="fs-5 pb-2 m-0"><strong>{{selectedProduct.model}}</strong></p>
+            <p class="fs-5 pb-2 m-0 product-link" (click)="goToProductPage(selectedProduct.id)"><strong>{{selectedProduct.model}}</strong></p>
 
             <div class="position-relative h-100">
                 <img class="img-fluid" src="{{selectedProduct.image}}" />

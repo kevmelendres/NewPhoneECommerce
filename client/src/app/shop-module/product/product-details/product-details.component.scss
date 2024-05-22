@@ -162,3 +162,11 @@ img {
   align-content: center;
   font-size: medium;
 }
+
+.product-link {
+    cursor: pointer;
+}
+
+.product-link:hover {
+  color: #0062BD;
+}

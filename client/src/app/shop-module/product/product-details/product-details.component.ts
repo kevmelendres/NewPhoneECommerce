@@ -3,6 +3,7 @@ import { IProduct } from '../../../../Models/product';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { SimilarItemsService } from '../../../../Services/similar-items.service';
 import { CartService } from '../../../../Services/cart-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -28,7 +29,8 @@ export class ProductDetailsComponent implements OnChanges{
   constructor(private offCanvasService: NgbOffcanvas,
     private similarItemsService: SimilarItemsService,
     private cartService: CartService,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private router: Router) { }
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -146,5 +148,10 @@ export class ProductDetailsComponent implements OnChanges{
     setTimeout(() => {
       this.showSnackbar = false;
     }, 2000);
+  }
+
+  goToProductPage(id: number) {
+    this.offCanvasService.dismiss();
+    this.router.navigateByUrl("/shop/product/" + id);
   }
 }

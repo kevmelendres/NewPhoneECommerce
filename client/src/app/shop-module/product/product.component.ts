@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, Renderer2, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
 import { IProduct } from '../../../Models/product';
 import { CartService } from '../../../Services/cart-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -18,7 +19,7 @@ export class ProductComponent implements OnInit{
   show: boolean = true;
 
   @ViewChild('standardToast') standardToast: TemplateRef<any>;
-  constructor(private cartService: CartService, private renderer: Renderer2) { }
+  constructor(private cartService: CartService, private renderer: Renderer2, private router: Router) { }
 
   buttonText: string = "Add to Cart";
 
@@ -101,5 +102,4 @@ export class ProductComponent implements OnInit{
       this.renderer.removeClass(this.snackbar.nativeElement, 'show');
     }, 2000);
   }
-
 }

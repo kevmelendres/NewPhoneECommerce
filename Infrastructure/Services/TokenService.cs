@@ -51,7 +51,7 @@ namespace Infrastructure.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddSeconds(20),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds,
                 Issuer = _config["JWT:ValidIssuer"],
                 Audience = _config["JWT:ValidAudience"]

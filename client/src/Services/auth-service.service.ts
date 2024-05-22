@@ -14,10 +14,10 @@ import { subscribe } from 'diagnostics_channel';
 export class AuthService {
 
   baseUrl: string = 'http://localhost:5064/api/Identity/';
-  private _isAuthenticated: boolean = false;
+  private _isAuthenticatedInit: boolean = false;
   private currentUser: ICurrentUser | null = null;
 
-  public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticated);
+  public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticatedInit);
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
     const localStorage = document.defaultView?.localStorage;
 
@@ -27,13 +27,16 @@ export class AuthService {
         this.currentUser = JSON.parse(currentUserLocal!);
         console.log(this.currentUser);
         if (this.currentUser) {
+          console.log("user found");
           this.isAuthenticated.next(true);
+
         };
 
         const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(
           catchError((error: HttpErrorResponse) => {
             if (error.status == 401) {
               this.logout();
+              console.log("logging out");
               return of("Unauthenticated");
             }
             return of("Authenticated");
@@ -79,6 +82,7 @@ export class AuthService {
 
 
   logout(): void {
+    console.log("loggin out");
     localStorage.removeItem("currentAppUser");
     this.isAuthenticated.next(false);
   }

@@ -20,7 +20,7 @@
 
                         <div #signinDropdown class="dropdown-menu dropdown-menu-end" (click)="$event.stopPropagation()" style="width: 230px; font-size: 12px">
 
-                            <div *ngIf="isAuthenticated" class="container">
+                            <div *ngIf="_isAuthenticated" class="container">
 
                                 <p class="text-center fs-small my-3">Welcome <strong>{{currentUser!.displayName}}!</strong></p>
 
@@ -41,7 +41,7 @@
 
                             </div>
 
-                            <div *ngIf="!isAuthenticated">
+                            <div *ngIf="!_isAuthenticated">
                                 <div class="px-2">
 
                                     <div class="d-flex flex-row justify-content-center py-0 h-auto">
@@ -145,11 +145,9 @@
 
                                         </div>
                                         <div class="col-8 d-flex justify-content-end mx-0 px-0">
-                                            <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2" (click)="viewCartClick()"><strong>View Cart</strong></button>
+                                            <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2"><strong>View Cart</strong></button>
                                             <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2"><strong>Checkout</strong></button>
                                         </div>
-
-
 
                                     </div>
 

@@ -16,10 +16,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit{
   itemsOnCart: Map<IProduct, number>;
   totalPriceInCart: number;
-  isAuthenticated: boolean;
   currentUser: ICurrentUser | null;
 
-  private _isAuthenticated: boolean;
+  _isAuthenticated: boolean;
 
   @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
 
@@ -31,8 +30,10 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated.subscribe(data => this._isAuthenticated = data);
-
+    this.authService.isAuthenticated.subscribe(data => {
+      this._isAuthenticated = data;
+    });
+    
     this.currentUser = this.authService.getCurrentUser();
     this.cartService.itemsInCart.subscribe(data => {
       this.itemsOnCart = data;
@@ -49,13 +50,9 @@ export class HeaderComponent implements OnInit{
     return this.cartService.getTotalPriceInCart();
   }
 
-  viewCartClick() {
-    console.log("View cart clicked");
-  }
-
   changeProductQty(product: IProduct, qty: number, popOver: NgbPopover) {
     this.cartService.addToCart(product, qty);
-  }
+  } 
 
   disablePopover(product: IProduct, popOver: NgbPopover) {
     if (this.cartService.getQuantityOfProduct(product) == 0) {
@@ -73,7 +70,7 @@ export class HeaderComponent implements OnInit{
   onLogoutClick() {
     const dropdown = this.signinDropdown.nativeElement;
     this.renderer.removeClass(dropdown,"show");
-    this.isAuthenticated = false;
+    this._isAuthenticated = false;
     this.currentUser = null;
     localStorage.removeItem("currentAppUser");
     this.router.navigate(["/home"]);
