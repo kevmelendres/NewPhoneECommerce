@@ -5,3 +5,18 @@ li {
 .pagination {
     color: black
 }
+
+.page-link.active {
+  background-color: lightgray;
+  border-color: black;
+  color: black;
+  font-weight: bold;
+}
+
+.page-link {
+    color: black;
+    width: 35px;
+    align-content: center;
+    text-align: center
+    
+}

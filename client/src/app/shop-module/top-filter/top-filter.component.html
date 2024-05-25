@@ -1,9 +1,16 @@
 <div class="container rounded bg-body-secondary py-1 w-100">
     <div class="d-flex justify-content-between">
         <div class="p-0 m-0 h-auto">
-            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="searchString">Showing results for:   <strong>{{searchString}}</strong></span>
-            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="!searchString"><b>Showing all items</b></span>
-            <span class="tooltip-custom px-2" (click)="deleteSearchResults()" placement="end" container="body" ngbTooltip="Delete search results" *ngIf="searchString">
+            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="(searchString || sellerName)">Showing results for:
+
+                <strong *ngIf="!sellerName">{{searchString}}</strong>
+                <strong *ngIf="sellerName">{{sellerName}}</strong>
+
+            </span>
+            <span class="m-0 p-0 fs-smaller align-middle" *ngIf="!(searchString || sellerName)"><b>Showing all items</b></span>
+
+
+            <span class="tooltip-custom px-2" (click)="deleteFilterResults()" placement="end" container="body" ngbTooltip="Delete search results" *ngIf="(searchString || sellerName)">
                 <i class="fa-solid fa-delete-left"></i>
             </span>
             

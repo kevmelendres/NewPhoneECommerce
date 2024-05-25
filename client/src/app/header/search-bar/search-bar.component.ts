@@ -62,6 +62,8 @@ export class SearchBarComponent implements OnInit{
     if (this.router.url != "/shop") {
       this.router.navigateByUrl("/shop");
     }
+    this.shopService.getAllProducts();
+    
   }
 
   hideQueryResults() {

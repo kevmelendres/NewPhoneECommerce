@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { query } from 'express';
 
 @Component({
   selector: 'app-top-filter',
@@ -11,14 +13,22 @@ export class TopFilterComponent implements OnInit{
   selectedSort: string;
   selectedNumOfItemsToShow: number;
   searchString: string;
-  constructor(private shopService: ShopService) {
+  sellerName: string | null;
 
+  constructor(private shopService: ShopService,
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
     this.shopService.sortBy.subscribe(sortBy => this.selectedSort = sortBy);
     this.shopService.itemsToShow.subscribe(sortBy => this.selectedNumOfItemsToShow = sortBy);
     this.shopService.searchString.subscribe(searchString => this.searchString = searchString);
+
+    this.route.queryParams.subscribe(queryParams => {
+      this.sellerName = queryParams["seller"];
+    })
+
   }
 
   sortBy: string[] = [
@@ -67,9 +77,14 @@ export class TopFilterComponent implements OnInit{
     this.changeNumOfItemsToShow.emit(this.selectedNumOfItemsToShow);
   }
 
-  deleteSearchResults() {
-    this.searchString = ""; 
+  deleteFilterResults() {
+    this.searchString = "";
     this.shopService.changeSearchString(this.searchString);
+
+    if (this.sellerName) {
+      this.router.navigateByUrl("/shop");
+    }
+
     this.shopService.getAllProducts();
   }
 }

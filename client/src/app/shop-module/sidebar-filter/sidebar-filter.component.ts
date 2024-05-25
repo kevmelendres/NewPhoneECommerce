@@ -10,14 +10,19 @@ export class SidebarFilterComponent implements OnInit{
   productBrands: string[] | null;
   productSellers: string[] | null;
   productColors: string[] | null;
-  availability: string[] = ['In Stock', 'Out of Stock'];
+  availability: string[] = ['All Products', 'In Stock', 'Out of Stock'];
+
   brandsSwitch: boolean;
   sellersSwitch: boolean;
+
   toggleAllSwitch: string = "Show all";
   sellersToShowLabel: string = "Top Sellers";
   brandsToShowLabel: string = "Top Brands";
 
-
+  selectedProductBrand: string = 'All Brands';
+  selectedAvailability: string = 'All Products';
+  selectedSeller: string = 'All Sellers';
+  
   constructor(private shopService: ShopService) { }
 
   ngOnInit() {
@@ -27,15 +32,15 @@ export class SidebarFilterComponent implements OnInit{
   }
 
   getProductBrands(topValue?: number) {
-    this.shopService.getProductBrands(topValue).subscribe(data => this.productBrands = data)
+    this.shopService.getProductBrands(topValue).subscribe(data => this.productBrands = ["All Brands", ...data!]);
   }
 
   getProductSellers(topValue?: number) {
-    this.shopService.getProductSellers(topValue).subscribe(data => this.productSellers = data)
+    this.shopService.getProductSellers(topValue).subscribe(data => this.productSellers = ["All Sellers", ...data!])
   }
 
   getProductColors(topValue?: number) {
-    this.shopService.getProductColors(topValue).subscribe(data => this.productColors = data)
+    this.shopService.getProductColors(topValue).subscribe(data => this.productColors = ["All", ...data!])
   }
 
   onBrandsToViewChange() {
@@ -58,5 +63,17 @@ export class SidebarFilterComponent implements OnInit{
       this.getProductSellers(5);
       this.sellersToShowLabel = "Top Sellers"
     }
+  }
+
+  onProductBrandSelect() {
+    console.log(this.selectedProductBrand);
+  }
+
+  onSellerSelect() {
+    console.log(this.selectedSeller);
+  }
+
+  onAvailabilitySelect() {
+    console.log(this.selectedAvailability);
   }
 }

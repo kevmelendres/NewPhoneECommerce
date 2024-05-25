@@ -13,8 +13,12 @@ export class PaginationComponent implements OnInit{
 
   totalNumOfProducts: number;
   itemsPerPage: number;
+  noItemsToShowPage: number = 0;
 
   maxPageNumber: number;
+
+  pageNoItemsToShow: number;
+  enableNextPageClick: boolean = true;
 
   @Output() currentPageChange = new EventEmitter<number>;
   constructor(private shopService: ShopService) {
@@ -35,6 +39,8 @@ export class PaginationComponent implements OnInit{
         this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
       });
     });
+
+    this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
   }
 
   validateFirstEntryPage() {
@@ -50,6 +56,7 @@ export class PaginationComponent implements OnInit{
   pageNumberClick(event: any) {
     this.currentPage = parseInt(event.target.text);
     this.currentPageChange.emit(parseInt(event.target.text));
+    this.activateNextPageClick();
   }
 
   onPrevClick() {
@@ -57,6 +64,7 @@ export class PaginationComponent implements OnInit{
     this.firstEntryPage = this.firstEntryPage - 10;
     this.validateFirstEntryPage();
     this.currentPageChange.emit(this.currentPage);
+    this.activateNextPageClick();
   }
 
   onNextClick() {
@@ -64,6 +72,29 @@ export class PaginationComponent implements OnInit{
     this.firstEntryPage = this.firstEntryPage + 10;
     this.validateFirstEntryPage();
     this.currentPageChange.emit(this.currentPage);
+    this.activateNextPageClick();
+  }
+
+  activateNextPageClick() {
+    if (this.pageNoItemsToShow == 0) {
+      this.enableNextPageClick = true;
+    }
+    if (this.pageNoItemsToShow != 0) {
+      if (this.firstEntryPage + this.numOfPagings.length > this.maxPageNumber) {
+        this.enableNextPageClick = false;
+      };
+
+      if (this.firstEntryPage + this.numOfPagings.length >= this.pageNoItemsToShow) {
+        this.enableNextPageClick = false;
+      }
+    }
+  }
+
+  enablePageLink(int: number): boolean {
+    if (this.pageNoItemsToShow != 0) {
+      return (this.firstEntryPage + int > this.pageNoItemsToShow)
+    }
+    return false;
   }
 
 }

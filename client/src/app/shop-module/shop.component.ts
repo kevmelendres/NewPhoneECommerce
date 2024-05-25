@@ -16,6 +16,8 @@ export class ShopComponent implements OnChanges{
 
   sellerName: string | null;
 
+  pageNoItemsToShow: number;
+
   constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
@@ -31,15 +33,30 @@ export class ShopComponent implements OnChanges{
     if (this.sellerName) {
       this.shopService.getProductsBySeller(this.sellerName).subscribe(data => this.products = data);
     }
+
+    this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
   }
   
   getProducts() {
     if (this.sellerName) {
       this.shopService.getProductsBySeller(this.sellerName)
-        .subscribe(data => this.products = data);
+        .subscribe(data => {
+
+          this.shopService.changePageNoItemsToShow(0);
+          this.products = data;
+          if (data?.length == 0) {
+            this.shopService.changePageNoItemsToShow(this.shopService.pageNumberGP);
+          };
+        });
     } else {
       this.shopService.getAllProducts()
-        .subscribe(data => this.products = data);
+        .subscribe(data => {
+          this.shopService.changePageNoItemsToShow(0);
+          this.products = data;
+          if (data?.length == 0) {
+            this.shopService.changePageNoItemsToShow(this.shopService.pageNumberGP);
+          };
+        });
     }
   }
 

@@ -2,7 +2,7 @@
 <div class="pb-3">
     <h6><strong>Availability:</strong></h6>
     <div class="form-check" *ngFor="let item of availability">
-        <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="item" [id]="item">
+        <input class="form-check-input checkbox" type="radio" name="selectedAvailability" [value]="item" [id]="item" [(ngModel)]="selectedAvailability" (change)="onAvailabilitySelect()">
         <label class="form-check-label ps-1" [for]="item">
             {{item}}
         </label>
@@ -16,7 +16,7 @@
         <label class="form-check-label ps-2" for="brandsSwitch">{{toggleAllSwitch}}</label>
     </div>
     <div class="form-check" *ngFor="let brand of productBrands">
-        <input class="form-check-input checkbox" type="checkbox" name="selectedProductBrand" [value]="brand" [id]="brand">
+        <input class="form-check-input checkbox" type="radio" name="selectedProductBrand" [value]="brand" [id]="brand" [(ngModel)]="selectedProductBrand" (change)="onProductBrandSelect()">
         <label class="form-check-label ps-1" [for]="brand">
             {{brand}}
         </label>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="form-check" *ngFor="let seller of productSellers">
-        <input class="form-check-input checkbox" type="checkbox" name="selectedProductSeller" [value]="seller" [id]="seller">
+        <input class="form-check-input checkbox" type="radio" name="selectedProductSeller" [value]="seller" [id]="seller" [(ngModel)]="selectedSeller" (change)="onSellerSelect()">
         <label class="form-check-label ps-1" [for]="seller">
             {{seller}}
         </label>

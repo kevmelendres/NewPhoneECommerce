@@ -19,6 +19,14 @@
             (emitToggle)="emittedToggle($event)"></app-product>
           </div>
         </div>
+
+        <div *ngIf="products!.length == 0" class="d-flex justify-content-center align-items-center" style="height: 500px;">
+            <div class="text-center">
+                <span class="d-block" style="color: red; font-size: 100px"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <span class="d-block fs-5">Oops! It looks like there are no items to show.</span>
+            </div>
+            
+        </div>
       </div>
 
       <div class="row pt-4">

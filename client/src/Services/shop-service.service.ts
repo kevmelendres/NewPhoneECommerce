@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { SellerProductListPair } from '../Models/keyvaluepair';
 
 @Injectable({
@@ -30,6 +30,8 @@ export class ShopService {
   public searchString = new BehaviorSubject(this.searchStringInit);
   public brandName = new BehaviorSubject(this.brandNameInit);
 
+  public pageNoItemsToShow = new BehaviorSubject<number>(0);
+
   changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
   }
@@ -50,14 +52,16 @@ export class ShopService {
     this.brandName.next(brandName);
   }
 
+  changePageNoItemsToShow(page: number) {
+    this.pageNoItemsToShow.next(page);
+  }
+
   constructor(private http: HttpClient) {
     this.sortBy.subscribe(val => this.sortByGP = val);
     this.itemsToShow.subscribe(val => this.itemsToShowGP = val);
     this.pageNumber.subscribe(val => this.pageNumberGP = val);
     this.searchString.subscribe(val => this.searchStringGP = val);
     this.brandName.subscribe(val => this.brandNameGP = val);
-
-    console.log(this.pageNumberGP);
   }
 
   getAllProducts() {
@@ -152,17 +156,25 @@ export class ShopService {
     return this.http.get<IProduct>(this.baseUrl + `Products/${id}`);
   }
 
-  getProductsBySeller(seller: string,
-    itemsToShow: number = 10,
-    sortBy: string = "Availability",
-    pageNumber: number = 1) {
+  getProductsBySeller(seller: string) {
 
     let params = new HttpParams();
 
-    params = params.append('sortBy', sortBy);
-    params = params.append('itemsToShow', itemsToShow.toString());
-    params = params.append('pageNumber', pageNumber.toString());
-    params = params.append('seller', seller);
+    if (this.sortByGP) {
+      params = params.append('sortBy', this.sortByGP);
+    }
+
+    if (this.itemsToShowGP) {
+      params = params.append('itemsToShow', this.itemsToShowGP.toString());
+    }
+
+    if (this.pageNumberGP) {
+      params = params.append('pageNumber', this.pageNumberGP.toString());
+    }
+
+    if (seller) {
+      params = params.append('seller', seller);
+    }
 
     return this.http.get<IProduct[]>(this.baseUrl + 'Products/GetProductsBySeller',
       { observe: 'response', params: params })
