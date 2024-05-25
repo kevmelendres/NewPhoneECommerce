@@ -14,6 +14,8 @@ export class ShopComponent implements OnChanges{
   selectedProduct: IProduct;
   toggle: boolean;
 
+  sellerName: string | null;
+
   constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
@@ -24,16 +26,21 @@ export class ShopComponent implements OnChanges{
   ngOnInit(): void {
     this.shopService.searchString.subscribe(value => this.getProducts());
 
-    let sellerName: string | null = this.route.snapshot.queryParamMap.get("seller");
-    console.log(sellerName);
-    if (sellerName) {
-      this.shopService.getProductsBySeller(sellerName).subscribe(data => this.products = data);
+    this.sellerName = this.route.snapshot.queryParamMap.get("seller");
+
+    if (this.sellerName) {
+      this.shopService.getProductsBySeller(this.sellerName).subscribe(data => this.products = data);
     }
   }
   
   getProducts() {
-    this.shopService.getProducts()
-      .subscribe(data => this.products = data);
+    if (this.sellerName) {
+      this.shopService.getProductsBySeller(this.sellerName)
+        .subscribe(data => this.products = data);
+    } else {
+      this.shopService.getAllProducts()
+        .subscribe(data => this.products = data);
+    }
   }
 
   changeSortedItems(sortBy: string) {
@@ -57,6 +64,5 @@ export class ShopComponent implements OnChanges{
 
   emittedToggle(toggle: boolean) {
     this.toggle = toggle;
-
   }
 }

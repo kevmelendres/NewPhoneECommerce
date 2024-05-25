@@ -108,18 +108,16 @@
                                                 </span>
                                             </div>
                                             <div class="col-2 py-0 ps-1 pe-0">
-                                                <button class="btn btn-outline-success d-block p-0 my-2 btn-plusminus" (click)="changeProductQty(item.key, 1, confirmDelete)"><i class="fa-solid fa-plus"></i></button>
+                                                <button class="btn btn-outline-success d-block p-0 my-2 btn-plusminus" (click)="changeProductQty(item.key, 1)"><i class="fa-solid fa-plus"></i></button>
                                                 <button class="btn btn-outline-danger d-block p-0 my-2 btn-plusminus"
-                                                        [ngbPopover]="confirmRemoveProductFromCart" placement="end" triggers="manual"
-                                                        container="body" #confirmDelete="ngbPopover" [disabled]="disablePopover(item.key,confirmDelete)" popoverClass="popoverCustom"
-                                                        (click)="changeProductQty(item.key, -1, confirmDelete)">
+                                                         
+                                                        container="body"
+                                                        (click)="changeProductQty(item.key, -1)">
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
 
-                                                <ng-template #confirmRemoveProductFromCart>
-                                                    <span class="d-block pb-1" style="font-size: small">Remove item from cart?</span>
-                                                    <button class="btn btn-danger d-block" style="height: 30px; font-size: small; vertical-align:middle" (click)="deleteProduct(item.key, $event)">Yes</button>
-                                                </ng-template>
+                                                
+
                                             </div>
 
                                             <span type="button" class="x-button hvr-icon-pulse"
@@ -148,23 +146,13 @@
                                             <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2"><strong>View Cart</strong></button>
                                             <button type="button" class="btn btn-sm btn-warning rounded-5 d-inline mx-2 px-3 py-2"><strong>Checkout</strong></button>
                                         </div>
-
                                     </div>
-
                                 </div>
-
-
                             </div>
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </nav>
-
 </div>

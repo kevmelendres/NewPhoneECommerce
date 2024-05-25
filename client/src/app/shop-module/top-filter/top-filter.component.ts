@@ -70,6 +70,6 @@ export class TopFilterComponent implements OnInit{
   deleteSearchResults() {
     this.searchString = ""; 
     this.shopService.changeSearchString(this.searchString);
-    this.shopService.getProducts();
+    this.shopService.getAllProducts();
   }
 }

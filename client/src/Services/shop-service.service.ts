@@ -50,16 +50,18 @@ export class ShopService {
     this.brandName.next(brandName);
   }
 
-  constructor(private http: HttpClient) { }
-
-  getProducts() {
-    let params = new HttpParams();
-
+  constructor(private http: HttpClient) {
     this.sortBy.subscribe(val => this.sortByGP = val);
     this.itemsToShow.subscribe(val => this.itemsToShowGP = val);
     this.pageNumber.subscribe(val => this.pageNumberGP = val);
     this.searchString.subscribe(val => this.searchStringGP = val);
     this.brandName.subscribe(val => this.brandNameGP = val);
+
+    console.log(this.pageNumberGP);
+  }
+
+  getAllProducts() {
+    let params = new HttpParams();
     
     if (this.sortByGP) {
       params = params.append('sortBy', this.sortByGP);

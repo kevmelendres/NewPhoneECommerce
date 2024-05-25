@@ -25,33 +25,20 @@ export class AuthService {
       if (localStorage.getItem("currentAppUser")) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
-        console.log(this.currentUser);
-        if (this.currentUser) {
-          console.log("user found");
-          this.isAuthenticated.next(true);
 
+        if (this.currentUser) {
+          this.isAuthenticated.next(true);
         };
 
         const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(
           catchError((error: HttpErrorResponse) => {
             if (error.status == 401) {
               this.logout();
-              console.log("logging out");
               return of("Unauthenticated");
             }
             return of("Authenticated");
           })
         );
-
-        sample.subscribe(data => {
-          if (data == "Authenticated") {
-            console.log("You are logged in!")
-          }
-          if (data == "Unauthenticated") {
-            
-            console.log("You are logged out!")
-          }
-        });
       };
     }
   }
@@ -70,7 +57,6 @@ export class AuthService {
           if (this.currentUser) {
             this.isAuthenticated.next(true);
           }
-          console.log(this.currentUser.token);
           subscriber.complete();
         },
         error: error => {
@@ -82,7 +68,6 @@ export class AuthService {
 
 
   logout(): void {
-    console.log("loggin out");
     localStorage.removeItem("currentAppUser");
     this.isAuthenticated.next(false);
   }

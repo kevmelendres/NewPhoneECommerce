@@ -50,7 +50,6 @@ export class PaginationComponent implements OnInit{
   pageNumberClick(event: any) {
     this.currentPage = parseInt(event.target.text);
     this.currentPageChange.emit(parseInt(event.target.text));
-    console.log(this.itemsPerPage);
   }
 
   onPrevClick() {

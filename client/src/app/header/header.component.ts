@@ -50,8 +50,13 @@ export class HeaderComponent implements OnInit{
     return this.cartService.getTotalPriceInCart();
   }
 
-  changeProductQty(product: IProduct, qty: number, popOver: NgbPopover) {
+  changeProductQty(product: IProduct, qty: number ) {
     this.cartService.addToCart(product, qty);
+
+    if (this.cartService.getQuantityOfProduct(product) == 0) {
+      this.cartService.deleteProduct(product);
+    }
+
   } 
 
   disablePopover(product: IProduct, popOver: NgbPopover) {

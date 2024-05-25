@@ -23,7 +23,7 @@ export class SearchBarComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.shopService.getProducts().subscribe(data => this.products = data);
+    this.shopService.getAllProducts().subscribe(data => this.products = data);
     this.shopService.getAllProductsModels().subscribe(data => this.searchArray = data);
   }
 
