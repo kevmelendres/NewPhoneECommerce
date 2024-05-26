@@ -3,6 +3,7 @@ import { Routes, RouterModule, mapToCanActivate, mapToCanActivateChild, mapToCan
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../../Guards/auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,6 +16,11 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [() => inject(AuthGuardService).canActivate()],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [() => inject(AuthGuardService).isAuthenticated()],
   },
 ];
 

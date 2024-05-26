@@ -84,4 +84,10 @@ export class HeaderComponent implements OnInit{
   onCartClick(event: any) {
     event.stopPropagation();
   }
+
+  onProfileClick() {
+    this.router.navigate(["/account/profile"]);
+    const dropdown = this.signinDropdown.nativeElement;
+    this.renderer.removeClass(dropdown, "show");
+  }
 }

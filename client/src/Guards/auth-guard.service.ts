@@ -33,5 +33,7 @@ export class AuthGuardService {
     return !this._isAuthenticated;
   }
 
-
+  isAuthenticated(): boolean {
+    return this._isAuthenticated;
+  }
 }

@@ -1,0 +1,166 @@
+<div class="container mt-4 mb-5">
+    <span class="d-block fs-1 fw-bold">My Account / Profile</span>
+    <span class="d-block fw-light">Change your basic account information here. You may also want to edit your account settings.</span>
+
+    <div class="mb-5 mt-4 pt-3">
+        <form class="">
+
+            <span class="d-block pb-3 group-label">Login Information:</span>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="email" class="form-label m-0 p-0">Email Address</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="email" disabled>
+                </div>
+                <div class="col-6 validation">
+                    <span>This is a sample validation message.</span>
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="displayName" class="form-label m-0 p-0">Display Name</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="displayName">
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="password" class="form-label m-0 p-0">Password</label>
+                </div>
+                <div class="col-4">
+                    <input type="password" class="form-control" id="password">
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="confirmPassword" class="form-label m-0 p-0">Confirm Password</label>
+                </div>
+                <div class="col-4">
+                    <input type="password" class="form-control" id="confirmPassword">
+                </div>
+            </div>
+
+            <span class="d-block pb-3 group-label pt-5">Basic Information:</span>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="firstName" class="form-label m-0 p-0">First Name</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="firstName">
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="lastName" class="form-label m-0 p-0">Last Name</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="lastName">
+                </div>
+            </div>
+
+            <span class="d-block pb-3 group-label pt-5">Shipping Address:</span>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="region" class="form-label m-0 p-0">Region</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select" id="region" [(ngModel)]="selectedRegion" name="selectedRegion" (change)="onRegionSelect()">
+                        <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
+                    </select>
+
+                </div>
+            </div>
+
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="province" class="form-label m-0 p-0">Province</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select" id="province" [(ngModel)]="selectedProvince" name="selectedProvince" (change)="onProvinceSelect()">
+                        <option selected>Select Province</option>
+                        <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="municipality" class="form-label m-0 p-0">Municipality</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select" id="municipality" [(ngModel)]="selectedMunicipality" name="selectedMunicipality" (change)="onMunicipalitySelect()">
+                        <option selected>Select Municipality</option>
+                        <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="barangay" class="form-label m-0 p-0">Barangay</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select" id="barangay" [(ngModel)]="selectedBarangay" name="selectedBarangay">
+                        <option selected>Select Barangay</option>
+                        <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="street" class="form-label m-0 p-0">Street</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="street">
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3">
+                <div class="col-2">
+                    <label for="zipCode" class="form-label m-0 p-0">Zip Code</label>
+                </div>
+                <div class="col-4">
+                    <input type="number" class="form-control" id="zipCode">
+                </div>
+            </div>
+
+            <div class="row align-items-center pb-3 mt-4">
+                <div class="col-6">
+                    <div class="row d-flex justify-content-between">
+
+                        <div class="col d-flex align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex justify-content-end">
+                            <button class="btn btn-primary px-4" type="submit">Submit</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+    
+</div>

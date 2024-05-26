@@ -214,7 +214,6 @@ namespace API.Controllers
 
             if (user != null)
             {
-
                 if (user.Address == null)
                 {
                     user.Address = new();
