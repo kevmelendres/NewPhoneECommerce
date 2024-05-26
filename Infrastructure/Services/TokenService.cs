@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Core.Models.Identity;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
@@ -64,5 +65,13 @@ namespace Infrastructure.Services
             return tokenHandler.WriteToken(token);
         }
 
+
+        public string DecodeToken(string token, string claimType)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var decodedToken = tokenHandler.ReadJwtToken(token);
+
+            return decodedToken.Claims.FirstOrDefault(x => x.Type == claimType)!.Value;
+        }
     }
 }

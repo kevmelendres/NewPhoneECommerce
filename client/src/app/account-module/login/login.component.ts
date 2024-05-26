@@ -12,7 +12,7 @@ import { firstValueFrom, lastValueFrom } from 'rxjs';
 })
 export class LoginComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
-  private _isAuthenticated: boolean;
+  protected _isAuthenticated: boolean;
 
   ngOnInit(): void {
     this.authService.isAuthenticated.subscribe(data => this._isAuthenticated = data);

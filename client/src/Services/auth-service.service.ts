@@ -26,6 +26,7 @@ export class AuthService {
 
         if (this.currentUser) {
           this.isAuthenticated.next(true);
+          console.log(this.currentUser.token);
         };
 
         const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(

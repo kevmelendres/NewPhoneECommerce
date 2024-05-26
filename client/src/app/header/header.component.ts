@@ -75,9 +75,9 @@ export class HeaderComponent implements OnInit{
   onLogoutClick() {
     const dropdown = this.signinDropdown.nativeElement;
     this.renderer.removeClass(dropdown,"show");
-    this._isAuthenticated = false;
     this.currentUser = null;
     localStorage.removeItem("currentAppUser");
+    this.authService.logout();
     this.router.navigate(["/home"]);
   }
 

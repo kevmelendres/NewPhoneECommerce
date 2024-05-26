@@ -1,11 +1,15 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 using API.Dtos;
 using Core.Models.Identity;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -190,6 +194,43 @@ namespace API.Controllers
         public ActionResult<string> ValidateToken()
         {
             return Ok(JsonConvert.SerializeObject("You are authorized."));
+        }
+
+        //[Authorize(Roles = UserRoles.User)]
+        [HttpPost]
+        [Route("edit-user")]
+        public async Task<ActionResult<string>> EditUser([FromQuery] string? email, [FromQuery] string token)
+        {
+            var tokenService = new TokenService(_configuration, _userManager);
+            var emailFromDecode = tokenService.DecodeToken(token, "email");
+
+            if (email != emailFromDecode)
+            {
+                return BadRequest("Email sent and email decoded from token do not match.");
+            }
+
+            var user = await _userManager.Users.Include(x => x.Address)
+                .FirstOrDefaultAsync(y => y.Email == emailFromDecode);
+
+            if (user != null)
+            {
+
+                if (user.Address == null)
+                {
+                    user.Address = new();
+                }
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return Ok("Update success.");
+                }
+
+                return BadRequest("User not found.");
+            }
+
+            return BadRequest("Update not successful.");
         }
     }
 }
