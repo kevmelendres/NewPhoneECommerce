@@ -2,7 +2,9 @@
 
   <div class="row">
     <div class="p-2 col-2">
-      <app-sidebar-filter></app-sidebar-filter>
+        <app-sidebar-filter (selectedSellerEmit)="onSellerFilterChange($event)"
+                            (selectedProductBrandEmit)="onBrandFilterChange($event)"
+                            (selectedAvailabilityEmit)="onAvailabilityFilterChange($event)"></app-sidebar-filter>
     </div>
 
     <div class="p-2 col-10">
@@ -29,7 +31,7 @@
         </div>
       </div>
 
-      <div class="row pt-4">
+      <div class="row pt-4 mt-4 text-center">
           <app-pagination (currentPageChange)="currentPageChange($event)"></app-pagination>
       </div>
 

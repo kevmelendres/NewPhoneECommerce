@@ -1,12 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { IRegisterModel } from '../Models/registermodel';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
-import { decode } from 'querystring';
-import { BehaviorSubject, EMPTY, EmptyError, Observable, catchError, map, of } from 'rxjs';
-import { subscribe } from 'diagnostics_channel';
+import { BehaviorSubject, Observable, catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

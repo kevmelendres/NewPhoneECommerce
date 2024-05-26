@@ -1,9 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { SellerProductListPair } from '../Models/keyvaluepair';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +16,9 @@ export class ShopService {
   pageNumberInit: number = 1;
   searchStringInit: string = "";
   brandNameInit: string = "";
+  availabilityInit: string = "All Products";
+  selectedBrandInit: string = "All Brands";
+  selectedSellerInit: string = "All Sellers";
 
   sortByGP: string;
   itemsToShowGP: number;
@@ -24,13 +26,20 @@ export class ShopService {
   searchStringGP: string;
   brandNameGP: string;
 
+  selectedAvailabilityGP: string;
+  selectedBrandGP: string;
+  selectedSellerGP: string;
+
   public sortBy = new BehaviorSubject(this.sortByInit);
   public itemsToShow = new BehaviorSubject(this.itemsToShowInit);
   public pageNumber = new BehaviorSubject(this.pageNumberInit);
   public searchString = new BehaviorSubject(this.searchStringInit);
-  public brandName = new BehaviorSubject(this.brandNameInit);
 
   public pageNoItemsToShow = new BehaviorSubject<number>(0);
+
+  public selectedAvailability = new BehaviorSubject(this.availabilityInit);
+  public selectedBrand = new BehaviorSubject(this.selectedBrandInit);
+  public selectedSeller = new BehaviorSubject(this.selectedSellerInit);
 
   changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
@@ -48,12 +57,20 @@ export class ShopService {
     this.searchString.next(searchString);
   }
 
-  changeBrandName(brandName: string) {
-    this.brandName.next(brandName);
-  }
-
   changePageNoItemsToShow(page: number) {
     this.pageNoItemsToShow.next(page);
+  }
+
+  changeSelectedAvailability(availability: string) {
+    this.selectedAvailability.next(availability);
+  }
+
+  changeSelectedBrand(brand: string) {
+    this.selectedBrand.next(brand);
+  }
+
+  changeSelectedSeller(seller: string) {
+    this.selectedSeller.next(seller);
   }
 
   constructor(private http: HttpClient) {
@@ -61,7 +78,10 @@ export class ShopService {
     this.itemsToShow.subscribe(val => this.itemsToShowGP = val);
     this.pageNumber.subscribe(val => this.pageNumberGP = val);
     this.searchString.subscribe(val => this.searchStringGP = val);
-    this.brandName.subscribe(val => this.brandNameGP = val);
+
+    this.selectedAvailability.subscribe(val => this.selectedAvailabilityGP = val);
+    this.selectedBrand.subscribe(val => this.selectedBrandGP = val);
+    this.selectedSeller.subscribe(val => this.selectedSellerGP = val);
   }
 
   getAllProducts() {
@@ -81,6 +101,18 @@ export class ShopService {
 
     if (this.searchStringGP) {
       params = params.append('searchString', this.searchStringGP);
+    }
+
+    if (this.selectedAvailabilityGP) {
+      params = params.append('availability', this.selectedAvailabilityGP);
+    }
+
+    if (this.selectedBrandGP) {
+      params = params.append('brand', this.selectedBrandGP);
+    }
+
+    if (this.selectedSellerGP) {
+      params = params.append('seller', this.selectedSellerGP);
     }
 
     return this.http.get<IProduct[]>(this.baseUrl + 'Products',

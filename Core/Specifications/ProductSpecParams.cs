@@ -17,5 +17,6 @@ namespace Core.Specifications
         public string? SearchString { get; set; }
         public string? BrandName { get; set; }
         public string? Seller { get; set; }
+        public string? Availability { get; set; }
     }
 }

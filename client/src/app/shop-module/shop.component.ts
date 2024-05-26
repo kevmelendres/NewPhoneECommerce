@@ -18,6 +18,10 @@ export class ShopComponent implements OnChanges{
 
   pageNoItemsToShow: number;
 
+  brandFilterChanged: string;
+  sellerFilterChanged: string;
+  availabilityFilterChanged: string;
+
   constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
@@ -58,6 +62,7 @@ export class ShopComponent implements OnChanges{
           };
         });
     }
+
   }
 
   changeSortedItems(sortBy: string) {
@@ -81,5 +86,17 @@ export class ShopComponent implements OnChanges{
 
   emittedToggle(toggle: boolean) {
     this.toggle = toggle;
+  }
+
+  onSellerFilterChange(seller: string) {
+    this.getProducts();
+  }
+
+  onAvailabilityFilterChange(availability: string) {
+    this.getProducts();
+  }
+
+  onBrandFilterChange(brand: string) {
+    this.getProducts();
   }
 }

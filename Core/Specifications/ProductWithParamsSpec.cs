@@ -16,7 +16,8 @@ namespace Core.Specifications
                     (!paramSpecs.PrevOwnerId.HasValue || x.PrevOwnerID == paramSpecs.PrevOwnerId) &&
                     (paramSpecs.SearchString == null || x.Model.ToString().ToLower().Contains(paramSpecs.SearchString.ToLower())) &&
                     (paramSpecs.BrandName == null || x.Brand == paramSpecs.BrandName) &&
-                    (paramSpecs.Seller == null || x.Seller.Name == paramSpecs.Seller);
+                    (paramSpecs.Seller == null || x.Seller.Name == paramSpecs.Seller) &&
+                    (paramSpecs.Availability == null || (paramSpecs.Availability == "In Stock" ? x.AvailableStocks > 0 : x.AvailableStocks <= 0));
 
             this.PageNumber = paramSpecs.PageNumber;
             this.ItemsToShow = paramSpecs.ItemsToShow;

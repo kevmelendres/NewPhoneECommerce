@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 
 @Component({
@@ -22,6 +22,10 @@ export class SidebarFilterComponent implements OnInit{
   selectedProductBrand: string = 'All Brands';
   selectedAvailability: string = 'All Products';
   selectedSeller: string = 'All Sellers';
+
+  @Output() selectedProductBrandEmit = new EventEmitter<string>();
+  @Output() selectedAvailabilityEmit = new EventEmitter<string>();
+  @Output() selectedSellerEmit = new EventEmitter<string>();
   
   constructor(private shopService: ShopService) { }
 
@@ -66,14 +70,17 @@ export class SidebarFilterComponent implements OnInit{
   }
 
   onProductBrandSelect() {
-    console.log(this.selectedProductBrand);
+    this.shopService.changeSelectedBrand(this.selectedProductBrand);
+    this.selectedProductBrandEmit.emit(this.selectedProductBrand);
   }
 
   onSellerSelect() {
-    console.log(this.selectedSeller);
+    this.shopService.changeSelectedSeller(this.selectedSeller);
+    this.selectedSellerEmit.emit(this.selectedSeller);
   }
 
   onAvailabilitySelect() {
-    console.log(this.selectedAvailability);
+    this.shopService.changeSelectedAvailability(this.selectedAvailability);
+    this.selectedAvailabilityEmit.emit(this.selectedAvailability);
   }
 }

@@ -24,7 +24,8 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<ProductToReturnDto>> ListAllProducts(
             [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy,
-            [FromQuery] string? searchString)
+            [FromQuery] string? searchString, [FromQuery] string? availability,
+            [FromQuery] string? brand, [FromQuery] string? seller)
         {
             var specParam = new ProductSpecParams();
             specParam.ItemsToShow = 10;
@@ -34,6 +35,15 @@ namespace API.Controllers
             if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
             if (sortBy != null) { specParam.SortBy = sortBy; }
             if (searchString != null) { specParam.SearchString = searchString; }
+
+            if (availability != null) { specParam.Availability = availability; }
+            if (availability == "All Products") { specParam.Availability = null; }
+
+            if (brand != null) { specParam.BrandName = brand; }
+            if (brand == "All Brands") { specParam.BrandName = null; }
+
+            if (seller != null) { specParam.Seller = seller; }
+            if (seller == "All Sellers") { specParam.Seller = null; }
 
             var newSpecs = new ProductWithParamsSpec(specParam);
 
