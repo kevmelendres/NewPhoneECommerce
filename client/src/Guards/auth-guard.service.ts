@@ -34,6 +34,7 @@ export class AuthGuardService {
   }
 
   isAuthenticated(): boolean {
+    console.log(this._isAuthenticated);
     return this._isAuthenticated;
   }
 }

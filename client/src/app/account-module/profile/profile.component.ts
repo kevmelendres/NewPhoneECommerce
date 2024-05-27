@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IRegion } from '../../../Models/AddressModels/region';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { IProduct } from '../../../Models/product';
 import { IProvince } from '../../../Models/AddressModels/province';
 import { IMunicipality } from '../../../Models/AddressModels/municipality';
 import { IBarangay } from '../../../Models/AddressModels/barangay';
+import { AuthService } from '../../../Services/auth-service.service';
+import { ICurrentUserProfile, ICurrentUserProfileC } from '../../../Models/currentuserprofile';
+import { IEditCurrentUserProfile } from '../../../Models/editcurrentuserprofile';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +16,9 @@ import { IBarangay } from '../../../Models/AddressModels/barangay';
 })
 export class ProfileComponent implements OnInit {
   apiBaseAddress: string = "https://psgc.gitlab.io/api/";
+  baseUrlIdentity: string = 'http://localhost:5064/api/Identity/';
+
+  currentUserProfile: ICurrentUserProfileC | null;
 
   selectedRegion: IRegion;
   selectedProvince: IProvince;
@@ -24,31 +30,41 @@ export class ProfileComponent implements OnInit {
   listOfMunicipalities: IMunicipality[];
   listOfBarangays: IBarangay[];
 
-  formDisplayName: string;
+  formEmail: string | null | undefined;
+  formDisplayName: string | null | undefined;
   formPassword: string;
   formConfirmPassword: string;
 
-  formFirstName: string;
-  formLastName: string;
+  formFirstName: string | undefined | null;
+  formLastName: string | undefined | null;
 
-  formRegion: string;
-  formProvince: string;
-  formMunicipality: string;
-  formBarangay: string;
+  formRegion: string | undefined | null;
+  formProvince: string | undefined | null;
+  formMunicipality: string | undefined | null;
+  formBarangay: string | undefined | null;
 
-  formStreet: string;
-  formZipCode: string;
+  formStreet: string | undefined | null;
+  formZipCode: string | undefined | null;
+
+  agreeToTerms: boolean = false;
 
   passwordMessages: string[] = [];
 
+  confirmPasswordShow: boolean = false;
+  agreeTermsWarningShow: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
-
       this.listOfRegions = data;
     });
+
+    this.currentUserProfile = this.authService.currentUserProfile;
+
+    if (this.currentUserProfile) {
+      this.initializeFields();
+    }
   }
 
   onRegionSelect() {
@@ -79,20 +95,24 @@ export class ProfileComponent implements OnInit {
 
   //VALIDATIONS
 
-  checkConfirmPassword(): boolean {
-    if (this.formConfirmPassword != this.formPassword) {
-      return true;
-    }
-
-    return false;
+  checkConfirmPassword() {
+    if (this.formPassword != "" && this.formPassword != null) {
+      if (this.formConfirmPassword != this.formPassword) {
+        this.confirmPasswordShow = true;
+        return;
+      }
+      this.confirmPasswordShow = false;
+    } 
   }
 
   checkPasswordInput() {
     setTimeout(() => {
       if (this.formPassword != "" && this.formPassword != null) {
         this.checkPasswordContainsDigit();
-
-
+        this.checkPasswordHasLowerCaseLetters();
+        this.checkPasswordHasUpperCaseLetters();
+        this.checkPasswordHasAlphanumericChar();
+        this.checkPasswordLength();
       } else {
         this.passwordMessages.length = 0;
       };
@@ -117,5 +137,121 @@ export class ProfileComponent implements OnInit {
         this.passwordMessages.splice(index, 1);
       }
     }
+  }
+
+  checkPasswordHasLowerCaseLetters() {
+    if (this.formPassword.toUpperCase() == this.formPassword) {
+      var message = "Password must have lowercase letters.";
+      if (!this.passwordMessages.includes(message)) {
+        this.passwordMessages.push(message)
+      }
+    } else {
+      var message = "Password must have lowercase letters.";
+      const index = this.passwordMessages.indexOf(message);
+      if (index > -1) {
+        this.passwordMessages.splice(index, 1);
+      }
+    }
+  }
+
+  checkPasswordHasUpperCaseLetters() {
+    if (this.formPassword.toLowerCase() == this.formPassword) {
+      var message = "Password must have uppercase letters.";
+      if (!this.passwordMessages.includes(message)) {
+        this.passwordMessages.push(message)
+      }
+    } else {
+      var message = "Password must have uppercase letters.";
+      const index = this.passwordMessages.indexOf(message);
+      if (index > -1) {
+        this.passwordMessages.splice(index, 1);
+      }
+    }
+  }
+
+  checkPasswordHasAlphanumericChar() {
+    if (!/[^a-zA-Z0-9]/.test(this.formPassword)) {
+      var message = "Password must have non-alphanumeric characters.";
+      if (!this.passwordMessages.includes(message)) {
+        this.passwordMessages.push(message)
+      }
+    } else {
+      var message = "Password must have non-alphanumeric characters.";
+      const index = this.passwordMessages.indexOf(message);
+      if (index > -1) {
+        this.passwordMessages.splice(index, 1);
+      }
+    }
+  }
+
+  checkPasswordLength() {
+    if (this.formPassword.length < 6 ) {
+      var message = "Password must have more than 5 characters.";
+      if (!this.passwordMessages.includes(message)) {
+        this.passwordMessages.push(message)
+      }
+    } else {
+      var message = "Password must have more than 5 characters.";
+      const index = this.passwordMessages.indexOf(message);
+      if (index > -1) {
+        this.passwordMessages.splice(index, 1);
+      }
+    }
+  }
+
+  onFormSubmit() {
+    if (!this.agreeToTerms) {
+      this.agreeTermsWarningShow = true;
+      return;
+    }
+    this.agreeTermsWarningShow = false;
+
+    const userToEdit: IEditCurrentUserProfile = {
+      displayName: this.formDisplayName,
+      email: this.formEmail,
+      firstName: this.formFirstName,
+      lastName: this.formLastName,
+      municipality: this.formMunicipality,
+      province: this.formProvince,
+      region: this.formRegion,
+      street: this.formStreet,
+      zipcode: this.formZipCode?.toString(),
+      barangay: this.formBarangay,
+      password: this.formPassword,
+    };
+
+    const userToSendForEdit = JSON.stringify(userToEdit);
+    console.log(userToSendForEdit);
+    console.log("SUBMITTING");
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authService.getCurrentUser()?.token}`
+    });
+
+    let options = { headers: headers };
+
+    this.http.post<ICurrentUserProfile>(this.baseUrlIdentity + "edit-user", userToSendForEdit, options).subscribe({
+      next: (data) => { console.log(data) },
+      error: (error: HttpErrorResponse) => { console.log(error)}
+
+    });
+  }
+
+  initializeFields() {
+    this.formEmail = this.currentUserProfile?.Email;
+    this.formDisplayName = this.currentUserProfile?.DisplayName;
+    this.formFirstName = this.currentUserProfile?.FirstName;
+    this.formLastName = this.currentUserProfile?.LastName;
+    this.formRegion = this.currentUserProfile?.Region;
+    this.formProvince = this.currentUserProfile?.Province;
+    this.formMunicipality = this.currentUserProfile?.Municipality;
+    this.formBarangay  = this.currentUserProfile?.Barangay;
+    this.formStreet = this.currentUserProfile?.Street;
+    this.formZipCode = this.currentUserProfile?.Zipcode;
+  }
+
+  convertRegionToFormat(region: IRegion): string {
+    return region.regionName.toString() + " - " + region.name.toString();
   }
 }

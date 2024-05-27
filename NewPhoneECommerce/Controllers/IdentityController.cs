@@ -196,10 +196,52 @@ namespace API.Controllers
             return Ok(JsonConvert.SerializeObject("You are authorized."));
         }
 
-        //[Authorize(Roles = UserRoles.User)]
+        [Authorize(Roles = UserRoles.User)]
         [HttpPost]
         [Route("edit-user")]
-        public async Task<ActionResult<string>> EditUser([FromQuery] string? email, [FromQuery] string token)
+        public async Task<ActionResult<string>> EditUser([FromBody] EditUserDto userDetails)
+        {
+            Console.WriteLine("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK");
+            Console.WriteLine(userDetails.Barangay);
+            var tokenService = new TokenService(_configuration, _userManager);
+
+            var user = await _userManager.Users.Include(x => x.Address)
+                .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
+
+            if (user != null)
+            {
+                if (user.Address == null)
+                {
+                    user.Address = new();
+                }
+
+                user.Address.Barangay = userDetails.Barangay;
+                user.DisplayName = userDetails.DisplayName;
+                user.Address.FirstName = userDetails.FirstName;
+                user.Address.LastName = userDetails.LastName;
+                user.Address.Municipality = userDetails.Municipality;
+                user.Address.Province = userDetails.Province;
+                user.Address.Region = userDetails.Region;
+                user.Address.Street = userDetails.Street;
+                user.Address.Zipcode = userDetails.Zipcode;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return Ok(Json("Update success."));
+                }
+
+                return BadRequest(Json("User not found."));
+            }
+
+            return BadRequest(Json("Update not successful."));
+        }
+
+        [Authorize(Roles = UserRoles.User)]
+        [HttpGet]
+        [Route("get-user")]
+        public async Task<ActionResult<string>> GetUser([FromQuery] string email, [FromQuery] string token)
         {
             var tokenService = new TokenService(_configuration, _userManager);
             var emailFromDecode = tokenService.DecodeToken(token, "email");
@@ -214,22 +256,26 @@ namespace API.Controllers
 
             if (user != null)
             {
-                if (user.Address == null)
+                var userToReturn = new ProfileDto();
+                userToReturn.DisplayName = user.DisplayName;
+                userToReturn.Email = user.Email;
+
+                if (user.Address != null)
                 {
-                    user.Address = new();
+                    userToReturn.FirstName = user.Address.FirstName;
+                    userToReturn.LastName = user.Address.LastName;
+                    userToReturn.Street = user.Address.Street;
+                    userToReturn.Region = user.Address.Region;
+                    userToReturn.Province = user.Address.Province;
+                    userToReturn.Zipcode = user.Address.Zipcode;
+                    userToReturn.Municipality = user.Address.Municipality;
+                    userToReturn.Barangay = user.Address.Barangay;
                 }
 
-                var result = await _userManager.UpdateAsync(user);
-
-                if (result.Succeeded)
-                {
-                    return Ok("Update success.");
-                }
-
-                return BadRequest("User not found.");
+                return Ok(JsonConvert.SerializeObject(userToReturn));
             }
 
-            return BadRequest("Update not successful.");
+            return Ok("User not found.");
         }
     }
 }

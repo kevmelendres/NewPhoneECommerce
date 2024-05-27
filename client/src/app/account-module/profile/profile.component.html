@@ -12,10 +12,10 @@
                     <label for="email" class="form-label m-0 p-0">Email Address</label>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" id="email" disabled>
+                    <input type="text" class="form-control" id="email" disabled [(ngModel)]="formEmail" name="email">
                 </div>
                 <div class="col-6 validation">
-                    <span>This is a sample validation message.</span>
+                    <span>Email cannot be changed anymore.</span>
                 </div>
             </div>
 
@@ -35,6 +35,9 @@
                 <div class="col-4">
                     <input type="password" class="form-control" id="password" [(ngModel)]="formPassword" name="password" (keyup)="checkPasswordInput()">
                 </div>
+                <div class="col-6 validation" *ngIf="!(formPassword)">
+                    <span>Input new password for your profile.</span>
+                </div>
                 <div class="col-6 validation invalid" *ngIf="(passwordMessages.length > 0)">
                     <span>{{passwordMessages[0]}}</span>
                 </div>
@@ -46,10 +49,10 @@
                     <label for="confirmPassword" class="form-label m-0 p-0">Confirm Password</label>
                 </div>
                 <div class="col-4">
-                    <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="formConfirmPassword" name="confirmPassword">
+                    <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="formConfirmPassword" name="confirmPassword" (keyup)="checkConfirmPassword()">
                 </div>
-                <div class="col-6 validation invalid">
-                    <span></span>
+                <div class="col-6 validation invalid" *ngIf="confirmPasswordShow">
+                    <span>Input does not match with password.</span>
                 </div>
             </div>
 
@@ -81,7 +84,7 @@
                 </div>
                 <div class="col-4">
                     <select class="form-select" id="region" [(ngModel)]="selectedRegion" name="selectedRegion" (change)="onRegionSelect()">
-                        <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
+                        <option *ngFor="let region of listOfRegions" [ngValue]="convertRegionToFormat(region)">{{region.regionName}} - {{region.name}}</option>
                     </select>
 
                 </div>
@@ -148,18 +151,18 @@
 
                         <div class="col d-flex align-items-center">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <input class="form-check-input" type="checkbox" id="invalidCheck" [(ngModel)]="agreeToTerms" name="agreeToTerms">
                                 <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
+                                    Agree to the <span>terms and conditions.</span>
                                 </label>
-                                <div class="invalid-feedback">
+                                <div class="invalid fw-bold" *ngIf="agreeTermsWarningShow">
                                     You must agree before submitting.
                                 </div>
                             </div>
                         </div>
 
                         <div class="col d-flex justify-content-end">
-                            <button class="btn btn-primary px-4" type="submit">Submit</button>
+                            <button class="btn btn-primary px-4" type="submit" (click)="onFormSubmit()">Submit</button>
                         </div>
 
                     </div>

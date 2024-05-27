@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { IRegisterModel } from '../Models/registermodel';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
 import { BehaviorSubject, Observable, catchError, of } from 'rxjs';
+import { ICurrentUserProfile, ICurrentUserProfileC } from '../Models/currentuserprofile';
 
 @Injectable({
   providedIn: 'root'
@@ -14,30 +15,19 @@ export class AuthService {
   baseUrl: string = 'http://localhost:5064/api/Identity/';
   private _isAuthenticatedInit: boolean = false;
   private currentUser: ICurrentUser | null = null;
+  public currentUserProfile: ICurrentUserProfileC | null = null;
 
   public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticatedInit);
-  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
-    const localStorage = document.defaultView?.localStorage;
 
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
+    console.log("running AuthService");
+    const localStorage = document.defaultView?.localStorage;
     if (localStorage) {
       if (localStorage.getItem("currentAppUser")) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
-
-        if (this.currentUser) {
-          this.isAuthenticated.next(true);
-          console.log(this.currentUser.token);
-        };
-
-        const sample = this.getLoggedInUser(this.currentUser?.token!).pipe(
-          catchError((error: HttpErrorResponse) => {
-            if (error.status == 401) {
-              this.logout();
-              return of("Unauthenticated");
-            }
-            return of("Authenticated");
-          })
-        );
+        this.validateUserToServer(this.currentUser!);
+        console.log("UserValidated");
       };
     }
   }
@@ -83,5 +73,33 @@ export class AuthService {
     })
 
     return this.http.get<any>(this.baseUrl + "validate-token", {headers: headers});
+  }
+
+  validateUserToServer(user: ICurrentUser) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${user.token}`
+    })
+
+    let params = new HttpParams();
+
+    if (user.email) {
+      params = params.append('email', user.email);
+    }
+
+    if (user.token) {
+      params = params.append('token', user.token);
+    }
+
+    let request = this.http.get<any>(this.baseUrl + "get-user",
+      { headers: headers, params: params }).subscribe({
+        next: (profile: ICurrentUserProfileC) => {
+          this.isAuthenticated.next(true);
+          this.currentUserProfile = profile;
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.error)
+        }
+      });
   }
 }
