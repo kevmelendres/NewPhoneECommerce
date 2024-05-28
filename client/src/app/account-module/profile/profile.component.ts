@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { IRegion } from '../../../Models/AddressModels/region';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { IProduct } from '../../../Models/product';
@@ -67,6 +67,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+
   onRegionSelect() {
     this.http.get<any>(this.apiBaseAddress + "regions/" + this.selectedRegion.code + "/provinces").subscribe(data => {
       this.listOfProvinces = data;
@@ -96,13 +97,14 @@ export class ProfileComponent implements OnInit {
   //VALIDATIONS
 
   checkConfirmPassword() {
-    if (this.formPassword != "" && this.formPassword != null) {
+    if (this.formConfirmPassword != "" && this.formConfirmPassword != null) {
       if (this.formConfirmPassword != this.formPassword) {
         this.confirmPasswordShow = true;
         return;
       }
       this.confirmPasswordShow = false;
-    } 
+    };
+    this.confirmPasswordShow = false;
   }
 
   checkPasswordInput() {
@@ -231,8 +233,12 @@ export class ProfileComponent implements OnInit {
 
     let options = { headers: headers };
 
-    this.http.post<ICurrentUserProfile>(this.baseUrlIdentity + "edit-user", userToSendForEdit, options).subscribe({
-      next: (data) => { console.log(data) },
+    this.http.post<ICurrentUserProfileC>(this.baseUrlIdentity + "edit-user", userToSendForEdit, options).subscribe({
+      next: (updatedUser) => {
+        console.log(updatedUser);
+        this.authService.updateUserDetails(updatedUser);
+
+      },
       error: (error: HttpErrorResponse) => { console.log(error)}
 
     });
@@ -254,4 +260,5 @@ export class ProfileComponent implements OnInit {
   convertRegionToFormat(region: IRegion): string {
     return region.regionName.toString() + " - " + region.name.toString();
   }
+
 }

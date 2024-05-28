@@ -14,7 +14,7 @@ export class AuthService {
 
   baseUrl: string = 'http://localhost:5064/api/Identity/';
   private _isAuthenticatedInit: boolean = false;
-  private currentUser: ICurrentUser | null = null;
+  public currentUser: ICurrentUser | null = null;
   public currentUserProfile: ICurrentUserProfileC | null = null;
 
   public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticatedInit);
@@ -65,16 +65,6 @@ export class AuthService {
     return this.currentUser;
   }
 
-
-  getLoggedInUser(token: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    })
-
-    return this.http.get<any>(this.baseUrl + "validate-token", {headers: headers});
-  }
-
   validateUserToServer(user: ICurrentUser) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -101,5 +91,15 @@ export class AuthService {
           console.log(error.error)
         }
       });
+  }
+
+  updateUserDetails(updatedUser: ICurrentUserProfileC) {
+    if (this.currentUser) {
+      this.currentUser.displayName = updatedUser.DisplayName!;
+    }
+
+    if (this.currentUserProfile) {
+      this.currentUserProfile = updatedUser;
+    }
   }
 }

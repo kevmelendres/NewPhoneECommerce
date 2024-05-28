@@ -26,6 +26,9 @@
                 <div class="col-4">
                     <input type="text" class="form-control" id="displayName" [(ngModel)]="formDisplayName" name="displayName">
                 </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <span *ngIf="formDisplayName != this.currentUserProfile.DisplayName">Display name will be changed</span>
+                </div>
             </div>
 
             <div class="row align-items-center pb-3">
@@ -35,11 +38,13 @@
                 <div class="col-4">
                     <input type="password" class="form-control" id="password" [(ngModel)]="formPassword" name="password" (keyup)="checkPasswordInput()">
                 </div>
-                <div class="col-6 validation" *ngIf="!(formPassword)">
-                    <span>Input new password for your profile.</span>
-                </div>
                 <div class="col-6 validation invalid" *ngIf="(passwordMessages.length > 0)">
                     <span>{{passwordMessages[0]}}</span>
+                </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <div *ngIf="passwordMessages.length < 1">
+                        <span *ngIf="formPassword">Password will be changed.</span>
+                    </div>
                 </div>
 
             </div>
@@ -65,6 +70,9 @@
                 <div class="col-4">
                     <input type="text" class="form-control" id="firstName" [(ngModel)]="formFirstName" name="firstName">
                 </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <span *ngIf="formFirstName != this.currentUserProfile.FirstName">First name will be changed</span>
+                </div>
             </div>
 
             <div class="row align-items-center pb-3">
@@ -73,6 +81,9 @@
                 </div>
                 <div class="col-4">
                     <input type="text" class="form-control" id="lastName" [(ngModel)]="formLastName" name="lastName">
+                </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <span *ngIf="formLastName != this.currentUserProfile.LastName">First name will be changed</span>
                 </div>
             </div>
 
@@ -84,9 +95,19 @@
                 </div>
                 <div class="col-4">
                     <select class="form-select" id="region" [(ngModel)]="selectedRegion" name="selectedRegion" (change)="onRegionSelect()">
-                        <option *ngFor="let region of listOfRegions" [ngValue]="convertRegionToFormat(region)">{{region.regionName}} - {{region.name}}</option>
+                        <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
                     </select>
-
+                </div>
+                <div class="col-6 p-0">
+                    <div class="validation" *ngIf="this.currentUserProfile">
+                        <div *ngIf="formRegion == this.currentUserProfile.Region">
+                            <span *ngIf="!(this.currentUserProfile.Region == null)">Assigned region: {{this.currentUserProfile.Region}}</span>
+                        </div>
+                        <span class="invalid validation p-0" *ngIf="this.currentUserProfile.Region == null">No assigned region.</span>
+                    </div>
+                    <div class="validation invalid" *ngIf="this.currentUserProfile">
+                        <span *ngIf="formRegion != this.currentUserProfile.Region">Region will be changed</span>
+                    </div>
                 </div>
             </div>
 
@@ -101,6 +122,18 @@
                         <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
                     </select>
                 </div>
+                <div class="col-6 p-0">
+                    <div class="validation" *ngIf="this.currentUserProfile">
+                        <div *ngIf="formProvince == this.currentUserProfile.Province">
+                            <span *ngIf="!(this.currentUserProfile.Province == null)">Assigned province: {{this.currentUserProfile.Province}}</span>
+                        </div>
+                        <span class="invalid validation p-0" *ngIf="this.currentUserProfile.Province == null && !selectedProvince">No assigned province.</span>
+                    </div>
+                    <div class="validation invalid" *ngIf="this.currentUserProfile">
+                        <span *ngIf="(formProvince != this.currentUserProfile.Province) && (selectedProvince?.name != this.currentUserProfile.Province)">Province will be changed</span>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="row align-items-center pb-3">
@@ -113,6 +146,17 @@
                         <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
                     </select>
                 </div>
+                <div class="col-6 p-0">
+                    <div class="validation" *ngIf="this.currentUserProfile">
+                        <div *ngIf="formMunicipality == this.currentUserProfile.Municipality">
+                            <span *ngIf="!(this.currentUserProfile.Municipality == null)">Assigned municipality: {{this.currentUserProfile.Municipality}}</span>
+                        </div>
+                        <span class="invalid validation p-0" *ngIf="(this.currentUserProfile.Municipality == null) && (!selectedMunicipality)">No assigned municipality.</span>
+                    </div>
+                    <div class="validation invalid" *ngIf="this.currentUserProfile">
+                        <span *ngIf="(formMunicipality != this.currentUserProfile.Municipality) && (selectedMunicipality?.name != this.currentUserProfile.Municipality)">Municipality will be changed</span>
+                    </div>
+                </div>
             </div>
 
             <div class="row align-items-center pb-3">
@@ -120,10 +164,21 @@
                     <label for="barangay" class="form-label m-0 p-0">Barangay</label>
                 </div>
                 <div class="col-4">
-                    <select class="form-select" id="barangay" [(ngModel)]="selectedBarangay" name="selectedBarangay">
+                    <select class="form-select" id="barangay" [(ngModel)]="selectedBarangay" name="selectedBarangay" (change)="onBarangaySelect()">
                         <option selected>Select Barangay</option>
                         <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
                     </select>
+                </div>
+                <div class="col-6 p-0">
+                    <div class="validation" *ngIf="this.currentUserProfile">
+                        <div *ngIf="formBarangay == this.currentUserProfile.Barangay">
+                            <span *ngIf="!(this.currentUserProfile.Barangay == null)">Assigned barangay: {{this.currentUserProfile.Barangay}}</span>
+                        </div>
+                        <span class="invalid validation p-0" *ngIf="(this.currentUserProfile.Barangay == null) && (!selectedBarangay)">No assigned barangay.</span>
+                    </div>
+                    <div class="validation invalid" *ngIf="this.currentUserProfile">
+                        <span *ngIf="(formBarangay != this.currentUserProfile.Barangay) && (selectedBarangay?.name != this.currentUserProfile.Barangay)">Barangay will be changed</span>
+                    </div>
                 </div>
             </div>
 
@@ -134,6 +189,9 @@
                 <div class="col-4">
                     <input type="text" class="form-control" id="street" [(ngModel)]="formStreet" name="street">
                 </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <span *ngIf="formStreet != this.currentUserProfile.Street">Street will be changed</span>
+                </div>
             </div>
 
             <div class="row align-items-center pb-3">
@@ -142,6 +200,9 @@
                 </div>
                 <div class="col-4">
                     <input type="number" class="form-control" id="zipCode" [(ngModel)]="formZipCode" name="zipCode">
+                </div>
+                <div class="col-6 validation invalid" *ngIf="this.currentUserProfile">
+                    <span *ngIf="formZipCode != this.currentUserProfile.Zipcode">Zipcode will be changed</span>
                 </div>
             </div>
 

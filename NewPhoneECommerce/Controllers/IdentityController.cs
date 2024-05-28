@@ -201,8 +201,6 @@ namespace API.Controllers
         [Route("edit-user")]
         public async Task<ActionResult<string>> EditUser([FromBody] EditUserDto userDetails)
         {
-            Console.WriteLine("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK");
-            Console.WriteLine(userDetails.Barangay);
             var tokenService = new TokenService(_configuration, _userManager);
 
             var user = await _userManager.Users.Include(x => x.Address)
@@ -227,9 +225,34 @@ namespace API.Controllers
 
                 var result = await _userManager.UpdateAsync(user);
 
+                if (userDetails.Password != null)
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var passwordUpdateResult = await _userManager.ResetPasswordAsync(user, token, userDetails.Password);
+
+                    if (!passwordUpdateResult.Succeeded)
+                    {
+                        return BadRequest(Json("Password did not update successfully."));
+                    }
+                }
+
                 if (result.Succeeded)
                 {
-                    return Ok(Json("Update success."));
+                    EditUserDto updatedUser = new()
+                    {
+                        Barangay = user.Address.Barangay,
+                        DisplayName = user.DisplayName,
+                        FirstName = user.Address.FirstName,
+                        LastName = user.Address.LastName,
+                        Municipality = user.Address.Municipality,
+                        Province = user.Address.Province,
+                        Region = user.Address.Region,
+                        Street = user.Address.Street,
+                        Zipcode = user.Address.Zipcode,
+                        Email = user.Email,
+                    };
+
+                    return Ok(JsonConvert.SerializeObject(updatedUser));
                 }
 
                 return BadRequest(Json("User not found."));
