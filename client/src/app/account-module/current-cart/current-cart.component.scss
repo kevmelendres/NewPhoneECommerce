@@ -16,3 +16,36 @@
   color: black;
   background-color: #ECEDEF
 }
+
+.cart-icon {
+    font-size: 90px;
+    color: red;    
+} 
+
+.go-to-shop {
+    cursor: pointer;;
+}
+
+.go-to-shop:hover {
+  cursor: pointer;
+  
+}
+
+.blob {
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}

@@ -44,15 +44,37 @@
 
             <hr />
 
-            <div class="d-flex justify-content-end">
-                <div class="w-50 text-start">
-                    <span>Cart totals:</span>
-                    <div class="row">
-                        <div class="col-6">
-                            Subtotal
+            <div class="">
+                <div class="justify-content-end">
+                    <div class="row p-0 m-0 mt-4">
+                        <div class="col-1"></div>
+                        <div class="col-6"></div>
+                        <div class="col-2"></div>
+                        <div class="col-3 mb-1">
+                            <span class="fw-bold fs-5">Checkout Information:</span>
                         </div>
-                        <div class="col-6">
-                            Subtotal
+                    </div>
+
+                    <div class="row p-0 m-0 fs-6 mt-3 mb-5">
+
+                        <div class="col-1"></div>
+                        <div class="col-6"></div>
+                        <div class="col-2"></div>
+                        <div class="col-1 ">
+                            <span>Cart Total:</span>
+                        </div>
+                        <div class="col-2 text-end">
+                            <span class="">
+                                {{getTotalPriceInCart().toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "Php"
+                                })}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end text-ceenter mt-4">
+                        <div class="col-3 text-center p-0 m-0">
+                            <button type="button" class="btn btn-warning rounded-pill fw-bold ">Proceed to Checkout</button>
                         </div>
                     </div>
 
@@ -62,8 +84,16 @@
 
         </div>
 
-        <div *ngIf="_itemsInCart.size == 0">
-            <span>CART IS CURRENTLY EMPTY.</span>
+        <div *ngIf="_itemsInCart.size == 0" class="text-center">
+            <div style="margin-top: 60px">
+                <span class="d-block cart-icon mt-5"><i class="fa-solid fa-cart-shopping"></i></span>
+            </div>
+            <span class="d-block fs-4 fw-normal">There are no items in cart</span>
+            <div class="" style="margin-bottom:100px; margin-top: 100px">
+                <span class="d-block blob">
+                    <span class="fs-1 fw-bold go-to-shop" routerLink="/shop"><i class="fa-solid fa-store"></i> Go to shop</span>
+                </span>
+            </div>
         </div>
 
     </div>

@@ -20,4 +20,9 @@ export class CurrentCartComponent implements OnInit{
   getTotalPerItem(product: IProduct, qty: number) {
     return this.cartService.getTotalPerItem(product, qty);
   }
+
+  getTotalPriceInCart() {
+    return this.cartService.getTotalPriceInCart();
+  }
+
 }
