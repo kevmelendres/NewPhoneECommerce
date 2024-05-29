@@ -2,7 +2,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, Conten
 import { CartService } from '../../Services/cart-service.service';
 import { IProduct } from '../../Models/product';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../Services/auth-service.service';
 import { ICurrentUser } from '../../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
@@ -14,6 +14,10 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
+
+  notificationHeader: string;
+  notificationMessage: string;
+
   itemsOnCart: Map<IProduct, number>;
   totalPriceInCart: number;
   currentUser: ICurrentUser | null;
@@ -21,12 +25,15 @@ export class HeaderComponent implements OnInit{
   _isAuthenticated: boolean;
 
   @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
+  @ViewChild('dropDownMenu', { static: false }) dropDownMenu: ElementRef;
+  @ViewChild('notification') public notification: TemplateRef<any>;
 
   constructor(private cartService: CartService,
     private authService: AuthService,
     @Inject(DOCUMENT) private document: Document,
     private router: Router, private renderer: Renderer2,
-    private elem: ElementRef) {
+    private elem: ElementRef,
+    private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -78,7 +85,10 @@ export class HeaderComponent implements OnInit{
     this.currentUser = null;
     localStorage.removeItem("currentAppUser");
     this.authService.logout();
-    this.router.navigate(["/home"]);
+
+    this.notificationHeader = "Logout Success";
+    this.notificationMessage = "Logging out successful. Redirecting you back to homepage."
+    this.runModalNotifServices();
   }
 
   onCartClick(event: any) {
@@ -88,6 +98,28 @@ export class HeaderComponent implements OnInit{
   onProfileClick() {
     this.router.navigate(["/account/profile"]);
     const dropdown = this.signinDropdown.nativeElement;
+    this.renderer.removeClass(dropdown, "show");
+  }
+
+  openModalNotif(content: TemplateRef<any>) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  closeModalNotif(content: TemplateRef<any>) {
+    this.modalService.dismissAll(content);
+  }
+
+  runModalNotifServices() {
+    this.openModalNotif(this.notification);
+    setTimeout(() => {
+      this.closeModalNotif(this.notification);
+      this.router.navigateByUrl("/home");
+    }, 2000);
+  }
+
+  onViewCartClick() {
+    this.router.navigate(["/account/my-cart"]);
+    const dropdown = this.dropDownMenu.nativeElement;
     this.renderer.removeClass(dropdown, "show");
   }
 }

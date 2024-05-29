@@ -235,3 +235,12 @@
     </div>
     
 </div>
+
+<ng-template #notification let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{notificationHeader}}</h4>
+    </div>
+    <div class="modal-body">
+        <p>{{notificationMessage}}</p>
+    </div>
+</ng-template>

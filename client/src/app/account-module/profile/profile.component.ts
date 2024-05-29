@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
 import { IRegion } from '../../../Models/AddressModels/region';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { IProduct } from '../../../Models/product';
@@ -8,6 +8,8 @@ import { IBarangay } from '../../../Models/AddressModels/barangay';
 import { AuthService } from '../../../Services/auth-service.service';
 import { ICurrentUserProfile, ICurrentUserProfileC } from '../../../Models/currentuserprofile';
 import { IEditCurrentUserProfile } from '../../../Models/editcurrentuserprofile';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +19,10 @@ import { IEditCurrentUserProfile } from '../../../Models/editcurrentuserprofile'
 export class ProfileComponent implements OnInit {
   apiBaseAddress: string = "https://psgc.gitlab.io/api/";
   baseUrlIdentity: string = 'http://localhost:5064/api/Identity/';
+
+  @ViewChild('notification') public notification: TemplateRef<any>;
+  notificationHeader: string;
+  notificationMessage: string;
 
   currentUserProfile: ICurrentUserProfileC | null;
 
@@ -53,7 +59,10 @@ export class ProfileComponent implements OnInit {
   confirmPasswordShow: boolean = false;
   agreeTermsWarningShow: boolean = false;
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient,
+    private authService: AuthService,
+    private modalService: NgbModal,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
@@ -236,11 +245,18 @@ export class ProfileComponent implements OnInit {
     this.http.post<ICurrentUserProfileC>(this.baseUrlIdentity + "edit-user", userToSendForEdit, options).subscribe({
       next: (updatedUser) => {
         console.log(updatedUser);
+        this.notificationHeader = "Success";
+        this.notificationMessage = "Profile update successful. Redirecting to homepage.";
         this.authService.updateUserDetails(updatedUser);
-
+        this.runModalNotifServices();
+        
       },
-      error: (error: HttpErrorResponse) => { console.log(error)}
-
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+        this.notificationHeader = "Update Failed";
+        this.notificationMessage = "Profile update failed. Redirecting to homepage.";
+        this.runModalNotifServices();
+      }
     });
   }
 
@@ -259,6 +275,22 @@ export class ProfileComponent implements OnInit {
 
   convertRegionToFormat(region: IRegion): string {
     return region.regionName.toString() + " - " + region.name.toString();
+  }
+
+  openModalNotif(content: TemplateRef<any>) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  closeModalNotif(content: TemplateRef<any>) {
+    this.modalService.dismissAll(content);
+  }
+
+  runModalNotifServices() {
+    this.openModalNotif(this.notification);
+    setTimeout(() => {
+      this.router.navigateByUrl("/home");
+      this.closeModalNotif(this.notification);
+    }, 2000);
   }
 
 }

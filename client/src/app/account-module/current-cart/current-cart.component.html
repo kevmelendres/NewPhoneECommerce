@@ -1,0 +1,73 @@
+<div class="container mt-4 mb-5">
+    <span class="d-block fs-1 fw-bold">My Account / Cart</span>
+    <span class="d-block fw-light">Current products stored in cart</span>
+
+    <div class="mt-5">
+
+        <div *ngIf="_itemsInCart.size != 0">
+            <div class="row text-center fw-bold fs-5 mb-3">
+                <div class="col-1"></div>
+                <div class="col-6">Product</div>
+                <div class="col-2">Price</div>
+                <div class="col-1">Quantity</div>
+                <div class="col-2">Subtotal</div>
+            </div>
+
+            <div *ngIf="_itemsInCart">
+                <div class="row text-center align-items-center mb-1 cart-item py-3" *ngFor="let item of _itemsInCart | keyvalue">
+                    <div class="col-1">
+                        <img class="img-fluid" src="{{item.key.image}}" />
+                    </div>
+                    <div class="col-6 text-start">
+                        <span class="d-block">
+                            <span class="fw-bold fs-6">{{item.key.model}}, </span>
+                            <span class="fs-smaller">{{item.key.brand}}</span>
+                            <span class="fs-smaller"> ({{item.key.color}})</span>
+                        </span>
+                        <span class="d-block fs-smaller fst-italic">{{item.key.description}}</span>
+                    </div>
+                    <div class="col-2">
+                        {{item.key.discountedPrice.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </div>
+                    <div class="col-1">{{item.value}}</div>
+                    <div class="col-2">
+                        {{getTotalPerItem(item.key, item.value).toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="d-flex justify-content-end">
+                <div class="w-50 text-start">
+                    <span>Cart totals:</span>
+                    <div class="row">
+                        <div class="col-6">
+                            Subtotal
+                        </div>
+                        <div class="col-6">
+                            Subtotal
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div *ngIf="_itemsInCart.size == 0">
+            <span>CART IS CURRENTLY EMPTY.</span>
+        </div>
+
+    </div>
+
+
+
+</div>

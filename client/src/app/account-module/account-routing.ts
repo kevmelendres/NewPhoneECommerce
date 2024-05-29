@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../../Guards/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { CurrentCartComponent } from './current-cart/current-cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [() => inject(AuthGuardService).isAuthenticated()],
+  },
+  {
+    path: 'my-cart',
+    component: CurrentCartComponent,
   },
 ];
 

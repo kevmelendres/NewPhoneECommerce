@@ -5,6 +5,7 @@ import { AccountRoutingModule } from './account-routing';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { CurrentCartComponent } from './current-cart/current-cart.component';
 
 
 
@@ -12,7 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    CurrentCartComponent
   ],
   imports: [
     CommonModule,
