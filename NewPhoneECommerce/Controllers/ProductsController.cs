@@ -1,14 +1,9 @@
-﻿using System.Diagnostics;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices;
-using API.Dtos;
+﻿using API.Dtos;
 using API.Helpers;
 using Core.Interfaces;
 using Core.Models;
 using Core.Specifications;
-using Infrastructure.SpecificationEvaluator;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {

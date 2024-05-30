@@ -32,6 +32,16 @@ namespace Infrastructure
                 .HasForeignKey(o => o.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder
+                .Entity<DeliveryMethod>()
+                .Property(d => d.Name)
+                .HasConversion<string>();
+
+            modelBuilder
+                .Entity<Order>()
+                .Property(d => d.OrderStatus)
+                .HasConversion<string>();
+
         }
     }
 }

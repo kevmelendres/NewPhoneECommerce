@@ -122,4 +122,10 @@ export class HeaderComponent implements OnInit{
     const dropdown = this.dropDownMenu.nativeElement;
     this.renderer.removeClass(dropdown, "show");
   }
+
+  onCheckoutClick() {
+    this.router.navigate(["/account/checkout"]);
+    const dropdown = this.dropDownMenu.nativeElement;
+    this.renderer.removeClass(dropdown, "show");
+  }
 }

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../../Guards/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { CurrentCartComponent } from './current-cart/current-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'my-cart',
     component: CurrentCartComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
 ];
 

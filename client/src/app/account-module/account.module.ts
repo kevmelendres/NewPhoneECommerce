@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { CurrentCartComponent } from './current-cart/current-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -14,7 +15,8 @@ import { CurrentCartComponent } from './current-cart/current-cart.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    CurrentCartComponent
+    CurrentCartComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
