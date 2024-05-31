@@ -22,12 +22,53 @@ namespace API.Controllers
             _orderItemRepo = orderItemRepo;
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult<ProductToReturnDto>> AddDeliveryMethod(
-        //    [FromBody] DeliveryMethod newDeliveryMethod)
-        //{
+        [HttpPost]
+        [Route("DeliveryMethod/Add")]
+        public async Task<ActionResult<string>> AddDeliveryMethod(
+            [FromBody] DeliveryMethodDto newDeliveryMethod)
+        {
+
+            DeliveryMethodEnum deliveryMethodName = newDeliveryMethod.Name switch
+            {
+                "SameDayDelivery" => DeliveryMethodEnum.SameDayDelivery,
+                "OvernightDelivery" => DeliveryMethodEnum.OvernightDelivery,
+                "NormalDelivery" => DeliveryMethodEnum.NormalDelivery,
+                "SaverDelivery" => DeliveryMethodEnum.SaverDelivery,
+                _ => DeliveryMethodEnum.NormalDelivery
+            }; 
+
+            DeliveryMethod toAddDeliveryMethod = new()
+            {
+                Name = deliveryMethodName,
+                DeliveryDays = newDeliveryMethod.DeliveryDays,
+                Description = newDeliveryMethod.Description!,
+                Price = newDeliveryMethod.Price,
+            };
+
+            var result = await _deliveryMethodRepo.AddItem(toAddDeliveryMethod);
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
+
+        [HttpPost]
+        [Route("DeliveryMethod/Delete")]
+
+        public async Task<ActionResult<string>> DeleteDeliveryMethod(
+            [FromQuery] int deliveryMethodId)
+        {
+            var result = await _deliveryMethodRepo.DeleteItem(deliveryMethodId);
             
-        //}
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
 
     }
 }

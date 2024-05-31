@@ -7,7 +7,6 @@ using Core.Models;
 using Core.Specifications;
 
 
-
 namespace Core.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
@@ -16,5 +15,8 @@ namespace Core.Interfaces
         Task<T> GetItemById(int id, ISpecification<T> specs);
         Task<IReadOnlyList<T>> GetItemsWithSpecs(ISpecification<T> specs);
         IQueryable<T> ApplySpecification(ISpecification<T> specs);
+        Task<string> AddItem(T item);
+        Task<string> DeleteItem(int itemId);
     }
+
 }

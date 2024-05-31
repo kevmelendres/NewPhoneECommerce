@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Core.Interfaces;
 using Core.Models;
 using Core.Specifications;
 using Infrastructure.SpecificationEvaluator;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
@@ -43,6 +45,38 @@ namespace Infrastructure.Repositories
         {
             var data = SpecificationEvaluator<T>.GetQuery(_storeContext.Set<T>().AsQueryable(), specs);
             return data;
+        }
+        public async Task<string> AddItem(T item)
+        {
+            var addItem = await _storeContext.Set<T>().AddAsync(item);
+            var result = _storeContext.SaveChangesAsync();
+
+            if (result.IsCompleted)
+            {
+                return "Success";
+            }
+
+            return "Something went wrong";
+        }
+
+        public async Task<string> DeleteItem(int itemID)
+        {
+            var itemToDelete = await _storeContext.Set<T>().FindAsync(itemID);
+
+            if (itemToDelete != null)
+            {
+                var remove = _storeContext.Set<T>().Remove(itemToDelete);
+                var result = _storeContext.SaveChangesAsync();
+
+                if (result.IsCompleted)
+                {
+                    return "Success";
+                }
+
+                return "Something went wrong";
+            }
+
+            return "Something went wrong";
         }
     }
 }
