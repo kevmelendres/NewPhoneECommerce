@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IDeliveryMethod } from '../../../Models/deliverymethod';
 import { HttpClient } from '@angular/common/http';
+import { OrderService } from '../../../Services/order-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -15,17 +16,17 @@ export class CheckoutComponent {
 
   deliveryMethodForm: IDeliveryMethod;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private orderService: OrderService) { }
 
 
   testClick() {
     this.deliveryMethodForm = {
-      Name: this.deliveryMethodName,
-      DeliveryDays: this.deliveryMethodDays,
-      Description: this.deliveryMethodDescription,
-      Price: this.deliveryMethodPrice,
+      name: this.deliveryMethodName,
+      deliveryDays: this.deliveryMethodDays,
+      description: this.deliveryMethodDescription,
+      price: this.deliveryMethodPrice,
     }
 
-    this.http.post()
+    this.orderService.addDeliveryMethod(this.deliveryMethodForm);
   }
 }

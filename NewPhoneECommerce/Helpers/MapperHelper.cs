@@ -47,5 +47,28 @@ namespace API.Helpers
 
             return addItem;
         }
+
+        public static IReadOnlyList<DeliveryMethodDto> MapDeliveryMethodList(IReadOnlyList<DeliveryMethod> dataList)
+        {
+            var newList = new List<DeliveryMethodDto>();
+
+            foreach (var item in dataList)
+            {
+                newList.Add(MapDeliveryMethod(item));
+            }
+
+            return newList;
+        }
+
+        public static DeliveryMethodDto MapDeliveryMethod(DeliveryMethod item)
+        {
+            return new DeliveryMethodDto {
+                Id = item.Id,
+                Name = item.Name.ToString(),
+                Description = item.Description,
+                Price = item.Price,
+                DeliveryDays = item.DeliveryDays,
+            };
+        }
     }
 }

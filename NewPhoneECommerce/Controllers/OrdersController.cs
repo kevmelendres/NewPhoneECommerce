@@ -28,27 +28,18 @@ namespace API.Controllers
             [FromBody] DeliveryMethodDto newDeliveryMethod)
         {
 
-            DeliveryMethodEnum deliveryMethodName = newDeliveryMethod.Name switch
-            {
-                "SameDayDelivery" => DeliveryMethodEnum.SameDayDelivery,
-                "OvernightDelivery" => DeliveryMethodEnum.OvernightDelivery,
-                "NormalDelivery" => DeliveryMethodEnum.NormalDelivery,
-                "SaverDelivery" => DeliveryMethodEnum.SaverDelivery,
-                _ => DeliveryMethodEnum.NormalDelivery
-            }; 
-
             DeliveryMethod toAddDeliveryMethod = new()
             {
-                Name = deliveryMethodName,
+                Name = newDeliveryMethod.Name!,
                 DeliveryDays = newDeliveryMethod.DeliveryDays,
                 Description = newDeliveryMethod.Description!,
                 Price = newDeliveryMethod.Price,
             };
 
             var result = await _deliveryMethodRepo.AddItem(toAddDeliveryMethod);
-            if (result == "Success")
+            if (result != "Failed")
             {
-                return Json("Success");
+                return result;
             }
 
             return Json("Failed");
@@ -68,6 +59,44 @@ namespace API.Controllers
             }
 
             return Json("Failed");
+        }
+
+        [HttpGet]
+        [Route("DeliveryMethod/GetAllItems")]
+
+        public async Task<IReadOnlyList<DeliveryMethodDto>> GetAllDeliveryMethods()
+        {
+            var paramSpecs = new DeliveryMethodSpecParams();
+            var items = await _deliveryMethodRepo.GetAllItems(paramSpecs);
+
+            return MapperHelper.MapDeliveryMethodList(items);
+        }
+
+        [HttpPost]
+        [Route("Order/Create")]
+        public async Task<ActionResult<string>> CreateOrder([FromBody] OrderDto order)
+        {
+            var newOrder = new Order()
+            {
+                BuyerEmail = order.BuyerEmail,
+                ShippingAddress = order.ShippingAddress,
+                SubTotal = order.Subtotal,
+                DeliveryMethodId = order.DeliveryMethodId,
+            };
+
+            var result = await _orderRepository.AddItem(newOrder);
+
+            if (result != "Failed")
+            {
+                int orderId = -1;
+                if (Int32.TryParse(result, out orderId)) {
+                    return Ok(orderId.ToString());
+                };
+
+                return Json("Creating order failed.");
+            }
+
+            return Json("Creating order failed.");
         }
 
     }

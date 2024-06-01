@@ -25,6 +25,11 @@ namespace Infrastructure.Repositories
 
         public async Task<IReadOnlyList<T>> GetAllItems(ISpecification<T> specs)
         {
+            if (specs.ItemsToShow == 0)
+            {
+                return await ApplySpecification(specs).ToListAsync();
+            }
+
             var query = await ApplySpecification(specs).ToListAsync();
             int skip = (specs.PageNumber - 1) * specs.ItemsToShow;
             int take = specs.ItemsToShow;
@@ -53,10 +58,10 @@ namespace Infrastructure.Repositories
 
             if (result.IsCompleted)
             {
-                return "Success";
+                return item.Id.ToString();
             }
 
-            return "Something went wrong";
+            return "Failed";
         }
 
         public async Task<string> DeleteItem(int itemID)

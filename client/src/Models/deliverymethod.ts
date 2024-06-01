@@ -1,6 +1,6 @@
 export interface IDeliveryMethod {
-  Name: string;
-  DeliveryDays: number;
-  Description: string;
-  Price: number;
+  name: string;
+  deliveryDays: number;
+  description: string;
+  price: number;
 }
