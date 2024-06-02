@@ -12,8 +12,17 @@ namespace Core.Models
     public class Order : BaseEntity
     {
         public string BuyerEmail { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string? AddressCountry { get; set; }
+        public string? AddressRegion { get; set; }
+        public string? AddressProvince { get; set; }
+        public string? AddressMunicipality { get; set; }
+        public string? AddressBarangay { get; set; }
+        public int? AddressZipCode { get; set; }
+        public string? AddressStreet { get; set; }
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
-        public string ShippingAddress { get; set; }
+
         public double SubTotal { get; set; }
         public OrderStatusEnum OrderStatus { get; set; } = OrderStatusEnum.OrderPlaced;
 

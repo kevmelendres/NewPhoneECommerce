@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
   formBarangay: string | undefined | null;
 
   formStreet: string | undefined | null;
-  formZipCode: string | undefined | null;
+  formZipCode: number | undefined | null;
 
   agreeToTerms: boolean = false;
 

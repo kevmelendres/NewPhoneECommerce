@@ -1,48 +1,154 @@
 <div class="container">
-    <form class="">
-        <span class="d-block pb-3 group-label">Create Delivery Method:</span>
 
-        <div class="row align-items-center pb-3">
-            <div class="col-2">
-                <label for="deliveryMethodName" class="form-label m-0 p-0">Name</label>
+    <div class="row mt-4 mb-5">
+
+
+        <div class="col">
+            <div class="mb-4">
+                <span class="d-block fs-4 fw-bold">Billing Details</span>
+                <span class="d-block fs-smaller fst-italic">To change your billing information, go to your profile.</span>
             </div>
-            <div class="col-4">
-                <input type="text" class="form-control" id="deliveryMethodName" name="deliveryMethodName" [(ngModel)]="deliveryMethodName">
+
+
+            <div class="row my-3">
+                <div class="col">
+                    <label for="firstName" class="form-label m-0 p-0 fw-medium">First Name</label>
+                    <input type="text" class="form-control mt-1" id="firstName" disabled name="firstName" value="{{currentUserProfile?.FirstName}}">
+                </div>
+                <div class="col">
+                    <label for="lastName" class="form-label m-0 p-0 fw-medium">Last Name</label>
+                    <input type="text" class="form-control mt-1" id="lastName" disabled name="lastName" value="{{currentUserProfile?.LastName}}">
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div class="col">
+                    <label for="country" class="form-label m-0 p-0 fw-medium">Country</label>
+                    <input type="text" class="form-control mt-1" id="country" disabled name="country" value="Philippines">
+                </div>
+                <div class="col">
+                    <label for="region" class="form-label m-0 p-0 fw-medium">Region</label>
+                    <input type="text" class="form-control mt-1" id="region" disabled name="region" value="{{currentUserProfile?.Region}}">
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div class="col">
+                    <label for="province" class="form-label m-0 p-0 fw-medium">Province</label>
+                    <input type="text" class="form-control mt-1" id="province" disabled name="province" value="{{currentUserProfile?.Province}}">
+                </div>
+                <div class="col">
+                    <label for="municipality" class="form-label m-0 p-0 fw-medium">Municipality</label>
+                    <input type="text" class="form-control mt-1" id="municipality" disabled name="municipality" value="{{currentUserProfile?.Municipality}}">
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div class="col">
+                    <label for="barangay" class="form-label m-0 p-0 fw-medium">Barangay</label>
+                    <input type="text" class="form-control mt-1" id="barangay" disabled name="barangay" value="{{currentUserProfile?.Barangay}}">
+                </div>
+                <div class="col">
+                    <label for="zipCode" class="form-label m-0 p-0 fw-medium">Zip Code</label>
+                    <input type="number" class="form-control mt-1" id="zipCode" disabled name="zipCode" value="{{currentUserProfile?.Zipcode}}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="Street" class="form-label m-0 p-0 fw-medium">Street</label>
+                    <input type="text" class="form-control mt-1" id="street" disabled name="street" value="{{currentUserProfile?.Street}}">
+                </div>
             </div>
         </div>
 
-        <div class="row align-items-center pb-3">
-            <div class="col-2">
-                <label for="deliveryMethodDeliveryDays" class="form-label m-0 p-0">Delivery Days</label>
+        <div class="col ms-5">
+            <div class="row mb-4">
+                <span class="fs-4 fw-bold">Your order</span>
+                <span class="d-block fs-smaller fst-italic">Open cart to change details of your order.</span>
             </div>
-            <div class="col-4">
-                <input type="number" class="form-control" id="deliveryMethodDeliveryDays" name="deliveryMethodDeliveryDays" [(ngModel)]="deliveryMethodDays">
+
+            <div class="row fs-5 fw-medium">
+                <div class="col-8">
+                    <span>Product</span>
+                </div>
+                <div class="col-4 text-center">
+                    <span>Subtotal</span>
+                </div>
             </div>
+
+            <div class="row my-3" *ngFor="let item of itemsInCart | keyvalue">
+                <div class="col-8">
+                    <span class="d-block">
+                        <span class="fw-bold fs-6">{{item.key.model}}, </span>
+                        <span class="fs-smaller">{{item.key.brand}}</span>
+                        <span class="fs-smaller"> ({{item.key.color}})</span>
+                    </span>
+                    <span class="d-block fs-smaller fst-italic">{{item.key.description}}</span>
+                    <span class="d-block fs-smaller">
+                        ({{item.key.discountedPrice.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}} x {{item.value}})
+                    </span>
+                </div>
+                <div class="col-4 text-center">
+                    {{this.getSubtotalPerItem(item.key, item.value).toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </div>
+            </div>
+
+            <div class="row mb-3" *ngIf="selectedDeliveryMethod">
+                <div class="col-8 d-flex align-items-center">
+
+                    <div class="d-inline">
+                        <span class="fw-bold fs-6">Delivery Fee</span>
+                    </div>
+
+                    <div class="d-inline ms-3">
+                        <select class="form-select" id="barangay" [(ngModel)]="selectedDeliveryMethod"
+                                name="selectedDeliveryMethod" style="padding-top: 2px; padding-bottom: 2px">
+                            <option *ngFor="let item of allDeliveryMethods" [ngValue]="item">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-4 text-center">
+                    {{selectedDeliveryMethod.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "Php"
+                    })}}
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div class="row" *ngIf="this.selectedDeliveryMethod">
+                <div class="col-8">
+                    <span class="fw-bold fs-6">Total:</span>
+
+                </div>
+
+                <div class="col-4 text-center">
+                    <span>
+                        {{getTotalIncludingShipping().toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </span>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row align-items-center pb-3">
-            <div class="col-2">
-                <label for="deliveryMethodDescription" class="form-label m-0 p-0">Description</label>
-            </div>
-            <div class="col-4">
-                <input type="text" class="form-control" id="deliveryMethodDescription" name="deliveryMethodDescription" [(ngModel)]="deliveryMethodDescription">
-            </div>
-        </div>
+    </div>
+    <div class="row">
 
-        <div class="row align-items-center pb-3">
-            <div class="col-2">
-                <label for="deliveryMethodPrice" class="form-label m-0 p-0">Price</label>
-            </div>
-            <div class="col-4">
-                <input type="number" class="form-control" id="deliveryMethodPrice" name="deliveryMethodPrice" [(ngModel)]="deliveryMethodPrice">
-            </div>
-        </div>
+        <button type="button" class="btn btn-primary" (click)="onOrderSubmit()">Create Order</button>
 
-        <div class="col d-flex justify-content-end">
-            <button class="btn btn-primary px-4" type="submit" (click)="testClick()">Test</button>
-        </div>
-
-    </form>
-
-
+    </div>
+    
 </div>

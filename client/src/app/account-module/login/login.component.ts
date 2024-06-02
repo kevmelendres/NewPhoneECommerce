@@ -12,10 +12,21 @@ import { firstValueFrom, lastValueFrom } from 'rxjs';
 })
 export class LoginComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
-  protected _isAuthenticated: boolean;
+  protected _isAuthenticated: boolean = false;
+  protected renderPage: boolean = false;
 
   ngOnInit(): void {
-    this.authService.isAuthenticated.subscribe(data => this._isAuthenticated = data);
+    console.log(this._isAuthenticated);
+    this.authService.isAuthenticated.subscribe(data => {
+      this._isAuthenticated = data;
+      if (this._isAuthenticated) {
+        this.router.navigateByUrl("/home");
+      }
+
+      if (!this._isAuthenticated) {
+        this.renderPage = true;
+      }
+    });
   }
 
   loginForm: FormGroup = this.formBuilder.group({

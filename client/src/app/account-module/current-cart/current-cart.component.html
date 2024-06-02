@@ -8,7 +8,7 @@
             <div class="row text-center fw-bold fs-5 mb-3">
                 <div class="col-1"></div>
                 <div class="col-6">Product</div>
-                <div class="col-2">Price</div>
+                <div class="col-2">Price per Item</div>
                 <div class="col-1">Quantity</div>
                 <div class="col-2">Subtotal</div>
             </div>
@@ -18,7 +18,7 @@
                     <div class="col-1">
                         <img class="img-fluid" src="{{item.key.image}}" />
                     </div>
-                    <div class="col-6 text-start">
+                    <div class="col-6 text-start product-details" routerLink="/shop/product/{{item.key.id}}">
                         <span class="d-block">
                             <span class="fw-bold fs-6">{{item.key.model}}, </span>
                             <span class="fs-smaller">{{item.key.brand}}</span>
@@ -32,7 +32,26 @@
                         currency: "Php"
                         })}}
                     </div>
-                    <div class="col-1">{{item.value}}</div>
+
+                    <div class="col-1">
+                        
+                        <div class="m-0 border-0 d-flex align-items-center justify-content-center" *ngIf="item.key.availableStocks>0">
+                            <button class="btn btn-outline-success m-0 p-0 plusMinusBtn" type="button" (click)="changeQty(item.key, 1)">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <span class="mx-3">
+                                {{item.value}}
+                            </span>
+                            <button class="btn btn-outline-danger m-0 p-0 plusMinusBtn" type="button" (click)="changeQty(item.key, -1)">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+
+
+
                     <div class="col-2">
                         {{getTotalPerItem(item.key, item.value).toLocaleString("en-US", {
                         style: "currency",

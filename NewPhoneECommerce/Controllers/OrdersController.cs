@@ -79,7 +79,17 @@ namespace API.Controllers
             var newOrder = new Order()
             {
                 BuyerEmail = order.BuyerEmail,
-                ShippingAddress = order.ShippingAddress,
+                FirstName = order.FirstName,
+                LastName = order.LastName,
+
+                AddressCountry = order.AddressCountry,
+                AddressRegion = order.AddressRegion,
+                AddressProvince = order.AddressProvince,
+                AddressMunicipality = order.AddressMunicipality,
+                AddressBarangay = order.AddressBarangay,
+                AddressZipCode = order.AddressZipCode,
+                AddressStreet = order.AddressStreet,
+
                 SubTotal = order.Subtotal,
                 DeliveryMethodId = order.DeliveryMethodId,
             };
@@ -93,10 +103,10 @@ namespace API.Controllers
                     return Ok(orderId);
                 };
 
-                return Json("Creating order failed.");
+                return Json(-1);
             }
 
-            return Json("Creating order failed.");
+            return Json(-1);
         }
 
         [HttpPost]

@@ -25,4 +25,12 @@ export class CurrentCartComponent implements OnInit{
     return this.cartService.getTotalPriceInCart();
   }
 
+  changeQty(product: IProduct, quantity: number) {
+    this.cartService.addToCart(product, quantity);
+
+    if (this.cartService.getQuantityOfProduct(product) == 0) {
+      this.cartService.deleteProduct(product);
+    }
+  }
+
 }

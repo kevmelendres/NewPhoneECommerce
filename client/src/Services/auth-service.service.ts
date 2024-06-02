@@ -18,6 +18,7 @@ export class AuthService {
   public currentUserProfile: ICurrentUserProfileC | null = null;
 
   public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticatedInit);
+  public currentUserProfileBS = new BehaviorSubject<ICurrentUserProfileC | null>(this.currentUserProfile);
 
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
     console.log("running AuthService");
@@ -86,6 +87,7 @@ export class AuthService {
         next: (profile: ICurrentUserProfileC) => {
           this.isAuthenticated.next(true);
           this.currentUserProfile = profile;
+          this.currentUserProfileBS.next(profile);
         },
         error: (error: HttpErrorResponse) => {
           console.log(error.error)
@@ -100,6 +102,7 @@ export class AuthService {
 
     if (this.currentUserProfile) {
       this.currentUserProfile = updatedUser;
+      this.currentUserProfileBS.next(this.currentUserProfile);
     }
   }
 }

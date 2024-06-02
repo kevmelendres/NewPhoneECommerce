@@ -3,4 +3,5 @@ export interface IDeliveryMethod {
   deliveryDays: number;
   description: string;
   price: number;
+  id?: number;
 }

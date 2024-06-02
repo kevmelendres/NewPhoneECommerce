@@ -20,6 +20,6 @@ export interface ICurrentUserProfileC {
   Province: string | null | undefined;
   Region: string | null | undefined;
   Street: string | null | undefined;
-  Zipcode: string | null | undefined;
+  Zipcode: number;
   Barangay: string | null | undefined;
 }
