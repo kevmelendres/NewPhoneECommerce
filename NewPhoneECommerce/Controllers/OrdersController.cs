@@ -74,7 +74,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("Order/Create")]
-        public async Task<ActionResult<string>> CreateOrder([FromBody] OrderDto order)
+        public async Task<ActionResult<int>> CreateOrder([FromBody] OrderDto order)
         {
             var newOrder = new Order()
             {
@@ -90,7 +90,7 @@ namespace API.Controllers
             {
                 int orderId = -1;
                 if (Int32.TryParse(result, out orderId)) {
-                    return Ok(orderId.ToString());
+                    return Ok(orderId);
                 };
 
                 return Json("Creating order failed.");
@@ -99,5 +99,63 @@ namespace API.Controllers
             return Json("Creating order failed.");
         }
 
+        [HttpPost]
+        [Route("Order/Delete")]
+
+        public async Task<ActionResult<string>> DeleteOrder(
+            [FromQuery] int orderId)
+        {
+            var result = await _orderRepository.DeleteItem(orderId);
+
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
+
+        [HttpPost]
+        [Route("OrderItem/Create")]
+        public async Task<ActionResult<int>> CreateOrderItem([FromBody] OrderItemDto orderItem)
+        {
+            var newOrderItem = new OrderItem()
+            {
+                ProductId = orderItem.ProductId,
+                OrderId = orderItem.OrderId,
+                Quantity = orderItem.Quantity
+            };
+
+            var result = await _orderItemRepo.AddItem(newOrderItem);
+
+            if (result != "Failed")
+            {
+                int orderId = -1;
+                if (Int32.TryParse(result, out orderId))
+                {
+                    return Ok(orderId);
+                };
+
+                return Json("Creating orderitem failed.");
+            }
+
+            return Json("Creating orderitem failed.");
+        }
+
+        [HttpPost]
+        [Route("OrderItem/Delete")]
+
+        public async Task<ActionResult<string>> DeleteOrderItem(
+            [FromQuery] int orderId)
+        {
+            var result = await _orderItemRepo.DeleteItem(orderId);
+
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
     }
 }

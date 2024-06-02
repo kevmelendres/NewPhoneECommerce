@@ -18,7 +18,7 @@ namespace Core.Models
         public OrderStatusEnum OrderStatus { get; set; } = OrderStatusEnum.OrderPlaced;
 
         public int DeliveryMethodId { get; set; }
-        public string DeliveryMethod { get; set; }
+        public DeliveryMethod DeliveryMethod { get; set; }
 
         
         public ICollection<OrderItem> OrderItems { get; set; }

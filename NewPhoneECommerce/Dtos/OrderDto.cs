@@ -1,5 +1,4 @@
-﻿using Core.Models;
-
+﻿
 namespace API.Dtos
 {
     public class OrderDto
