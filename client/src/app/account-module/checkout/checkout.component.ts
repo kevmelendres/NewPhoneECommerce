@@ -93,6 +93,11 @@ export class CheckoutComponent implements OnInit {
       subtotal: this.getTotalIncludingShipping()
     };
 
-    this.orderService.createOrder(orderToSubmit);
+    this.orderService.createOrder(orderToSubmit).subscribe(data => {
+      if (typeof (data) == 'number') {
+        // Show success modal
+        // Redirect to My Orders
+      };
+    });
   }
 }

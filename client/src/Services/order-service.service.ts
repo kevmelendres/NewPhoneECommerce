@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IDeliveryMethod } from '../Models/deliverymethod';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, map, of } from 'rxjs';
 import { IOrder } from '../Models/order';
 
 @Injectable({
@@ -34,15 +34,14 @@ export class OrderService {
   }
 
   createOrder(order: IOrder) {
-    console.log(order);
-    this.http.post<number>(this.baseUrl + "/Order/Create", order).subscribe(data => {
+    var data = this.http.post<number | undefined>(this.baseUrl + "/Order/Create", order).pipe(map(data => {
       if (data != -1) {
-        
-      };
-    });
+        return data;
+      }
+      return "Bad request";
+    }));
+
+    return data;
   }
-
-
-
 
 }
