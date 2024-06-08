@@ -142,13 +142,22 @@
                 </div>
             </div>
 
+            <div class="row justify-content-end mt-5 me-5">
+                <button type="button" class="btn btn-primary w-50" (click)="onOrderSubmit()">Create Order</button>
+            </div>
+
         </div>
 
     </div>
-    <div class="row justify-content-end mb-5">
-
-        <button type="button" class="btn btn-primary" (click)="onOrderSubmit()">Create Order</button>
-
-    </div>
+    
     
 </div>
+
+<ng-template #notification let-modal>
+    <div class="modal-header px-4 pb-3 pt-4">
+        <h4 class="modal-title">{{notificationHeader}}</h4>
+    </div>
+    <div class="modal-body px-4 pt-4">
+        <p>{{notificationMessage}}</p>
+    </div>
+</ng-template>

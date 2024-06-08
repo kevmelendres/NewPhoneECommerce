@@ -16,9 +16,23 @@ export class LoginComponent implements OnInit{
   protected renderPage: boolean = false;
 
   ngOnInit(): void {
-    this.authService.isAuthenticated.subscribe(data => {
-      this._isAuthenticated = data;
+    //this.authService.isAuthenticated.subscribe(data => {
+    //  this._isAuthenticated = data;
+    //  if (this._isAuthenticated) {
+    //    console.log("redirect from login");
+    //    this.router.navigateByUrl("/home");
+    //  }
+
+    //  if (!this._isAuthenticated) {
+    //    this.renderPage = true;
+    //  }
+    //});
+
+    this.authService.initialLoginUser().subscribe(isLoggedIn => {
+      this._isAuthenticated = isLoggedIn;
+
       if (this._isAuthenticated) {
+        console.log("redirect from login");
         this.router.navigateByUrl("/home");
       }
 
@@ -34,12 +48,12 @@ export class LoginComponent implements OnInit{
   });
 
   onLoginClick() {
-    firstValueFrom(this.authService.loginUser(this.loginForm.value), { defaultValue: 0 }).then(
-      () => {
-        if (this._isAuthenticated) {
-          this.router.navigate(["/shop"]);
-        }
-      });
+    this.authService.loginUser(this.loginForm.value).subscribe(isLoggedIn => {
+      this._isAuthenticated = isLoggedIn;
+      if (isLoggedIn) {
+        this.router.navigate(["/shop"]);
+      }
+    });
   }
 
   onInputTyping(event: KeyboardEvent) {

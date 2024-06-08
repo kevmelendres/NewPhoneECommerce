@@ -69,8 +69,7 @@ export class ProfileComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-
-    this.authService.isAuthenticated.subscribe(isLoggedIn => { 
+    this.authService.initialLoginUser().subscribe(isLoggedIn => {
       if (isLoggedIn) {
         this.renderPage = true;
         this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {

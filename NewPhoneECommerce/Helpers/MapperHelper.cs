@@ -70,5 +70,53 @@ namespace API.Helpers
                 DeliveryDays = item.DeliveryDays,
             };
         }
+
+        public static OrderGetDetailedDto MapOrder(Order order)
+        {
+
+            OrderGetDetailedDto orderGetDetailedDto = new()
+            {
+                OrderId = order.Id,
+                BuyerEmail = order.BuyerEmail,
+                FirstName = order.FirstName,
+                LastName = order.LastName,
+                AddressCountry = order.AddressCountry,
+                AddressRegion = order.AddressRegion,
+                AddressProvince = order.AddressProvince,
+                AddressBarangay = order.AddressBarangay,
+                AddressMunicipality = order.AddressMunicipality,
+                AddressZipCode = order.AddressZipCode,
+                AddressStreet = order.AddressStreet,
+                DeliveryMethod = order.DeliveryMethod.Name,
+                Subtotal = order.SubTotal,
+                OrderStatus = order.OrderStatus.ToString(),
+            };
+
+            foreach (OrderItem orderItem in order.OrderItems)
+            {
+                Console.WriteLine(orderItem.ProductId);
+
+                orderGetDetailedDto.OrderItems.Add(new OrderItemGetDetailedDto
+                {
+                    OrderItemId = orderItem.Id,
+                    Quantity = orderItem.Quantity,
+                    OrderId = orderItem.OrderId,
+                });
+            }
+
+            return orderGetDetailedDto;
+        }
+
+        public static IReadOnlyList<OrderGetDetailedDto> MapOrderList(IReadOnlyList<Order> orderList)
+        {
+            var newList = new List<OrderGetDetailedDto>();
+
+            foreach (var item in orderList)
+            {
+                newList.Add(MapOrder(item));
+            }
+
+            return newList;
+        }
     }
 }

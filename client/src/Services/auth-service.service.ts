@@ -43,23 +43,26 @@ export class AuthService {
     this.http.post<ICurrentUser>(this.baseUrl + "register", data).subscribe(response => console.log("registration success"));
   }
 
-  loginUser(loginData: ILoginModel): Observable<any> {
-    return new Observable(subscriber => {
-      this.http.post<ICurrentUser>(this.baseUrl + "login", loginData).subscribe({
-        next: currentUserData => {
-          this.currentUser = currentUserData;
-          localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
+  loginUser(loginData: ILoginModel): Observable<boolean> {
 
-          if (this.currentUser) {
-            this.validateUserToServer(this.currentUser).subscribe();
+    var response: Observable<boolean> =
+      this.http.post<ICurrentUser>(this.baseUrl + "login", loginData).pipe(
+        first(),
+        catchError(error => of(null)),
+        map(currentUserData => {
+          if (currentUserData != null) {
+            this.currentUser = currentUserData;
+            localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
+
+            if (this.currentUser) {
+              this.validateUserToServer(this.currentUser).subscribe();
+            }
+            return true;
           }
-          subscriber.complete();
-        },
-        error: error => {
-          console.log(error);
-        },
-      });
-    });
+          return false;
+        }));
+
+    return response;
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { IDeliveryMethod } from '../../../Models/deliverymethod';
 import { HttpClient } from '@angular/common/http';
 import { OrderService } from '../../../Services/order-service.service';
@@ -8,6 +8,7 @@ import { AuthService } from '../../../Services/auth-service.service';
 import { ICurrentUserProfileC } from '../../../Models/currentuserprofile';
 import { IOrder } from '../../../Models/order';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-checkout',
@@ -15,6 +16,13 @@ import { Router } from '@angular/router';
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent implements OnInit {
+
+  notificationHeader: string;
+  notificationMessage: string;
+  @ViewChild('notification') public notification: TemplateRef<any>;
+
+  protected _itemsInCart = new Map<IProduct, number>();
+
   deliveryMethodName: string;
   deliveryMethodDays: number;
   deliveryMethodDescription: string;
@@ -42,11 +50,13 @@ export class CheckoutComponent implements OnInit {
     private orderService: OrderService,
     private cartService: CartService,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.cartService.itemsInCart.subscribe(items => this._itemsInCart = items);
 
-    this.authService.isAuthenticated.subscribe(isLoggedIn => {
+    this.authService.initialLoginUser().subscribe(isLoggedIn => {
       if (isLoggedIn) {
         this.cartService.itemsInCart.subscribe(data => this.itemsInCart = data);
         this.authService.currentUserProfileBS.subscribe(data => {
@@ -102,11 +112,32 @@ export class CheckoutComponent implements OnInit {
       subtotal: this.getTotalIncludingShipping()
     };
 
-    this.orderService.createOrder(orderToSubmit).subscribe(data => {
+    this.orderService.createOrder(orderToSubmit, this._itemsInCart).subscribe(data => {
       if (typeof (data) == 'number') {
-        // Show success modal
-        // Redirect to My Orders
+        this.notificationMessage = "Your order has been created. Redirecting you back to your orders.";
+        this.notificationHeader = "Order creation success!"
+      } else {
+        this.notificationMessage = "Bad request";
+        this.notificationHeader = "Order creation failed!"
       };
+
+      this.runModalNotifServices();
     });
+  }
+
+  runModalNotifServices() {
+    this.openModalNotif(this.notification);
+    setTimeout(() => {
+      this.closeModalNotif(this.notification);
+      this.router.navigateByUrl("/home");
+    }, 3000);
+  }
+
+  openModalNotif(content: TemplateRef<any>) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  closeModalNotif(content: TemplateRef<any>) {
+    this.modalService.dismissAll(content);
   }
 }

@@ -36,13 +36,6 @@ export class AuthGuardService {
   }
 
   isAuthenticated(): boolean {
-
-    if (this._isAuthenticated == false) {
-      this.router.navigateByUrl("/home");
-    }
-
-    console.log(this._isAuthenticated);
-
     return this._isAuthenticated;
   }
 }
