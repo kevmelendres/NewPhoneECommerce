@@ -134,4 +134,15 @@ export class HeaderComponent implements OnInit{
     const dropdown = this.dropDownMenu.nativeElement;
     this.renderer.removeClass(dropdown, "show");
   }
+
+  onMyOrdersClick() {
+    if (!this._isAuthenticated) {
+      this.router.navigate(["/account/login"]);
+    } else {
+      this.router.navigate(["/account/my-orders"]);
+    }
+
+    const dropdown = this.signinDropdown.nativeElement;
+    this.renderer.removeClass(dropdown, "show");
+  }
 }

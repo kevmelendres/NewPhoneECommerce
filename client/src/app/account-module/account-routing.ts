@@ -6,6 +6,7 @@ import { AuthGuardService } from '../../Guards/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { CurrentCartComponent } from './current-cart/current-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'my-orders',
+    component: MyOrdersComponent,
   },
 ];
 
