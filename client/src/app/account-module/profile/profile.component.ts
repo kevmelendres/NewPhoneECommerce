@@ -20,6 +20,10 @@ export class ProfileComponent implements OnInit {
   apiBaseAddress: string = "https://psgc.gitlab.io/api/";
   baseUrlIdentity: string = 'http://localhost:5064/api/Identity/';
 
+  userIsAuthenticated: boolean = false;
+
+  renderPage: boolean = false;
+
   @ViewChild('notification') public notification: TemplateRef<any>;
   notificationHeader: string;
   notificationMessage: string;
@@ -65,17 +69,25 @@ export class ProfileComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
-      this.listOfRegions = data;
+
+    this.authService.isAuthenticated.subscribe(isLoggedIn => { 
+      if (isLoggedIn) {
+        this.renderPage = true;
+        this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
+          this.listOfRegions = data;
+        });
+
+        this.authService.currentUserProfileBS.subscribe(data => {
+          this.currentUserProfile = data;
+          if (this.currentUserProfile) {
+            this.initializeFields();
+          }
+        });
+      } else {
+        this.router.navigateByUrl("/home");
+      }
     });
-
-    this.currentUserProfile = this.authService.currentUserProfile;
-
-    if (this.currentUserProfile) {
-      this.initializeFields();
-    }
   }
-
 
   onRegionSelect() {
     this.http.get<any>(this.apiBaseAddress + "regions/" + this.selectedRegion.code + "/provinces").subscribe(data => {

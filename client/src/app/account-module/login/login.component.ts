@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit{
   protected renderPage: boolean = false;
 
   ngOnInit(): void {
-    console.log(this._isAuthenticated);
     this.authService.isAuthenticated.subscribe(data => {
       this._isAuthenticated = data;
       if (this._isAuthenticated) {

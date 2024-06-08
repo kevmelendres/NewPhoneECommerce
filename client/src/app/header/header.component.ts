@@ -124,7 +124,13 @@ export class HeaderComponent implements OnInit{
   }
 
   onCheckoutClick() {
-    this.router.navigate(["/account/checkout"]);
+
+    if (!this._isAuthenticated) {
+      this.router.navigate(["/account/login"]);
+    } else {
+      this.router.navigate(["/account/checkout"]);
+    }
+
     const dropdown = this.dropDownMenu.nativeElement;
     this.renderer.removeClass(dropdown, "show");
   }

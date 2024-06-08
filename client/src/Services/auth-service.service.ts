@@ -4,8 +4,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
-import { BehaviorSubject, Observable, catchError, of } from 'rxjs';
-import { ICurrentUserProfile, ICurrentUserProfileC } from '../Models/currentuserprofile';
+import { BehaviorSubject, Observable, catchError, first, map, mergeMap, of, switchMap } from 'rxjs';
+import { ICurrentUserProfileC } from '../Models/currentuserprofile';
+import { subscribe } from 'diagnostics_channel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +16,27 @@ export class AuthService {
   baseUrl: string = 'http://localhost:5064/api/Identity/';
   private _isAuthenticatedInit: boolean = false;
   public currentUser: ICurrentUser | null = null;
-  public currentUserProfile: ICurrentUserProfileC | null = null;
+  private currentUserProfile: ICurrentUserProfileC | null = null;
 
   public isAuthenticated = new BehaviorSubject<boolean>(this._isAuthenticatedInit);
   public currentUserProfileBS = new BehaviorSubject<ICurrentUserProfileC | null>(this.currentUserProfile);
 
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
-    console.log("running AuthService");
-    const localStorage = document.defaultView?.localStorage;
+    this.initialLoginUser().subscribe();
+  }
+
+  initialLoginUser(): Observable<boolean> {
+    const localStorage = this.document.defaultView?.localStorage;
+
     if (localStorage) {
       if (localStorage.getItem("currentAppUser")) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
-        this.validateUserToServer(this.currentUser!);
-        console.log("UserValidated");
+        return this.validateUserToServer(this.currentUser!);
       };
     }
+
+    return of(false);
   }
 
   register(data: IRegisterModel) {
@@ -45,7 +51,7 @@ export class AuthService {
           localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
 
           if (this.currentUser) {
-            this.isAuthenticated.next(true);
+            this.validateUserToServer(this.currentUser).subscribe();
           }
           subscriber.complete();
         },
@@ -66,7 +72,7 @@ export class AuthService {
     return this.currentUser;
   }
 
-  validateUserToServer(user: ICurrentUser) {
+  validateUserToServer(user: ICurrentUser): Observable<boolean> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${user.token}`
@@ -83,16 +89,22 @@ export class AuthService {
     }
 
     let request = this.http.get<any>(this.baseUrl + "get-user",
-      { headers: headers, params: params }).subscribe({
-        next: (profile: ICurrentUserProfileC) => {
-          this.isAuthenticated.next(true);
-          this.currentUserProfile = profile;
-          this.currentUserProfileBS.next(profile);
-        },
-        error: (error: HttpErrorResponse) => {
-          console.log(error.error)
-        }
-      });
+      { headers: headers, params: params })
+      .pipe(
+        first(),
+        catchError(error => of(false)),
+        map(data => {
+          if (data !== false){
+            this.isAuthenticated.next(true);
+            this.currentUserProfile = data;
+            this.currentUserProfileBS.next(data);
+            return true;
+          }
+          return false;
+        }));
+
+    return request;
+
   }
 
   updateUserDetails(updatedUser: ICurrentUserProfileC) {

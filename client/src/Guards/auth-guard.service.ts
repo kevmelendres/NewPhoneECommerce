@@ -10,7 +10,9 @@ export class AuthGuardService {
   _isAuthenticated: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
-    this.authService.isAuthenticated.subscribe(data => this._isAuthenticated = data);
+    this.authService.isAuthenticated.subscribe(data => {
+      this._isAuthenticated = data;
+    });
   }
 
   canActivate(): boolean {
@@ -34,7 +36,13 @@ export class AuthGuardService {
   }
 
   isAuthenticated(): boolean {
+
+    if (this._isAuthenticated == false) {
+      this.router.navigateByUrl("/home");
+    }
+
     console.log(this._isAuthenticated);
+
     return this._isAuthenticated;
   }
 }

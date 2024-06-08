@@ -7,6 +7,7 @@ import { IProduct } from '../../../Models/product';
 import { AuthService } from '../../../Services/auth-service.service';
 import { ICurrentUserProfileC } from '../../../Models/currentuserprofile';
 import { IOrder } from '../../../Models/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -40,18 +41,26 @@ export class CheckoutComponent implements OnInit {
   constructor(private http: HttpClient,
     private orderService: OrderService,
     private cartService: CartService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.cartService.itemsInCart.subscribe(data => this.itemsInCart = data);
-    this.authService.currentUserProfileBS.subscribe(data => {
-      this.currentUserProfile = data;
-    });
 
-    this.orderService.allDeliveryMethodsBS.subscribe(data => {
-      this.allDeliveryMethods = data;
-      if (this.allDeliveryMethods) {
-        this.selectedDeliveryMethod = this.allDeliveryMethods[0];
+    this.authService.isAuthenticated.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.cartService.itemsInCart.subscribe(data => this.itemsInCart = data);
+        this.authService.currentUserProfileBS.subscribe(data => {
+          this.currentUserProfile = data;
+        });
+
+        this.orderService.allDeliveryMethodsBS.subscribe(data => {
+          this.allDeliveryMethods = data;
+          if (this.allDeliveryMethods) {
+            this.selectedDeliveryMethod = this.allDeliveryMethods[0];
+          }
+        });
+      } else {
+        this.router.navigateByUrl("/login");
       }
     });
   }
