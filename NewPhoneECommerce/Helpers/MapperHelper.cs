@@ -90,6 +90,10 @@ namespace API.Helpers
                 DeliveryMethod = order.DeliveryMethod.Name,
                 Subtotal = order.SubTotal,
                 OrderStatus = order.OrderStatus.ToString(),
+                OrderDate = order.OrderDate.ToString(),
+                DeliveryMethodId = order.DeliveryMethodId,
+                DeliveryMethodPrice = order.DeliveryMethod.Price,
+                DeliveryMethodDays = order.DeliveryMethod.DeliveryDays,
             };
 
             foreach (OrderItem orderItem in order.OrderItems)

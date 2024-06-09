@@ -27,7 +27,9 @@ export class AppComponent {
     this.renderProductsFooter = !(componentLoaded == '_LoginComponent' ||
       componentLoaded == '_RegisterComponent' ||
       componentLoaded == '_ProfileComponent' ||
-      componentLoaded == '_CurrentCartComponent')
+      componentLoaded == '_CurrentCartComponent' ||
+      componentLoaded == '_CheckoutComponent' ||
+      componentLoaded == '_MyOrdersComponent')
   }
 
 

@@ -14,9 +14,12 @@
         public string? AddressStreet { get; set; }
         public int DeliveryMethodId { get; set; }
         public string DeliveryMethod { get; set; }
+        public double DeliveryMethodPrice { get; set; }
+        public int DeliveryMethodDays { get; set; }
         public double Subtotal { get; set; }
         public int? OrderId { get; set; }
         public string OrderStatus { get; set; }
+        public string OrderDate { get; set; }
         public List<OrderItemGetDetailedDto> OrderItems { get; set; } = new();
     }
 }

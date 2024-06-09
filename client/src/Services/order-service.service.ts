@@ -1,10 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IDeliveryMethod } from '../Models/deliverymethod';
 import { BehaviorSubject, EMPTY, Observable, catchError, concatMap, from, map, of, switchMap, tap } from 'rxjs';
 import { IOrder } from '../Models/order';
 import { IProduct } from '../Models/product';
 import { IOrderItem } from '../Models/orderitem';
+import { IOrderDetailed } from '../Models/orderdetailed';
+import { ICurrentUser } from '../Models/currentuser';
 
 @Injectable({
   providedIn: 'root'
@@ -71,4 +73,24 @@ export class OrderService {
     return data;
   }
 
+  getAllOrders(user: ICurrentUser | null): Observable<any>  {
+
+    if (user) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user!.token}`
+      })
+
+      let params = new HttpParams();
+
+      if (user.email) {
+        params = params.append('email', user.email);
+      }
+
+      return this.http.get<IOrderDetailed[]>(this.baseUrl + "/Order/Get",
+        { headers: headers, params: params });
+    }
+
+    return of(null);
+  }
 }

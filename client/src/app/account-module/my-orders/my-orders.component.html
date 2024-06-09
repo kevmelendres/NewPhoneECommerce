@@ -1,5 +1,157 @@
 <div class="container mt-4 mb-5">
-    <span class="d-block fs-1 fw-bold">My Account / Orders</span>
-    <span class="d-block fw-light">All orders listed in the database</span>
+    <span class="d-block fs-1 fw-bold">My Account / My Orders</span>
+    <span class="d-block fw-light">All of your orders listed in the database. Below are the registered information during order creation.</span>
+    <span class="d-block fw-light">These information cannot be editted anymore.</span>
+
+    <div class="row mt-5">
+        <div class="col">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr class="">
+                        <th scope="col">Order No.</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tbody #orderRows>
+                    <tr class="order-row" *ngFor="let order of buyerOrders; index as i"
+                        (click)="onOrderRowClick(order, i)" id="{{getRowId(i + 1)}}">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{order.firstName}}</td>
+                        <td>{{order.lastName}}</td>
+                        <td>
+                            {{order.subtotal.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "Php"
+                            })}}
+                        </td>
+                        <td>{{formatOrderStatus(order.orderStatus)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col d-flex align-items-center justify-content-center" *ngIf="!selectedOrder">
+            <div class="text-center">
+                <span class="d-block text-danger mb-2"><i class="fa-regular fa-circle-xmark" style="font-size: 50px;"></i></span>
+                <span class="d-medium fw-bold fs-4">No order selected</span>
+                <span class="d-block fs-6">Select an order to view its information.</span>
+            </div>
+        </div>
+
+
+        <div class="col" *ngIf="selectedOrder">
+            <div class="col ms-5">
+                <div class="row mb-4">
+                    <span class="fs-4 fw-bold">Selected order (Order No. {{selectedRowId + 1}})</span>
+                    <span class="d-block fs-smaller fst-italic">Order information of Order No. {{selectedRowId + 1}}</span>
+                </div>
+
+                <div>
+                    <span class="fs-6 fw-medium d-inline">Delivery Date: </span>
+                    <span class="d-inline ms-2">{{getDeliveryDate(selectedOrder.orderDate, selectedOrder.deliveryMethodDays)}}</span>
+                </div>
+
+                <div>
+                    <span class="fs-6 fw-medium d-inline">Delivery Method: </span>
+                    <span class="d-inline ms-2">{{selectedOrder.deliveryMethod}}</span>
+                </div>
+
+                <div class="mb-4">
+                    <span class="fs-6 fw-medium d-inline">Order Status: </span>
+                    <span class="d-inline ms-2">{{formatOrderStatus(selectedOrder.orderStatus)}}</span>
+                </div>
+
+                <div class="mt-3 mb-4">
+                    <div class="px-4 py-3 alert alert-success">
+                        <span class="fs-6 fw-medium d-block text-decoration-underline">Order to be shipped to the the following address:</span>
+                        <span class="d-block">{{getShippingAddress(selectedOrder)}}</span>
+                    </div>
+                </div>
+
+                <div class="row fs-5 fw-medium">
+                    <div class="col-8">
+                        <span>Product</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span>Subtotal</span>
+                    </div>
+                </div>
+
+                <div class="row my-3 align-items-center" *ngFor="let item of selectedOrder.orderItems">
+                    <div class="col-8">
+                        <span class="d-block">
+                            <span class="fw-bold fs-6">{{item.model}}, </span>
+                            <span class="fs-smaller">{{item.brand}}</span>
+                            <span class="fs-smaller"> ({{item.color}})</span>
+                        </span>
+                        <span class="d-block fs-smaller fst-italic">{{item.description}}</span>
+                        <span class="d-block fs-smaller">
+                            ({{item.discountedPrice.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "Php"
+                            })}} x {{item.quantity}})
+                        </span>
+                    </div>
+                    <div class="col-4 text-center">
+                        {{getSubtotalPerItem(item.discountedPrice, item.quantity).toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </div>
+
+
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-8 d-flex align-items-center">
+
+                        <div class="d-inline">
+                            <span class="fw-bold fs-6">Delivery Fee</span>
+                        </div>
+
+                        <div class="d-inline ms-2">
+                            ({{selectedOrder.deliveryMethod}})
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-center">
+                        {{selectedOrder.deliveryMethodPrice.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "Php"
+                        })}}
+                    </div>
+
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-8">
+                        <span class="fw-bold fs-6">Total:</span>
+
+                    </div>
+
+                    <div class="col-4 text-center">
+                        <span>
+                            {{getTotalIncludingShipping(selectedOrder).toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "Php"
+                            })}}
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
 
 </div>
