@@ -3,6 +3,7 @@ import { OrderService } from '../../../Services/order-service.service';
 import { AuthService } from '../../../Services/auth-service.service';
 import { ICurrentUser } from '../../../Models/currentuser';
 import { IOrderDetailed } from '../../../Models/orderdetailed';
+import { FormatHelpersService } from '../../../Services/format-helpers.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -26,7 +27,8 @@ export class MyOrdersComponent implements OnInit {
   constructor(private orderService: OrderService,
     private authService: AuthService,
     private renderer: Renderer2,
-    private elementRef: ElementRef<HTMLElement>) { };
+    private elementRef: ElementRef<HTMLElement>,
+    private formatHelpers: FormatHelpersService) { };
 
   ngOnInit(): void {
     this.currentUser = this.authService.currentUser;
@@ -83,32 +85,7 @@ export class MyOrdersComponent implements OnInit {
   }
 
   formatOrderStatus(orderStatus: string): string {
-    let orderStatusFormatted: string;
-
-    switch (orderStatus) {
-      case "Delivered": {
-        orderStatusFormatted = "Delivered";
-        break;
-      }
-      case "OrderInProgress": {
-        orderStatusFormatted = "Order In Progress";
-        break;
-      }
-      case "PreparingToShip": {
-        orderStatusFormatted = "Preparing To Ship"; 
-        break;
-      }
-      case "Shipped": {
-        orderStatusFormatted = "Shipped";
-        break;
-      }
-      default: {
-        orderStatusFormatted = "Order Placed";
-        break;
-      }
-    }
-
-    return orderStatusFormatted;
+    return this.formatHelpers.formatOrderStatus(orderStatus);
   }
 
   getMonthName(monthNum: number): string {

@@ -172,7 +172,6 @@ namespace API.Controllers
         public async Task<IReadOnlyList<OrderGetDetailedDto>> GetOrdersOfEmail(
             [FromQuery] string email)
         {
-
             var paramSpecs = new OrderSpecParams();
             paramSpecs.Criteria = (x => x.BuyerEmail == email);
 

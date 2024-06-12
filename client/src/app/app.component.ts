@@ -20,7 +20,10 @@ export class AppComponent {
   }
 
   toRenderHeaders(componentLoaded: String) {
-    this.renderComponent = !(componentLoaded == '_LoginComponent' || componentLoaded == '_RegisterComponent')
+    this.renderComponent = !(componentLoaded == '_LoginComponent' ||
+      componentLoaded == '_RegisterComponent' ||
+      componentLoaded == '_AdminHomeComponent' ||
+      componentLoaded == '_ManageDeliveriesComponent')
   }
 
   toRenderProductsFooter(componentLoaded: String) {
@@ -29,7 +32,9 @@ export class AppComponent {
       componentLoaded == '_ProfileComponent' ||
       componentLoaded == '_CurrentCartComponent' ||
       componentLoaded == '_CheckoutComponent' ||
-      componentLoaded == '_MyOrdersComponent')
+      componentLoaded == '_MyOrdersComponent' ||
+      componentLoaded == '_AdminHomeComponent' ||
+      componentLoaded == '_ManageDeliveriesComponent')
   }
 
 

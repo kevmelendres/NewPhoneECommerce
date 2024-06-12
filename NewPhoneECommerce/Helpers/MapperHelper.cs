@@ -1,4 +1,5 @@
-﻿using API.Dtos;
+﻿using System.Linq.Expressions;
+using API.Dtos;
 using Core.Models;
 
 namespace API.Helpers
@@ -121,6 +122,30 @@ namespace API.Helpers
             }
 
             return newList;
+        }
+
+        public static OrderStatusEnum ToOrderStatus(this string orderStatus)
+        {
+            switch (orderStatus.Trim())
+            {
+                case "Order Placed":
+                    return OrderStatusEnum.OrderPlaced;
+
+                case "Order in Progress":
+                    return OrderStatusEnum.OrderInProgress;
+
+                case "Preparing to Ship":
+                    return OrderStatusEnum.PreparingToShip;
+
+                case "Shipped":
+                    return OrderStatusEnum.Shipped;
+
+                case "Delivered":
+                    return OrderStatusEnum.Delivered;
+
+                default:
+                    return OrderStatusEnum.OrderPlaced;
+            }
         }
     }
 }
