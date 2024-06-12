@@ -12,7 +12,7 @@ export class ManageDeliveriesComponent implements OnInit {
   orderStatusLinkClicked: ElementRef;
   @ViewChild("allDeliveries", { static: true }) allDeliveries: ElementRef;
 
-  ordersToShow: IOrderDetailed[];
+  ordersToShow: IOrderDetailed[] = [];
   itemsToShow: number = 10;
   pageNumber: number = 1;
   orderStatusSelected: string;

@@ -26,8 +26,6 @@ export class AdminOrderService {
       params = params.append('orderStatus', orderStatus);
     }
 
-    console.log(params);
-
     return this.http.get<IOrderDetailed[]>
       (this.baseUrl + "/Admin/GetOrders", { params: params })
   }
