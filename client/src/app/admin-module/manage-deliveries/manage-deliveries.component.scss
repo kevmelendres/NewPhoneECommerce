@@ -101,3 +101,25 @@ th, td {
 .order-row {
     cursor: pointer;
 }
+
+
+.order-row-modal th, .order-row-modal td {
+  cursor: pointer;
+  //border: 0px;
+}
+
+.order-row-modal-head th, .order-row-modal-head td {
+  cursor: pointer;
+  border: 0px;
+  padding: 0 0 0 0;
+}
+
+.modal-body {
+    padding: 15px 30px 16px 30px;
+}
+
+.date-picker-menu {
+    border: 0;
+    padding: 0;
+}
+

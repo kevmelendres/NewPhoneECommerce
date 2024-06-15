@@ -22,6 +22,7 @@ export class MyOrdersComponent implements OnInit {
   selectedOrder: IOrderDetailed;
   selectedRowId: number;
 
+
   @ViewChild("orderRows") orderRows: ElementRef;
 
   constructor(private orderService: OrderService,
@@ -56,67 +57,23 @@ export class MyOrdersComponent implements OnInit {
   }
 
   getSubtotalPerItem(price: number, qty: number): number {
-    return price * qty;
+    return this.formatHelpers.getSubtotalPerItem(price, qty);
   }
 
   getTotalIncludingShipping(order: IOrderDetailed): number {
-    let totalOrderFee: number = 0;
-
-    order.orderItems.forEach(item => {
-      totalOrderFee += (this.getSubtotalPerItem(item.discountedPrice, item.quantity))
-    });
-
-    totalOrderFee += order.deliveryMethodPrice;
-    return totalOrderFee;
+    return this.formatHelpers.getTotalIncludingShipping(order);
   }
 
   getShippingAddress(order: IOrderDetailed): string {
-    return order.addressStreet + " / "
-      + order.addressBarangay + " / "
-      + order.addressMunicipality + " / "
-      + order.addressProvince + " / "
-      + order.addressRegion + " / "
-      + order.addressCountry + " / "
-      + "Zip Code: " + order.addressZipCode
-  }
-
-  convertOrderDateToObj(date: string): Date {
-    return new Date(date);
+    return this.formatHelpers.getShippingAddress(order);
   }
 
   formatOrderStatus(orderStatus: string): string {
     return this.formatHelpers.formatOrderStatus(orderStatus);
   }
 
-  getMonthName(monthNum: number): string {
-    return this.monthNames[monthNum];
-  }
-
-  getConvertedDateToString(dateString: string): string {
-    let dateObj: Date = this.convertOrderDateToObj(dateString);
-
-    let monthName: string = this.getMonthName(dateObj.getMonth());
-    let date: number = dateObj.getDate();
-    let year: number = dateObj.getFullYear();
-
-    return monthName + " " + date + ", " + year;
-  }
-
-  addDays(dateOrig: Date, addDays: number): Date {
-    var date = new Date(dateOrig.valueOf());
-    date.setDate(date.getDate() + addDays);
-    return date;
-  }
-
-  getDeliveryDate(orderCreatedDate: string, deliveryDays: number): string {
-    let orderCreatedDateObj: Date = this.convertOrderDateToObj(orderCreatedDate);
-    let dateWithDelivery: Date = this.addDays(orderCreatedDateObj, deliveryDays);
-
-    let monthName: string = this.getMonthName(dateWithDelivery.getMonth());
-    let date: number = dateWithDelivery.getDate();
-    let year: number = dateWithDelivery.getFullYear();
-
-    return monthName + " " + date + ", " + year;
+  getDeliveryDate(order: IOrderDetailed): string {
+    return this.formatHelpers.getDeliveryDate(order);
   }
   
 }

@@ -24,6 +24,10 @@ export class ManageDeliveriesComponent implements OnInit {
   deliveryDateSelected: NgbDateStruct;
   date: { year: number; month: number };
 
+  orderStatusList: string[];
+
+  selectedOrderStatus: string;
+
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
     private formatHelpers: FormatHelpersService,
@@ -33,6 +37,8 @@ export class ManageDeliveriesComponent implements OnInit {
     this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
     this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
     this.getOrders();
+    this.orderStatusList = this.formatHelpers.orderStatusList;
+
   }
 
   onStatusLinkClick(event: any) {
@@ -64,10 +70,48 @@ export class ManageDeliveriesComponent implements OnInit {
     this.selectedOrder = order;
     this.selectedOrderNo = orderNo;
     this.modalService.open(content, { centered: true, size: 'lg' });
+    this.selectedOrderStatus = this.formatOrderStatus(order.orderStatus);
+
+    this.deliveryDateSelected = this.formatHelpers.getDeliveryDateAsNgbDate(this.selectedOrder);
   }
 
-  onDeliveryDateSelect(event: any) {
-    console.log(event.next)
+  onUpdateClick() {
+    console.log(this.deliveryDateSelected);
   }
- 
+
+  getDeliveryDate(order: IOrderDetailed) {
+    return this.formatHelpers.getDeliveryDate(order);
+  }
+
+  getShippingAddress(order: IOrderDetailed) {
+    return this.formatHelpers.getShippingAddress(order);
+  }
+
+  getSubtotalPerItem(price: number, qty: number): number {
+    return this.formatHelpers.getSubtotalPerItem(price, qty);
+  }
+
+  getTotalIncludingShipping(order: IOrderDetailed): number {
+    return this.formatHelpers.getTotalIncludingShipping(order);
+  }
+
+  onOrderStatusClick(orderStatus: string) {
+    this.selectedOrderStatus = orderStatus;
+  }
+
+  onDateClick(event: any) {
+    event.stopPropagation();
+  }
+
+  getDeliveryDateAsNgbDate(order: IOrderDetailed): NgbDateStruct {
+    return this.formatHelpers.getDeliveryDateAsNgbDate(order);
+  }
+
+  renderDateWarning(a: NgbDateStruct, b: NgbDateStruct): boolean {
+    return !this.formatHelpers.areNgbDateStructsSame(a, b);
+  }
+
+  convertNgbDateStructToString(dateNgb: NgbDateStruct) {
+    return this.formatHelpers.convertNgbDateStructToString(dateNgb);
+  }
 }

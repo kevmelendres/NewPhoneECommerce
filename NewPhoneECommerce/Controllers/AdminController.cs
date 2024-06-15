@@ -40,9 +40,35 @@ namespace API.Controllers
             }
 
             var data = await _orderRepository.GetAllItems(paramSpecs);
-            var returnData = MapperHelper.MapOrderList(data);
+            var ordersList = MapperHelper.MapOrderList(data);
 
-            return Ok(returnData);
+            foreach (OrderGetDetailedDto order in ordersList)
+            {
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var paramOrderItemSpecs = new OrderItemSpecParams();
+                    var orderItemGet = await _orderItemRepo.GetItemById(orderItem.OrderItemId, paramOrderItemSpecs);
+
+                    orderItem.Id = orderItemGet.ProductId;
+                    orderItem.Brand = orderItemGet.Product.Brand;
+                    orderItem.Model = orderItemGet.Product.Model;
+                    orderItem.DeviceOS = orderItemGet.Product.DeviceOS;
+                    orderItem.ReleaseDate = orderItemGet.Product.ReleaseDate;
+                    orderItem.Price = orderItemGet.Product.Price;
+                    orderItem.Color = orderItemGet.Product.Color;
+                    orderItem.Description = orderItemGet.Product.Description;
+                    orderItem.Image = orderItemGet.Product.Image;
+                    orderItem.Seller = orderItemGet.Product.Seller.Name;
+                    orderItem.PreviousOwner = orderItemGet.Product.PreviousOwner.FirstName;
+                    orderItem.Rating = orderItemGet.Product.Rating;
+                    orderItem.Discount = orderItemGet.Product.Discount;
+                    orderItem.AvailableStocks = orderItemGet.Product.AvailableStocks;
+                    orderItem.SoldItems = orderItemGet.Product.SoldItems;
+                    orderItem.DiscountedPrice = orderItemGet.Product.DiscountedPrice;
+                }
+            }
+
+            return Ok(ordersList);
         }
 
     }
