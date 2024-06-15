@@ -72,22 +72,8 @@
                         </span>
                         <span class="card-icon" style="color: #1A9882"><i class="fa-regular fa-square-check"></i></span>
                     </div>
-
-
-
-
-
-
                 </div>
-                
             </div>
-
-
-
-
-
-
-
 
             <div #deliveryReport>
                 <span class="fs-4 fw-bold">Delivery Report</span>
@@ -111,7 +97,7 @@
                         Delivered
                     </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center" style="width: 80%;">
+                <div class="mt-4 d-flex" [ngStyle]="{ 'justify-content' : (ordersToShow.length != 0) ? 'start' : 'center'}" style="width: 1200px; justify-content:">
                     <div class="d-flex justify-content-center align-items-center"
                          style="min-height: 400px;" *ngIf="ordersToShow.length == 0">
                         <div #NoItemsToShow class="text-center">
@@ -122,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div style="width: 100%" *ngIf="ordersToShow.length != 0" class="p-4 border border-opacity-10 rounded">
+                    <div style="width: 1200px" *ngIf="ordersToShow.length != 0" class="p-4 border border-opacity-10 rounded">
                         <table class="table table-hover text-center">
                             <thead>
                                 <tr class="align-middle">
@@ -133,11 +119,11 @@
                                     <th scope="col">Subtotal</th>
                                     <th scope="col">Delivery Address</th>
                                     <th scope="col">Order Status</th>
-                                    <th scope="col">Update Status</th>
+                                    <!-- <th scope="col">Update Status</th> -->
                                 </tr>
                             </thead>
                             <tbody #orderRows>
-                                <tr class="order-row align-middle" *ngFor="let order of ordersToShow; index as i">
+                                <tr class="order-row align-middle" *ngFor="let order of ordersToShow; index as i" (click)="onOrderClick(order, orderDetails, i + 1)">
                                     <th scope="row">{{i + 1}}</th>
                                     <td>{{order.firstName}}</td>
                                     <td>{{order.lastName}}</td>
@@ -150,7 +136,7 @@
                                     </td>
                                     <td>{{order.addressMunicipality}}, {{order.addressProvince}}</td>
                                     <td>{{formatOrderStatus(order.orderStatus)}}</td>
-                                    <td><button class="btn btn-primary">Update</button></td>
+                                    <!-- <td><button class="btn btn-primary">Update</button></td> -->
                                 </tr>
                             </tbody>
                         </table>
@@ -162,3 +148,28 @@
 
     </div>
 </div>
+
+<ng-template #orderDetails let-modal>
+    <div class="modal-header">
+        <span class="modal-title fs-5 d-block">Order No. {{selectedOrderNo}}</span>
+        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <span class="d-block">Delivery Date: </span>
+        <span class="d-block"> fgfdgdfgfdg </span>
+        <ngb-datepicker #deliveryDate [(ngModel)]="deliveryDateSelected" (navigate)="onDeliveryDateSelect($event)" />
+
+
+
+    </div>
+
+
+
+
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary fs-6">Update</button>
+        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

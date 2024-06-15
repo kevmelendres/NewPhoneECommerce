@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { IOrderDetailed } from '../../../Models/orderdetailed';
 import { AdminOrderService } from '../../../Services/admin-order.service';
 import { FormatHelpersService } from '../../../Services/format-helpers.service';
+import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-manage-deliveries',
@@ -17,9 +18,16 @@ export class ManageDeliveriesComponent implements OnInit {
   pageNumber: number = 1;
   orderStatusSelected: string;
 
+  selectedOrder: IOrderDetailed;
+  selectedOrderNo: number;
+
+  deliveryDateSelected: NgbDateStruct;
+  date: { year: number; month: number };
+
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
-    private formatHelpers: FormatHelpersService) { }
+    private formatHelpers: FormatHelpersService,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
@@ -51,4 +59,15 @@ export class ManageDeliveriesComponent implements OnInit {
         this.ordersToShow = data
       });
   }
+
+  onOrderClick(order: IOrderDetailed, content: TemplateRef<any>, orderNo: number) {
+    this.selectedOrder = order;
+    this.selectedOrderNo = orderNo;
+    this.modalService.open(content, { centered: true, size: 'lg' });
+  }
+
+  onDeliveryDateSelect(event: any) {
+    console.log(event.next)
+  }
+ 
 }

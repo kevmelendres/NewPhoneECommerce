@@ -5,6 +5,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ManageDeliveriesComponent } from './manage-deliveries/manage-deliveries.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    NgbDatepickerModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
