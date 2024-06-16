@@ -71,5 +71,26 @@ namespace API.Controllers
             return Ok(ordersList);
         }
 
+        [HttpPost]
+        [Route("Order/EditOrderStatus")]
+        public async Task<ActionResult<string>> EditOrderStatus(
+            [FromBody] OrderEditStatusDto orderEditStatus)
+        {
+            var orderSpecs = new OrderSpecParams();
+            orderSpecs.Criteria = x => x.Id == orderEditStatus.OrderId;
+
+            var orderToEdit = await _orderRepository.GetItemById(orderEditStatus.OrderId, orderSpecs);
+            orderToEdit.OrderStatus = orderEditStatus.OrderStatus.ToOrderStatus();
+            Console.WriteLine(orderToEdit.OrderStatus);
+
+            var result = await _orderRepository.EditItem(orderEditStatus.OrderId, orderToEdit);
+
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
     }
 }

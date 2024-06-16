@@ -9,6 +9,7 @@ export interface IOrder {
   addressBarangay: string | null | undefined;
   addressZipCode: number | undefined;
   addressStreet: string | null | undefined;
+  orderStatus?: string | null | undefined;
 
   deliveryMethodId: number;
   subtotal: number;

@@ -126,27 +126,6 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        [Route("Order/Edit")]
-
-        public async Task<ActionResult<string>> EditOrder(
-            [FromQuery] int orderId, [FromBody] OrderDto newValue)
-        {
-            var orderSpecs = new OrderSpecParams();
-            orderSpecs.Criteria = x => x.Id == orderId;
-
-            var orderToEdit = await _orderRepository.GetItemById(orderId, orderSpecs);
-            var orderNewValue = MapperHelper.MapOrderDtoToOrder(newValue);
-            var result = await _orderRepository.EditItem(orderId, orderNewValue);
-
-            if (result == "Success")
-            {
-                return Json("Success");
-            }
-
-            return Json("Failed");
-        }
-
-        [HttpPost]
         [Route("OrderItem/Create")]
         public async Task<ActionResult<int>> CreateOrderItem([FromBody] OrderItemDto orderItem)
         {

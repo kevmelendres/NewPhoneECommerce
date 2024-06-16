@@ -12,11 +12,12 @@ import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap
 export class ManageDeliveriesComponent implements OnInit {
   orderStatusLinkClicked: ElementRef;
   @ViewChild("allDeliveries", { static: true }) allDeliveries: ElementRef;
+  @ViewChild("orderDetails", { static: true }) orderDetailsModal: ElementRef;
 
   ordersToShow: IOrderDetailed[] = [];
   itemsToShow: number = 10;
   pageNumber: number = 1;
-  orderStatusSelected: string;
+  orderStatusSelected: string | null = null;
 
   selectedOrder: IOrderDetailed;
   selectedOrderNo: number;
@@ -27,6 +28,11 @@ export class ManageDeliveriesComponent implements OnInit {
   orderStatusList: string[];
 
   selectedOrderStatus: string;
+
+  cardTotalOrderItems: number;
+  cardTotalOrders: number;
+  cardUnmanagedOrders: number;
+  cardDeliveredOrders: number;
 
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
@@ -52,6 +58,10 @@ export class ManageDeliveriesComponent implements OnInit {
     this.pageNumber = 1;
     this.orderStatusSelected = event.target.innerText;
 
+    if (this.orderStatusSelected == "All Deliveries ") {
+      this.orderStatusSelected = null;
+    }
+
     this.getOrders();
   }
 
@@ -64,6 +74,31 @@ export class ManageDeliveriesComponent implements OnInit {
       this.orderStatusSelected).subscribe(data => {
         this.ordersToShow = data
       });
+    this.refreshCardData();
+  }
+
+  async refreshCardData() {
+
+    this.adminOrderService.getOrders(1, 0, "").subscribe(data => {
+      this.cardTotalOrders = data.length;
+
+      let totalOrderItems = 0;
+
+      data.forEach(order => {
+        totalOrderItems += order.orderItems.length
+      });
+
+      this.cardTotalOrderItems = totalOrderItems;
+    });
+
+    this.adminOrderService.getOrders(1, 0, "Delivered").subscribe(data => {
+      this.cardDeliveredOrders = data.length;
+    });
+
+    this.adminOrderService.getOrders(1, 0, "Order Placed").subscribe(data => {
+      this.cardUnmanagedOrders = data.length;
+    });
+
   }
 
   onOrderClick(order: IOrderDetailed, content: TemplateRef<any>, orderNo: number) {
@@ -75,8 +110,15 @@ export class ManageDeliveriesComponent implements OnInit {
     this.deliveryDateSelected = this.formatHelpers.getDeliveryDateAsNgbDate(this.selectedOrder);
   }
 
-  onUpdateClick() {
-    console.log(this.deliveryDateSelected);
+  onUpdateClick(selectedOrder: IOrderDetailed) {
+    this.adminOrderService.editOrderStatus(selectedOrder.orderId, this.selectedOrderStatus).subscribe(
+      data => {
+        if (data == "Success") {
+          this.getOrders();
+          this.modalService.dismissAll();
+        }
+      }
+    )
   }
 
   getDeliveryDate(order: IOrderDetailed) {

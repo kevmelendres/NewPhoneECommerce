@@ -126,15 +126,17 @@ namespace API.Helpers
 
         public static OrderStatusEnum ToOrderStatus(this string orderStatus)
         {
-            switch (orderStatus.Trim())
+
+            switch (orderStatus.TrimEnd())
             {
                 case "Order Placed":
                     return OrderStatusEnum.OrderPlaced;
 
-                case "Order in Progress":
+                case "Order In Progress":
+                    Console.WriteLine("SET TO ORDER IN PROGRESS");
                     return OrderStatusEnum.OrderInProgress;
 
-                case "Preparing to Ship":
+                case "Preparing To Ship":
                     return OrderStatusEnum.PreparingToShip;
 
                 case "Shipped":
@@ -167,13 +169,14 @@ namespace API.Helpers
 
                 SubTotal = order.Subtotal,
                 DeliveryMethodId = order.DeliveryMethodId,
-
-                //Fix theeeeeeese!!!
-                //OrderDate = order.OrderDate,
-                //OrderStatus = order.OrderStatus,
             };
+
+            if (order.OrderStatus != null)
+                orderToReturn.OrderStatus = order.OrderStatus.ToOrderStatus();
 
             return orderToReturn;
         }
+
+        
     }
 }
