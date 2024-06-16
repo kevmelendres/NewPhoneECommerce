@@ -147,5 +147,33 @@ namespace API.Helpers
                     return OrderStatusEnum.OrderPlaced;
             }
         }
+
+        public static Order MapOrderDtoToOrder(OrderDto order)
+        {
+
+            Order orderToReturn = new()
+            {
+                BuyerEmail = order.BuyerEmail,
+                FirstName = order.FirstName,
+                LastName = order.LastName,
+
+                AddressCountry = order.AddressCountry,
+                AddressRegion = order.AddressRegion,
+                AddressProvince = order.AddressProvince,
+                AddressMunicipality = order.AddressMunicipality,
+                AddressBarangay = order.AddressBarangay,
+                AddressZipCode = order.AddressZipCode,
+                AddressStreet = order.AddressStreet,
+
+                SubTotal = order.Subtotal,
+                DeliveryMethodId = order.DeliveryMethodId,
+
+                //Fix theeeeeeese!!!
+                //OrderDate = order.OrderDate,
+                //OrderStatus = order.OrderStatus,
+            };
+
+            return orderToReturn;
+        }
     }
 }

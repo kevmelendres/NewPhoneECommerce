@@ -17,6 +17,7 @@ namespace Core.Interfaces
         IQueryable<T> ApplySpecification(ISpecification<T> specs);
         Task<string> AddItem(T item);
         Task<string> DeleteItem(int itemId);
+        Task<string> EditItem(int itemId, T newValue);
     }
 
 }
