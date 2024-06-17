@@ -10,7 +10,7 @@ import { baseUrlDev } from '../Environment/dev.env';
 })
 export class ShopService {
 
-  baseUrl: string = baseUrlDev;
+  baseUrl: string = baseUrlDev + "/";
 
   sortByInit: string = 'Price: Low-to-High'
   itemsToShowInit: number = 10;
