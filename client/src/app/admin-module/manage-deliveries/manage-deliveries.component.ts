@@ -29,10 +29,7 @@ export class ManageDeliveriesComponent implements OnInit {
 
   selectedOrderStatus: string;
 
-  cardTotalOrderItems: number;
-  cardTotalOrders: number;
-  cardUnmanagedOrders: number;
-  cardDeliveredOrders: number;
+
 
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
@@ -74,32 +71,9 @@ export class ManageDeliveriesComponent implements OnInit {
       this.orderStatusSelected).subscribe(data => {
         this.ordersToShow = data
       });
-    this.refreshCardData();
+    
   }
 
-  async refreshCardData() {
-
-    this.adminOrderService.getOrders(1, 0, "").subscribe(data => {
-      this.cardTotalOrders = data.length;
-
-      let totalOrderItems = 0;
-
-      data.forEach(order => {
-        totalOrderItems += order.orderItems.length
-      });
-
-      this.cardTotalOrderItems = totalOrderItems;
-    });
-
-    this.adminOrderService.getOrders(1, 0, "Delivered").subscribe(data => {
-      this.cardDeliveredOrders = data.length;
-    });
-
-    this.adminOrderService.getOrders(1, 0, "Order Placed").subscribe(data => {
-      this.cardUnmanagedOrders = data.length;
-    });
-
-  }
 
   onOrderClick(order: IOrderDetailed, content: TemplateRef<any>, orderNo: number) {
     this.selectedOrder = order;

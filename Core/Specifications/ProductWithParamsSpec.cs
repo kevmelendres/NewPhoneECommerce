@@ -51,6 +51,96 @@ namespace Core.Specifications
                 {
                     this.OrderByDescending = x => x.AvailableStocks;
                 }
+
+                //For AdminProductService of Frontend
+
+                if (paramSpecs.SortBy == "sortProductIdAscending")
+                {
+                    this.OrderBy = x => x.Id;
+                }
+
+                if (paramSpecs.SortBy == "sortProductIdDescending")
+                {
+                    this.OrderByDescending = x => x.Id;
+                }
+
+                if (paramSpecs.SortBy == "sortModelAscending")
+                {
+                    this.OrderBy = x => x.Model;
+                }
+
+                if (paramSpecs.SortBy == "sortModelDescending")
+                {
+                    this.OrderByDescending = x => x.Model;
+                }
+                if (paramSpecs.SortBy == "sortBrandAscending")
+                {
+                    this.OrderBy = x => x.Brand;
+                }
+
+                if (paramSpecs.SortBy == "sortBrandDescending")
+                {
+                    this.OrderByDescending = x => x.Brand;
+                }
+
+                if (paramSpecs.SortBy == "sortColorAscending")
+                {
+                    this.OrderBy = x => x.Color;
+                }
+
+                if (paramSpecs.SortBy == "sortColorDescending")
+                {
+                    this.OrderByDescending = x => x.Color;
+                }
+
+                if (paramSpecs.SortBy == "sortPriceAscending")
+                {
+                    this.OrderBy = x => x.Price;
+                }
+
+                if (paramSpecs.SortBy == "sortPriceDescending")
+                {
+                    this.OrderByDescending = x => x.Price;
+                }
+
+                if (paramSpecs.SortBy == "sortDiscountAscending")
+                {
+                    this.OrderBy = x => x.Discount;
+                }
+
+                if (paramSpecs.SortBy == "sortDiscountDescending")
+                {
+                    this.OrderByDescending = x => x.Discount;
+                }
+
+                if (paramSpecs.SortBy == "sortDiscountedPriceAscending")
+                {
+                    this.OrderBy = x => x.DiscountedPrice;
+                }
+
+                if (paramSpecs.SortBy == "sortDiscountedPriceDescending")
+                {
+                    this.OrderByDescending = x => x.DiscountedPrice;
+                }
+
+                if (paramSpecs.SortBy == "sortAvailableStocksAscending")
+                {
+                    this.OrderBy = x => x.AvailableStocks;
+                }
+
+                if (paramSpecs.SortBy == "sortAvailableStocksDescending")
+                {
+                    this.OrderByDescending = x => x.AvailableStocks;
+                }
+                if (paramSpecs.SortBy == "sortItemsSoldAscending")
+                {
+                    this.OrderBy = x => x.SoldItems;
+                }
+
+                if (paramSpecs.SortBy == "sortItemsSoldDescending")
+                {
+                    this.OrderByDescending = x => x.SoldItems;
+                }
             }
 
         }

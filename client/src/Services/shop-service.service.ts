@@ -3,13 +3,14 @@ import { Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { baseUrlDev } from '../Environment/dev.env';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  baseUrl: string = 'http://localhost:5064/api/';
+  baseUrl: string = baseUrlDev;
 
   sortByInit: string = 'Price: Low-to-High'
   itemsToShowInit: number = 10;

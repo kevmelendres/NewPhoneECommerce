@@ -49,20 +49,54 @@
 }
 /*Sidebar CSS*/
 
-
-.card-icon {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  color: rgb(68,75,248);
-  font-size: 22px;
+tr {
+  font-size: 15px;
 }
 
-.card-remarks {
+th, td {
+  padding: 5px 0 5px 0
+}
+
+.order-row {
+    cursor: pointer;
+}
+
+.sorter-table {
+    cursor: pointer;
+}
+
+
+.page-number {
+  border: solid 1px dimgrey;
+  border-radius: 0.2rem;
+  color: dimgrey;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+
+  height: 25px;
+  width: 25px;
+  margin: 0 2px;
   font-size: 12px;
-  color: black;
+  cursor: pointer;
 }
 
-.card {
-  background-color: rgb(248,250,251);
+.page-number:hover {
+  color: white;
+  background-color: #1D1F20;
+  border-color: #1D1F20;
+}
+
+.page-number-active {
+  color: white;
+  background-color: #1D1F20;
+  border-color: #1D1F20;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  opacity: 50%;
 }

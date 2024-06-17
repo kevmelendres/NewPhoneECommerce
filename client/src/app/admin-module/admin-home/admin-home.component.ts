@@ -1,65 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AdminOrderService } from '../../../Services/admin-order.service';
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.scss'
 })
-export class AdminHomeComponent {
+
+
+export class AdminHomeComponent implements OnInit{
   loadDashboard: boolean = true;
   loadProducts: boolean = false;
   loadDeliveries: boolean = false;
   loadUsers: boolean = false;
 
+  cardTotalOrderItems: number;
+  cardTotalOrders: number;
+  cardUnmanagedOrders: number;
+  cardDeliveredOrders: number;
 
-  loadComponent(event: any) {
-    let componentToLoad: string = event.target.innerText;
+  constructor(private adminOrderService: AdminOrderService) { }
 
-    switch (componentToLoad) {
-      case "Dashboard": {
-        this.loadDashboard = true;
+  ngOnInit(): void {
+    this.refreshCardData();
+  }
 
-        this.loadProducts = false;
-        this.loadDeliveries = false;
-        this.loadUsers = false; 
-        break;
-      }
+  async refreshCardData() {
 
-      case "Products": {
-        this.loadProducts = true;
+    this.adminOrderService.getOrders(1, 0, "").subscribe(data => {
+      this.cardTotalOrders = data.length;
 
-        this.loadDashboard = false;
-        this.loadDeliveries = false;
-        this.loadUsers = false;
-        break;
-      }
+      let totalOrderItems = 0;
 
-      case "Deliveries": {
-        this.loadDeliveries = true;
+      data.forEach(order => {
+        totalOrderItems += order.orderItems.length
+      });
 
-        this.loadDashboard = false;
-        this.loadProducts = false;
-        this.loadUsers = false;
-        break;
-      }
+      this.cardTotalOrderItems = totalOrderItems;
+    });
 
-      case "Users": {
-        this.loadUsers = true;
+    this.adminOrderService.getOrders(1, 0, "Delivered").subscribe(data => {
+      this.cardDeliveredOrders = data.length;
+    });
 
-        this.loadDashboard = false;
-        this.loadProducts = false;
-        this.loadDeliveries = false;
-        break;
-      }
+    this.adminOrderService.getOrders(1, 0, "Order Placed").subscribe(data => {
+      this.cardUnmanagedOrders = data.length;
+    });
 
-      default: {
-        this.loadDashboard = true;
-
-        this.loadProducts = false;
-        this.loadDeliveries = false;
-        this.loadUsers = false;
-        break;
-      }
-    } 
   }
 }

@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ManageProductsComponent } from './manage-products/manage-products.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     ManageDeliveriesComponent,
     SidebarComponent,
     AdminHomeComponent,
+    ManageProductsComponent,
   ],
   imports: [
     CommonModule,

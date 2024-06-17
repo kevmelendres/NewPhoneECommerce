@@ -1,0 +1,163 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
+                <div class="mt-3 mb-4">
+                    <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                </div>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
+                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="d-inline">Dashboard</div>
+                    </li>
+                    <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-products">
+                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="d-inline">Products</div>
+                    </li>
+                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-deliveries">
+                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
+                        <div class="d-inline">Deliveries</div>
+                    </li>
+                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
+                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
+                        <div class="d-inline">Users</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="py-5 ps-5 content-container">
+            
+
+            <div #deliveryReport>
+                <span class="fs-4 fw-bold">Available Products in Store</span>
+                <span class="fs-6 d-block fw-light">Admin > Manage Products</span>
+
+                
+                <div class="mt-4 d-flex">
+
+                    <div style="width: 1200px" class="p-4 border border-opacity-10 rounded">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span class="fw-bold">Click on row to edit product items.</span>
+                            </div>
+                            <div class="d-flex justify-content-end mb-3">
+                                <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
+                                     [class.disabled]="pageNumber <= totalNumberOfPages">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </div>
+                                <div *ngFor="let number of pageNumberList">
+                                    <div class="page-number d-flex align-items-center justify-content-center"
+                                         (click)=onPageNumberClick(number+1)
+                                         [class.page-number-active]="number + 1 == pageNumber"
+                                         *ngIf="number + 1 <= maxPossiblePageNumber">
+                                        {{number + 1}}
+                                    </div>
+                                </div>
+                                <div class="page-number d-flex align-items-center justify-content-center"
+                                     (click)=onNextPaginationClick()
+                                     [class.disabled]="!enableNextPageClick">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <table class="table table-hover text-center">
+                            <thead>
+                                <tr class="align-middle">
+                                    <th scope="col">
+                                        <div class="d-inline">Product Id</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 1"> <i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Model</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Brand</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Color</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Price</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Discount (%)</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Discounted Price</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Available Stocks</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Items Sold</div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 0"><i class="fa-solid fa-sort"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody #productRows>
+                                <tr *ngFor="let product of productList; index as i" class="order-row align-middle">
+                                    <td>{{product.id}}</td>
+                                    <td>{{product.model}}</td>
+                                    <td>{{product.brand}}</td>
+                                    <td>{{product.color}}</td>
+                                    <td>
+                                        {{product.price.toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "Php"
+                                        })}}
+                                    </td>
+                                    <td>{{product.discount}}</td>
+                                    <td>
+                                        {{product.discountedPrice.toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "Php"
+                                        })}}
+                                    </td>
+                                    <td>{{product.availableStocks}}</td>
+                                    <td>{{product.soldItems}}</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
