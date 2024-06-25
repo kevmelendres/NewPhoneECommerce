@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { IProduct } from '../../../Models/product';
 import { AdminProductService } from '../../../Services/admin-product.service';
 import { IAdminManageProductParams } from '../../../Models/AdminManageProductParams';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-manage-products',
@@ -20,6 +21,8 @@ export class ManageProductsComponent implements OnInit{
   enableNextPageClick: boolean = true;
   prevSorter: string;
 
+  selectedProduct: IProduct;
+
   sorterMaps: Map<string, number> = new Map<string, number>([
     ["sortProductId", -1],
     ["sortModel", 0],
@@ -37,7 +40,8 @@ export class ManageProductsComponent implements OnInit{
   allProductsCount: number;
   maxPossiblePageNumber: number;
 
-  constructor(private adminProductService: AdminProductService) { }
+  constructor(private adminProductService: AdminProductService,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -142,5 +146,11 @@ export class ManageProductsComponent implements OnInit{
       i += step;
     }
     return arrayNumbers;
+  }
+
+  onProductClick(product: IProduct, content: TemplateRef<any>) {
+    this.selectedProduct = product;
+    this.modalService.open(content, { centered: true, size: 'lg' });
+
   }
 }

@@ -10,10 +10,16 @@ namespace API.Controllers
     public class ProductsController : BaseController
     {
         private readonly IGenericRepository<Product> _productsRepo;
+        private readonly IGenericRepository<Seller> _sellersRepo;
+        private readonly IGenericRepository<PreviousOwner> _prevOwnersRepo;
 
-        public ProductsController(IGenericRepository<Product> productsRepo)
+        public ProductsController(IGenericRepository<Product> productsRepo,
+            IGenericRepository<Seller> sellersRepo,
+            IGenericRepository<PreviousOwner> prevOwnersRepo)
         {
             _productsRepo = productsRepo;
+            _sellersRepo = sellersRepo;
+            _prevOwnersRepo = prevOwnersRepo;
         }
 
         [HttpGet]
@@ -342,6 +348,109 @@ namespace API.Controllers
             var returnData = MapperHelper.MapProductList(data);
 
             return Ok(returnData);
+        }
+
+        [HttpPost]
+        [Route("Edit")]
+        public async Task<ActionResult<string>> EditProduct([FromBody] ProductToEditDto editedProduct)
+        {
+            var orderSpecs = new ProductWithSellerAndPrevOwnerSpec();
+            orderSpecs.Criteria = x => x.Id == editedProduct.Id;
+
+            var productToEdit = await _productsRepo.GetItemById(editedProduct.Id, orderSpecs);
+
+            #region Editing Values
+            productToEdit.Brand = editedProduct.Brand ?? productToEdit.Brand;
+            productToEdit.Model = editedProduct.Model ?? productToEdit.Model;
+            productToEdit.DeviceOS = editedProduct.DeviceOS ?? productToEdit.DeviceOS;
+            productToEdit.ReleaseDate = editedProduct.ReleaseDate ?? productToEdit.ReleaseDate;
+            productToEdit.Price = editedProduct.Price ?? productToEdit.Price;
+            productToEdit.Color = editedProduct.Color ?? productToEdit.Color;
+            productToEdit.Description = editedProduct.Description ?? productToEdit.Description;
+            productToEdit.Image = editedProduct.Image ?? productToEdit.Image;
+            productToEdit.Rating = editedProduct.Rating ?? productToEdit.Rating;
+            productToEdit.Discount = editedProduct.Discount ?? productToEdit.Discount;
+            productToEdit.AvailableStocks = editedProduct.AvailableStocks ?? productToEdit.AvailableStocks;
+            productToEdit.SoldItems = editedProduct.SoldItems ?? productToEdit.SoldItems;
+
+            if (editedProduct.Discount != null || editedProduct.Price != null)
+            {
+                var priceToUse = editedProduct.Price ?? productToEdit.Price;
+                var discountToUse = editedProduct.Discount ?? productToEdit.Discount;
+                productToEdit.DiscountedPrice = (priceToUse * (100 - discountToUse) / 100);
+                productToEdit.DiscountedPrice = Math.Round(productToEdit.DiscountedPrice, 2);
+            }
+
+            if (editedProduct.Seller != null)
+            {
+                var sellerSpecs = new BaseSpecification<Seller>();
+                sellerSpecs.Criteria = x => x.Name == editedProduct.Seller;
+
+                var sellers = await _sellersRepo.GetItemsWithSpecs(sellerSpecs);
+
+                if (sellers.Count > 0)
+                {
+                    var sellerId = sellers[0].Id;
+                    productToEdit.SellerID = sellerId;
+                } else
+                {
+                    var newSeller = new Seller(editedProduct.Seller);
+                    var addSellerResult = await _sellersRepo.AddItem(newSeller);
+
+                    if (addSellerResult == "Failed")
+                    {
+                        return Json("Failed adding seller.");
+                    }
+
+                    int sellerId = -1;
+                    if (Int32.TryParse(addSellerResult, out sellerId))
+                    {
+                        productToEdit.SellerID = sellerId;
+                    };
+                }
+            }
+
+            if (editedProduct.PreviousOwnerFirstName != null)
+            {
+                var prevOwnerSpecs = new BaseSpecification<PreviousOwner>();
+                prevOwnerSpecs.Criteria = x => ((x.FirstName == editedProduct.PreviousOwnerFirstName) &&
+                    (x.LastName == editedProduct.PreviousOwnerLastName));
+
+                var previousOwners = await _prevOwnersRepo.GetItemsWithSpecs(prevOwnerSpecs);
+
+                if (previousOwners.Count > 0)
+                {
+                    var prevOwnerId = previousOwners[0].Id;
+                    productToEdit.PrevOwnerID = prevOwnerId;
+                }
+                else
+                {
+                    var newPrevOwner = new PreviousOwner(editedProduct.PreviousOwnerFirstName,
+                        editedProduct.PreviousOwnerLastName);
+                    var addPrevOwnerResult = await _prevOwnersRepo.AddItem(newPrevOwner);
+
+                    if (addPrevOwnerResult == "Failed")
+                    {
+                        return Json("Failed adding previous owner.");
+                    }
+
+                    int prevOwnerId = -1;
+                    if (Int32.TryParse(addPrevOwnerResult, out prevOwnerId))
+                    {
+                        productToEdit.PrevOwnerID = prevOwnerId;
+                    };
+                }
+            }
+            #endregion
+
+            var result = await _productsRepo.EditItem(editedProduct.Id);
+
+            if (result != "Success")
+            {
+                return Json("Editing product failed.");
+            }
+
+            return Json("Editing product success.");
         }
     }
 }

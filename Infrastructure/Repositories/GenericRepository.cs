@@ -84,14 +84,12 @@ namespace Infrastructure.Repositories
             return "Something went wrong";
         }
 
-        public async Task<string> EditItem(int itemID, T newValue)
+        public async Task<string> EditItem(int itemID)
         {
             var itemToEdit = await _storeContext.Set<T>().FindAsync(itemID);
 
             if (itemToEdit != null)
             {
-                itemToEdit = newValue;
-
                 var result = _storeContext.SaveChangesAsync();
 
                 if (result.IsCompleted)

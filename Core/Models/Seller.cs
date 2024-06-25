@@ -14,5 +14,16 @@ namespace Core.Models
         public string Address { get; set; }
 
         public ICollection<Product> Products { get; set; }
+
+
+        public Seller(string name)
+        {
+            this.Name = name;
+            this.Phone = "N/A";
+            this.Email = "N/A";
+            this.Address = "N/A";
+
+            this.Products = new List<Product>();
+        }
     }
 }

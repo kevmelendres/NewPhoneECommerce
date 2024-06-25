@@ -123,7 +123,7 @@
                                 </tr>
                             </thead>
                             <tbody #productRows>
-                                <tr *ngFor="let product of productList; index as i" class="order-row align-middle">
+                                <tr *ngFor="let product of productList; index as i" class="order-row align-middle" (click)="onProductClick(product, productDetails)">
                                     <td>{{product.id}}</td>
                                     <td>{{product.model}}</td>
                                     <td>{{product.brand}}</td>
@@ -161,3 +161,22 @@
     </div>
 </div>
 
+<ng-template #productDetails let-modal>
+    <div class="modal-header">
+        <div class="fw-bold fs-5 d-flex align-items-center">
+            <i class="fa-solid fa-mobile-screen-button me-2" style="color: #183153; font-size: 17px"></i>
+            Product Information
+        </div>
+        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+
+
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

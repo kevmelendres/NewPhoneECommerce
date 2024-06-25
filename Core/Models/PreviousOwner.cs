@@ -14,5 +14,15 @@ namespace Core.Models
         public string PhoneNumber { get; set; }
 
         public ICollection<Product> Products { get; set; }
+
+        public PreviousOwner(string firstName, string? lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName ?? "N/A";
+            this.Address = "N/A";
+            this.PhoneNumber = "N/A";
+
+            this.Products = new List<Product>();
+        }
     }
 }

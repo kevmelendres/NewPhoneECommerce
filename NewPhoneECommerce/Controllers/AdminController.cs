@@ -81,9 +81,8 @@ namespace API.Controllers
 
             var orderToEdit = await _orderRepository.GetItemById(orderEditStatus.OrderId, orderSpecs);
             orderToEdit.OrderStatus = orderEditStatus.OrderStatus.ToOrderStatus();
-            Console.WriteLine(orderToEdit.OrderStatus);
 
-            var result = await _orderRepository.EditItem(orderEditStatus.OrderId, orderToEdit);
+            var result = await _orderRepository.EditItem(orderEditStatus.OrderId);
 
             if (result == "Success")
             {
