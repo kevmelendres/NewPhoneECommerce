@@ -4,6 +4,7 @@ import { baseUrlDev } from '../Environment/dev.env';
 import { IProduct } from '../Models/product';
 import { IAdminManageProductParams } from '../Models/AdminManageProductParams';
 import { Observable } from 'rxjs';
+import { IEditProduct } from '../Models/editproduct';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,10 @@ export class AdminProductService {
 
   getAllProductsCount(): Observable<number> {
     return this.http.get<number>(this.baseUrl + '/Products/GetAllProductsCount');
+  }
+
+  editProduct(editedProduct: IEditProduct): Observable<any> {
+    let body = editedProduct
+    return this.http.post<string>(this.baseUrl + "/Products/Edit", body);
   }
 }

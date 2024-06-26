@@ -100,3 +100,21 @@ th, td {
   border-color: lightgrey;
   opacity: 50%;
 }
+
+.data-row {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.form-control {
+    font-size: 15px;
+}
+
+.warning-message {
+  position: absolute;
+  color: #BE3340;
+  font-size: medium;
+  top: 50%;
+  right: 25px;
+  transform: translate(0, -50%);
+}

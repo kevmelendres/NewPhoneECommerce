@@ -169,14 +169,175 @@
         </div>
         <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
+
+
+
     <div class="modal-body">
+        <div class="align-middle">
+            <div class="row data-row my-0">
+                <div class="col">
+                    <div class="row data-row">
+                        <div class="col-4 h-auto d-flex align-items-center">
+                            <label for="productId">Product Id</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control disabled" id="productId" value="{{selectedProduct.id}}">
+                        </div>
+                    </div>
+                    <div class="row data-row">
+
+                        <div class="col-4 h-auto d-flex align-items-center">
+                            <label for="model">Model</label>
+                        </div>
+                        <div class="col-8 position-relative">
+                            <input type="text" class="form-control " id="model" [(ngModel)]="formModel">
+                            <label class="warning-message" *ngIf="formModel != selectedProduct.model"> <i class="fa-solid fa-pen-to-square"></i></label>
+                        </div>
+
+                    </div>
+
+                    <div class="row data-row">
+                        <div class="col-4 h-auto d-flex align-items-center">
+                            <label for="productId">Brand</label>
+                        </div>
+                        <div class="col-8 position-relative">
+                            <input type="text" class="form-control" id="brand" [(ngModel)]="formBrand">
+                            <label class="warning-message" *ngIf="formBrand != selectedProduct.brand"> <i class="fa-solid fa-pen-to-square"></i></label>
+                        </div>
+                    </div>
+
+                    <div class="row data-row">
+                        <div class="col-4 h-auto d-flex align-items-center">
+                            <label for="deviceOS">Device OS</label>
+                        </div>
+                        <div class="col-8 position-relative">
+                            <input type="text" class="form-control" id="deviceOS" [(ngModel)]="formDeviceOS">
+                            <label class="warning-message" *ngIf="formDeviceOS != selectedProduct.deviceOS"> <i class="fa-solid fa-pen-to-square"></i></label>
+                        </div>
+                    </div>
+
+                    <div class="row data-row">
+                        <div class="col-4 h-auto d-flex align-items-center">
+                            <label for="color">Color</label>
+                        </div>
+                        <div class="col-8 position-relative">
+                            <input type="text" class="form-control" id="color" [(ngModel)]="formColor">
+                            <label class="warning-message" *ngIf="formColor != selectedProduct.color"> <i class="fa-solid fa-pen-to-square"></i></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img src="{{selectedProduct.image}}" class="img-fluid" />
+                </div>
+            </div>
+            
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="description">Description</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="text" class="form-control" id="description" [(ngModel)]="formDescription">
+                    <label class="warning-message" *ngIf="formDescription != selectedProduct.description"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="productId">Image URL</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="text" class="form-control" id="imageURL" [(ngModel)]="formImageURL">
+                    <label class="warning-message" *ngIf="formImageURL != selectedProduct.image"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
 
 
 
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="price">Price</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control" id="price" [(ngModel)]="formPrice">
+                    <label class="warning-message" *ngIf="formPrice != selectedProduct.price"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="discount">Discount (%)</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control" id="discount" [(ngModel)]="formDiscount">
+                    <label class="warning-message" *ngIf="formDiscount != selectedProduct.discount"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="availableStocks">Available stocks</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control" id="availableStocks" [(ngModel)]="formAvailableStocks">
+                    <label class="warning-message" *ngIf="formAvailableStocks != selectedProduct.availableStocks"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="itemsSold">Items sold</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control disabled" id="itemsSold" [(ngModel)]="formItemsSold">
+                    <label class="warning-message" *ngIf="formItemsSold != selectedProduct.soldItems"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="releaseDate">Release Date</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control" id="releaseDate" [(ngModel)]="formReleaseDate">
+                    <label class="warning-message" *ngIf="formReleaseDate != selectedProduct.releaseDate"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="rating">Rating</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="number" class="form-control" id="rating" [(ngModel)]="formRating">
+                    <label class="warning-message" *ngIf="formRating != selectedProduct.rating"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="seller">Seller</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="text" class="form-control" id="seller" [(ngModel)]="formSeller">
+                    <label class="warning-message" *ngIf="formSeller != selectedProduct.seller"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+
+            <div class="row data-row">
+                <div class="col-2 h-auto d-flex align-items-center">
+                    <label for="productId">Previous Owner</label>
+                </div>
+                <div class="col-10 position-relative">
+                    <input type="text" class="form-control" id="prevOwnerFirstName" [(ngModel)]="formPrevOwner">
+                    <label class="warning-message" *ngIf="formPrevOwner != selectedProduct.previousOwner"> <i class="fa-solid fa-pen-to-square"></i></label>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-primary fs-6" [class.disabled]="disableUpdateBtn()" (click)="onUpdateProductClick()">Update Product</button>
+        <button type="button" class="btn btn-secondary fs-6"  (click)="modal.close('Close click')">Close</button>
     </div>
 </ng-template>
