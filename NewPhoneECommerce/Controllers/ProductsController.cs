@@ -165,7 +165,7 @@ namespace API.Controllers
         }
 
         [HttpGet("GetAllProductsCount")]
-        public async Task<ActionResult<ProductToReturnDto>> GetAllProductsCount()
+        public ActionResult<int> GetAllProductsCount()
         {
             var specs = new ProductWithSellerAndPrevOwnerSpec();
             var data = _productsRepo.ApplySpecification(specs);
@@ -447,10 +447,27 @@ namespace API.Controllers
 
             if (result != "Success")
             {
-                return Json("Editing product failed.");
+                return Json("Fail");
             }
 
-            return Json("Editing product success.");
+            return Json("Success");
+        }
+
+        [HttpGet("GetProductCountWithSearchString")]
+        public ActionResult<int> GetProductCountWithSearchString(
+            [FromQuery] string? searchString)
+        {
+            if (searchString != null)
+            {
+                var specs = new ProductWithSellerAndPrevOwnerSpec();
+                specs.Criteria = x => x.Model.ToString().ToLower().Contains(searchString.ToLower());
+
+                var data = _productsRepo.ApplySpecification(specs).ToList();
+
+                return Ok(data.Count());
+            }
+
+            return GetAllProductsCount();
         }
     }
 }

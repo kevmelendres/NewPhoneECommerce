@@ -5,6 +5,7 @@ import { IAdminManageProductParams } from '../../../Models/AdminManageProductPar
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IEditProduct } from '../../../Models/editproduct';
 import { HttpClient } from '@angular/common/http';
+import e from 'express';
 
 @Component({
   selector: 'app-manage-products',
@@ -39,7 +40,14 @@ export class ManageProductsComponent implements OnInit{
   formSeller: string;
   formPrevOwner: string;
 
+  searchString: string = "";
 
+  loadingImage: boolean = true
+  onImageLoad() {
+    this.loadingImage = false;
+  }
+
+  searchRemarks: string;
 
   sorterMaps: Map<string, number> = new Map<string, number>([
     ["sortProductId", -1],
@@ -89,6 +97,11 @@ export class ManageProductsComponent implements OnInit{
     if (newLastPageNumber >= this.maxPossiblePageNumber) {
       this.enableNextPageClick = false;
     }
+
+    if (newLastPageNumber < this.totalNumberOfPages) {
+      this.enableNextPageClick = false;
+    }
+
   }
 
   onPrevPaginationClick() {
@@ -109,10 +122,16 @@ export class ManageProductsComponent implements OnInit{
       PageNumber: this.pageNumber,
       ItemsToShow: this.itemsToShow,
       SortBy: this.sortBy,
+      SearchString: this.searchString ? this.searchString : undefined
     }
 
     this.adminProductService.getAllProducts(productParams).subscribe(data => {
-      this.productList = data;  
+      this.productList = data;
+
+      this.adminProductService.getCountWithSearchString(this.searchString).subscribe(count => {
+        this.allProductsCount = count;
+        this.maxPossiblePageNumber = Math.ceil(this.allProductsCount / this.itemsToShow);
+      })
     });
   }
 
@@ -211,6 +230,7 @@ export class ManageProductsComponent implements OnInit{
   }
 
   onUpdateProductClick() {
+    this.loadingImage = true;
     let productToEdit = <IEditProduct>{};
     productToEdit.id = this.selectedProduct.id;
     productToEdit.brand = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
@@ -219,7 +239,7 @@ export class ManageProductsComponent implements OnInit{
     productToEdit.deviceOS = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
     productToEdit.color = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
     productToEdit.description = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
-    productToEdit.image = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
+    productToEdit.image = (this.formImageURL != this.selectedProduct.image) ? this.formImageURL : null;
     productToEdit.price = (this.formPrice != this.selectedProduct.price) ? this.formPrice : null;
     productToEdit.discount = (this.formDiscount != this.selectedProduct.discount) ? this.formDiscount : null;
     productToEdit.availableStocks = (this.formAvailableStocks != this.selectedProduct.availableStocks) ? this.formAvailableStocks : null;
@@ -230,6 +250,51 @@ export class ManageProductsComponent implements OnInit{
     productToEdit.previousOwnerFirstName = (this.formPrevOwner != this.selectedProduct.previousOwner) ? this.formPrevOwner : null;
     productToEdit.previousOwnerLastName = null;
 
-    this.adminProductService.editProduct(productToEdit).subscribe(data => console.log(data));
+    this.adminProductService.editProduct(productToEdit).subscribe(resp => {
+      console.log(resp);
+      if (resp == "Success") {
+        this.modalService.dismissAll();
+        this.getProducts();
+      }
+    });
+  }
+
+  searchProduct() {
+    this.searchRemarks = this.searchString;
+    this.pageNumber = 1;
+
+    let productParams: IAdminManageProductParams = {
+      PageNumber: this.pageNumber,
+      ItemsToShow: this.itemsToShow,
+      SortBy: this.sortBy,
+      SearchString: this.searchString
+    }
+
+    this.adminProductService.getAllProducts(productParams).subscribe(data => {
+      this.productList = data;
+    });
+
+    this.adminProductService.getCountWithSearchString(this.searchString).subscribe(count => {
+      this.enableNextPageClick = true;
+
+      this.allProductsCount = count;
+      this.maxPossiblePageNumber = Math.ceil(this.allProductsCount / this.itemsToShow);
+
+      if (this.maxPossiblePageNumber <= this.totalNumberOfPages) {
+        this.enableNextPageClick = false;
+      }
+    })
+  }
+
+  onSearchTyping(event: any) {
+    if (event.key == "Enter") {
+      this.searchProduct();
+    }
+  }
+
+  deleteSearchString() {
+    this.searchString = "";
+    this.searchRemarks = "";
+    this.getProducts();
   }
 }

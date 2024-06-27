@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { baseUrlDev } from '../Environment/dev.env';
 import { IProduct } from '../Models/product';
 import { IAdminManageProductParams } from '../Models/AdminManageProductParams';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { IEditProduct } from '../Models/editproduct';
 
 @Injectable({
@@ -56,5 +56,12 @@ export class AdminProductService {
   editProduct(editedProduct: IEditProduct): Observable<any> {
     let body = editedProduct
     return this.http.post<string>(this.baseUrl + "/Products/Edit", body);
+  }
+
+  getCountWithSearchString(searchString: string): Observable<number> {
+    let params = new HttpParams();
+    params = params.append('searchString', searchString);
+    return this.http.get<number>(this.baseUrl + '/Products/GetProductCountWithSearchString',
+      { observe: 'body', params: params });
   }
 }
