@@ -24,7 +24,9 @@ export class AppComponent {
       componentLoaded == '_RegisterComponent' ||
       componentLoaded == '_AdminHomeComponent' ||
       componentLoaded == '_ManageDeliveriesComponent' ||
-      componentLoaded == '_ManageProductsComponent')
+      componentLoaded == '_ManageProductsComponent' ||
+      componentLoaded == '_ManageUsersComponent'
+    )
   }
 
   toRenderProductsFooter(componentLoaded: String) {
@@ -36,7 +38,8 @@ export class AppComponent {
       componentLoaded == '_MyOrdersComponent' ||
       componentLoaded == '_AdminHomeComponent' ||
       componentLoaded == '_ManageDeliveriesComponent' ||
-      componentLoaded == '_ManageProductsComponent'
+      componentLoaded == '_ManageProductsComponent' ||
+      componentLoaded == '_ManageUsersComponent' 
     )
   }
 

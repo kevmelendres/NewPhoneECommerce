@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { IProduct } from '../../../Models/product';
 import { AdminProductService } from '../../../Services/admin-product.service';
 import { IAdminManageProductParams } from '../../../Models/AdminManageProductParams';
@@ -20,6 +20,10 @@ export class ManageProductsComponent implements OnInit{
   itemsToShow: number = 20;
   sortBy: string = "sortProductIdAscending";
   totalNumberOfPages: number = 15;
+
+  @ViewChild('snackbar') snackbar: ElementRef;
+  notifMessage: string;
+
 
   enableNextPageClick: boolean = true;
   prevSorter: string;
@@ -67,7 +71,7 @@ export class ManageProductsComponent implements OnInit{
   maxPossiblePageNumber: number;
 
   constructor(private adminProductService: AdminProductService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -251,10 +255,15 @@ export class ManageProductsComponent implements OnInit{
     productToEdit.previousOwnerLastName = null;
 
     this.adminProductService.editProduct(productToEdit).subscribe(resp => {
-      console.log(resp);
       if (resp == "Success") {
         this.modalService.dismissAll();
+        this.notifMessage = "Successfully edited product."
+        this.openSnackBar();
         this.getProducts();
+      } else {
+        this.modalService.dismissAll();
+        this.notifMessage = "Something went wrong. Please try again."
+        this.openSnackBar();
       }
     });
   }
@@ -296,5 +305,13 @@ export class ManageProductsComponent implements OnInit{
     this.searchString = "";
     this.searchRemarks = "";
     this.getProducts();
+  }
+
+  openSnackBar() {
+    this.renderer.addClass(this.snackbar.nativeElement, 'show');
+
+    setTimeout(() => {
+      this.renderer.removeClass(this.snackbar.nativeElement, 'show');
+    }, 3000);
   }
 }

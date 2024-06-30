@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ManageDeliveriesComponent } from './manage-deliveries/manage-deliveries.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'manage-products',
     component: ManageProductsComponent,
+  },
+  {
+    path: 'manage-users',
+    component: ManageUsersComponent,
   },
 ];
 
