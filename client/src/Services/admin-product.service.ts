@@ -5,6 +5,8 @@ import { IProduct } from '../Models/product';
 import { IAdminManageProductParams } from '../Models/AdminManageProductParams';
 import { Observable, of } from 'rxjs';
 import { IEditProduct } from '../Models/editproduct';
+import { ISeller } from '../Models/seller';
+import { IPreviousOwner } from '../Models/previousowner';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +65,13 @@ export class AdminProductService {
     params = params.append('searchString', searchString);
     return this.http.get<number>(this.baseUrl + '/Products/GetProductCountWithSearchString',
       { observe: 'body', params: params });
+  }
+
+  getAllSellers(): Observable<ISeller[]> {
+    return this.http.get<ISeller[]>(this.baseUrl + '/Products/GetAllSellers')
+  }
+
+  getAllPreviousOwners(): Observable<IPreviousOwner[]> {
+    return this.http.get<IPreviousOwner[]>(this.baseUrl + '/Products/GetAllPreviousOwners')
   }
 }

@@ -4,8 +4,8 @@ import { AdminProductService } from '../../../Services/admin-product.service';
 import { IAdminManageProductParams } from '../../../Models/AdminManageProductParams';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IEditProduct } from '../../../Models/editproduct';
-import { HttpClient } from '@angular/common/http';
-import e from 'express';
+import { ISeller } from '../../../Models/seller';
+import { IPreviousOwner } from '../../../Models/previousowner';
 
 @Component({
   selector: 'app-manage-products',
@@ -15,6 +15,11 @@ import e from 'express';
 export class ManageProductsComponent implements OnInit{
 
   productList: IProduct[];
+  sellerList: ISeller[];
+  previousOwnerList: IPreviousOwner[];
+
+  isAddNewSeller: boolean = false;
+  isAddNewPrevOwner: boolean = false;
 
   pageNumber: number = 1;
   itemsToShow: number = 20;
@@ -44,6 +49,27 @@ export class ManageProductsComponent implements OnInit{
   formSeller: string;
   formPrevOwner: string;
 
+  formAddModel: string;
+  formAddBrand: string;
+  formAddDeviceOS: string;
+  formAddColor: string;
+  formAddDescription: string;
+  formAddImageURL: string;
+  formAddPrice: number;
+  formAddDiscount: number;
+  formAddAvailableStocks: number;
+  formAddItemsSold: number;
+  formAddReleaseDate: number;
+  formAddRating: number;
+
+  formAddNewSeller: string;
+  formAddSelectedSeller: ISeller;
+
+  formAddNewPrevOwnerFirstName: string;
+  formAddNewPrevOwnerLastName: string;
+  formAddSelectedPrevOwner: IPreviousOwner;
+
+
   searchString: string = "";
 
   loadingImage: boolean = true
@@ -70,6 +96,8 @@ export class ManageProductsComponent implements OnInit{
   allProductsCount: number;
   maxPossiblePageNumber: number;
 
+  isEditProduct: boolean = false;
+
   constructor(private adminProductService: AdminProductService,
     private modalService: NgbModal, private renderer: Renderer2) { }
 
@@ -79,6 +107,9 @@ export class ManageProductsComponent implements OnInit{
       this.allProductsCount = data;
       this.maxPossiblePageNumber = Math.ceil(this.allProductsCount / this.itemsToShow);
     })
+
+    this.adminProductService.getAllSellers().subscribe(data => this.sellerList = data);
+    this.adminProductService.getAllPreviousOwners().subscribe(data => this.previousOwnerList = data);
   }
 
   onPageNumberClick(pageNum: number) {
@@ -195,78 +226,83 @@ export class ManageProductsComponent implements OnInit{
     this.populateSelectedProductForm();
   }
 
-  populateSelectedProductForm(){
-    this.formBrand = this.selectedProduct.brand;
-    this.formModel = this.selectedProduct.model;
-    this.formDeviceOS = this.selectedProduct.deviceOS;
-    this.formColor = this.selectedProduct.color;
-    this.formDescription = this.selectedProduct.description;
-    this.formImageURL = this.selectedProduct.image;
-    this.formPrice = this.selectedProduct.price;
-    this.formDiscount = this.selectedProduct.discount;
-    this.formAvailableStocks = this.selectedProduct.availableStocks;
-    this.formItemsSold = this.selectedProduct.soldItems;
-    this.formReleaseDate = this.selectedProduct.releaseDate;
-    this.formRating = this.selectedProduct.rating;
-    this.formSeller = this.selectedProduct.seller;
-    this.formPrevOwner = this.selectedProduct.previousOwner;
+  populateSelectedProductForm() {
+    if (this.selectedProduct) {
+      this.formBrand = this.selectedProduct.brand;
+      this.formModel = this.selectedProduct.model;
+      this.formDeviceOS = this.selectedProduct.deviceOS;
+      this.formColor = this.selectedProduct.color;
+      this.formDescription = this.selectedProduct.description;
+      this.formImageURL = this.selectedProduct.image;
+      this.formPrice = this.selectedProduct.price;
+      this.formDiscount = this.selectedProduct.discount;
+      this.formAvailableStocks = this.selectedProduct.availableStocks;
+      this.formItemsSold = this.selectedProduct.soldItems;
+      this.formReleaseDate = this.selectedProduct.releaseDate;
+      this.formRating = this.selectedProduct.rating;
+      this.formSeller = this.selectedProduct.seller;
+      this.formPrevOwner = this.selectedProduct.previousOwner;
+    }
   }
 
   disableUpdateBtn(): boolean {
-    if (
-      this.formBrand != this.selectedProduct.brand ||
-      this.formModel != this.selectedProduct.model ||
-      this.formDeviceOS != this.selectedProduct.deviceOS ||
-      this.formColor != this.selectedProduct.color ||
-      this.formDescription != this.selectedProduct.description ||
-      this.formImageURL != this.selectedProduct.image ||
-      this.formPrice != this.selectedProduct.price ||
-      this.formDiscount != this.selectedProduct.discount ||
-      this.formAvailableStocks != this.selectedProduct.availableStocks ||
-      this.formItemsSold != this.selectedProduct.soldItems ||
-      this.formReleaseDate != this.selectedProduct.releaseDate ||
-      this.formRating != this.selectedProduct.rating ||
-      this.formSeller != this.selectedProduct.seller ||
-      this.formPrevOwner != this.selectedProduct.previousOwner) {
+    if (this.selectedProduct) {
+      if (
+        this.formBrand != this.selectedProduct.brand ||
+        this.formModel != this.selectedProduct.model ||
+        this.formDeviceOS != this.selectedProduct.deviceOS ||
+        this.formColor != this.selectedProduct.color ||
+        this.formDescription != this.selectedProduct.description ||
+        this.formImageURL != this.selectedProduct.image ||
+        this.formPrice != this.selectedProduct.price ||
+        this.formDiscount != this.selectedProduct.discount ||
+        this.formAvailableStocks != this.selectedProduct.availableStocks ||
+        this.formItemsSold != this.selectedProduct.soldItems ||
+        this.formReleaseDate != this.selectedProduct.releaseDate ||
+        this.formRating != this.selectedProduct.rating ||
+        this.formSeller != this.selectedProduct.seller ||
+        this.formPrevOwner != this.selectedProduct.previousOwner) {
         return false;
+      }
     }
     return true;
+
   }
 
   onUpdateProductClick() {
-    this.loadingImage = true;
-    let productToEdit = <IEditProduct>{};
-    productToEdit.id = this.selectedProduct.id;
-    productToEdit.brand = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
+      this.loadingImage = true;
+      let productToEdit = <IEditProduct>{};
+      productToEdit.id = this.selectedProduct.id;
+      productToEdit.brand = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
 
-    productToEdit.model = (this.formModel != this.selectedProduct.model) ? this.formModel : null;
-    productToEdit.deviceOS = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
-    productToEdit.color = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
-    productToEdit.description = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
-    productToEdit.image = (this.formImageURL != this.selectedProduct.image) ? this.formImageURL : null;
-    productToEdit.price = (this.formPrice != this.selectedProduct.price) ? this.formPrice : null;
-    productToEdit.discount = (this.formDiscount != this.selectedProduct.discount) ? this.formDiscount : null;
-    productToEdit.availableStocks = (this.formAvailableStocks != this.selectedProduct.availableStocks) ? this.formAvailableStocks : null;
-    productToEdit.soldItems = (this.formItemsSold != this.selectedProduct.soldItems) ? this.formItemsSold : null;
-    productToEdit.releaseDate = (this.formReleaseDate != this.selectedProduct.releaseDate) ? this.formReleaseDate : null;
-    productToEdit.rating = (this.formRating != this.selectedProduct.rating) ? this.formRating : null;
-    productToEdit.seller = (this.formSeller != this.selectedProduct.seller) ? this.formSeller : null;
-    productToEdit.previousOwnerFirstName = (this.formPrevOwner != this.selectedProduct.previousOwner) ? this.formPrevOwner : null;
-    productToEdit.previousOwnerLastName = null;
+      productToEdit.model = (this.formModel != this.selectedProduct.model) ? this.formModel : null;
+      productToEdit.deviceOS = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
+      productToEdit.color = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
+      productToEdit.description = (this.formBrand != this.selectedProduct.brand) ? this.formBrand : null;
+      productToEdit.image = (this.formImageURL != this.selectedProduct.image) ? this.formImageURL : null;
+      productToEdit.price = (this.formPrice != this.selectedProduct.price) ? this.formPrice : null;
+      productToEdit.discount = (this.formDiscount != this.selectedProduct.discount) ? this.formDiscount : null;
+      productToEdit.availableStocks = (this.formAvailableStocks != this.selectedProduct.availableStocks) ? this.formAvailableStocks : null;
+      productToEdit.soldItems = (this.formItemsSold != this.selectedProduct.soldItems) ? this.formItemsSold : null;
+      productToEdit.releaseDate = (this.formReleaseDate != this.selectedProduct.releaseDate) ? this.formReleaseDate : null;
+      productToEdit.rating = (this.formRating != this.selectedProduct.rating) ? this.formRating : null;
+      productToEdit.seller = (this.formSeller != this.selectedProduct.seller) ? this.formSeller : null;
+      productToEdit.previousOwnerFirstName = (this.formPrevOwner != this.selectedProduct.previousOwner) ? this.formPrevOwner : null;
+      productToEdit.previousOwnerLastName = null;
 
-    this.adminProductService.editProduct(productToEdit).subscribe(resp => {
-      if (resp == "Success") {
-        this.modalService.dismissAll();
-        this.notifMessage = "Successfully edited product."
-        this.openSnackBar();
-        this.getProducts();
-      } else {
-        this.modalService.dismissAll();
-        this.notifMessage = "Something went wrong. Please try again."
-        this.openSnackBar();
-      }
-    });
-  }
+      this.adminProductService.editProduct(productToEdit).subscribe(resp => {
+        if (resp == "Success") {
+          this.modalService.dismissAll();
+          this.notifMessage = "Successfully edited product."
+          this.openSnackBar();
+          this.getProducts();
+        } else {
+          this.modalService.dismissAll();
+          this.notifMessage = "Something went wrong. Please try again."
+          this.openSnackBar();
+        }
+      });
+    }
 
   searchProduct() {
     this.searchRemarks = this.searchString;
@@ -313,5 +349,36 @@ export class ManageProductsComponent implements OnInit{
     setTimeout(() => {
       this.renderer.removeClass(this.snackbar.nativeElement, 'show');
     }, 3000);
+  }
+
+  showNoItemsToShowDiv() {
+    if (this.productList) {
+      if (this.productList.length == 0) {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+
+  onAddProductBtnClick(content: TemplateRef<any>) {
+    this.isEditProduct = false;
+    this.modalService.open(content, { centered: true, size: 'lg' });
+  }
+
+  disableAddNewProductBtn() {
+    return false;
+  }
+
+  onSellerSelect(seller: ISeller) {
+    this.formAddSelectedSeller = seller;
+  }
+
+  onPrevOwnerSelect(prevOwner: IPreviousOwner) {
+    this.formAddSelectedPrevOwner = prevOwner;
+  }
+
+  onAddProduct() {
+    console.log("adding")
   }
 }

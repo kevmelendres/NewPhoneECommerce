@@ -18,6 +18,18 @@ namespace API.Helpers
             return newList;
         }
 
+        public static IReadOnlyList<ProductToReturnDto> MapProductList(List<Product> dataList)
+        {
+            var newList = new List<ProductToReturnDto>();
+
+            foreach (var item in dataList)
+            {
+                newList.Add(MapProductItem(item));
+            }
+
+            return newList;
+        }
+
         public static ProductToReturnDto MapProductItem(Product item)
         {
             var addItem = new ProductToReturnDto();
@@ -177,6 +189,50 @@ namespace API.Helpers
             return orderToReturn;
         }
 
-        
+        public static PreviousOwnerDto MapPreviousOwner(PreviousOwner prevOwner)
+        {
+            return new PreviousOwnerDto()
+            {
+                FirstName = prevOwner.FirstName,
+                Id = prevOwner.Id,
+                LastName = prevOwner.LastName,
+                Address = prevOwner.Address,
+                PhoneNumber = prevOwner.PhoneNumber,
+            };
+        }
+
+        public static List<PreviousOwnerDto> MapPreviousOwnerList(IReadOnlyList<PreviousOwner> prevOwnerList)
+        {
+            List<PreviousOwnerDto> returnList = new();
+
+            foreach (var prevOwner in prevOwnerList)
+            {
+                returnList.Add(MapPreviousOwner(prevOwner));
+            }
+            return returnList;
+        }
+
+        public static SellerDto MapSeller(Seller seller)
+        {
+            return new SellerDto()
+            {
+                Name = seller.Name,
+                Id = seller.Id,
+                Phone = seller.Phone,
+                Address = seller.Address,
+                Email = seller.Email,
+            };
+        }
+
+        public static List<SellerDto> MapSellerList(IReadOnlyList<Seller> sellerList)
+        {
+            List<SellerDto> returnList = new();
+
+            foreach (var seller in sellerList)
+            {
+                returnList.Add(MapSeller(seller));
+            }
+            return returnList;
+        }
     }
 }

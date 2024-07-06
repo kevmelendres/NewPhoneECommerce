@@ -167,6 +167,7 @@ namespace API.Controllers
         [HttpGet("GetAllProductsCount")]
         public ActionResult<int> GetAllProductsCount()
         {
+
             var specs = new ProductWithSellerAndPrevOwnerSpec();
             var data = _productsRepo.ApplySpecification(specs);
 
@@ -350,6 +351,28 @@ namespace API.Controllers
             return Ok(returnData);
         }
 
+        [HttpGet("GetProductsByPrevOwner")]
+        public async Task<ActionResult<ProductToReturnDto>> GetProductsByPrevOwner(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow, [FromQuery] string? sortBy,
+            [FromQuery] int previousOwnerId)
+        {
+            var specParam = new ProductSpecParams();
+            specParam.ItemsToShow = 5;
+            specParam.PageNumber = 1;
+
+            if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
+            if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
+            if (sortBy != null) { specParam.SortBy = sortBy; }
+            specParam.PrevOwnerId = previousOwnerId;
+
+            var newSpecs = new ProductWithParamsSpec(specParam);
+
+            var data = await _productsRepo.GetAllItems(newSpecs);
+            var returnData = MapperHelper.MapProductList(data);
+
+            return Ok(returnData);
+        }
+
         [HttpPost]
         [Route("Edit")]
         public async Task<ActionResult<string>> EditProduct([FromBody] ProductToEditDto editedProduct)
@@ -468,6 +491,77 @@ namespace API.Controllers
             }
 
             return GetAllProductsCount();
+        }
+
+        [HttpPost]
+        [Route("Add")]
+        public async Task<ActionResult<string>> AddProduct([FromBody] ProductToEditDto productToAdd)
+        {
+
+            Product newProduct = new()
+            {
+                Brand = productToAdd.Brand!,
+                Model = productToAdd.Model!,
+                DeviceOS = productToAdd.DeviceOS!,
+                ReleaseDate = (int)productToAdd.ReleaseDate!,
+                Price = (int)productToAdd.Price!,
+                Color = productToAdd.Color!,
+                Description = productToAdd.Description!,
+                Image = productToAdd.Image!,
+
+                Rating = (double)productToAdd.Rating!,
+                Discount = (int)productToAdd.Discount!,
+                AvailableStocks = (int)productToAdd.AvailableStocks!,
+                SoldItems = (int)productToAdd.SoldItems!,
+            };
+
+            if (productToAdd.Discount != null || productToAdd.Price != null)
+            {
+                newProduct.DiscountedPrice = ((double)productToAdd.Price * (100 - (int)productToAdd.Discount!) / 100);
+                newProduct.DiscountedPrice = Math.Round(newProduct.DiscountedPrice, 2);
+            }
+
+            //_productsRepo.AddItem()
+
+            return "ok";
+        }
+
+        [HttpGet("GetAllPreviousOwners")]
+        public async Task<ActionResult<List<PreviousOwnerDto>>> GetAllPreviousOwners(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow)
+        {
+            var specs = new BaseSpecification<PreviousOwner>();
+            specs.Includes = [x => x.Products];
+            specs.ItemsToShow = 0;
+            specs.PageNumber = 1;
+
+            if (pageNumber != 0) { specs.PageNumber = pageNumber; }
+            if (itemsToShow != 0) { specs.ItemsToShow = itemsToShow; }
+
+
+            var data = await _prevOwnersRepo.GetAllItems(specs);
+            List<PreviousOwnerDto> returnList = MapperHelper.MapPreviousOwnerList(data);
+
+            return Ok(returnList);
+        }
+
+        [HttpGet("GetAllSellers")]
+        public async Task<ActionResult<List<SellerDto>>> GetAllSellers(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow)
+        {
+            var specs = new BaseSpecification<Seller>();
+            specs.Includes = [x => x.Products];
+            specs.ItemsToShow = 0;
+            specs.PageNumber = 1;
+
+            if (pageNumber != 0) { specs.PageNumber = pageNumber; }
+            if (itemsToShow != 0) { specs.ItemsToShow = itemsToShow; }
+
+            var data = await _sellersRepo.GetAllItems(specs);
+
+            List<SellerDto> returnList = MapperHelper.MapSellerList(data);
+
+            return Ok(returnList);
         }
     }
 }

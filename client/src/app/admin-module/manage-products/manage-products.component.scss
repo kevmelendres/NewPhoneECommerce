@@ -120,3 +120,17 @@ th, td {
   right: 25px;
   transform: translate(0, -50%);
 }
+
+.dropdown-menu {
+    overflow-y: scroll;
+    max-height: 300px;
+    width: 200px;
+}
+
+.seller-item-list {
+    cursor: pointer;
+}
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 0.5s;
+}
