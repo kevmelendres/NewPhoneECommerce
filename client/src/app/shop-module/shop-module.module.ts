@@ -33,6 +33,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     ShopRoutingModule
   ],
   exports: [
-  ]
+  ],
+  providers: [],
 })
 export class ShopModule { }

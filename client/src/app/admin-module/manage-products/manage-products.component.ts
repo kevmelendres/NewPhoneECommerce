@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IEditProduct } from '../../../Models/editproduct';
 import { ISeller } from '../../../Models/seller';
 import { IPreviousOwner } from '../../../Models/previousowner';
+import { IAddNewProduct } from '../../../Models/addnewproduct';
 
 @Component({
   selector: 'app-manage-products',
@@ -366,10 +367,6 @@ export class ManageProductsComponent implements OnInit{
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
-  disableAddNewProductBtn() {
-    return false;
-  }
-
   onSellerSelect(seller: ISeller) {
     this.formAddSelectedSeller = seller;
   }
@@ -379,6 +376,132 @@ export class ManageProductsComponent implements OnInit{
   }
 
   onAddProduct() {
-    console.log("adding")
+    let seller: string = !this.isAddNewSeller ? this.formAddSelectedSeller.name : this.formAddNewSeller;
+    let prevOwnerFirstName: string;
+    let prevOwnerLastName: string;
+
+    if (!this.isAddNewPrevOwner) {
+      prevOwnerFirstName = this.formAddSelectedPrevOwner.firstName;
+      prevOwnerLastName = this.formAddSelectedPrevOwner.lastName;
+    } else {
+      prevOwnerFirstName = this.formAddNewPrevOwnerFirstName;
+      prevOwnerLastName = this.formAddNewPrevOwnerLastName;
+    }
+
+    let newProduct: IAddNewProduct = {
+      brand: this.formAddBrand,
+      model: this.formAddModel,
+      deviceOS: this.formAddDeviceOS,
+      releaseDate: this.formAddReleaseDate,
+      price: this.formAddPrice,
+      color: this.formAddColor,
+      description: this.formAddDescription,
+      image: this.formAddImageURL,
+      rating: this.formAddRating,
+      discount: this.formAddDiscount,
+      availableStocks: this.formAddAvailableStocks,
+      soldItems: this.formAddItemsSold,
+      seller: seller,
+      previousOwnerFirstName: prevOwnerFirstName,
+      previousOwnerLastName: prevOwnerLastName,
+    }
+
+    this.adminProductService.addNewProduct(newProduct).subscribe(resp => {
+      if (resp != "Failed") {
+        this.modalService.dismissAll();
+        this.notifMessage = "Successfully added product."
+        this.openSnackBar();
+        this.getProducts();
+      } else {
+        this.modalService.dismissAll();
+        this.notifMessage = "Something went wrong. Please try again."
+        this.openSnackBar();
+      }
+    });
+  }
+
+  disableAddNewProductBtn(): boolean {
+    if (this.formAddBrand == "" || this.formAddBrand == undefined) {
+      return true;
+    }
+    if (this.formAddModel == "" || this.formAddModel == undefined) {
+      return true;
+    }
+    if (this.formAddDeviceOS == "" || this.formAddDeviceOS == undefined) {
+      return true;
+    }
+    if (this.formAddReleaseDate == undefined) {
+      return true;
+    }
+    if (this.formAddPrice == undefined) {
+      return true;
+    }
+    if (this.formAddColor == "" || this.formAddColor == undefined) {
+      return true;
+    }
+    if (this.formAddDescription == "" || this.formAddDescription == undefined) {
+      return true;
+    }
+    if (this.formAddImageURL == "" || this.formAddImageURL == undefined) {
+      return true;
+    }
+    if (this.formAddRating == undefined) {
+      return true;
+    }
+    if (this.formAddDiscount == undefined) {
+      return true;
+    }
+    if (this.formAddAvailableStocks == undefined) {
+      return true;
+    }
+    if (this.formAddItemsSold == undefined) {
+      return true;
+    }
+
+    if (!this.isAddNewSeller) {
+      if (this.formAddSelectedSeller == undefined ) {
+        return true;
+      } 
+    } else {
+      if (this.formAddNewSeller == undefined || this.formAddNewSeller == "") {
+        return true
+      }
+    }
+
+    if (!this.isAddNewPrevOwner) {
+      if (this.formAddSelectedPrevOwner == undefined) {
+        return true;
+      }
+    } else {
+      if ((this.formAddNewPrevOwnerFirstName == undefined || this.formAddNewPrevOwnerFirstName == "") ||
+        (this.formAddNewPrevOwnerLastName == undefined || this.formAddNewPrevOwnerLastName == "")) {
+        return true
+      }
+    }
+
+    return false;
+  }
+
+  onDeleteProductClick(content: TemplateRef<any>) {
+    let selectedProductId: number = this.selectedProduct.id;
+    this.modalService.open(content, { centered: true});
+  }
+
+
+  confirmDeleteProduct() {
+    this.adminProductService.deleteProduct(this.selectedProduct.id).subscribe(resp => {
+      if (resp == "Success") {
+        this.modalService.dismissAll();
+        this.notifMessage = "Successfully deleted product."
+        this.openSnackBar();
+
+        this.getProducts();
+
+      } else {
+        this.modalService.dismissAll();
+        this.notifMessage = "Something went wrong. Please try again."
+        this.openSnackBar();
+      }
+    });
   }
 }

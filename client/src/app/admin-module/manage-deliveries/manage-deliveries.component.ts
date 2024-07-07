@@ -15,7 +15,7 @@ export class ManageDeliveriesComponent implements OnInit {
   @ViewChild("orderDetails", { static: true }) orderDetailsModal: ElementRef;
 
   ordersToShow: IOrderDetailed[] = [];
-  itemsToShow: number = 10;
+  itemsToShow: number = 0;
   pageNumber: number = 1;
   orderStatusSelected: string | null = null;
 

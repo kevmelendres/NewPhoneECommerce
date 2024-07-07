@@ -1,100 +1,59 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, input } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
+import { Pagination } from '../../../Services/pagination';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })
-export class PaginationComponent implements OnInit{
-  currentPage: number = 1;
-  firstEntryPage: number;
-  numOfPagings: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+export class PaginationComponent implements OnInit, OnChanges {
 
-  totalNumOfProducts: number;
-  itemsPerPage: number;
-  noItemsToShowPage: number = 0;
+  pagination: Pagination = new Pagination();
 
-  maxPageNumber: number;
+  pageNumberFromShopService: number;
 
-  pageNoItemsToShow: number;
-  enableNextPageClick: boolean = true;
+  @Input() sidebarFilterSwitch: boolean;
 
   @Output() currentPageChange = new EventEmitter<number>;
   constructor(private shopService: ShopService) {
-    this.firstEntryPage = 1;
-    this.shopService.getAllProductsCount().subscribe(data => {
-      this.totalNumOfProducts = data;
-      this.shopService.itemsToShow.subscribe(itemsToShow => this.itemsPerPage = itemsToShow);
-      this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
-    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["sidebarFilterSwitch"] != undefined) {
+      this.pagination.pageNumber = 1;
+      this.shopService.totalProductCount.subscribe(data => {
+        this.pagination.allItemsCount = data;
+        this.pagination.resetPaginationNumbering();
+        this.pagination.resetPageNumbersBasedOnCurrentPage();
+        this.pagination.enableDisableNextPageClick();
+      });
+    };
   }
 
   ngOnInit(): void {
-    this.firstEntryPage = 1;
-    this.shopService.getAllProductsCount().subscribe(data => {
-      this.totalNumOfProducts = data;
-      this.shopService.itemsToShow.subscribe(itemsToShow => {
-        this.itemsPerPage = itemsToShow;
-        this.maxPageNumber = Math.ceil(this.totalNumOfProducts / this.itemsPerPage);
-      });
+    this.shopService.itemsToShow.subscribe(val => this.pagination.itemsToShow = val);
+    this.shopService.totalProductCount.subscribe(data => {
+      this.pagination.allItemsCount = data;
     });
-
-    this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
+    this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+    this.shopService.pageNumber.subscribe(val => this.pageNumberFromShopService = val);
   }
 
-  validateFirstEntryPage() {
-    if (this.currentPage < 1) {
-      this.currentPage = 1;
-    } 
-
-    if (this.firstEntryPage < 1) {
-      this.firstEntryPage = 1;
-    }
+  onPageNumberClick(page: number) {
+    this.pagination.onPageNumberClick(page);
+    this.currentPageChange.emit(this.pagination.pageNumber);
   }
 
-  pageNumberClick(event: any) {
-    this.currentPage = parseInt(event.target.text);
-    this.currentPageChange.emit(parseInt(event.target.text));
-    this.activateNextPageClick();
+  onPrevPaginationClick() {
+    this.pagination.onPrevPaginationClick();
+    this.currentPageChange.emit(this.pagination.pageNumber);
+
   }
 
-  onPrevClick() {
-    this.currentPage = this.currentPage - 10;
-    this.firstEntryPage = this.firstEntryPage - 10;
-    this.validateFirstEntryPage();
-    this.currentPageChange.emit(this.currentPage);
-    this.activateNextPageClick();
+  onNextPaginationClick() {
+    this.pagination.onNextPaginationClick();
+    this.currentPageChange.emit(this.pagination.pageNumber);
+
   }
-
-  onNextClick() {
-    this.currentPage = this.currentPage + 10;
-    this.firstEntryPage = this.firstEntryPage + 10;
-    this.validateFirstEntryPage();
-    this.currentPageChange.emit(this.currentPage);
-    this.activateNextPageClick();
-  }
-
-  activateNextPageClick() {
-    if (this.pageNoItemsToShow == 0) {
-      this.enableNextPageClick = true;
-    }
-    if (this.pageNoItemsToShow != 0) {
-      if (this.firstEntryPage + this.numOfPagings.length > this.maxPageNumber) {
-        this.enableNextPageClick = false;
-      };
-
-      if (this.firstEntryPage + this.numOfPagings.length >= this.pageNoItemsToShow) {
-        this.enableNextPageClick = false;
-      }
-    }
-  }
-
-  enablePageLink(int: number): boolean {
-    if (this.pageNoItemsToShow != 0) {
-      return (this.firstEntryPage + int > this.pageNoItemsToShow)
-    }
-    return false;
-  }
-
 }

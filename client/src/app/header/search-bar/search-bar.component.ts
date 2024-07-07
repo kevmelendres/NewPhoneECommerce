@@ -57,13 +57,16 @@ export class SearchBarComponent implements OnInit{
 
   onSubmit() {
     this.shopService.changeSearchString(this.searchString);
+    this.shopService.changeSelectedAvailability("All Products");
+    this.shopService.changeSelectedBrand("All Brands");
+    this.shopService.changeSelectedSeller("All Sellers");
+
     this.shopService.changePageNumber(1);
     this.hideQueryResults();
     if (this.router.url != "/shop") {
       this.router.navigateByUrl("/shop");
     }
     this.shopService.getAllProducts();
-    
   }
 
   hideQueryResults() {

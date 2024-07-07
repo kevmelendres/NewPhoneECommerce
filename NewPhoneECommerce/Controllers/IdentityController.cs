@@ -300,5 +300,12 @@ namespace API.Controllers
 
             return Ok("User not found.");
         }
+
+        [HttpGet]
+        [Route("get-allUsers")]
+        public async Task<ActionResult<List<AppUser>>> GetAllUsers()
+        {
+            return await _userManager.Users.ToListAsync();
+        }
     }
 }

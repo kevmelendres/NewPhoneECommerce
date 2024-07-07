@@ -42,6 +42,9 @@ export class ShopService {
   public selectedBrand = new BehaviorSubject(this.selectedBrandInit);
   public selectedSeller = new BehaviorSubject(this.selectedSellerInit);
 
+  public totalProductCountGP: number = 0;
+  public totalProductCount = new BehaviorSubject(this.totalProductCountGP);
+
   changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
   }
@@ -87,34 +90,47 @@ export class ShopService {
 
   getAllProducts() {
     let params = new HttpParams();
-    
+    let paramsTotalCount: HttpParams = new HttpParams();
+
     if (this.sortByGP) {
       params = params.append('sortBy', this.sortByGP);
+      paramsTotalCount = paramsTotalCount.append('sortBy', this.sortByGP);
     }
 
     if (this.itemsToShowGP) {
       params = params.append('itemsToShow', this.itemsToShowGP.toString());
+      paramsTotalCount = paramsTotalCount.append('itemsToShow', "0");
     }
 
     if (this.pageNumberGP) {
       params = params.append('pageNumber', this.pageNumberGP.toString());
+      paramsTotalCount = paramsTotalCount.append('pageNumber', this.pageNumberGP.toString());
     }
 
     if (this.searchStringGP) {
       params = params.append('searchString', this.searchStringGP);
+      paramsTotalCount = paramsTotalCount.append('searchString', this.searchStringGP);
     }
 
     if (this.selectedAvailabilityGP) {
       params = params.append('availability', this.selectedAvailabilityGP);
+      paramsTotalCount = paramsTotalCount.append('availability', this.selectedAvailabilityGP);
     }
 
     if (this.selectedBrandGP) {
       params = params.append('brand', this.selectedBrandGP);
+      paramsTotalCount = paramsTotalCount.append('brand', this.selectedBrandGP);
     }
 
     if (this.selectedSellerGP) {
       params = params.append('seller', this.selectedSellerGP);
+      paramsTotalCount = paramsTotalCount.append('seller', this.selectedSellerGP);
     }
+
+    this.http.get<IProduct[]>(this.baseUrl + 'Products',
+      { observe: 'body', params: paramsTotalCount }).subscribe(data => {
+        this.totalProductCount.next(data.length);
+      });
 
     return this.http.get<IProduct[]>(this.baseUrl + 'Products',
       { observe: 'response', params: params })
@@ -138,7 +154,8 @@ export class ShopService {
 
     if (topItemsValue) {
       params = params.append('topValue', topItemsValue);
-    }
+      }
+
 
     return this.http.get<string[]>(this.baseUrl + 'Products/UniqueSellers',
       { observe: 'response', params: params })

@@ -19,17 +19,27 @@ export class SidebarFilterComponent implements OnInit{
   sellersToShowLabel: string = "Top Sellers";
   brandsToShowLabel: string = "Top Brands";
 
-  selectedProductBrand: string = 'All Brands';
-  selectedAvailability: string = 'All Products';
-  selectedSeller: string = 'All Sellers';
+  selectedProductBrand: string;
+  selectedAvailability: string;
+  selectedSeller: string;
 
   @Output() selectedProductBrandEmit = new EventEmitter<string>();
   @Output() selectedAvailabilityEmit = new EventEmitter<string>();
   @Output() selectedSellerEmit = new EventEmitter<string>();
+
+  toggleFilter: boolean = true;
+  @Output() toggleSelectedFilterEmit = new EventEmitter<boolean>();
   
   constructor(private shopService: ShopService) { }
 
   ngOnInit() {
+    this.shopService.selectedBrand.subscribe(selectedBrand =>
+      this.selectedProductBrand = selectedBrand);
+    this.shopService.selectedAvailability.subscribe(selectedAvailability =>
+      this.selectedAvailability = selectedAvailability);
+    this.shopService.selectedSeller.subscribe(selectedSeller =>
+      this.selectedSeller = selectedSeller);
+
     this.getProductBrands(5);
     this.getProductSellers(5);
     this.getProductColors(5);
@@ -71,16 +81,25 @@ export class SidebarFilterComponent implements OnInit{
 
   onProductBrandSelect() {
     this.shopService.changeSelectedBrand(this.selectedProductBrand);
+    this.shopService.changePageNumber(1);
     this.selectedProductBrandEmit.emit(this.selectedProductBrand);
+    this.toggleFilter = !this.toggleFilter;
+    this.toggleSelectedFilterEmit.emit(!this.toggleFilter);
   }
 
   onSellerSelect() {
     this.shopService.changeSelectedSeller(this.selectedSeller);
+    this.shopService.changePageNumber(1);
     this.selectedSellerEmit.emit(this.selectedSeller);
+    this.toggleFilter = !this.toggleFilter;
+    this.toggleSelectedFilterEmit.emit(!this.toggleFilter);
   }
 
   onAvailabilitySelect() {
     this.shopService.changeSelectedAvailability(this.selectedAvailability);
+    this.shopService.changePageNumber(1);
     this.selectedAvailabilityEmit.emit(this.selectedAvailability);
+    this.toggleFilter = !this.toggleFilter;
+    this.toggleSelectedFilterEmit.emit(!this.toggleFilter);
   }
 }

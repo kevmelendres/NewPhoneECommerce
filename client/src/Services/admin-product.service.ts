@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { IEditProduct } from '../Models/editproduct';
 import { ISeller } from '../Models/seller';
 import { IPreviousOwner } from '../Models/previousowner';
+import { IAddNewProduct } from '../Models/addnewproduct';
 
 @Injectable({
   providedIn: 'root'
@@ -73,5 +74,13 @@ export class AdminProductService {
 
   getAllPreviousOwners(): Observable<IPreviousOwner[]> {
     return this.http.get<IPreviousOwner[]>(this.baseUrl + '/Products/GetAllPreviousOwners')
+  }
+
+  addNewProduct(newProduct: IAddNewProduct): Observable<string> {
+    return this.http.post<string>(this.baseUrl + '/Products/Add', newProduct)
+  }
+
+  deleteProduct(productId: number): Observable<string> {
+    return this.http.post<string>(this.baseUrl + '/Products/Delete', productId);
   }
 }

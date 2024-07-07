@@ -14,6 +14,8 @@ export class ShopComponent implements OnChanges{
   selectedProduct: IProduct;
   toggle: boolean;
 
+  switchFilter: boolean;
+
   sellerName: string | null;
 
   pageNoItemsToShow: number;
@@ -22,7 +24,8 @@ export class ShopComponent implements OnChanges{
   sellerFilterChanged: string;
   availabilityFilterChanged: string;
 
-  constructor(private shopService: ShopService, private route: ActivatedRoute) {
+  constructor(private shopService: ShopService,
+    private route: ActivatedRoute) {
   }
 
   ngOnChanges(): void {
@@ -98,5 +101,10 @@ export class ShopComponent implements OnChanges{
 
   onBrandFilterChange(brand: string) {
     this.getProducts();
+  }
+
+  onToggleSelectedFilterEmit(switchToggle: boolean) {
+    this.switchFilter = switchToggle;
+
   }
 }

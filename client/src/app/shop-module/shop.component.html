@@ -4,7 +4,8 @@
     <div class="p-2 col-2">
         <app-sidebar-filter (selectedSellerEmit)="onSellerFilterChange($event)"
                             (selectedProductBrandEmit)="onBrandFilterChange($event)"
-                            (selectedAvailabilityEmit)="onAvailabilityFilterChange($event)"></app-sidebar-filter>
+                            (selectedAvailabilityEmit)="onAvailabilityFilterChange($event)"
+                            (toggleSelectedFilterEmit)="onToggleSelectedFilterEmit($event)"></app-sidebar-filter>
     </div>
 
     <div class="p-2 col-10">
@@ -32,11 +33,11 @@
       </div>
 
       <div class="row pt-4 mt-4 text-center">
-          <app-pagination (currentPageChange)="currentPageChange($event)"></app-pagination>
+          <app-pagination (currentPageChange)="currentPageChange($event)" [sidebarFilterSwitch]="switchFilter"></app-pagination>
       </div>
 
       <div>
-          <app-product-details [selectedProduct]="selectedProduct" [toggle]="toggle"></app-product-details>
+          <app-product-details [selectedProduct]="selectedProduct" [toggle]="toggle" ></app-product-details>
       </div>
     </div>
   </div>

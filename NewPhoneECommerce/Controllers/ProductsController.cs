@@ -4,6 +4,7 @@ using Core.Interfaces;
 using Core.Models;
 using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace API.Controllers
 {
@@ -33,7 +34,7 @@ namespace API.Controllers
             specParam.PageNumber = 1;
 
             if (pageNumber != 0) { specParam.PageNumber = pageNumber; }
-            if (itemsToShow != 0) { specParam.ItemsToShow = itemsToShow; }
+            specParam.ItemsToShow = itemsToShow;
             if (sortBy != null) { specParam.SortBy = sortBy; }
             if (searchString != null) { specParam.SearchString = searchString; }
 
@@ -50,6 +51,11 @@ namespace API.Controllers
 
             var data = await _productsRepo.GetAllItems(newSpecs);
             var returnData = MapperHelper.MapProductList(data);
+
+            if (itemsToShow == 0)
+            {
+                data = _productsRepo.ApplySpecification(newSpecs).ToList();
+            }
 
             return Ok(returnData);
         }
@@ -495,7 +501,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("Add")]
-        public async Task<ActionResult<string>> AddProduct([FromBody] ProductToEditDto productToAdd)
+        public async Task<ActionResult<string>> AddProduct([FromBody] ProductToAddDto productToAdd)
         {
 
             Product newProduct = new()
@@ -521,9 +527,87 @@ namespace API.Controllers
                 newProduct.DiscountedPrice = Math.Round(newProduct.DiscountedPrice, 2);
             }
 
-            //_productsRepo.AddItem()
+            if (productToAdd.Seller != null)
+            {
+                var sellerSpecs = new BaseSpecification<Seller>();
+                sellerSpecs.Criteria = x => x.Name == productToAdd.Seller;
 
-            return "ok";
+                var sellers = await _sellersRepo.GetItemsWithSpecs(sellerSpecs);
+
+                if (sellers.Count > 0)
+                {
+                    var sellerId = sellers[0].Id;
+                    newProduct.SellerID = sellerId;
+                }
+                else
+                {
+                    var newSeller = new Seller(productToAdd.Seller);
+                    var addSellerResult = await _sellersRepo.AddItem(newSeller);
+
+                    if (addSellerResult == "Failed")
+                    {
+                        return Json("Failed adding seller.");
+                    }
+
+                    int sellerId = -1;
+                    if (Int32.TryParse(addSellerResult, out sellerId))
+                    {
+                        newProduct.SellerID = sellerId;
+                    };
+                }
+            }
+
+            if (productToAdd.PreviousOwnerFirstName != null)
+            {
+                var prevOwnerSpecs = new BaseSpecification<PreviousOwner>();
+                prevOwnerSpecs.Criteria = x => ((x.FirstName == productToAdd.PreviousOwnerFirstName) &&
+                    (x.LastName == productToAdd.PreviousOwnerLastName));
+
+                var previousOwners = await _prevOwnersRepo.GetItemsWithSpecs(prevOwnerSpecs);
+
+                if (previousOwners.Count > 0)
+                {
+                    var prevOwnerId = previousOwners[0].Id;
+                    newProduct.PrevOwnerID = prevOwnerId;
+                }
+                else
+                {
+                    var newPrevOwner = new PreviousOwner(productToAdd.PreviousOwnerFirstName,
+                        productToAdd.PreviousOwnerLastName);
+                    var addPrevOwnerResult = await _prevOwnersRepo.AddItem(newPrevOwner);
+
+                    if (addPrevOwnerResult == "Failed")
+                    {
+                        return Json("Failed adding previous owner.");
+                    }
+
+                    int prevOwnerId = -1;
+                    if (Int32.TryParse(addPrevOwnerResult, out prevOwnerId))
+                    {
+                        newProduct.PrevOwnerID = prevOwnerId;
+                    };
+                }
+            }
+
+            var result = await _productsRepo.AddItem(newProduct);
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+
+        public async Task<ActionResult<string>> DeleteDeliveryMethod(
+            [FromBody] int productId)
+        {
+            var result = await _productsRepo.DeleteItem(productId);
+
+            if (result == "Success")
+            {
+                return Json("Success");
+            }
+
+            return Json("Failed");
         }
 
         [HttpGet("GetAllPreviousOwners")]
