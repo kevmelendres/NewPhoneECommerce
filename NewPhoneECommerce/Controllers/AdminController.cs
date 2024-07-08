@@ -71,6 +71,24 @@ namespace API.Controllers
             return Ok(ordersList);
         }
 
+        [HttpGet]
+        [Route("GetOrdersTotalCount")]
+        public async Task<ActionResult<int>> GetOrdersTotalCount(
+            [FromQuery] string? orderStatus)
+        {
+            var paramSpecs = new OrderSpecParams();
+            paramSpecs.ItemsToShow = 0;
+
+            if (orderStatus != null)
+            {
+                paramSpecs.Criteria = x => x.OrderStatus == orderStatus.ToOrderStatus();
+            }
+
+            var data = await _orderRepository.GetAllItems(paramSpecs);
+
+            return Ok(data.Count());
+        }
+
         [HttpPost]
         [Route("Order/EditOrderStatus")]
         public async Task<ActionResult<string>> EditOrderStatus(

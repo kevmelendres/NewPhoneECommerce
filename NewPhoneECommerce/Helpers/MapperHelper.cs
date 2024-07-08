@@ -145,7 +145,6 @@ namespace API.Helpers
                     return OrderStatusEnum.OrderPlaced;
 
                 case "Order In Progress":
-                    Console.WriteLine("SET TO ORDER IN PROGRESS");
                     return OrderStatusEnum.OrderInProgress;
 
                 case "Preparing To Ship":

@@ -3,6 +3,7 @@ import { IOrderDetailed } from '../../../Models/orderdetailed';
 import { AdminOrderService } from '../../../Services/admin-order.service';
 import { FormatHelpersService } from '../../../Services/format-helpers.service';
 import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { Pagination } from '../../../Services/pagination';
 
 @Component({
   selector: 'app-manage-deliveries',
@@ -15,8 +16,7 @@ export class ManageDeliveriesComponent implements OnInit {
   @ViewChild("orderDetails", { static: true }) orderDetailsModal: ElementRef;
 
   ordersToShow: IOrderDetailed[] = [];
-  itemsToShow: number = 0;
-  pageNumber: number = 1;
+
   orderStatusSelected: string | null = null;
 
   selectedOrder: IOrderDetailed;
@@ -29,7 +29,7 @@ export class ManageDeliveriesComponent implements OnInit {
 
   selectedOrderStatus: string;
 
-
+  pagination: Pagination = new Pagination();
 
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
@@ -37,11 +37,21 @@ export class ManageDeliveriesComponent implements OnInit {
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.pagination.itemsToShow = 20;
+
     this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
     this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
     this.getOrders();
     this.orderStatusList = this.formatHelpers.orderStatusList;
 
+
+    this.adminOrderService.getOrdersCount("All Deliveries").subscribe(data => {
+      this.pagination.allItemsCount = data;
+      this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+      this.pagination.resetPaginationNumbering();
+      this.pagination.resetPageNumbersBasedOnCurrentPage();
+      this.pagination.enableDisableNextPageClick();
+    });
   }
 
   onStatusLinkClick(event: any) {
@@ -52,12 +62,21 @@ export class ManageDeliveriesComponent implements OnInit {
     this.orderStatusLinkClicked = event.target;
     this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active")
 
-    this.pageNumber = 1;
+    this.pagination.pageNumber = 1;
     this.orderStatusSelected = event.target.innerText;
 
-    if (this.orderStatusSelected == "All Deliveries ") {
+    if (this.orderStatusSelected == "All Deliveries") {
       this.orderStatusSelected = null;
     }
+
+    this.adminOrderService.getOrdersCount(this.orderStatusSelected).subscribe(data => {
+      this.pagination.allItemsCount = data;
+      this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+      this.pagination.resetPaginationNumbering();
+      this.pagination.resetPageNumbersBasedOnCurrentPage();
+      this.pagination.enableDisableNextPageClick();
+    });
+
 
     this.getOrders();
   }
@@ -67,7 +86,7 @@ export class ManageDeliveriesComponent implements OnInit {
   }
 
   getOrders() {
-    this.adminOrderService.getOrders(this.pageNumber, this.itemsToShow,
+    this.adminOrderService.getOrders(this.pagination.pageNumber, this.pagination.itemsToShow,
       this.orderStatusSelected).subscribe(data => {
         this.ordersToShow = data
       });
@@ -129,5 +148,18 @@ export class ManageDeliveriesComponent implements OnInit {
 
   convertNgbDateStructToString(dateNgb: NgbDateStruct) {
     return this.formatHelpers.convertNgbDateStructToString(dateNgb);
+  }
+
+  onPrevPaginationClick() {
+    this.pagination.onPrevPaginationClick();
+  }
+
+  onPageNumberClick(pageNumber: number) {
+    this.pagination.onPageNumberClick(pageNumber);
+    this.getOrders();
+  }
+
+  onNextPaginationClick() {
+    this.pagination.onNextPaginationClick();
   }
 }

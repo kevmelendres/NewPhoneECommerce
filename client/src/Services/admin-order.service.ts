@@ -30,6 +30,18 @@ export class AdminOrderService {
       (this.baseUrl + "/GetOrders", { params: params })
   }
 
+  getOrdersCount(orderStatus: string | null): Observable<number> {
+    let params = new HttpParams();
+
+    if (orderStatus != "All Deliveries") {
+      if (orderStatus) {
+        params = params.append('orderStatus', orderStatus);
+      }
+    }
+    return this.http.get<number>
+      (this.baseUrl + "/GetOrdersTotalCount", { params: params })
+  }
+
   editOrderStatus(orderId: number, orderStatus: string): Observable<any> {
 
     if (orderId && orderStatus) {
