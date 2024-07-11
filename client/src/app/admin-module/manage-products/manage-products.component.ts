@@ -341,6 +341,7 @@ export class ManageProductsComponent implements OnInit{
   deleteSearchString() {
     this.searchString = "";
     this.searchRemarks = "";
+    this.pageNumber = 1;
     this.getProducts();
   }
 

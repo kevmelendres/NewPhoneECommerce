@@ -48,6 +48,8 @@ export class TopFilterComponent implements OnInit{
 
   onSortClick(value: any) {
     this.selectedSort = value.target.text;
+    this.shopService.returnToPageOne();
+    this.shopService.changePageNumber(1);
 
     switch (this.selectedSort) {
       case "Sort by average rating":
@@ -73,13 +75,17 @@ export class TopFilterComponent implements OnInit{
   }
 
   onNumOfItemsToShowClick(value: any) {
-    this.selectedNumOfItemsToShow = parseInt(value.target.text);  
+    this.selectedNumOfItemsToShow = parseInt(value.target.text);
+    this.shopService.returnToPageOne();
+    this.shopService.changePageNumber(1);
     this.changeNumOfItemsToShow.emit(this.selectedNumOfItemsToShow);
+    
   }
 
   deleteFilterResults() {
     this.searchString = "";
     this.shopService.changeSearchString(this.searchString);
+    this.shopService.returnToPageOne();
 
     if (this.sellerName) {
       this.router.navigateByUrl("/shop");

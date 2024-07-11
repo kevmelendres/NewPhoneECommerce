@@ -24,7 +24,9 @@ export class ShopComponent implements OnChanges{
   sellerFilterChanged: string;
   availabilityFilterChanged: string;
 
-  constructor(private shopService: ShopService,
+  returnToPageOne: boolean;
+
+  constructor(protected shopService: ShopService,
     private route: ActivatedRoute) {
   }
 
@@ -42,6 +44,9 @@ export class ShopComponent implements OnChanges{
     }
 
     this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
+    this.shopService.returnToPageOneSwitch.subscribe(data => {
+      console.log("triggered change, back to one");
+    });
   }
   
   getProducts() {

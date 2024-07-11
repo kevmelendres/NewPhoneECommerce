@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { EventEmitter, Injectable, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -11,6 +11,9 @@ import { baseUrlDev } from '../Environment/dev.env';
 export class ShopService {
 
   baseUrl: string = baseUrlDev + "/";
+
+  searchBarToggle: boolean = true;
+  returnToPageOneVal: boolean = true;
 
   sortByInit: string = 'Price: Low-to-High'
   itemsToShowInit: number = 10;
@@ -45,6 +48,8 @@ export class ShopService {
   public totalProductCountGP: number = 0;
   public totalProductCount = new BehaviorSubject(this.totalProductCountGP);
 
+  public returnToPageOneSwitch = new BehaviorSubject(this.returnToPageOneVal);
+
   changeSortedItems(sortBy: string) {
     this.sortBy.next(sortBy);
   }
@@ -55,6 +60,10 @@ export class ShopService {
 
   changePageNumber(pageNumber: number) {
     this.pageNumber.next(pageNumber);
+  }
+
+  returnToPageOne() {
+    this.returnToPageOneSwitch.next(this.returnToPageOneVal);
   }
 
   changeSearchString(searchString: string) {

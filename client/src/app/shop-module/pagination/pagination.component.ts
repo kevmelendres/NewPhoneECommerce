@@ -14,6 +14,7 @@ export class PaginationComponent implements OnInit, OnChanges {
   pageNumberFromShopService: number;
 
   @Input() sidebarFilterSwitch: boolean;
+  searchBarSwitch: boolean;
 
   @Output() currentPageChange = new EventEmitter<number>;
   constructor(private shopService: ShopService) {
@@ -38,6 +39,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     });
     this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
     this.shopService.pageNumber.subscribe(val => this.pageNumberFromShopService = val);
+    this.shopService.returnToPageOneSwitch.subscribe(val => this.pagination.pageNumber = 1);
   }
 
   onPageNumberClick(page: number) {

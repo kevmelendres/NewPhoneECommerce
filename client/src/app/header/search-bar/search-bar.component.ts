@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, Renderer2, SimpleChanges, ViewChild, output } from '@angular/core';
 import { ShopService } from '../../../Services/shop-service.service';
 import { IProduct } from '../../../Models/product';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -67,6 +67,7 @@ export class SearchBarComponent implements OnInit{
       this.router.navigateByUrl("/shop");
     }
     this.shopService.getAllProducts();
+    this.shopService.returnToPageOne();
   }
 
   hideQueryResults() {
