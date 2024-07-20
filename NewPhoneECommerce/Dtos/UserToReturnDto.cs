@@ -1,7 +1,8 @@
 ﻿namespace API.Dtos
 {
-    public class EditUserDto
+    public class UserToReturnDto
     {
+        public string? Id { get; set; }
         public string? DisplayName { get; set; }
         public string? Email { get; set; }
         public string? FirstName { get; set; }
@@ -12,8 +13,6 @@
         public string? Street { get; set; }
         public string? Zipcode { get; set; }
         public string? Barangay { get; set; }
-        public string? Password { get; set; }
-        public string[]? UserRoles { get; set; }
+        public List<string> UserRoles { get; set; } = new();
     }
-
 }

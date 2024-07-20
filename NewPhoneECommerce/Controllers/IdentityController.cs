@@ -1,4 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO;
+using System.Reflection.Emit;
 using System.Security.Claims;
 using System.Text;
 using API.Dtos;
@@ -204,7 +207,7 @@ namespace API.Controllers
             var tokenService = new TokenService(_configuration, _userManager);
 
             var user = await _userManager.Users.Include(x => x.Address)
-                .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
+                .FirstOrDefaultAsync(y => y.Email == userDetails.Email); 
 
             if (user != null)
             {
@@ -303,9 +306,75 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("get-allUsers")]
-        public async Task<ActionResult<List<AppUser>>> GetAllUsers()
+        public async Task<ActionResult<List<UserToReturnDto>>> GetAllUsers(
+            [FromQuery] int pageNumber, [FromQuery] int itemsToShow,
+            [FromQuery] string? searchString)
         {
-            return await _userManager.Users.ToListAsync();
+            var userList =  await _userManager.Users.Include(x => x.Address).ToListAsync();
+
+            if (searchString != null)
+            {
+                userList = userList.Where(x => 
+                    (x.Address.FirstName + " " + x.Address.LastName + " " + x.DisplayName)
+                    .Contains(searchString)).ToList();
+            }
+
+            if (pageNumber != 0 && itemsToShow != 0)
+            {
+                userList = userList.Skip((pageNumber - 1) * itemsToShow).Take(itemsToShow).ToList();
+            }
+
+            var userListToReturn = new List<UserToReturnDto>();
+
+            foreach (var user in userList)
+            {
+                UserToReturnDto userToAdd = new UserToReturnDto
+                {
+                    DisplayName = user.DisplayName ?? null,
+                    Email = user.Email ?? null,
+                    Id = user.Id
+                    
+                };
+
+                var userRoles = await _userManager.GetRolesAsync(user);
+
+                if (userRoles != null)
+                {
+                    foreach (var role in userRoles)
+                    {
+                        userToAdd.UserRoles.Add(role);
+                    }
+                }
+
+                if (user.Address != null)
+                {
+                    userToAdd.FirstName = user.Address.FirstName ?? null;
+                    userToAdd.LastName = user.Address.LastName ?? null;
+                    userToAdd.Municipality = user.Address.Municipality ?? null;
+                    userToAdd.Province = user.Address.Province ?? null;
+                    userToAdd.Region = user.Address.Region ?? null;
+                    userToAdd.Street = user.Address.Street ?? null;
+                    userToAdd.Zipcode = user.Address.Zipcode ?? null;
+                    userToAdd.Barangay = user.Address.Barangay ?? null;
+                }
+
+                userListToReturn.Add(userToAdd);
+            }
+
+            return userListToReturn;
         }
+
+        //[Authorize(Roles = UserRoles.Admin)]
+        //[HttpPost]
+        //[Route("edit-user-admin")]
+        //public async Task<ActionResult<string>> EditUserAdmin([FromBody] EditUserDto userDetails)
+        //{
+        //    var tokenService = new TokenService(_configuration, _userManager);
+
+        //    var user = await _userManager.Users.Include(x => x.Address)
+        //        .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
+
+            
+        //}
     }
 }

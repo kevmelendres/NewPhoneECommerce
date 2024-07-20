@@ -50,3 +50,64 @@
   width: 100% !important;
 }
 /*Sidebar CSS*/
+
+.page-number {
+  border: solid 1px dimgrey;
+  border-radius: 0.2rem;
+  color: dimgrey;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  height: 25px;
+  width: 25px;
+  margin: 0 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.page-number:hover {
+  color: white;
+  background-color: #1D1F20;
+  border-color: #1D1F20;
+}
+
+.page-number-active {
+  color: white;
+  background-color: #1D1F20;
+  border-color: #1D1F20;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  opacity: 50%;
+}
+
+tr {
+    cursor: pointer;
+}
+
+.warning-message {
+  position: absolute;
+  color: rgb(255,0,0);
+  font-size: medium;
+  top: 50%;
+  right: 25px;
+  transform: translate(0, -50%);
+}
+
+.data-row {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.validation {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.will-change {
+  color: rgb(255,0,0);
+}
