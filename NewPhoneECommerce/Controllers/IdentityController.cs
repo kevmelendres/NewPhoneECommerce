@@ -304,6 +304,7 @@ namespace API.Controllers
             return Ok("User not found.");
         }
 
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         [Route("get-allUsers")]
         public async Task<ActionResult<List<UserToReturnDto>>> GetAllUsers(
@@ -365,16 +366,60 @@ namespace API.Controllers
         }
 
         //[Authorize(Roles = UserRoles.Admin)]
-        //[HttpPost]
-        //[Route("edit-user-admin")]
-        //public async Task<ActionResult<string>> EditUserAdmin([FromBody] EditUserDto userDetails)
-        //{
-        //    var tokenService = new TokenService(_configuration, _userManager);
+        [HttpPost]
+        [Route("edit-user-admin")]
+        public async Task<ActionResult<string>> EditUserAdmin([FromBody] EditUserDto userDetails)
+        {
+            var tokenService = new TokenService(_configuration, _userManager);
 
-        //    var user = await _userManager.Users.Include(x => x.Address)
-        //        .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
+            var user = await _userManager.Users.Include(x => x.Address)
+                .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
 
-            
-        //}
+            if (user == null) return BadRequest("User not found");
+
+            if (userDetails.DisplayName != null) user.DisplayName = userDetails.DisplayName;
+
+            if (user.Address == null)
+            {
+                user.Address = new Address();
+            }
+
+            if (userDetails.FirstName != null) user.Address.FirstName = userDetails.FirstName;
+            if (userDetails.LastName != null) user.Address.LastName = userDetails.LastName;
+            if (userDetails.Municipality != null) user.Address.Municipality = userDetails.Municipality;
+            if (userDetails.Province != null) user.Address.Province = userDetails.Province;
+            if (userDetails.Region != null) user.Address.Region = userDetails.Region;
+            if (userDetails.Street != null) user.Address.Street = userDetails.Street;
+            if (userDetails.Zipcode != null) user.Address.Zipcode = userDetails.Zipcode;
+            if (userDetails.Barangay != null) user.Address.Barangay = userDetails.Barangay;
+
+            if (userDetails.UserRoles != null)
+            {
+                var allRoles = _roleManager.Roles;
+
+                foreach (var allRoleItem in allRoles)
+                {
+                    if (!userDetails.UserRoles.Contains(allRoleItem.ToString()))
+                    {
+                        var removeResult = await _userManager.RemoveFromRoleAsync(user, allRoleItem.ToString());
+                    }
+
+                    if (userDetails.UserRoles.Contains(allRoleItem.ToString()))
+                    {
+                        var isInRoleResult = await _userManager.IsInRoleAsync(user, allRoleItem.ToString());
+                        if (!isInRoleResult)
+                        {
+                            var addToRoleResult = await _userManager.AddToRoleAsync(user, allRoleItem.ToString());
+                        }
+                    }
+                }
+            }
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded) return Ok("Success");
+
+            return BadRequest("Update failed.");
+        }
     }
 }
