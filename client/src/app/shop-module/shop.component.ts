@@ -45,7 +45,6 @@ export class ShopComponent implements OnChanges{
 
     this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
     this.shopService.returnToPageOneSwitch.subscribe(data => {
-      console.log("triggered change, back to one");
     });
   }
   

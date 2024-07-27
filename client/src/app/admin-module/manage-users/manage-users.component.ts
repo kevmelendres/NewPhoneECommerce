@@ -1,8 +1,7 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { IAdminAppUser } from '../../../Models/adminappuser';
 import { Pagination } from '../../../Services/pagination';
 import { AdminUserService } from '../../../Services/admin-user.service';
-import { IAdminManageUsersParams } from '../../../Models/AdminManageUsersParams';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IRegion } from '../../../Models/AddressModels/region';
 import { IProvince } from '../../../Models/AddressModels/province';
@@ -10,7 +9,9 @@ import { IMunicipality } from '../../../Models/AddressModels/municipality';
 import { IBarangay } from '../../../Models/AddressModels/barangay';
 import { HttpClient } from '@angular/common/http';
 import { IEditUserByAdmin } from '../../../Models/edituserbyadmin';
-import { zip } from 'rxjs';
+import { AuthService } from '../../../Services/auth-service.service';
+import { IAddUserByAdmin } from '../../../Models/adduserbyadmin';
+import { IDeleteUserByAdmin } from '../../../Models/deleteuserbyadmin';
 
 @Component({
   selector: 'app-manage-users',
@@ -18,6 +19,8 @@ import { zip } from 'rxjs';
   styleUrl: './manage-users.component.scss'
 })
 export class ManageUsersComponent implements OnInit{
+  @ViewChild('snackbar') snackbar: ElementRef;
+  notifMessage: string;
 
   userList: IAdminAppUser[];
   pagination: Pagination = new Pagination;
@@ -49,33 +52,51 @@ export class ManageUsersComponent implements OnInit{
   listOfMunicipalities: IMunicipality[];
   listOfBarangays: IBarangay[];
 
-  constructor(private adminUserService: AdminUserService,
-    private modalService: NgbModal, private http: HttpClient) {
+  //New user information
+  newUserDisplayName: string;
+  newUserEmail: string;
+  newUserPassword: string;
+  newUserFirstName: string;
+  newUserLastName: string;
 
+  newSelectUserRegion: IRegion | undefined;
+  newSelectUserProvince: IProvince | undefined;
+  newSelectUserMunicipality: IMunicipality | undefined;
+  newSelectUserBarangay: IBarangay | undefined;
+
+  newUserRegion: string;
+  newUserProvince: string;
+  newUserMunicipality: string;
+  newUserBarangay: string;
+
+  newUserStreet: string;
+  newUserZipCode: string;
+
+  newUserRoles: string[] = []
+
+  @ViewChild('formCompleteLabel') formCompleteLabel: ElementRef;
+
+  constructor(private adminUserService: AdminUserService,
+    private modalService: NgbModal, private http: HttpClient,
+    private authService: AuthService, private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
     this.pagination.pageNumber = 1;
     this.pagination.itemsToShow = 15;
     this.populateUserList();
-    this.setPaginationCount();
-
-    this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
-    this.pagination.resetPaginationNumbering();
-    this.pagination.resetPageNumbersBasedOnCurrentPage();
-    this.pagination.enableDisableNextPageClick();
-
-    this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
-      this.listOfRegions = data;
-    });
-
-    console.log(this.selectedBarangay);
+    this.setupPaginationCounts();
   }
 
   searchRemarks: string;
 
 
   onUserClick(user: IAdminAppUser, userDetails: TemplateRef<any>) {
+
+    this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
+      this.listOfRegions = data;
+    });
+
     this.selectedUser = user;
     this.resetSelectedAddress();
     this.populateSelectedUserForm();
@@ -108,9 +129,13 @@ export class ManageUsersComponent implements OnInit{
     );
   }
 
-  setPaginationCount() {
+  setupPaginationCounts() {
     this.adminUserService.getUsers().subscribe(data => {
-      this.pagination.allItemsCount = data.length
+      this.pagination.allItemsCount = data.length;
+      this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+      this.pagination.resetPaginationNumbering();
+      this.pagination.resetPageNumbersBasedOnCurrentPage();
+      this.pagination.enableDisableNextPageClick();
     });
   }
 
@@ -138,8 +163,19 @@ export class ManageUsersComponent implements OnInit{
     }
   }
 
+  removeNewUserRole(role: string) {
+    const index = this.newUserRoles.indexOf(role, 0);
+    if (index > -1) {
+      this.newUserRoles.splice(index, 1);
+    }
+  }
+
   addRole(role: string) {
     this.formUserRoles.push(role);
+  }
+
+  addNewUserRole(role: string) {
+    this.newUserRoles.push(role);
   }
 
   areTheSame(a: string | null, b: string | null) {
@@ -153,7 +189,6 @@ export class ManageUsersComponent implements OnInit{
   }
 
   updateUser() {
-
     const editUserByAdmin: IEditUserByAdmin = {
       email: this.formEmail,
       firstName: this.formFirstName,
@@ -168,7 +203,21 @@ export class ManageUsersComponent implements OnInit{
       zipcode: this.formZipCode
     }
 
-    
+    if (this.authService.currentUser?.token) {
+
+      this.adminUserService.editUser(editUserByAdmin, this.authService.currentUser.token)
+        .subscribe(response => {
+          if (response = "Success") {
+            this.populateUserList();
+            this.modalService.dismissAll();
+            this.notifMessage = "Successfully edited user.";
+            this.openSnackBar();
+          } else {
+            this.notifMessage = "Something went wrong. Please try again later.";
+            this.openSnackBar();
+          }
+        });
+    }
   }
 
   onRegionSelect() {
@@ -201,5 +250,131 @@ export class ManageUsersComponent implements OnInit{
     this.selectedMunicipality = undefined;
     this.selectedProvince = undefined;
     this.selectedRegion = undefined;
+  }
+
+  openSnackBar() {
+    this.renderer.addClass(this.snackbar.nativeElement, 'show');
+
+    setTimeout(() => {
+      this.renderer.removeClass(this.snackbar.nativeElement, 'show');
+    }, 2000);
+  }
+
+  onAddNewUserBtnClick(addNewUserTemplate: TemplateRef<any>) {
+    this.http.get<any>(this.apiBaseAddress + "regions").subscribe(data => {
+      this.listOfRegions = data;
+    });
+
+    this.clearAddNewUserForm();
+    this.modalService.open(addNewUserTemplate, { centered: true, size: 'lg' });
+  }
+
+  clearAddNewUserForm() {
+    this.newUserDisplayName = "";
+    this.newUserEmail = "";
+    this.newUserPassword = "";
+    this.newUserFirstName = "";
+    this.newUserLastName = "";
+
+    this.newSelectUserRegion = undefined;
+    this.newSelectUserProvince = undefined;
+    this.newSelectUserMunicipality = undefined;
+    this.newSelectUserBarangay = undefined;
+    this.newUserStreet = "";
+    this.newUserZipCode = "";
+  }
+
+  addNewUserBtnClick() {
+    const newUser: IAddUserByAdmin = {
+      displayName: this.newUserDisplayName,
+      email: this.newUserEmail,
+      password: this.newUserPassword,
+      firstName: this.newUserFirstName,
+      lastName: this.newUserLastName,
+      region: this.newUserRegion,
+      province: this.newUserProvince,
+      municipality: this.newUserMunicipality,
+      barangay: this.newUserBarangay,
+      street: this.newUserStreet,
+      zipcode: this.newUserZipCode.toString(),
+      userRoles: this.newUserRoles
+    };
+    
+    if (this.areAllFieldsForNewUserFilled()) {
+      if (this.authService.currentUser?.token) {
+        this.adminUserService.createNewUser(newUser, this.authService.currentUser.token).subscribe(
+          data => {
+            if (data = "Success") {
+              this.populateUserList();
+              this.modalService.dismissAll();
+              this.notifMessage = "Successfully added new user.";
+              this.openSnackBar();
+            } else {
+              this.notifMessage = "Something went wrong.";
+              this.openSnackBar();
+            };
+        });
+      }
+    }
+  }
+
+  onNewRegionSelect() {
+    this.http.get<any>(this.apiBaseAddress + "regions/" + this.newSelectUserRegion!.code + "/provinces").subscribe(data => {
+      this.listOfProvinces = data;
+    });
+    this.newUserRegion = this.newSelectUserRegion!.name;
+  }
+
+  onNewProvinceSelect() {
+    this.http.get<any>(this.apiBaseAddress + "provinces/" + this.newSelectUserProvince!.code + "/municipalities").subscribe(data => {
+      this.listOfMunicipalities = data;
+    });
+    this.newUserProvince = this.newSelectUserProvince!.name;
+  }
+
+  onNewMunicipalitySelect() {
+    this.http.get<any>(this.apiBaseAddress + "municipalities/" + this.newSelectUserMunicipality!.code + "/barangays").subscribe(data => {
+      this.listOfBarangays = data;
+    });
+    this.newUserMunicipality = this.newSelectUserMunicipality!.name;
+  }
+
+  onNewBarangaySelect() {
+    this.newUserBarangay = this.newSelectUserBarangay!.name;
+  }
+
+  areAllFieldsForNewUserFilled(): boolean {
+
+    if (this.newUserDisplayName != "" && this.newUserEmail != "" &&
+      this.newUserPassword != "" && this.newUserFirstName != "" &&
+      this.newUserLastName != "" && this.newUserRegion != "" &&
+      this.newUserProvince != "" && this.newUserMunicipality != "" &&
+      this.newUserBarangay != "" && this.newUserStreet != "" &&
+      this.newUserZipCode != "" && this.newUserRoles.length > 0) {
+        return true;
+    }
+
+    return false;
+  }
+
+  deleteUser(deleteUserModal: TemplateRef<any>) {
+    this.modalService.open(deleteUserModal, { centered: true, size: 'md' });
+  }
+
+  confirmDeleteUser() {
+    if (this.authService.currentUser?.token) {
+      this.adminUserService.deleteUser(this.selectedUser.email, this.authService.currentUser.token)
+        .subscribe(data => {
+          if (data = "Delete succeeded.") {
+            this.populateUserList();
+            this.modalService.dismissAll();
+            this.notifMessage = "User deletion successfull."
+            this.openSnackBar();
+          } else {
+            this.notifMessage = "Something went wrong.";
+            this.openSnackBar();
+          }
+        })
+    }
   }
 }

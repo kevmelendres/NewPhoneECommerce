@@ -103,6 +103,9 @@ export class AuthService {
             this.currentUserProfileBS.next(data);
             return true;
           }
+
+          localStorage.removeItem("currentAppUser");
+
           return false;
         }));
 

@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace API.Controllers
 {
@@ -166,27 +167,29 @@ namespace API.Controllers
         }
 
 
-        [Authorize(Roles = UserRoles.User)]
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("delete-user")]
-        public async Task<IActionResult> DeleteUser([FromBody] string email)
+        public async Task<ActionResult<string>> DeleteUser([FromBody] string email)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            Debug.WriteLine(email);
+            var user = await _userManager.Users.Include(x => x.Address)
+                .FirstOrDefaultAsync(x => x.Email == email);
             
             if (user == null)
             {
-                return BadRequest("User not found.");
+                return Json("User not found.");
             }
             else
             {
                 var result = await _userManager.DeleteAsync(user);
                 if (result.Succeeded)
                 {
-                    return Ok("Delete succeeded");
+                    return Json("Delete succeeded.");
                 }
                 else
                 {
-                    return BadRequest("Delete unsuccessful.");
+                    return Json("Delete unsuccessful.");
                 }
             }
         }
@@ -365,13 +368,11 @@ namespace API.Controllers
             return userListToReturn;
         }
 
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("edit-user-admin")]
         public async Task<ActionResult<string>> EditUserAdmin([FromBody] EditUserDto userDetails)
         {
-            var tokenService = new TokenService(_configuration, _userManager);
-
             var user = await _userManager.Users.Include(x => x.Address)
                 .FirstOrDefaultAsync(y => y.Email == userDetails.Email);
 
@@ -417,9 +418,74 @@ namespace API.Controllers
 
             var result = await _userManager.UpdateAsync(user);
 
-            if (result.Succeeded) return Ok("Success");
+            if (result.Succeeded) return Json("Success");
 
-            return BadRequest("Update failed.");
+            return Json("Update failed.");
+        }
+
+        [Authorize(Roles = UserRoles.Admin)]
+        [HttpPost]
+        [Route("add-user-admin")]
+        public async Task<ActionResult<string>> AddUserByAdmin([FromBody] EditUserDto userDetails)
+        {
+            Debug.WriteLine(userDetails);
+            var userExists = await _userManager.FindByNameAsync(userDetails.DisplayName!);
+
+            if (userExists != null)
+            {
+                return Json("Already exists");
+            }
+
+            var user = new AppUser()
+            {
+                DisplayName = userDetails.DisplayName!,
+                Email = userDetails.Email,
+                UserName = userDetails.Email,
+            };
+
+            if (user.Address == null)
+            {
+                user.Address = new Address();
+            }
+
+            if (userDetails.FirstName != null) user.Address.FirstName = userDetails.FirstName;
+            if (userDetails.LastName != null) user.Address.LastName = userDetails.LastName;
+            if (userDetails.Municipality != null) user.Address.Municipality = userDetails.Municipality;
+            if (userDetails.Province != null) user.Address.Province = userDetails.Province;
+            if (userDetails.Region != null) user.Address.Region = userDetails.Region;
+            if (userDetails.Street != null) user.Address.Street = userDetails.Street;
+            if (userDetails.Zipcode != null) user.Address.Zipcode = userDetails.Zipcode;
+            if (userDetails.Barangay != null) user.Address.Barangay = userDetails.Barangay;
+
+
+            var result = await _userManager.CreateAsync(user, userDetails.Password!);
+
+            if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+            if (!await _roleManager.RoleExistsAsync(UserRoles.User))
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+            //admin registered as both admin and user
+            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
+            {
+                if (userDetails.UserRoles!.Contains("Admin"))
+                    await _userManager.AddToRoleAsync(user, UserRoles.Admin);
+            }
+
+            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
+            {
+                if (userDetails.UserRoles!.Contains("User"))
+                    await _userManager.AddToRoleAsync(user, UserRoles.User);
+            }
+
+
+            if (result.Succeeded)
+            {
+                return Json("Success");
+            }
+
+            return BadRequest(result.Errors);
         }
     }
 }
