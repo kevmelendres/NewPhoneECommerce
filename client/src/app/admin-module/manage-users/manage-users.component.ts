@@ -20,6 +20,7 @@ import { IDeleteUserByAdmin } from '../../../Models/deleteuserbyadmin';
 })
 export class ManageUsersComponent implements OnInit{
   @ViewChild('snackbar') snackbar: ElementRef;
+  @ViewChild('showingResultsRemark') showingResultsRemark: ElementRef;
   notifMessage: string;
 
   userList: IAdminAppUser[];
@@ -73,6 +74,9 @@ export class ManageUsersComponent implements OnInit{
   newUserZipCode: string;
 
   newUserRoles: string[] = []
+
+  searchUserString: string;
+  searchUserStringCopy: string;
 
   @ViewChild('formCompleteLabel') formCompleteLabel: ElementRef;
 
@@ -376,5 +380,40 @@ export class ManageUsersComponent implements OnInit{
           }
         })
     }
+  }
+
+  searchUser() {
+    if (this.authService.currentUser?.token) {
+      this.adminUserService.searchUsers(this.searchUserString, this.authService.currentUser.token)
+        .subscribe(data => {
+          this.searchUserStringCopy = this.searchUserString
+          this.userList = data;
+
+          this.pagination.allItemsCount = data.length;
+          this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+          this.pagination.resetPaginationNumbering();
+          this.pagination.resetPageNumbersBasedOnCurrentPage();
+          this.pagination.enableDisableNextPageClick();
+
+          this.renderer.removeClass(this.showingResultsRemark.nativeElement, 'd-none');
+          this.renderer.addClass(this.showingResultsRemark.nativeElement, 'd-block');
+
+        });
+    }
+  }
+
+  onSearchTyping(event: any) {
+    if (event.key == "Enter") {
+      this.searchUser();
+    }
+  }
+
+  deleteSearchResults() {
+    this.populateUserList();
+    this.setupPaginationCounts();
+    this.searchUserString = "";
+    this.renderer.removeClass(this.showingResultsRemark.nativeElement, 'd-block');
+    this.renderer.addClass(this.showingResultsRemark.nativeElement, 'd-none');
+
   }
 }

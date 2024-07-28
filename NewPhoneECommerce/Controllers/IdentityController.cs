@@ -428,7 +428,6 @@ namespace API.Controllers
         [Route("add-user-admin")]
         public async Task<ActionResult<string>> AddUserByAdmin([FromBody] EditUserDto userDetails)
         {
-            Debug.WriteLine(userDetails);
             var userExists = await _userManager.FindByNameAsync(userDetails.DisplayName!);
 
             if (userExists != null)
@@ -486,6 +485,56 @@ namespace API.Controllers
             }
 
             return BadRequest(result.Errors);
+        }
+
+        //[Authorize(Roles = UserRoles.Admin)]
+        [HttpGet]
+        [Route("search-user")]
+        public async Task<ActionResult<List<UserToReturnDto>>> searchUser([FromQuery] string searchString)
+        {
+            var tokenService = new TokenService(_configuration, _userManager);
+
+            var users = await _userManager.Users.Include(x => x.Address)
+                .Where(x => (x.Address != null) ?
+                    (x.Address.FirstName + " " + x.Address.LastName + " " + x.Email + " " + x.DisplayName).ToLower().Contains(searchString.ToLower()) :
+                    (x.DisplayName + " " + " " + x.Email).ToLower().Contains(searchString.ToLower())).ToListAsync();
+
+            var userListToReturn = new List<UserToReturnDto>();
+            foreach (var user in users)
+            {
+                UserToReturnDto userToAdd = new UserToReturnDto
+                {
+                    DisplayName = user.DisplayName ?? null,
+                    Email = user.Email ?? null,
+                    Id = user.Id
+                };
+
+                var userRoles = await _userManager.GetRolesAsync(user);
+
+                if (userRoles != null)
+                {
+                    foreach (var role in userRoles)
+                    {
+                        userToAdd.UserRoles.Add(role);
+                    }
+                }
+
+                if (user.Address != null)
+                {
+                    userToAdd.FirstName = user.Address.FirstName ?? null;
+                    userToAdd.LastName = user.Address.LastName ?? null;
+                    userToAdd.Municipality = user.Address.Municipality ?? null;
+                    userToAdd.Province = user.Address.Province ?? null;
+                    userToAdd.Region = user.Address.Region ?? null;
+                    userToAdd.Street = user.Address.Street ?? null;
+                    userToAdd.Zipcode = user.Address.Zipcode ?? null;
+                    userToAdd.Barangay = user.Address.Barangay ?? null;
+                }
+
+                userListToReturn.Add(userToAdd);
+            }
+
+            return userListToReturn;
         }
     }
 }

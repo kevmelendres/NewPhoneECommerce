@@ -72,5 +72,17 @@ export class AdminUserService {
       JSON.stringify(userEmail), { headers: headers});
   }
 
+  searchUsers(searchUser: string, adminToken: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${adminToken}`
+    });
 
+    let params = new HttpParams();
+
+    params = params.append('searchString', searchUser);
+
+    return this.http.get<IAdminAppUser[]>(this.baseUrl + '/Identity/search-user',
+      { observe: 'body', params: params, headers: headers});
+  }
 }
