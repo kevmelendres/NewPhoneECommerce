@@ -7,6 +7,7 @@ import { IEditProduct } from '../../../Models/editproduct';
 import { ISeller } from '../../../Models/seller';
 import { IPreviousOwner } from '../../../Models/previousowner';
 import { IAddNewProduct } from '../../../Models/addnewproduct';
+import { AuthService } from '../../../Services/auth-service.service';
 
 @Component({
   selector: 'app-manage-products',
@@ -70,7 +71,6 @@ export class ManageProductsComponent implements OnInit{
   formAddNewPrevOwnerLastName: string;
   formAddSelectedPrevOwner: IPreviousOwner;
 
-
   searchString: string = "";
 
   loadingImage: boolean = true
@@ -99,10 +99,13 @@ export class ManageProductsComponent implements OnInit{
 
   isEditProduct: boolean = false;
 
+  adminToken: string;
   constructor(private adminProductService: AdminProductService,
-    private modalService: NgbModal, private renderer: Renderer2) { }
+    private modalService: NgbModal, private renderer: Renderer2,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.adminToken = this.authService.currentUser?.token!;
     this.getProducts();
     this.adminProductService.getAllProductsCount().subscribe(data => {
       this.allProductsCount = data;
@@ -291,18 +294,20 @@ export class ManageProductsComponent implements OnInit{
       productToEdit.previousOwnerFirstName = (this.formPrevOwner != this.selectedProduct.previousOwner) ? this.formPrevOwner : null;
       productToEdit.previousOwnerLastName = null;
 
-      this.adminProductService.editProduct(productToEdit).subscribe(resp => {
-        if (resp == "Success") {
-          this.modalService.dismissAll();
-          this.notifMessage = "Successfully edited product."
-          this.openSnackBar();
-          this.getProducts();
-        } else {
-          this.modalService.dismissAll();
-          this.notifMessage = "Something went wrong. Please try again."
-          this.openSnackBar();
-        }
-      });
+      if (this.adminToken) {
+        this.adminProductService.editProduct(productToEdit, this.adminToken).subscribe(resp => {
+          if (resp == "Success") {
+            this.modalService.dismissAll();
+            this.notifMessage = "Successfully edited product."
+            this.openSnackBar();
+            this.getProducts();
+          } else {
+            this.modalService.dismissAll();
+            this.notifMessage = "Something went wrong. Please try again."
+            this.openSnackBar();
+          }
+        });
+      }
     }
 
   searchProduct() {
@@ -407,18 +412,20 @@ export class ManageProductsComponent implements OnInit{
       previousOwnerLastName: prevOwnerLastName,
     }
 
-    this.adminProductService.addNewProduct(newProduct).subscribe(resp => {
-      if (resp != "Failed") {
-        this.modalService.dismissAll();
-        this.notifMessage = "Successfully added product."
-        this.openSnackBar();
-        this.getProducts();
-      } else {
-        this.modalService.dismissAll();
-        this.notifMessage = "Something went wrong. Please try again."
-        this.openSnackBar();
-      }
-    });
+    if (this.adminToken) {
+      this.adminProductService.addNewProduct(newProduct, this.adminToken).subscribe(resp => {
+        if (resp != "Failed") {
+          this.modalService.dismissAll();
+          this.notifMessage = "Successfully added product."
+          this.openSnackBar();
+          this.getProducts();
+        } else {
+          this.modalService.dismissAll();
+          this.notifMessage = "Something went wrong. Please try again."
+          this.openSnackBar();
+        }
+      });
+    }
   }
 
   disableAddNewProductBtn(): boolean {
@@ -490,19 +497,21 @@ export class ManageProductsComponent implements OnInit{
 
 
   confirmDeleteProduct() {
-    this.adminProductService.deleteProduct(this.selectedProduct.id).subscribe(resp => {
-      if (resp == "Success") {
-        this.modalService.dismissAll();
-        this.notifMessage = "Successfully deleted product."
-        this.openSnackBar();
+    if (this.adminToken) {
+      this.adminProductService.deleteProduct(this.selectedProduct.id, this.adminToken).subscribe(resp => {
+        if (resp == "Success") {
+          this.modalService.dismissAll();
+          this.notifMessage = "Successfully deleted product."
+          this.openSnackBar();
 
-        this.getProducts();
+          this.getProducts();
 
-      } else {
-        this.modalService.dismissAll();
-        this.notifMessage = "Something went wrong. Please try again."
-        this.openSnackBar();
-      }
-    });
+        } else {
+          this.modalService.dismissAll();
+          this.notifMessage = "Something went wrong. Please try again."
+          this.openSnackBar();
+        }
+      });
+    }
   }
 }

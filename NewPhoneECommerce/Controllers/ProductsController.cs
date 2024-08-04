@@ -2,7 +2,9 @@
 using API.Helpers;
 using Core.Interfaces;
 using Core.Models;
+using Core.Models.Identity;
 using Core.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -379,6 +381,7 @@ namespace API.Controllers
             return Ok(returnData);
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("Edit")]
         public async Task<ActionResult<string>> EditProduct([FromBody] ProductToEditDto editedProduct)
@@ -499,6 +502,7 @@ namespace API.Controllers
             return GetAllProductsCount();
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("Add")]
         public async Task<ActionResult<string>> AddProduct([FromBody] ProductToAddDto productToAdd)
@@ -594,9 +598,9 @@ namespace API.Controllers
             return result;
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("Delete")]
-
         public async Task<ActionResult<string>> DeleteDeliveryMethod(
             [FromBody] int productId)
         {

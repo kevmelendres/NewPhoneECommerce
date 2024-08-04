@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseUrlDev } from '../Environment/dev.env';
 import { IProduct } from '../Models/product';
@@ -56,9 +56,14 @@ export class AdminProductService {
     return this.http.get<number>(this.baseUrl + '/Products/GetAllProductsCount');
   }
 
-  editProduct(editedProduct: IEditProduct): Observable<any> {
+  editProduct(editedProduct: IEditProduct, adminToken: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${adminToken}`
+    });
+
     let body = editedProduct
-    return this.http.post<string>(this.baseUrl + "/Products/Edit", body);
+    return this.http.post<string>(this.baseUrl + "/Products/Edit", body, {headers: headers});
   }
 
   getCountWithSearchString(searchString: string): Observable<number> {
@@ -76,11 +81,21 @@ export class AdminProductService {
     return this.http.get<IPreviousOwner[]>(this.baseUrl + '/Products/GetAllPreviousOwners')
   }
 
-  addNewProduct(newProduct: IAddNewProduct): Observable<string> {
-    return this.http.post<string>(this.baseUrl + '/Products/Add', newProduct)
+  addNewProduct(newProduct: IAddNewProduct, adminToken: string): Observable<string> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${adminToken}`
+    });
+
+    return this.http.post<string>(this.baseUrl + '/Products/Add', newProduct, { headers: headers })
   }
 
-  deleteProduct(productId: number): Observable<string> {
-    return this.http.post<string>(this.baseUrl + '/Products/Delete', productId);
+  deleteProduct(productId: number, adminToken: string): Observable<string> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${adminToken}`
+    });
+
+    return this.http.post<string>(this.baseUrl + '/Products/Delete', productId, { headers: headers });
   }
 }

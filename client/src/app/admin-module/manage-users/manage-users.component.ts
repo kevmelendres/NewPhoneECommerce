@@ -11,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 import { IEditUserByAdmin } from '../../../Models/edituserbyadmin';
 import { AuthService } from '../../../Services/auth-service.service';
 import { IAddUserByAdmin } from '../../../Models/adduserbyadmin';
-import { IDeleteUserByAdmin } from '../../../Models/deleteuserbyadmin';
 
 @Component({
   selector: 'app-manage-users',
@@ -128,13 +127,13 @@ export class ManageUsersComponent implements OnInit{
   }
 
   populateUserList() {
-    this.adminUserService.getUsers(this.pagination.pageNumber, this.pagination.itemsToShow).subscribe(
+    this.adminUserService.getUsers(this.authService.currentUser?.token!,this.pagination.pageNumber, this.pagination.itemsToShow).subscribe(
       data => this.userList = data
     );
   }
 
   setupPaginationCounts() {
-    this.adminUserService.getUsers().subscribe(data => {
+    this.adminUserService.getUsers(this.authService.currentUser?.token!).subscribe(data => {
       this.pagination.allItemsCount = data.length;
       this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
       this.pagination.resetPaginationNumbering();

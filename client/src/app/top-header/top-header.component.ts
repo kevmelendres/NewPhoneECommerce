@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../Services/auth-service.service';
 
 
 @Component({
@@ -7,6 +7,12 @@ import { RouterLinkActive } from '@angular/router';
   templateUrl: './top-header.component.html',
   styleUrl: './top-header.component.scss'
 })
-export class TopHeaderComponent {
+export class TopHeaderComponent implements OnInit{
+  isAdmin: boolean = false;
+  constructor(private authService: AuthService) { }
 
+  ngOnInit(): void {
+    this.authService.isAdminBS.subscribe(isAdmin => this.isAdmin = isAdmin)
+
+  }
 }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AdminOrderService } from '../../../Services/admin-order.service';
+import { AuthService } from '../../../Services/auth-service.service';
+import { Router } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-admin-home',
@@ -19,33 +22,56 @@ export class AdminHomeComponent implements OnInit{
   cardUnmanagedOrders: number;
   cardDeliveredOrders: number;
 
-  constructor(private adminOrderService: AdminOrderService) { }
+  adminToken: string;
+  isAdmin: boolean = false;
+
+  constructor(private adminOrderService: AdminOrderService,
+    private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.refreshCardData();
+
+    if (this.authService.currentUser != null) {
+      this.authService.validateUserToServer(this.authService.currentUser!).subscribe(data => {
+        this.authService.isAdminBS.subscribe(isAdmin => {
+          console.log(isAdmin);
+          this.isAdmin = isAdmin;
+          if (!this.isAdmin) {
+            this.router.navigateByUrl("");
+          }
+          this.refreshCardData();
+          this.adminToken = this.authService.currentUser?.token!;
+        });
+      });
+    }
+
+    if (this.authService.currentUser == null) {
+      this.router.navigateByUrl("");
+    }
+    
   }
 
   async refreshCardData() {
 
-    this.adminOrderService.getOrders(1, 0, "").subscribe(data => {
-      this.cardTotalOrders = data.length;
+    if (this.adminToken) {
+      this.adminOrderService.getOrders(1, 0, "", this.adminToken).pipe(take(1)).subscribe(data => {
+        this.cardTotalOrders = data.length;
 
-      let totalOrderItems = 0;
+        let totalOrderItems = 0;
 
-      data.forEach(order => {
-        totalOrderItems += order.orderItems.length
+        data.forEach(order => {
+          totalOrderItems += order.orderItems.length
+        });
+
+        this.cardTotalOrderItems = totalOrderItems;
       });
 
-      this.cardTotalOrderItems = totalOrderItems;
-    });
+      this.adminOrderService.getOrders(1, 0, "Delivered", this.adminToken).pipe(take(1)).subscribe(data => {
+        this.cardDeliveredOrders = data.length;
+      });
 
-    this.adminOrderService.getOrders(1, 0, "Delivered").subscribe(data => {
-      this.cardDeliveredOrders = data.length;
-    });
-
-    this.adminOrderService.getOrders(1, 0, "Order Placed").subscribe(data => {
-      this.cardUnmanagedOrders = data.length;
-    });
-
+      this.adminOrderService.getOrders(1, 0, "Order Placed", this.adminToken).pipe(take(1)).subscribe(data => {
+        this.cardUnmanagedOrders = data.length;
+      });
+    }
   }
 }

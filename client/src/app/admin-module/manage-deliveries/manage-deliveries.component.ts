@@ -4,6 +4,7 @@ import { AdminOrderService } from '../../../Services/admin-order.service';
 import { FormatHelpersService } from '../../../Services/format-helpers.service';
 import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { Pagination } from '../../../Services/pagination';
+import { AuthService } from '../../../Services/auth-service.service';
 
 @Component({
   selector: 'app-manage-deliveries',
@@ -31,12 +32,16 @@ export class ManageDeliveriesComponent implements OnInit {
 
   pagination: Pagination = new Pagination();
 
+  adminToken: string;
+
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
     private formatHelpers: FormatHelpersService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.adminToken = this.authService.currentUser?.token!;
     this.pagination.itemsToShow = 20;
 
     this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
@@ -45,7 +50,7 @@ export class ManageDeliveriesComponent implements OnInit {
     this.orderStatusList = this.formatHelpers.orderStatusList;
 
 
-    this.adminOrderService.getOrdersCount("All Deliveries").subscribe(data => {
+    this.adminOrderService.getOrdersCount("All Deliveries", this.adminToken).subscribe(data => {
       this.pagination.allItemsCount = data;
       this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
       this.pagination.resetPaginationNumbering();
@@ -69,7 +74,7 @@ export class ManageDeliveriesComponent implements OnInit {
       this.orderStatusSelected = null;
     }
 
-    this.adminOrderService.getOrdersCount(this.orderStatusSelected).subscribe(data => {
+    this.adminOrderService.getOrdersCount(this.orderStatusSelected, this.adminToken).subscribe(data => {
       this.pagination.allItemsCount = data;
       this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
       this.pagination.resetPaginationNumbering();
@@ -87,7 +92,7 @@ export class ManageDeliveriesComponent implements OnInit {
 
   getOrders() {
     this.adminOrderService.getOrders(this.pagination.pageNumber, this.pagination.itemsToShow,
-      this.orderStatusSelected).subscribe(data => {
+      this.orderStatusSelected, this.adminToken).subscribe(data => {
         this.ordersToShow = data
       });
     
@@ -104,7 +109,8 @@ export class ManageDeliveriesComponent implements OnInit {
   }
 
   onUpdateClick(selectedOrder: IOrderDetailed) {
-    this.adminOrderService.editOrderStatus(selectedOrder.orderId, this.selectedOrderStatus).subscribe(
+    this.adminOrderService.editOrderStatus(selectedOrder.orderId,
+      this.selectedOrderStatus, this.adminToken).subscribe(
       data => {
         if (data == "Success") {
           this.getOrders();

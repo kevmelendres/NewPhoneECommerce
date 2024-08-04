@@ -16,7 +16,11 @@ export class AdminUserService {
   
   constructor(private http: HttpClient) { }
 
-  getUsers(pageNumber?: number, itemsToShow?: number, searchString?: string) {
+  getUsers(adminToken: string, pageNumber?: number, itemsToShow?: number, searchString?: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${adminToken}`
+    });
 
     let userParams: IAdminManageUsersParams = {
       PageNumber: pageNumber,
@@ -39,7 +43,7 @@ export class AdminUserService {
     }
 
     return this.http.get<IAdminAppUser[]>(this.baseUrl + '/Identity/get-allUsers',
-      { observe: 'body', params: params });
+      { observe: 'body', params: params, headers: headers});
   }
 
   editUser(userToEdit: IEditUserByAdmin, adminToken: string): Observable<any> {

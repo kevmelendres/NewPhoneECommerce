@@ -3,7 +3,9 @@ using API.Dtos;
 using API.Helpers;
 using Core.Interfaces;
 using Core.Models;
+using Core.Models.Identity;
 using Core.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -23,6 +25,7 @@ namespace API.Controllers
             _orderItemRepo = orderItemRepo;
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         [Route("GetOrders")]
         public async Task<ActionResult<string>> GetOrders(
@@ -71,6 +74,7 @@ namespace API.Controllers
             return Ok(ordersList);
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         [Route("GetOrdersTotalCount")]
         public async Task<ActionResult<int>> GetOrdersTotalCount(
@@ -89,6 +93,7 @@ namespace API.Controllers
             return Ok(data.Count());
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("Order/EditOrderStatus")]
         public async Task<ActionResult<string>> EditOrderStatus(

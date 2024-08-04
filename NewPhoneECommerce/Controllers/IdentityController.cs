@@ -307,7 +307,35 @@ namespace API.Controllers
             return Ok("User not found.");
         }
 
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.User)]
+        [HttpGet]
+        [Route("get-user-roles")]
+        public async Task<ActionResult<string>> GetUserRoles([FromQuery] string email)
+        {
+
+            var user = await _userManager.Users.Include(x => x.Address)
+                .FirstOrDefaultAsync(y => y.Email == email);
+
+            if (user != null)
+            {
+                var userRolesList = new List<string>();
+                var userRoles = await _userManager.GetRolesAsync(user);
+
+                if (userRoles != null)
+                {
+                    foreach (var role in userRoles)
+                    {
+                        userRolesList.Add(role);
+                    }
+                }
+
+                return Ok(userRolesList);
+            }
+
+            return Ok("User not found.");
+        }
+
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         [Route("get-allUsers")]
         public async Task<ActionResult<List<UserToReturnDto>>> GetAllUsers(
@@ -487,7 +515,7 @@ namespace API.Controllers
             return BadRequest(result.Errors);
         }
 
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         [Route("search-user")]
         public async Task<ActionResult<List<UserToReturnDto>>> searchUser([FromQuery] string searchString)
