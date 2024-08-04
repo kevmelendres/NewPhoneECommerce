@@ -30,10 +30,9 @@ export class AdminHomeComponent implements OnInit{
 
   ngOnInit(): void {
 
-    if (this.authService.currentUser != null) {
-      this.authService.validateUserToServer(this.authService.currentUser!).subscribe(data => {
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
         this.authService.isAdminBS.subscribe(isAdmin => {
-          console.log(isAdmin);
           this.isAdmin = isAdmin;
           if (!this.isAdmin) {
             this.router.navigateByUrl("");
@@ -41,12 +40,8 @@ export class AdminHomeComponent implements OnInit{
           this.refreshCardData();
           this.adminToken = this.authService.currentUser?.token!;
         });
-      });
-    }
-
-    if (this.authService.currentUser == null) {
-      this.router.navigateByUrl("");
-    }
+      }
+    });
     
   }
 

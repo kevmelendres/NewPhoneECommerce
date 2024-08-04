@@ -1,624 +1,627 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
-                <div class="mt-3 mb-4">
-                    <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+<div *ngIf="isAdmin">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
+                    <div class="mt-3 mb-4">
+                        <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                    </div>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="d-inline">Dashboard</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-products">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                            <div class="d-inline">Products</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-deliveries">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
+                            <div class="d-inline">Deliveries</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
+                            <div class="d-inline">Users</div>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="d-inline">Dashboard</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-products">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                        <div class="d-inline">Products</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-deliveries">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
-                        <div class="d-inline">Deliveries</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
-                        <div class="d-inline">Users</div>
-                    </li>
-                </ul>
             </div>
-        </div>
 
-        <div class="content-container w-100">
-
-
-            <div #deliveryReport>
-                <span class="fs-4 fw-bold">Available Products in Store</span>
-                <span class="fs-6 d-block fw-light">Admin > Manage Products</span>
+            <div class="content-container w-100">
 
 
-                <div class="mt-4 d-flex">
+                <div #deliveryReport>
+                    <span class="fs-4 fw-bold">Available Products in Store</span>
+                    <span class="fs-6 d-block fw-light">Admin > Manage Products</span>
 
-                    <div style="" class="p-4 border border-opacity-10 rounded w-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="d-flex align-items-start flex-column">
-                                <div class="d-flex align-items-center">
-                                    <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
-                                    <div class="d-inline">
-                                        <div class="input-group rounded">
-                                            <input type="search" class="form-control rounded"
-                                                   placeholder="Search" aria-label="Search"
-                                                   aria-describedby="search-addon" [(ngModel)]="searchString"
-                                                   (keydown)="onSearchTyping($event)" />
-                                            <span class="input-group-text border-0" id="search-addon" style="cursor: pointer">
-                                                <i class="fas fa-search" (click)="searchProduct()"></i>
-                                            </span>
-                                            <span class="ms-4">
-                                                <button class="btn btn-warning fw-bold" (click)="onAddProductBtnClick(addProductModal)">Add New Product</button>
-                                            </span>
+
+                    <div class="mt-4 d-flex">
+
+                        <div style="" class="p-4 border border-opacity-10 rounded w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-start flex-column">
+                                    <div class="d-flex align-items-center">
+                                        <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
+                                        <div class="d-inline">
+                                            <div class="input-group rounded">
+                                                <input type="search" class="form-control rounded"
+                                                       placeholder="Search" aria-label="Search"
+                                                       aria-describedby="search-addon" [(ngModel)]="searchString"
+                                                       (keydown)="onSearchTyping($event)" />
+                                                <span class="input-group-text border-0" id="search-addon" style="cursor: pointer">
+                                                    <i class="fas fa-search" (click)="searchProduct()"></i>
+                                                </span>
+                                                <span class="ms-4">
+                                                    <button class="btn btn-warning fw-bold" (click)="onAddProductBtnClick(addProductModal)">Add New Product</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div *ngIf="searchRemarks" class="mt-2">
-                                    <span class="me-2" style="font-size: 15px;">Showing results for: <b class="ms-1">{{searchRemarks}}</b></span>
-                                    <i class="fa-solid fa-delete-left" style="color:#8B0000; cursor: pointer" (click)="deleteSearchString()"></i>
-                                </div>
-                            </div>
-
-
-                            <div class="d-flex align-items-center justify-content-end">
-                                <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
-                                     [class.disabled]="pageNumber <= totalNumberOfPages">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </div>
-                                <div *ngFor="let number of pageNumberList">
-                                    <div class="page-number d-flex align-items-center justify-content-center"
-                                         (click)=onPageNumberClick(number+1)
-                                         [class.page-number-active]="number + 1 == pageNumber"
-                                         *ngIf="number + 1 <= maxPossiblePageNumber">
-                                        {{number + 1}}
+                                    <div *ngIf="searchRemarks" class="mt-2">
+                                        <span class="me-2" style="font-size: 15px;">Showing results for: <b class="ms-1">{{searchRemarks}}</b></span>
+                                        <i class="fa-solid fa-delete-left" style="color:#8B0000; cursor: pointer" (click)="deleteSearchString()"></i>
                                     </div>
                                 </div>
-                                <div class="page-number d-flex align-items-center justify-content-center"
-                                     (click)=onNextPaginationClick()
-                                     [class.disabled]="!enableNextPageClick">
-                                    <i class="fa-solid fa-chevron-right"></i>
+
+
+                                <div class="d-flex align-items-center justify-content-end">
+                                    <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
+                                         [class.disabled]="pageNumber <= totalNumberOfPages">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </div>
+                                    <div *ngFor="let number of pageNumberList">
+                                        <div class="page-number d-flex align-items-center justify-content-center"
+                                             (click)=onPageNumberClick(number+1)
+                                             [class.page-number-active]="number + 1 == pageNumber"
+                                             *ngIf="number + 1 <= maxPossiblePageNumber">
+                                            {{number + 1}}
+                                        </div>
+                                    </div>
+                                    <div class="page-number d-flex align-items-center justify-content-center"
+                                         (click)=onNextPaginationClick()
+                                         [class.disabled]="!enableNextPageClick">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr class="align-middle">
+                                        <th scope="col">
+                                            <div class="d-inline">Product Id</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 1"> <i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Model</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Brand</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Color</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Price</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Discount (%)</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Discounted Price</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Available Stocks</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="d-inline">Items Sold</div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 0"><i class="fa-solid fa-sort"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 1"><i class="fa-solid fa-sort-up"></i></div>
+                                            <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == -1"><i class="fa-solid fa-sort-down"></i></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody #productRows>
+                                    <tr *ngFor="let product of productList; index as i" class="order-row align-middle" (click)="onProductClick(product, productDetails)">
+                                        <td>{{product.id}}</td>
+                                        <td>{{product.model}}</td>
+                                        <td>{{product.brand}}</td>
+                                        <td>{{product.color}}</td>
+                                        <td>
+                                            {{product.price.toLocaleString("en-US", {
+                                            style: "currency",
+                                            currency: "Php"
+                                            })}}
+                                        </td>
+                                        <td>{{product.discount}}</td>
+                                        <td>
+                                            {{product.discountedPrice.toLocaleString("en-US", {
+                                            style: "currency",
+                                            currency: "Php"
+                                            })}}
+                                        </td>
+                                        <td>{{product.availableStocks}}</td>
+                                        <td>{{product.soldItems}}</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="min-height: 400px;" *ngIf="showNoItemsToShowDiv()">
+                                <div #NoItemsToShow class="text-center">
+                                    <div class="d-block" style="color: darkred; font-size: 80px;">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                    </div>
+                                    <div class="d-block fs-5">No products to show.</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 
-                        <table class="table table-hover text-center">
-                            <thead>
-                                <tr class="align-middle">
-                                    <th scope="col">
-                                        <div class="d-inline">Product Id</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == 1"> <i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortProductId')" *ngIf="sorterMaps.get('sortProductId') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Model</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortModel')" *ngIf="sorterMaps.get('sortModel') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Brand</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortBrand')" *ngIf="sorterMaps.get('sortBrand') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Color</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortColor')" *ngIf="sorterMaps.get('sortColor') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Price</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortPrice')" *ngIf="sorterMaps.get('sortPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Discount (%)</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscount')" *ngIf="sorterMaps.get('sortDiscount') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Discounted Price</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortDiscountedPrice')" *ngIf="sorterMaps.get('sortDiscountedPrice') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Available Stocks</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortAvailableStocks')" *ngIf="sorterMaps.get('sortAvailableStocks') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="d-inline">Items Sold</div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 0"><i class="fa-solid fa-sort"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == 1"><i class="fa-solid fa-sort-up"></i></div>
-                                        <div class="d-inline ms-2 sorter-table" (click)="onSorterClick('sortItemsSold')" *ngIf="sorterMaps.get('sortItemsSold') == -1"><i class="fa-solid fa-sort-down"></i></div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody #productRows>
-                                <tr *ngFor="let product of productList; index as i" class="order-row align-middle" (click)="onProductClick(product, productDetails)">
-                                    <td>{{product.id}}</td>
-                                    <td>{{product.model}}</td>
-                                    <td>{{product.brand}}</td>
-                                    <td>{{product.color}}</td>
-                                    <td>
-                                        {{product.price.toLocaleString("en-US", {
-                                        style: "currency",
-                                        currency: "Php"
-                                        })}}
-                                    </td>
-                                    <td>{{product.discount}}</td>
-                                    <td>
-                                        {{product.discountedPrice.toLocaleString("en-US", {
-                                        style: "currency",
-                                        currency: "Php"
-                                        })}}
-                                    </td>
-                                    <td>{{product.availableStocks}}</td>
-                                    <td>{{product.soldItems}}</td>
 
-                                </tr>
 
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-center align-items-center"
-                             style="min-height: 400px;" *ngIf="showNoItemsToShowDiv()">
-                            <div #NoItemsToShow class="text-center">
-                                <div class="d-block" style="color: darkred; font-size: 80px;">
-                                    <i class="fa-solid fa-circle-exclamation"></i>
-                                </div>
-                                <div class="d-block fs-5">No products to show.</div>
+        </div>
+    </div>
+
+    <ng-template #productDetails let-modal>
+        <div class="modal-header">
+            <div class="fw-bold fs-5 d-flex align-items-center">
+                <i class="fa-solid fa-mobile-screen-button me-2" style="color: #183153; font-size: 17px"></i>
+                Product Information
+            </div>
+            <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="align-middle">
+                <div class="row data-row my-0">
+                    <div class="col">
+                        <div class="row data-row">
+                            <div class="col-4 h-auto d-flex align-items-center">
+                                <label for="productId">Product Id</label>
+                            </div>
+                            <div class="col-8" *ngIf="!isEditProduct">
+                                <input type="text" class="form-control disabled" id="productId" value="{{selectedProduct.id}}">
+                            </div>
+                        </div>
+                        <div class="row data-row">
+
+                            <div class="col-4 h-auto d-flex align-items-center">
+                                <label for="model">Model</label>
+                            </div>
+                            <div class="col-8 position-relative">
+                                <input type="text" class="form-control " id="model" [(ngModel)]="formModel">
+                                <label class="warning-message" *ngIf="formModel != selectedProduct.model"> <i class="fa-solid fa-pen-to-square"></i></label>
+                            </div>
+
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-4 h-auto d-flex align-items-center">
+                                <label for="productId">Brand</label>
+                            </div>
+                            <div class="col-8 position-relative">
+                                <input type="text" class="form-control" id="brand" [(ngModel)]="formBrand">
+                                <label class="warning-message" *ngIf="formBrand != selectedProduct.brand"> <i class="fa-solid fa-pen-to-square"></i></label>
+                            </div>
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-4 h-auto d-flex align-items-center">
+                                <label for="deviceOS">Device OS</label>
+                            </div>
+                            <div class="col-8 position-relative">
+                                <input type="text" class="form-control" id="deviceOS" [(ngModel)]="formDeviceOS">
+                                <label class="warning-message" *ngIf="formDeviceOS != selectedProduct.deviceOS"> <i class="fa-solid fa-pen-to-square"></i></label>
+                            </div>
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-4 h-auto d-flex align-items-center">
+                                <label for="color">Color</label>
+                            </div>
+                            <div class="col-8 position-relative">
+                                <input type="text" class="form-control" id="color" [(ngModel)]="formColor">
+                                <label class="warning-message" *ngIf="formColor != selectedProduct.color"> <i class="fa-solid fa-pen-to-square"></i></label>
                             </div>
                         </div>
                     </div>
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <div [hidden]="loadingImage">
+                            <img src="{{selectedProduct.image}}" (load)="onImageLoad()" class="img-fluid" />
+                        </div>
+                        <span class="loader" *ngIf="loadingImage"></span>
+                    </div>
                 </div>
 
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="description" [(ngModel)]="formDescription">
+                        <label class="warning-message" *ngIf="formDescription != selectedProduct.description"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="productId">Image URL</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="imageURL" [(ngModel)]="formImageURL">
+                        <label class="warning-message" *ngIf="formImageURL != selectedProduct.image"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="price">Price</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="price" [(ngModel)]="formPrice">
+                        <label class="warning-message" *ngIf="formPrice != selectedProduct.price"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="discount">Discount (%)</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="discount" [(ngModel)]="formDiscount">
+                        <label class="warning-message" *ngIf="formDiscount != selectedProduct.discount"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="availableStocks">Available stocks</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="availableStocks" [(ngModel)]="formAvailableStocks">
+                        <label class="warning-message" *ngIf="formAvailableStocks != selectedProduct.availableStocks"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="itemsSold">Items sold</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control disabled" id="itemsSold" [(ngModel)]="formItemsSold">
+                        <label class="warning-message" *ngIf="formItemsSold != selectedProduct.soldItems"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="releaseDate">Release Date</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="releaseDate" [(ngModel)]="formReleaseDate">
+                        <label class="warning-message" *ngIf="formReleaseDate != selectedProduct.releaseDate"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="rating">Rating</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="rating" [(ngModel)]="formRating">
+                        <label class="warning-message" *ngIf="formRating != selectedProduct.rating"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="seller">Seller</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="seller" [(ngModel)]="formSeller">
+                        <label class="warning-message" *ngIf="formSeller != selectedProduct.seller"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="productId">Previous Owner</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="prevOwnerFirstName" [(ngModel)]="formPrevOwner">
+                        <label class="warning-message" *ngIf="formPrevOwner != selectedProduct.previousOwner"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <div class="modal-footer d-flex justify-content-between">
+            <div>
+                <button type="button" class="btn btn-danger fs-6" (click)="onDeleteProductClick(deleteProductModal)">Delete Product</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary fs-6 me-3" [class.disabled]="disableUpdateBtn()" (click)="onUpdateProductClick()">Update Product</button>
+                <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+            </div>
 
-
-
-
-    </div>
-</div>
-
-<ng-template #productDetails let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            <i class="fa-solid fa-mobile-screen-button me-2" style="color: #183153; font-size: 17px"></i>
-            Product Information
         </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
+    </ng-template>
 
-    <div class="modal-body">
-        <div class="align-middle">
-            <div class="row data-row my-0">
-                <div class="col">
-                    <div class="row data-row">
-                        <div class="col-4 h-auto d-flex align-items-center">
-                            <label for="productId">Product Id</label>
-                        </div>
-                        <div class="col-8" *ngIf="!isEditProduct">
-                            <input type="text" class="form-control disabled" id="productId" value="{{selectedProduct.id}}">
-                        </div>
+    <ng-template #addProductModal let-modal>
+        <div class="modal-header">
+            <div class="fw-bold fs-5 d-flex align-items-center">
+                <i class="fa-solid fa-mobile-screen-button me-2" style="color: #183153; font-size: 17px"></i>
+                Add New Product
+            </div>
+            <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="align-middle">
+                <span class="fw-6 fw-bold text-danger" *ngIf="disableAddNewProductBtn()">*  All fields are required</span>
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="model">Model</label>
                     </div>
-                    <div class="row data-row">
-
-                        <div class="col-4 h-auto d-flex align-items-center">
-                            <label for="model">Model</label>
-                        </div>
-                        <div class="col-8 position-relative">
-                            <input type="text" class="form-control " id="model" [(ngModel)]="formModel">
-                            <label class="warning-message" *ngIf="formModel != selectedProduct.model"> <i class="fa-solid fa-pen-to-square"></i></label>
-                        </div>
-
-                    </div>
-
-                    <div class="row data-row">
-                        <div class="col-4 h-auto d-flex align-items-center">
-                            <label for="productId">Brand</label>
-                        </div>
-                        <div class="col-8 position-relative">
-                            <input type="text" class="form-control" id="brand" [(ngModel)]="formBrand">
-                            <label class="warning-message" *ngIf="formBrand != selectedProduct.brand"> <i class="fa-solid fa-pen-to-square"></i></label>
-                        </div>
-                    </div>
-
-                    <div class="row data-row">
-                        <div class="col-4 h-auto d-flex align-items-center">
-                            <label for="deviceOS">Device OS</label>
-                        </div>
-                        <div class="col-8 position-relative">
-                            <input type="text" class="form-control" id="deviceOS" [(ngModel)]="formDeviceOS">
-                            <label class="warning-message" *ngIf="formDeviceOS != selectedProduct.deviceOS"> <i class="fa-solid fa-pen-to-square"></i></label>
-                        </div>
-                    </div>
-
-                    <div class="row data-row">
-                        <div class="col-4 h-auto d-flex align-items-center">
-                            <label for="color">Color</label>
-                        </div>
-                        <div class="col-8 position-relative">
-                            <input type="text" class="form-control" id="color" [(ngModel)]="formColor">
-                            <label class="warning-message" *ngIf="formColor != selectedProduct.color"> <i class="fa-solid fa-pen-to-square"></i></label>
-                        </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control required" id="model" [(ngModel)]="formAddModel">
                     </div>
                 </div>
-                <div class="col d-flex align-items-center justify-content-center">
-                    <div [hidden]="loadingImage">
-                        <img src="{{selectedProduct.image}}" (load)="onImageLoad()" class="img-fluid" />
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="productId">Brand</label>
                     </div>
-                    <span class="loader" *ngIf="loadingImage"></span>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="brand" [(ngModel)]="formAddBrand">
+                    </div>
                 </div>
-            </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="deviceOS">Device OS</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="deviceOS" [(ngModel)]="formAddDeviceOS">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="color">Color</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="color" [(ngModel)]="formAddColor">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="description" [(ngModel)]="formAddDescription">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="productId">Image URL</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="imageURL" [(ngModel)]="formAddImageURL">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="price">Price</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="price" [(ngModel)]="formAddPrice">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="discount">Discount (%)</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="discount" [(ngModel)]="formAddDiscount">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="availableStocks">Available stocks</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="availableStocks" [(ngModel)]="formAddAvailableStocks">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="itemsSold">Items sold</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="itemsSold" [(ngModel)]="formAddItemsSold">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="releaseDate">Release Date</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="releaseDate" [(ngModel)]="formAddReleaseDate">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="rating">Rating</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="number" class="form-control" id="rating" [(ngModel)]="formAddRating">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col">
+                        <div class="row align-items-center">
+                            <div class="col-2 h-auto d-flex align-items-center">
+                                <label for="seller">Seller</label>
+                            </div>
+                            <div class="col-3 d-flex align-items-start justify-content-start">
+                                <span class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                                      [class.disabled]="isAddNewSeller">
+                                    <span *ngIf="!formAddSelectedSeller">Select Seller</span>
+                                    <span *ngIf="formAddSelectedSeller">{{formAddSelectedSeller.name}}</span>
+                                </span>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let seller of sellerList" class="seller-item-list" (click)="onSellerSelect(seller)">
+                                        <a class="dropdown-item">{{seller.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-7 align-middle align-items-center ps-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-check-input" type="checkbox" value="" id="newSellerCheckbox" [(ngModel)]="isAddNewSeller">
+                                        <label class="ms-2 align-middle" for="newSellerCheckbox">
+                                            New Seller
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewSeller">
+                                        <input type="text" class="form-control" [(ngModel)]="formAddNewSeller" placeholder="Name">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row data-row">
+                    <div class="col">
+                        <div class="row align-items-center">
+                            <div class="col-2 h-auto d-flex align-items-center">
+                                <label>Previous Owner</label>
+                            </div>
+                            <div class="col-3 d-flex align-items-start justify-content-start">
+                                <span class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                                      [class.disabled]="isAddNewPrevOwner">
+                                    <span *ngIf="!formAddSelectedPrevOwner">Select Prev Owner</span>
+                                    <span *ngIf="formAddSelectedPrevOwner">{{formAddSelectedPrevOwner.firstName}} {{formAddSelectedPrevOwner.lastName}}</span>
+                                </span>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let prevOwner of previousOwnerList" class="seller-item-list" (click)="onPrevOwnerSelect(prevOwner)">
+                                        <a class="dropdown-item">{{prevOwner.firstName}} {{prevOwner.lastName}}</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="col-7 align-items-center ps-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-check-input d-inline" type="checkbox"
+                                               id="newPrevOwnerCheckbox" [(ngModel)]="isAddNewPrevOwner">
+                                        <label class="ms-2 align-middle d-inline" for="newPrevOwnerCheckbox">
+                                            New Previous Owner
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col position-relative align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewPrevOwner">
+                                        <input type="text" class="form-control" [(ngModel)]="formAddNewPrevOwnerFirstName" placeholder="First Name">
+                                    </div>
+                                    <div class="col position-relative align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewPrevOwner">
+                                        <input type="text" class="form-control" [(ngModel)]="formAddNewPrevOwnerLastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
 
 
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="description">Description</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="description" [(ngModel)]="formDescription">
-                    <label class="warning-message" *ngIf="formDescription != selectedProduct.description"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="productId">Image URL</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="imageURL" [(ngModel)]="formImageURL">
-                    <label class="warning-message" *ngIf="formImageURL != selectedProduct.image"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="price">Price</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="price" [(ngModel)]="formPrice">
-                    <label class="warning-message" *ngIf="formPrice != selectedProduct.price"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="discount">Discount (%)</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="discount" [(ngModel)]="formDiscount">
-                    <label class="warning-message" *ngIf="formDiscount != selectedProduct.discount"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="availableStocks">Available stocks</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="availableStocks" [(ngModel)]="formAvailableStocks">
-                    <label class="warning-message" *ngIf="formAvailableStocks != selectedProduct.availableStocks"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="itemsSold">Items sold</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control disabled" id="itemsSold" [(ngModel)]="formItemsSold">
-                    <label class="warning-message" *ngIf="formItemsSold != selectedProduct.soldItems"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="releaseDate">Release Date</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="releaseDate" [(ngModel)]="formReleaseDate">
-                    <label class="warning-message" *ngIf="formReleaseDate != selectedProduct.releaseDate"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="rating">Rating</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="rating" [(ngModel)]="formRating">
-                    <label class="warning-message" *ngIf="formRating != selectedProduct.rating"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="seller">Seller</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="seller" [(ngModel)]="formSeller">
-                    <label class="warning-message" *ngIf="formSeller != selectedProduct.seller"> <i class="fa-solid fa-pen-to-square"></i></label>
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="productId">Previous Owner</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="prevOwnerFirstName" [(ngModel)]="formPrevOwner">
-                    <label class="warning-message" *ngIf="formPrevOwner != selectedProduct.previousOwner"> <i class="fa-solid fa-pen-to-square"></i></label>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal-footer d-flex justify-content-between">
-        <div>
-            <button type="button" class="btn btn-danger fs-6" (click)="onDeleteProductClick(deleteProductModal)">Delete Product</button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary fs-6 me-3" [class.disabled]="disableUpdateBtn()" (click)="onUpdateProductClick()">Update Product</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary fs-6" [class.disabled]="disableAddNewProductBtn()" (click)="onAddProduct()">Add New Product</button>
             <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
         </div>
+    </ng-template>
 
-    </div>
-</ng-template>
-
-<ng-template #addProductModal let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            <i class="fa-solid fa-mobile-screen-button me-2" style="color: #183153; font-size: 17px"></i>
-            Add New Product
+    <ng-template #deleteProductModal let-modal>
+        <div class="modal-header">
+            <div class="fw-bold fs-5 d-flex align-items-center">
+                Product Deletion
+            </div>
+            <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
         </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
 
-    <div class="modal-body">
-        <div class="align-middle">
-            <span class="fw-6 fw-bold text-danger" *ngIf="disableAddNewProductBtn()">*  All fields are required</span>
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="model">Model</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control required" id="model" [(ngModel)]="formAddModel">
-                </div>
-            </div>
+        <div class="modal-body">
+            <span class="fw-bold d-block">Are you sure you want to delete <span class="text-danger">"{{selectedProduct.model}}"</span>?</span>
+            <br />
+            <span class="d-block">All information associated to this product will be permanently deleted. <span class="text-danger">This operation can not be undone.</span></span>
 
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="productId">Brand</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="brand" [(ngModel)]="formAddBrand">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="deviceOS">Device OS</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="deviceOS" [(ngModel)]="formAddDeviceOS">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="color">Color</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="color" [(ngModel)]="formAddColor">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="description">Description</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="description" [(ngModel)]="formAddDescription">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="productId">Image URL</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="text" class="form-control" id="imageURL" [(ngModel)]="formAddImageURL">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="price">Price</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="price" [(ngModel)]="formAddPrice">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="discount">Discount (%)</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="discount" [(ngModel)]="formAddDiscount">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="availableStocks">Available stocks</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="availableStocks" [(ngModel)]="formAddAvailableStocks">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="itemsSold">Items sold</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="itemsSold" [(ngModel)]="formAddItemsSold">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="releaseDate">Release Date</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="releaseDate" [(ngModel)]="formAddReleaseDate">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col-2 h-auto d-flex align-items-center">
-                    <label for="rating">Rating</label>
-                </div>
-                <div class="col-10 position-relative">
-                    <input type="number" class="form-control" id="rating" [(ngModel)]="formAddRating">
-                </div>
-            </div>
-
-            <div class="row data-row">
-                <div class="col">
-                    <div class="row align-items-center">
-                        <div class="col-2 h-auto d-flex align-items-center">
-                            <label for="seller">Seller</label>
-                        </div>
-                        <div class="col-3 d-flex align-items-start justify-content-start">
-                            <span class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-                                  [class.disabled]="isAddNewSeller">
-                                <span *ngIf="!formAddSelectedSeller">Select Seller</span>
-                                <span *ngIf="formAddSelectedSeller">{{formAddSelectedSeller.name}}</span>
-                            </span>
-                            <ul class="dropdown-menu">
-                                <li *ngFor="let seller of sellerList" class="seller-item-list" (click)="onSellerSelect(seller)">
-                                    <a class="dropdown-item">{{seller.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-7 align-middle align-items-center ps-4">
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input" type="checkbox" value="" id="newSellerCheckbox" [(ngModel)]="isAddNewSeller">
-                                    <label class="ms-2 align-middle" for="newSellerCheckbox">
-                                        New Seller
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewSeller">
-                                    <input type="text" class="form-control" [(ngModel)]="formAddNewSeller" placeholder="Name">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="row data-row">
-                <div class="col">
-                    <div class="row align-items-center">
-                        <div class="col-2 h-auto d-flex align-items-center">
-                            <label>Previous Owner</label>
-                        </div>
-                        <div class="col-3 d-flex align-items-start justify-content-start">
-                            <span class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-                                  [class.disabled]="isAddNewPrevOwner">
-                                <span *ngIf="!formAddSelectedPrevOwner">Select Prev Owner</span>
-                                <span *ngIf="formAddSelectedPrevOwner">{{formAddSelectedPrevOwner.firstName}} {{formAddSelectedPrevOwner.lastName}}</span>
-                            </span>
-                            <ul class="dropdown-menu">
-                                <li *ngFor="let prevOwner of previousOwnerList" class="seller-item-list" (click)="onPrevOwnerSelect(prevOwner)">
-                                    <a class="dropdown-item">{{prevOwner.firstName}} {{prevOwner.lastName}}</a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                        <div class="col-7 align-items-center ps-4">
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input d-inline" type="checkbox"
-                                    id="newPrevOwnerCheckbox" [(ngModel)]="isAddNewPrevOwner" >
-                                    <label class="ms-2 align-middle d-inline" for="newPrevOwnerCheckbox">
-                                        New Previous Owner
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col position-relative align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewPrevOwner">
-                                    <input type="text" class="form-control" [(ngModel)]="formAddNewPrevOwnerFirstName" placeholder="First Name">
-                                </div>
-                                <div class="col position-relative align-items-center animate__animated animate__fadeIn" *ngIf="isAddNewPrevOwner">
-                                    <input type="text" class="form-control" [(ngModel)]="formAddNewPrevOwnerLastName" placeholder="Last Name">
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary fs-6" [class.disabled]="disableAddNewProductBtn()" (click)="onAddProduct()">Add New Product</button>
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
-
-<ng-template #deleteProductModal let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            Product Deletion
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger fs-6" (click)="confirmDeleteProduct()">Confirm</button>
+            <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
         </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </ng-template>
+
+
+
+    <!-- Snackbar -->
+    <div class="toast shadow" id="snackbar" #snackbar>
+        <div class="toast-body"><strong>{{notifMessage}}</strong></div>
     </div>
 
-    <div class="modal-body">
-        <span class="fw-bold d-block">Are you sure you want to delete <span class="text-danger">"{{selectedProduct.model}}"</span>?</span>
-        <br />
-        <span class="d-block">All information associated to this product will be permanently deleted. <span class="text-danger">This operation can not be undone.</span></span>
-
-    </div>
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger fs-6" (click)="confirmDeleteProduct()">Confirm</button>
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
-
-
-
-<!-- Snackbar -->
-<div class="toast shadow" id="snackbar" #snackbar>
-    <div class="toast-body"><strong>{{notifMessage}}</strong></div>
 </div>

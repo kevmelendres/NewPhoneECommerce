@@ -12,7 +12,8 @@ export class TopHeaderComponent implements OnInit{
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.isAdminBS.subscribe(isAdmin => this.isAdmin = isAdmin)
+    this.authService.isAdminBS.subscribe(data =>
+      this.isAdmin = data);
 
   }
 }

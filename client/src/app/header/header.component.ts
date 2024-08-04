@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit{
   totalPriceInCart: number;
   currentUser: ICurrentUser | null;
 
-  _isAuthenticated: boolean;
+  _isAuthenticated: boolean = false;
 
   @ViewChild('signinDropdown', { static: false }) signinDropdown: ElementRef;
   @ViewChild('dropDownMenu', { static: false }) dropDownMenu: ElementRef;
@@ -37,11 +37,12 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated.subscribe(data => {
-      this._isAuthenticated = data;
-    });
-    
-    this.currentUser = this.authService.getCurrentUser();
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.currentUser = this.authService.getCurrentUser();
+      }
+    })
+
     this.cartService.itemsInCart.subscribe(data => {
       this.itemsOnCart = data;
     });
@@ -125,7 +126,7 @@ export class HeaderComponent implements OnInit{
 
   onCheckoutClick() {
 
-    if (!this._isAuthenticated) {
+    if (!this.currentUser) {
       this.router.navigate(["/account/login"]);
     } else {
       this.router.navigate(["/account/checkout"]);
@@ -136,7 +137,7 @@ export class HeaderComponent implements OnInit{
   }
 
   onMyOrdersClick() {
-    if (!this._isAuthenticated) {
+    if (!this.currentUser) {
       this.router.navigate(["/account/login"]);
     } else {
       this.router.navigate(["/account/my-orders"]);

@@ -5,6 +5,7 @@ import { FormatHelpersService } from '../../../Services/format-helpers.service';
 import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { Pagination } from '../../../Services/pagination';
 import { AuthService } from '../../../Services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-deliveries',
@@ -32,31 +33,46 @@ export class ManageDeliveriesComponent implements OnInit {
 
   pagination: Pagination = new Pagination();
 
+  isAdmin: boolean = false;
   adminToken: string;
 
   constructor(private renderer: Renderer2,
     private adminOrderService: AdminOrderService,
     private formatHelpers: FormatHelpersService,
     private modalService: NgbModal,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.adminToken = this.authService.currentUser?.token!;
-    this.pagination.itemsToShow = 20;
 
-    this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
-    this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
-    this.getOrders();
-    this.orderStatusList = this.formatHelpers.orderStatusList;
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.authService.isAdminBS.subscribe(isAdmin => {
+          this.isAdmin = isAdmin;
+          if (this.isAdmin) {
+            this.adminToken = this.authService.currentUser?.token!;
+            this.pagination.itemsToShow = 20;
 
+            this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
+            this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
+            this.getOrders();
+            this.orderStatusList = this.formatHelpers.orderStatusList;
 
-    this.adminOrderService.getOrdersCount("All Deliveries", this.adminToken).subscribe(data => {
-      this.pagination.allItemsCount = data;
-      this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
-      this.pagination.resetPaginationNumbering();
-      this.pagination.resetPageNumbersBasedOnCurrentPage();
-      this.pagination.enableDisableNextPageClick();
-    });
+            this.adminOrderService.getOrdersCount("All Deliveries", this.adminToken).subscribe(data => {
+              this.pagination.allItemsCount = data;
+              this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+              this.pagination.resetPaginationNumbering();
+              this.pagination.resetPageNumbersBasedOnCurrentPage();
+              this.pagination.enableDisableNextPageClick();
+            });
+          } else {
+            this.router.navigateByUrl("");
+          }
+        })
+      } else {
+        this.router.navigateByUrl("");
+      }
+    })
   }
 
   onStatusLinkClick(event: any) {

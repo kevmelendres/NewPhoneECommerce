@@ -56,8 +56,8 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.itemsInCart.subscribe(items => this._itemsInCart = items);
 
-    this.authService.initialLoginUser().subscribe(isLoggedIn => {
-      if (isLoggedIn) {
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
         this.cartService.itemsInCart.subscribe(data => this.itemsInCart = data);
         this.authService.currentUserProfileBS.subscribe(data => {
           this.currentUserProfile = data;
@@ -69,6 +69,7 @@ export class CheckoutComponent implements OnInit {
             this.selectedDeliveryMethod = this.allDeliveryMethods[0];
           }
         });
+
       } else {
         this.router.navigateByUrl("/login");
       }
@@ -129,7 +130,7 @@ export class CheckoutComponent implements OnInit {
     this.openModalNotif(this.notification);
     setTimeout(() => {
       this.closeModalNotif(this.notification);
-      this.router.navigateByUrl("/home");
+      this.router.navigateByUrl("/account/my-orders");
     }, 3000);
   }
 

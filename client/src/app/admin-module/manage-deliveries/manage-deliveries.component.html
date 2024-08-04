@@ -1,293 +1,298 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
-                <div class="mt-3 mb-4">
-                    <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+<div *ngIf="isAdmin">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
+                    <div class="mt-3 mb-4">
+                        <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                    </div>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="d-inline">Dashboard</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-products">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                            <div class="d-inline">Products</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-deliveries">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
+                            <div class="d-inline">Deliveries</div>
+                        </li>
+                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
+                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
+                            <div class="d-inline">Users</div>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="d-inline">Dashboard</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-products">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                        <div class="d-inline">Products</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-deliveries">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
-                        <div class="d-inline">Deliveries</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
-                        <div class="d-inline">Users</div>
-                    </li>
-                </ul>
             </div>
-        </div>
 
 
-        <div class="py-5 content-container w-100">
-            <div #deliveryReport>
-                <span class="fs-4 fw-bold">Delivery Report</span>
-                <span class="fs-6 d-block fw-light">Admin > Manage Deliveries</span>
+            <div class="py-5 content-container w-100">
+                <div #deliveryReport>
+                    <span class="fs-4 fw-bold">Delivery Report</span>
+                    <span class="fs-6 d-block fw-light">Admin > Manage Deliveries</span>
 
-                <div class="mt-3 d-flex w-100 justify-content-between">
-                    <div #allDeliveries class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        All Deliveries
-                    </div>
-                    <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        Order Placed
-                    </div>
-                    <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        Order In Progress
-                    </div>
-                    <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        Preparing To Ship
-                    </div>
-                    <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        Shipped
-                    </div>
-                    <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
-                        Delivered
-                    </div>
-
-                </div>
-
-
-                <div class="mt-4 d-flex w-100" [ngStyle]="{ 'justify-content' : (ordersToShow.length != 0) ? 'start' : 'center'}" style="">
-
-
-
-                    <div class="d-flex justify-content-center align-items-center"
-                         style="min-height: 400px;" *ngIf="ordersToShow.length == 0">
-                        <div #NoItemsToShow class="text-center">
-                            <div class="d-block" style="color: darkred; font-size: 80px;">
-                                <i class="fa-solid fa-circle-exclamation"></i>
-                            </div>
-                            <div class="d-block fs-5">No orders to show.</div>
+                    <div class="mt-3 d-flex w-100 justify-content-between">
+                        <div #allDeliveries class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            All Deliveries
                         </div>
+                        <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            Order Placed
+                        </div>
+                        <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            Order In Progress
+                        </div>
+                        <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            Preparing To Ship
+                        </div>
+                        <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            Shipped
+                        </div>
+                        <div class="d-inline status-link flex-grow-1 text-center" (click)="onStatusLinkClick($event)">
+                            Delivered
+                        </div>
+
                     </div>
 
-                    <div style="" *ngIf="ordersToShow.length != 0" class="p-4 border border-opacity-10 rounded w-100">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div>
-                                <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
-                                <span class="fw-bold me-3" style="font-size: 25px">Manage Deliveries / Orders</span>
-                            </div>
 
-                            <div class="d-flex">
-                                <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
-                                     [class.disabled]="pagination.pageNumber <= pagination.totalNumberOfPages">
-                                    <i class="fa-solid fa-chevron-left"></i>
+                    <div class="mt-4 d-flex w-100" [ngStyle]="{ 'justify-content' : (ordersToShow.length != 0) ? 'start' : 'center'}" style="">
+
+
+
+                        <div class="d-flex justify-content-center align-items-center"
+                             style="min-height: 400px;" *ngIf="ordersToShow.length == 0">
+                            <div #NoItemsToShow class="text-center">
+                                <div class="d-block" style="color: darkred; font-size: 80px;">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
                                 </div>
-                                <div *ngFor="let number of pagination.pageNumberList">
+                                <div class="d-block fs-5">No orders to show.</div>
+                            </div>
+                        </div>
+
+                        <div style="" *ngIf="ordersToShow.length != 0" class="p-4 border border-opacity-10 rounded w-100">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
+                                    <span class="fw-bold me-3" style="font-size: 25px">Manage Deliveries / Orders</span>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
+                                         [class.disabled]="pagination.pageNumber <= pagination.totalNumberOfPages">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </div>
+                                    <div *ngFor="let number of pagination.pageNumberList">
+                                        <div class="page-number d-flex align-items-center justify-content-center"
+                                             (click)=onPageNumberClick(number+1)
+                                             [class.page-number-active]="number + 1 == pagination.pageNumber"
+                                             *ngIf="number + 1 <= pagination.maxPossiblePageNumber">
+                                            {{number + 1}}
+                                        </div>
+                                    </div>
                                     <div class="page-number d-flex align-items-center justify-content-center"
-                                         (click)=onPageNumberClick(number+1)
-                                         [class.page-number-active]="number + 1 == pagination.pageNumber"
-                                         *ngIf="number + 1 <= pagination.maxPossiblePageNumber">
-                                        {{number + 1}}
+                                         (click)=onNextPaginationClick()
+                                         [class.disabled]="!pagination.enableNextPageClick">
+                                        <i class="fa-solid fa-chevron-right"></i>
                                     </div>
                                 </div>
-                                <div class="page-number d-flex align-items-center justify-content-center"
-                                     (click)=onNextPaginationClick()
-                                     [class.disabled]="!pagination.enableNextPageClick">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
+
                             </div>
-                            
+
+
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr class="align-middle">
+                                        <th scope="col">Order No.</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Order Items</th>
+                                        <th scope="col">Subtotal</th>
+                                        <th scope="col">Delivery Address</th>
+                                        <th scope="col">Order Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody #orderRows>
+                                    <tr class="order-row align-middle" *ngFor="let order of ordersToShow; index as i" (click)="onOrderClick(order, orderDetails, i + 1)">
+                                        <th scope="row">{{i + (pagination.itemsToShow * (pagination.pageNumber - 1)) + 1}}</th>
+                                        <td>{{order.firstName}}</td>
+                                        <td>{{order.lastName}}</td>
+                                        <td>{{order.orderItems.length}}</td>
+                                        <td>
+                                            {{order.subtotal.toLocaleString("en-US", {
+                                            style: "currency",
+                                            currency: "Php"
+                                            })}}
+                                        </td>
+                                        <td>{{order.addressMunicipality}}, {{order.addressProvince}}</td>
+                                        <td>{{formatOrderStatus(order.orderStatus)}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                </div>
+            </div>
 
 
-                        <table class="table table-hover text-center">
-                            <thead>
-                                <tr class="align-middle">
-                                    <th scope="col">Order No.</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Order Items</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col">Delivery Address</th>
-                                    <th scope="col">Order Status</th>
-                                </tr>
-                            </thead>
-                            <tbody #orderRows>
-                                <tr class="order-row align-middle" *ngFor="let order of ordersToShow; index as i" (click)="onOrderClick(order, orderDetails, i + 1)">
-                                    <th scope="row">{{i + (pagination.itemsToShow * (pagination.pageNumber - 1)) + 1}}</th>
-                                    <td>{{order.firstName}}</td>
-                                    <td>{{order.lastName}}</td>
-                                    <td>{{order.orderItems.length}}</td>
-                                    <td>
-                                        {{order.subtotal.toLocaleString("en-US", {
+        </div>
+    </div>
+
+    <ng-template #orderDetails let-modal>
+        <div class="modal-header">
+            <div class="fw-bold fs-5 d-flex align-items-center">
+                <div>
+                    <i class="fa-solid fa-basket-shopping me-2" style="color: #2e6cf2; font-size: 17px;"></i>
+                </div>
+                <span class="pt-1">Order Information</span>
+            </div>
+            <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="table text-start" style="margin-bottom:0">
+                <thead>
+                    <tr class="align-middle order-row-modal-head">
+                        <th scope="col" style="width: 25%"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody #orderRows class="align-middle">
+                    <tr class="order-row-modal">
+                        <th scope="row">Order Number</th>
+                        <td>{{selectedOrderNo}}</td>
+                    </tr>
+                    <tr class="order-row-modal">
+                        <th scope="row">First Name</th>
+                        <td>{{selectedOrder.firstName}}</td>
+                    </tr>
+                    <tr class="order-row-modal">
+                        <th scope="row">Last Name</th>
+                        <td>{{selectedOrder.lastName}}</td>
+                    </tr>
+                    <tr class="order-row-modal">
+                        <th scope="row">Email</th>
+                        <td>{{selectedOrder.buyerEmail}}</td>
+                    </tr>
+                    <tr class="order-row-modal">
+                        <th scope="row">Delivery Date</th>
+                        <td>
+                            <span class="" style="font-size: 15px;" aria-expanded="false">
+                                {{convertNgbDateStructToString(deliveryDateSelected)}}
+                            </span>
+                        </td>
+
+
+                    </tr>
+                    <tr class="order-row-modal align-start">
+                        <th scope="row">Delivery Method</th>
+                        <td>{{selectedOrder.deliveryMethod}}</td>
+                    </tr>
+                    <tr class="order-row-modal align-start">
+                        <th scope="row">Order Status</th>
+                        <td>
+                            <div class="dropdown d-inline">
+                                <span class="dropdown-toggle" style="font-size: 15px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{selectedOrderStatus}}
+                                </span>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let item of orderStatusList" style="cursor: pointer">
+                                        <a class="dropdown-item" (click)="onOrderStatusClick(item)">{{item}}</a>
+                                    </li>
+                                </ul>
+                                <span *ngIf="formatOrderStatus(selectedOrder.orderStatus) != selectedOrderStatus" class="text-danger fw-bold ms-3" style="font-size: 12px;">
+                                    Order status will be changed when updated.
+                                </span>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                    <tr class="order-row-modal align-start">
+                        <th scope="row">Shipping Address</th>
+                        <td>{{getShippingAddress(selectedOrder)}}</td>
+                    </tr>
+                    <tr class="order-row-modal align-start">
+                        <th style="border-bottom:0" scope="row">Order Items</th>
+                        <td style="border-bottom:0">
+                            <div *ngFor="let item of selectedOrder.orderItems" class="my-2">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <span class="d-block">
+                                            <span class="fw-bold fs-6">{{item.model}}, </span>
+                                            <span class="fs-smaller">{{item.brand}}</span>
+                                            <span class="fs-smaller"> ({{item.color}})</span>
+                                        </span>
+                                        <span class="d-block fs-smaller fst-italic">{{item.description}}</span>
+                                        <span class="d-block fs-smaller">
+                                            ({{item.discountedPrice.toLocaleString("en-US", {
+                                            style: "currency",
+                                            currency: "Php"
+                                            })}} x {{item.quantity}})
+                                        </span>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        {{getSubtotalPerItem(item.discountedPrice, item.quantity).toLocaleString("en-US", {
                                         style: "currency",
                                         currency: "Php"
                                         })}}
-                                    </td>
-                                    <td>{{order.addressMunicipality}}, {{order.addressProvince}}</td>
-                                    <td>{{formatOrderStatus(order.orderStatus)}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                    </div>
+                                </div>
 
+                            </div>
 
-    </div>
-</div>
+                            <div class="row mb-3">
+                                <div class="col-9 d-flex align-items-center">
 
-<ng-template #orderDetails let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            <div>
-                <i class="fa-solid fa-basket-shopping me-2" style="color: #2e6cf2; font-size: 17px;"></i>
-            </div>
-            <span class="pt-1">Order Information</span>
-        </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
+                                    <div class="d-inline">
+                                        <span class="fw-bold fs-6">Delivery Fee</span>
+                                    </div>
 
-        <table class="table text-start" style="margin-bottom:0">
-            <thead>
-                <tr class="align-middle order-row-modal-head">
-                    <th scope="col" style="width: 25%"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody #orderRows class="align-middle">
-                <tr class="order-row-modal">
-                    <th scope="row">Order Number</th>
-                    <td>{{selectedOrderNo}}</td>
-                </tr>
-                <tr class="order-row-modal">
-                    <th scope="row">First Name</th>
-                    <td>{{selectedOrder.firstName}}</td>
-                </tr>
-                <tr class="order-row-modal">
-                    <th scope="row">Last Name</th>
-                    <td>{{selectedOrder.lastName}}</td>
-                </tr>
-                <tr class="order-row-modal">
-                    <th scope="row">Email</th>
-                    <td>{{selectedOrder.buyerEmail}}</td>
-                </tr>
-                <tr class="order-row-modal">
-                    <th scope="row">Delivery Date</th>
-                    <td>
-                        <span class="" style="font-size: 15px;" aria-expanded="false">
-                            {{convertNgbDateStructToString(deliveryDateSelected)}}
-                        </span>
-                    </td>
+                                    <div class="d-inline ms-2">
+                                        ({{selectedOrder.deliveryMethod}})
+                                    </div>
+                                </div>
 
+                                <div class="col-3 text-center">
+                                    {{selectedOrder.deliveryMethodPrice.toLocaleString("en-US", {
+                                    style: "currency",
+                                    currency: "Php"
+                                    })}}
+                                </div>
 
-                </tr>
-                <tr class="order-row-modal align-start">
-                    <th scope="row">Delivery Method</th>
-                    <td>{{selectedOrder.deliveryMethod}}</td>
-                </tr>
-                <tr class="order-row-modal align-start">
-                    <th scope="row">Order Status</th>
-                    <td>
-                        <div class="dropdown d-inline">
-                            <span class="dropdown-toggle" style="font-size: 15px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{selectedOrderStatus}}
-                            </span>
-                            <ul class="dropdown-menu">
-                                <li *ngFor="let item of orderStatusList" style="cursor: pointer">
-                                    <a class="dropdown-item" (click)="onOrderStatusClick(item)">{{item}}</a>
-                                </li>
-                            </ul>
-                            <span *ngIf="formatOrderStatus(selectedOrder.orderStatus) != selectedOrderStatus" class="text-danger fw-bold ms-3" style="font-size: 12px;">
-                                Order status will be changed when updated.</span>
-                        </div>
+                            </div>
 
+                            <hr />
 
-                    </td>
-                </tr>
-                <tr class="order-row-modal align-start">
-                    <th scope="row">Shipping Address</th>
-                    <td>{{getShippingAddress(selectedOrder)}}</td>
-                </tr>
-                <tr class="order-row-modal align-start">
-                    <th style="border-bottom:0" scope="row">Order Items</th>
-                    <td style="border-bottom:0">
-                        <div *ngFor="let item of selectedOrder.orderItems" class="my-2">
                             <div class="row">
                                 <div class="col-9">
-                                    <span class="d-block">
-                                        <span class="fw-bold fs-6">{{item.model}}, </span>
-                                        <span class="fs-smaller">{{item.brand}}</span>
-                                        <span class="fs-smaller"> ({{item.color}})</span>
-                                    </span>
-                                    <span class="d-block fs-smaller fst-italic">{{item.description}}</span>
-                                    <span class="d-block fs-smaller">
-                                        ({{item.discountedPrice.toLocaleString("en-US", {
+                                    <span class="fw-bold fs-6">Total:</span>
+
+                                </div>
+
+                                <div class="col-3 text-center">
+                                    <span>
+                                        {{getTotalIncludingShipping(selectedOrder).toLocaleString("en-US", {
                                         style: "currency",
                                         currency: "Php"
-                                        })}} x {{item.quantity}})
+                                        })}}
                                     </span>
                                 </div>
-                                <div class="col-3 text-center">
-                                    {{getSubtotalPerItem(item.discountedPrice, item.quantity).toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "Php"
-                                    })}}
-                                </div>
                             </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary fs-6 me-2 px-3" (click)="onUpdateClick(selectedOrder)"
+                    [class.disabled]="formatOrderStatus(selectedOrder.orderStatus) == selectedOrderStatus"
+                    [class.btn-outline-primary]="formatOrderStatus(selectedOrder.orderStatus) == selectedOrderStatus">
+                Update Order Status
+            </button>
+            <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
 
-                        <div class="row mb-3">
-                            <div class="col-9 d-flex align-items-center">
-
-                                <div class="d-inline">
-                                    <span class="fw-bold fs-6">Delivery Fee</span>
-                                </div>
-
-                                <div class="d-inline ms-2">
-                                    ({{selectedOrder.deliveryMethod}})
-                                </div>
-                            </div>
-
-                            <div class="col-3 text-center">
-                                {{selectedOrder.deliveryMethodPrice.toLocaleString("en-US", {
-                                style: "currency",
-                                currency: "Php"
-                                })}}
-                            </div>
-
-                        </div>
-
-                        <hr />
-
-                        <div class="row">
-                            <div class="col-9">
-                                <span class="fw-bold fs-6">Total:</span>
-
-                            </div>
-
-                            <div class="col-3 text-center">
-                                <span>
-                                    {{getTotalIncludingShipping(selectedOrder).toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "Php"
-                                    })}}
-                                </span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary fs-6 me-2 px-3" (click)="onUpdateClick(selectedOrder)"
-        [class.disabled]="formatOrderStatus(selectedOrder.orderStatus) == selectedOrderStatus"
-        [class.btn-outline-primary]="formatOrderStatus(selectedOrder.orderStatus) == selectedOrderStatus"
-        >Update Order Status</button>
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
+</div>

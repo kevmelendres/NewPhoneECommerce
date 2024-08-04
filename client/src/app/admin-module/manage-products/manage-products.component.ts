@@ -8,6 +8,8 @@ import { ISeller } from '../../../Models/seller';
 import { IPreviousOwner } from '../../../Models/previousowner';
 import { IAddNewProduct } from '../../../Models/addnewproduct';
 import { AuthService } from '../../../Services/auth-service.service';
+import { isatty } from 'node:tty';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-products',
@@ -99,21 +101,32 @@ export class ManageProductsComponent implements OnInit{
 
   isEditProduct: boolean = false;
 
+  isAdmin: boolean = false;
   adminToken: string;
   constructor(private adminProductService: AdminProductService,
     private modalService: NgbModal, private renderer: Renderer2,
-    private authService: AuthService) { }
+    private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.adminToken = this.authService.currentUser?.token!;
-    this.getProducts();
-    this.adminProductService.getAllProductsCount().subscribe(data => {
-      this.allProductsCount = data;
-      this.maxPossiblePageNumber = Math.ceil(this.allProductsCount / this.itemsToShow);
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.authService.isAdminBS.subscribe(isAdmin => {
+          this.isAdmin = isAdmin;
+          if (this.isAdmin) {
+            this.adminToken = this.authService.currentUser?.token!;
+            this.getProducts();
+            this.adminProductService.getAllProductsCount().subscribe(data => {
+              this.allProductsCount = data;
+              this.maxPossiblePageNumber = Math.ceil(this.allProductsCount / this.itemsToShow);
+            })
+            this.adminProductService.getAllSellers().subscribe(data => this.sellerList = data);
+            this.adminProductService.getAllPreviousOwners().subscribe(data => this.previousOwnerList = data);
+          } else {
+            this.router.navigateByUrl("");
+          }
+        })
+      }
     })
-
-    this.adminProductService.getAllSellers().subscribe(data => this.sellerList = data);
-    this.adminProductService.getAllPreviousOwners().subscribe(data => this.previousOwnerList = data);
   }
 
   onPageNumberClick(pageNum: number) {

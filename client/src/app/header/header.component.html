@@ -20,7 +20,7 @@
 
                         <div #signinDropdown class="dropdown-menu dropdown-menu-end" (click)="$event.stopPropagation()" style="width: 230px; font-size: 12px">
 
-                            <div *ngIf="_isAuthenticated" class="container">
+                            <div *ngIf="currentUser" class="container">
 
                                 <p class="text-center fs-small my-3">Welcome <strong>{{currentUser!.displayName}}!</strong></p>
 
@@ -29,7 +29,7 @@
                                         <i class="fa-solid fa-user"></i><div class="d-inline ps-2">Profile</div>
                                     </li>
                                     <li class="custom-list-item" (click)="onMyOrdersClick()">
-                                        <i class="fa-solid fa-boxes-packing" ></i><div class="d-inline ps-2">My Orders</div>
+                                        <i class="fa-solid fa-boxes-packing"></i><div class="d-inline ps-2">My Orders</div>
                                     </li>
                                     <li class="custom-list-item">
                                         <i class="fa-solid fa-gears"></i><div class="d-inline ps-2">Settings & privacy</div>
@@ -44,7 +44,7 @@
 
                             </div>
 
-                            <div *ngIf="!_isAuthenticated">
+                            <div *ngIf="!currentUser">
                                 <div class="px-2">
 
                                     <div class="d-flex flex-row justify-content-center py-0 h-auto">

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../../Services/auth-service.service';
 import { Router } from '@angular/router';
-import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { Observable, concatMap, firstValueFrom, lastValueFrom, map, of, switchMap, take, tap } from 'rxjs';
 
 
 @Component({
@@ -11,32 +11,20 @@ import { firstValueFrom, lastValueFrom } from 'rxjs';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+
+  @ViewChild("pageWrapper", { static: true }) pageWrapper: ElementRef;
+  renderPage: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router,
+    private renderer: Renderer2) {
+  }
   protected _isAuthenticated: boolean = false;
-  protected renderPage: boolean = false;
 
   ngOnInit(): void {
-    //this.authService.isAuthenticated.subscribe(data => {
-    //  this._isAuthenticated = data;
-    //  if (this._isAuthenticated) {
-    //    console.log("redirect from login");
-    //    this.router.navigateByUrl("/home");
-    //  }
-
-    //  if (!this._isAuthenticated) {
-    //    this.renderPage = true;
-    //  }
-    //});
-
-    this.authService.initialLoginUser().subscribe(isLoggedIn => {
-      this._isAuthenticated = isLoggedIn;
-
-      if (this._isAuthenticated) {
-        console.log("redirect from login");
-        this.router.navigateByUrl("/home");
-      }
-
-      if (!this._isAuthenticated) {
+    this.authService.initializeComponentLogin().subscribe(data => {
+      if (typeof data !== "boolean") {
+        this._isAuthenticated = true;
+      } else {
         this.renderPage = true;
       }
     });
@@ -61,4 +49,5 @@ export class LoginComponent implements OnInit{
       this.onLoginClick();
     }
   }
+
 }

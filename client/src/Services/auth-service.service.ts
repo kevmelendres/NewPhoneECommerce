@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT } from '@angular/common';
-import { BehaviorSubject, Observable, catchError, first, map, mergeMap, of, pipe, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, concatMap, first, map, mergeMap, of, pipe, switchMap, take } from 'rxjs';
 import { ICurrentUserProfileC } from '../Models/currentuserprofile';
 
 @Injectable({
@@ -27,17 +27,17 @@ export class AuthService {
   public isUserBS = new BehaviorSubject<boolean>(this.isUser);
 
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
-    this.initialLoginUser().subscribe();
   }
 
-  initialLoginUser(): Observable<boolean> {
+  checkIfUserIsStoredInLocal(): Observable<boolean> {
     const localStorage = this.document.defaultView?.localStorage;
 
     if (localStorage) {
       if (localStorage.getItem("currentAppUser")) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
-        return this.validateUserToServer(this.currentUser!);
+        this.currentUserProfileBS.next(this.currentUserProfile);
+        return of(true);
       };
     }
 
@@ -61,7 +61,7 @@ export class AuthService {
             localStorage.setItem("currentAppUser", JSON.stringify(this.currentUser));
 
             if (this.currentUser) {
-              this.validateUserToServer(this.currentUser).subscribe();
+              this.validateUserToServer(true).subscribe();
             }
             return true;
           }
@@ -83,42 +83,29 @@ export class AuthService {
     return this.currentUser;
   }
 
-  validateUserToServer(user: ICurrentUser): Observable<boolean> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${user.token}`
-    })
+  validateUserToServer(userExists: boolean): Observable<boolean> {
+    if (userExists) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.currentUser!.token}`
+      })
 
-    let params = new HttpParams();
+      let params = new HttpParams();
 
-    if (user.email) {
-      params = params.append('email', user.email);
+      if (this.currentUser!.email) {
+        params = params.append('email', this.currentUser!.email);
+      }
+
+      if (this.currentUser!.token) {
+        params = params.append('token', this.currentUser!.token);
+      }
+
+      return this.http.get<any>(this.baseUrl + "get-user",
+        { headers: headers, params: params })
     }
 
-    if (user.token) {
-      params = params.append('token', user.token);
-    }
-
-    let request = this.http.get<any>(this.baseUrl + "get-user",
-      { headers: headers, params: params })
-      .pipe(
-        first(),
-        catchError(error => of(false)),
-        map(data => {
-          if (data !== false){
-            this.isAuthenticated.next(true);
-            this.currentUserProfile = data;
-            this.currentUserProfileBS.next(data);
-            this.getCurrentUserRoles();
-            return true;
-          }
-
-          localStorage.removeItem("currentAppUser");
-          return false;
-        }));
-
-    return request;
-
+    this.currentUser = null;
+    return of(false)
   }
 
   updateUserDetails(updatedUser: ICurrentUserProfileC) {
@@ -143,4 +130,35 @@ export class AuthService {
     return this.http.get<string[]>(this.baseUrl + "get-user-roles",
       { headers: headers, params: params })
   }
+
+  initializeComponentLogin(): Observable<boolean> {
+    var initialization: Observable<any> = this.checkIfUserIsStoredInLocal().pipe(
+      take(1),
+      concatMap(userExists => this.validateUserToServer(userExists)),
+    );
+
+    var validation = initialization.pipe(
+      take(1),
+      map(data => {
+        if (typeof data !== "boolean") {
+          this.currentUserProfileBS.next(data);
+          this.getCurrentUserRoles().pipe(take(1)).subscribe(userRoles => {
+            if (userRoles.includes("User")) {
+              this.isUser = true;
+              this.isUserBS.next(true);
+            }
+            if (userRoles.includes("Admin")) {
+              this.isAdmin = true;
+              this.isAdminBS.next(true);
+            }
+          });
+          return true;
+        }
+        return false;
+      })
+    )
+
+    return validation;
+  }
+
 }

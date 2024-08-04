@@ -38,7 +38,6 @@ export class MyOrdersComponent implements OnInit {
     });
   }
 
-
   onOrderRowClick(order: IOrderDetailed, rowId: number) {
 
     if (this.selectedRowId != null) {
