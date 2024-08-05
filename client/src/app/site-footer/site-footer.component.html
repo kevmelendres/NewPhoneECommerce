@@ -11,20 +11,23 @@
             <span class="d-block pb-1 fw-bold mb-1" style="color:rgb(97,109,138)">Directory</span>
             <span class="d-block nav-link" routerLink="/home">Home</span>
             <span class="d-block nav-link" routerLink = "/shop">Shop</span>
-            <span class="d-block nav-link">How to Buy</span>
-            <span class="d-block nav-link">Events</span>
-            <span class="d-block nav-link">About Us</span>
+            <span class="d-block nav-link" routerLink="/how-to-buy">How to Buy</span>
+            <span class="d-block nav-link" routerLink="/events">Events</span>
+            <span class="d-block nav-link" routerLink="/about-us">About Us</span>
         </div>
         <div class="col-lg-3 col-sm">
             <span class="d-block pb-1 fw-bold mb-1" style="color:rgb(97,109,138)">Connect with Us!</span>
             <div class="fs-5">
-                <span class="d-inline"><i class="nav-link fa-brands fa-facebook me-2"></i></span>
-                <span class="d-inline"><i class="nav-link fa-brands fa-square-x-twitter mx-2"></i></span>
-                <span class="d-inline"><i class="nav-link fa-brands fa-google mx-2"></i></span>
-                <span class="d-inline"><i class="nav-link fa-brands fa-instagram mx-2"></i></span>
+                <span class="d-inline"><i class="nav-link fa-brands fa-facebook me-2" placement="left" ngbTooltip="Not available"></i></span>
+                <span class="d-inline"><i class="nav-link fa-brands fa-square-x-twitter mx-2" placement="top" ngbTooltip="Not available"></i></span>
+                <span class="d-inline"><i class="nav-link fa-brands fa-google mx-2" placement="bottom" ngbTooltip="Not available"></i></span>
+                <span class="d-inline"><i class="nav-link fa-brands fa-instagram mx-2" placement="right" ngbTooltip="Not available"></i></span>
             </div>
            
         </div>
     </div>
-    <span routerLink="/home"class="m-0 text-end nav-link" style="color:rgb(97,109,138)"><i class="fa-regular fa-copyright pe-2" ></i><strong>Directory, 2024</strong></span>
+    <div class="d-flex justify-content-end">
+        <span routerLink="/home" class="m-0 nav-link-site" style="color:rgb(97,109,138)"><i class="fa-regular fa-copyright pe-2"></i><strong>Directory, 2024</strong></span>
+
+    </div>
 </div>

@@ -14,6 +14,7 @@ export class TopFilterComponent implements OnInit{
   selectedNumOfItemsToShow: number;
   searchString: string;
   sellerName: string | null;
+  showSeller: string | null;
 
   constructor(private shopService: ShopService,
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class TopFilterComponent implements OnInit{
 
     this.route.queryParams.subscribe(queryParams => {
       this.sellerName = queryParams["seller"];
+      this.showSeller = queryParams["showSeller"];
     })
 
   }

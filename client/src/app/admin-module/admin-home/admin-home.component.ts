@@ -9,8 +9,6 @@ import { take } from 'rxjs';
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.scss'
 })
-
-
 export class AdminHomeComponent implements OnInit{
   loadDashboard: boolean = true;
   loadProducts: boolean = false;
@@ -37,16 +35,16 @@ export class AdminHomeComponent implements OnInit{
           if (!this.isAdmin) {
             this.router.navigateByUrl("");
           }
-          this.refreshCardData();
           this.adminToken = this.authService.currentUser?.token!;
+          this.refreshCardData();
         });
+      } else {
+        this.router.navigateByUrl("");
       }
     });
-    
   }
 
   async refreshCardData() {
-
     if (this.adminToken) {
       this.adminOrderService.getOrders(1, 0, "", this.adminToken).pipe(take(1)).subscribe(data => {
         this.cardTotalOrders = data.length;

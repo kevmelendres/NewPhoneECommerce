@@ -6,10 +6,18 @@
 }
 
 .nav-link {
-    cursor: pointer;
     margin-bottom: 0.5em;
 }
 
 .nav-link:hover {
     color:#80CAF4;
+}
+
+.nav-link-site {
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+
+.nav-link-site:hover {
+    color: #80CAF4;
 }

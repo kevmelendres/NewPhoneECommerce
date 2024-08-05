@@ -39,7 +39,8 @@ export class AppComponent {
       componentLoaded == '_AdminHomeComponent' ||
       componentLoaded == '_ManageDeliveriesComponent' ||
       componentLoaded == '_ManageProductsComponent' ||
-      componentLoaded == '_ManageUsersComponent' 
+      componentLoaded == '_ManageUsersComponent' ||
+      componentLoaded == '_PageNotAvailableComponent'
     )
   }
 

@@ -18,6 +18,7 @@ import { HowtobuyModule } from './howtobuy-module/howtobuy.module';
 import { ProductsFooterComponent } from './products-footer/products-footer.component';
 import { FooterItemComponent } from './products-footer/footer-item/footer-item.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
+import { PageNotAvailableComponent } from './page-not-available/page-not-available.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SiteFooterComponent } from './site-footer/site-footer.component';
     ProductsFooterComponent,
     FooterItemComponent,
     SiteFooterComponent,
+    PageNotAvailableComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { SiteFooterComponent } from './site-footer/site-footer.component';
     NgbTooltipModule,
     HomeModule,
     AccountModule,
-    HowtobuyModule
+    HowtobuyModule,
+    NgbTooltipModule
   ],
   exports: [
     SearchBarComponent

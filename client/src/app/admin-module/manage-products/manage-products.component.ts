@@ -125,6 +125,8 @@ export class ManageProductsComponent implements OnInit{
             this.router.navigateByUrl("");
           }
         })
+      } else {
+        this.router.navigateByUrl("");
       }
     })
   }

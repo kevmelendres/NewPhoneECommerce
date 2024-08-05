@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { IEditUserByAdmin } from '../../../Models/edituserbyadmin';
 import { AuthService } from '../../../Services/auth-service.service';
 import { IAddUserByAdmin } from '../../../Models/adduserbyadmin';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-users',
@@ -77,22 +78,37 @@ export class ManageUsersComponent implements OnInit{
   searchUserString: string;
   searchUserStringCopy: string;
 
+  isAdmin: boolean = false;
+
   @ViewChild('formCompleteLabel') formCompleteLabel: ElementRef;
 
   constructor(private adminUserService: AdminUserService,
     private modalService: NgbModal, private http: HttpClient,
-    private authService: AuthService, private renderer: Renderer2) {
+    private authService: AuthService, private renderer: Renderer2,
+    private router: Router) {
   }
 
   ngOnInit(): void {
-    this.pagination.pageNumber = 1;
-    this.pagination.itemsToShow = 15;
-    this.populateUserList();
-    this.setupPaginationCounts();
+    this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.authService.isAdminBS.subscribe(isAdmin => {
+          this.isAdmin = isAdmin;
+          if (this.isAdmin) {
+            this.pagination.pageNumber = 1;
+            this.pagination.itemsToShow = 15;
+            this.populateUserList();
+            this.setupPaginationCounts();
+          } else {
+            this.router.navigateByUrl("");
+          }
+        })
+      } else {
+        this.router.navigateByUrl("");
+      }
+    })
   }
 
   searchRemarks: string;
-
 
   onUserClick(user: IAdminAppUser, userDetails: TemplateRef<any>) {
 

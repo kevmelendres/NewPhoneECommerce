@@ -1,539 +1,556 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
-                <div class="mt-3 mb-4">
-                    <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+<div *ngIf="isAdmin">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100 justify-content-between">
+                    <div>
+                        <div class="mt-3 mb-4">
+                            <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                        </div>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
+                                <div class="d-inline">Dashboard</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-products">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                <div class="d-inline">Products</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-deliveries">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
+                                <div class="d-inline">Deliveries</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-users">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
+                                <div class="d-inline">Users</div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/home">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+                                <div class="d-inline">Back to Shop</div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="d-inline">Dashboard</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow " routerLink="/admin/manage-products">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                        <div class="d-inline">Products</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-deliveries">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
-                        <div class="d-inline">Deliveries</div>
-                    </li>
-                    <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-users">
-                        <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
-                        <div class="d-inline">Users</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="content-container w-100">
-
-            <div #deliveryReport>
-                <span class="fs-4 fw-bold">Current Users in Store</span>
-                <span class="fs-6 d-block fw-light">Admin > Manage Users</span>
             </div>
 
-            <div class="mt-4 d-flex">
+            <div class="content-container w-100">
 
-                <div style="" class="p-4 border border-opacity-10 rounded w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex align-items-start flex-column">
-                            <div class="d-flex align-items-center">
-                                <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
-                                <div class="d-inline">
-                                    <div class="input-group rounded">
-                                        <input type="search" class="form-control rounded"
-                                               placeholder="Search" aria-label="Search"
-                                               aria-describedby="search-addon" [(ngModel)]="searchUserString" (keydown)="onSearchTyping($event)" />
-                                        <span class="input-group-text border-0" id="search-addon" style="cursor: pointer" (click)="searchUser()">
-                                            <i class="fas fa-search"></i>
-                                        </span>
-                                        <span class="ms-4">
-                                            <button class="btn btn-warning fw-bold" (click)="onAddNewUserBtnClick(addNewUser)">Add New User</button>
-                                        </span>
+                <div #deliveryReport>
+                    <span class="fs-4 fw-bold">Current Users in Store</span>
+                    <span class="fs-6 d-block fw-light">Admin > Manage Users</span>
+                </div>
+
+                <div class="mt-4 d-flex">
+
+                    <div style="" class="p-4 border border-opacity-10 rounded w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-start flex-column">
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-bold me-3" style="font-size: 25px"><i class="fa-solid fa-compass"></i></span>
+                                    <div class="d-inline">
+                                        <div class="input-group rounded">
+                                            <input type="search" class="form-control rounded"
+                                                   placeholder="Search" aria-label="Search"
+                                                   aria-describedby="search-addon" [(ngModel)]="searchUserString" (keydown)="onSearchTyping($event)" />
+                                            <span class="input-group-text border-0" id="search-addon" style="cursor: pointer" (click)="searchUser()">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                            <span class="ms-4">
+                                                <button class="btn btn-warning fw-bold" (click)="onAddNewUserBtnClick(addNewUser)">Add New User</button>
+                                            </span>
+                                        </div>
+                                        <div class="mt-2 d-none" #showingResultsRemark>
+                                            <span>
+                                                Showing results of: <span class="fw-bold ms-1">{{searchUserStringCopy}}</span>
+                                                <i class="fa-solid fa-delete-left ms-2" (click)="deleteSearchResults()" style="color: #C10808; cursor: pointer"></i>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="mt-2 d-none" #showingResultsRemark>
-                                        <span>Showing results of: <span class="fw-bold ms-1">{{searchUserStringCopy}}</span>
-                                                                  <i class="fa-solid fa-delete-left ms-2" (click)="deleteSearchResults()" style="color: #C10808; cursor: pointer"></i></span>
+
+                                </div>
+
+                                <div *ngIf="searchRemarks" class="mt-2">
+                                    <span class="me-2" style="font-size: 15px;">Showing results for: <b class="ms-1">{{searchRemarks}}</b></span>
+                                    <i class="fa-solid fa-delete-left" style="color:#8B0000; cursor: pointer"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
+                                     [class.disabled]="pagination.pageNumber <= pagination.totalNumberOfPages">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </div>
+                                <div *ngFor="let number of pagination.pageNumberList">
+                                    <div class="page-number d-flex align-items-center justify-content-center"
+                                         (click)=onPageNumberClick(number+1)
+                                         [class.page-number-active]="number + 1 == pagination.pageNumber"
+                                         *ngIf="number + 1 <= pagination.maxPossiblePageNumber">
+                                        {{number + 1}}
                                     </div>
                                 </div>
-                                
-                            </div>
-                            
-                            <div *ngIf="searchRemarks" class="mt-2">
-                                <span class="me-2" style="font-size: 15px;">Showing results for: <b class="ms-1">{{searchRemarks}}</b></span>
-                                <i class="fa-solid fa-delete-left" style="color:#8B0000; cursor: pointer"></i>
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <div class="page-number d-flex align-items-center justify-content-center" (click)=onPrevPaginationClick()
-                                 [class.disabled]="pagination.pageNumber <= pagination.totalNumberOfPages">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </div>
-                            <div *ngFor="let number of pagination.pageNumberList">
                                 <div class="page-number d-flex align-items-center justify-content-center"
-                                     (click)=onPageNumberClick(number+1)
-                                     [class.page-number-active]="number + 1 == pagination.pageNumber"
-                                     *ngIf="number + 1 <= pagination.maxPossiblePageNumber">
-                                    {{number + 1}}
+                                     (click)=onNextPaginationClick()
+                                     [class.disabled]="!pagination.enableNextPageClick">
+                                    <i class="fa-solid fa-chevron-right"></i>
                                 </div>
                             </div>
-                            <div class="page-number d-flex align-items-center justify-content-center"
-                                 (click)=onNextPaginationClick()
-                                 [class.disabled]="!pagination.enableNextPageClick">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
+
                         </div>
 
-                    </div>
 
 
+                        <table class="table table-hover text-center">
+                            <thead>
+                                <tr class="align-middle">
+                                    <th scope="col">
+                                        <div class="d-inline">User No.</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">First Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Last Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Display Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">Email</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-inline">User Roles</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody #userRows>
+                                <tr *ngFor="let user of userList; index as i" class="order-row align-middle" (click)="onUserClick(user, userDetails)">
+                                    <th scope="row">{{i + (pagination.itemsToShow * (pagination.pageNumber - 1)) + 1}}</th>
+                                    <td>{{user.firstName ? user.firstName : "N/A"}}</td>
+                                    <td>{{user.lastName ? user.lastName : "N/A"}}</td>
+                                    <td>{{user.displayName}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>
+                                        <span *ngFor="let role of user.userRoles" class="badge mx-1" [ngClass]="userRollBadgeClass(role)">{{role ? role : "N/A"}}</span>
+                                        <span *ngIf="user.userRoles.length == 0" class="badge text-bg-danger">Not assigned</span>
+                                    </td>
+                                </tr>
 
-                    <table class="table table-hover text-center">
-                        <thead>
-                            <tr class="align-middle">
-                                <th scope="col">
-                                    <div class="d-inline">User No.</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="d-inline">First Name</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="d-inline">Last Name</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="d-inline">Display Name</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="d-inline">Email</div>
-                                </th>
-                                <th scope="col">
-                                    <div class="d-inline">User Roles</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody #userRows>
-                            <tr *ngFor="let user of userList; index as i" class="order-row align-middle" (click)="onUserClick(user, userDetails)">
-                                <th scope="row">{{i + (pagination.itemsToShow * (pagination.pageNumber - 1)) + 1}}</th>
-                                <td>{{user.firstName ? user.firstName : "N/A"}}</td>
-                                <td>{{user.lastName ? user.lastName : "N/A"}}</td>
-                                <td>{{user.displayName}}</td>
-                                <td>{{user.email}}</td>
-                                <td>
-                                    <span *ngFor="let role of user.userRoles" class="badge mx-1" [ngClass]="userRollBadgeClass(role)">{{role ? role : "N/A"}}</span>
-                                    <span *ngIf="user.userRoles.length == 0" class="badge text-bg-danger">Not assigned</span>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center align-items-center" *ngIf="!userList"
-                         style="min-height: 400px;">
-                        <div #NoItemsToShow class="text-center">
-                            <div class="d-block" style="color: darkred; font-size: 80px;">
-                                <i class="fa-solid fa-circle-exclamation"></i>
-                            </div>
-                            <div class="d-block fs-5">
-                                <span class="d-block">Oops. Something went wrong.</span>
-                                <span class="d-block">No users to show</span>
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center align-items-center" *ngIf="!userList"
+                             style="min-height: 400px;">
+                            <div #NoItemsToShow class="text-center">
+                                <div class="d-block" style="color: darkred; font-size: 80px;">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                </div>
+                                <div class="d-block fs-5">
+                                    <span class="d-block">Oops. Something went wrong.</span>
+                                    <span class="d-block">No users to show</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-</div>
-
-<ng-template #userDetails let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            <i class="fa-regular fa-user me-2" style="color: #183153; font-size: 17px"></i>
-            User Information
-        </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-
-    <div class="modal-body">
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="firstName">First Name</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="firstName" [(ngModel)]="formFirstName">
-                <label class="warning-message" *ngIf="!areTheSame(formFirstName, selectedUser.firstName)"> <i class="fa-solid fa-pen-to-square"></i></label>
             </div>
         </div>
 
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="lastName">Last Name</label>
+        <ng-template #userDetails let-modal>
+            <div class="modal-header">
+                <div class="fw-bold fs-5 d-flex align-items-center">
+                    <i class="fa-regular fa-user me-2" style="color: #183153; font-size: 17px"></i>
+                    User Information
+                </div>
+                <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="lastName" [(ngModel)]="formLastName">
-                <label class="warning-message" *ngIf="!areTheSame(formLastName, selectedUser.lastName)"> <i class="fa-solid fa-pen-to-square"></i></label>
-            </div>
-        </div>
 
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="displayName">Display Name</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="displayName" [(ngModel)]="formDisplayName">
-                <label class="warning-message" *ngIf="!areTheSame(formDisplayName, selectedUser.displayName)"> <i class="fa-solid fa-pen-to-square"></i></label>
-            </div>
-        </div>
+            <div class="modal-body">
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="formFirstName">
+                        <label class="warning-message" *ngIf="!areTheSame(formFirstName, selectedUser.firstName)"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
 
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="email">Email</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control disabled" id="email" [(ngModel)]="formEmail">
-                <label class="warning-message fst-italic">Editing email not allowed</label>
-            </div>
-        </div>
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="formLastName">
+                        <label class="warning-message" *ngIf="!areTheSame(formLastName, selectedUser.lastName)"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
 
-        <div class="row data-row py-2">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label>User Roles</label>
-            </div>
-            <div class="col-10 position-relative">
-                <div class="row">
-                    <div class="col" *ngIf="formUserRoles.length != 0">
-                        <div *ngFor="let role of formUserRoles" class="d-inline me-4 align-middle">
-                            <span class="badge mx-1 position-relative" [ngClass]="userRollBadgeClass(role)" style="font-size: 13px">{{role}}</span>
-                            <span class="position-absolute" (click)="removeRole(role)" style="cursor: pointer">X</span>
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="displayName">Display Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="displayName" [(ngModel)]="formDisplayName">
+                        <label class="warning-message" *ngIf="!areTheSame(formDisplayName, selectedUser.displayName)"> <i class="fa-solid fa-pen-to-square"></i></label>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control disabled" id="email" [(ngModel)]="formEmail">
+                        <label class="warning-message fst-italic">Editing email not allowed</label>
+                    </div>
+                </div>
+
+                <div class="row data-row py-2">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label>User Roles</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <div class="row">
+                            <div class="col" *ngIf="formUserRoles.length != 0">
+                                <div *ngFor="let role of formUserRoles" class="d-inline me-4 align-middle">
+                                    <span class="badge mx-1 position-relative" [ngClass]="userRollBadgeClass(role)" style="font-size: 13px">{{role}}</span>
+                                    <span class="position-absolute" (click)="removeRole(role)" style="cursor: pointer">X</span>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <span class="badge text-bg-success me-3 ms-2" style="font-size: 13px; cursor: pointer" *ngIf="!(formUserRoles.indexOf('Admin') > -1)" (click)="addRole('Admin')">Add as Admin</span>
+                                <span class="badge text-bg-primary" style="font-size: 13px; cursor: pointer" *ngIf="!(formUserRoles.indexOf('User') > -1)" (click)="addRole('User')">Add as User</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row data-row py-2 pt-4">
+                    <span class="fw-bold">Shipping Address Details: </span>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="region" class="form-label m-0 p-0">Region</label>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <select class="form-select" id="region" [(ngModel)]="selectedRegion" name="selectedRegion" (change)="onRegionSelect()">
+                            <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-5 p-0 d-flex align-items-center">
+                        <div class="validation" *ngIf="selectedUser">
+                            <div *ngIf="formRegion == selectedUser.region">
+                                <span *ngIf="!(selectedUser.region == null)">Assigned region: {{selectedUser.region}}</span>
+                            </div>
+                            <span class="invalid validation p-0" *ngIf="selectedUser.region == null && formRegion == undefined">No assigned region.</span>
+                        </div>
+                        <div class="validation invalid" *ngIf="selectedUser">
+                            <span *ngIf="formRegion != selectedUser.region" class="will-change">Region will be changed</span>
                         </div>
                     </div>
-                    
-                    <div class="col">
-                        <span class="badge text-bg-success me-3 ms-2" style="font-size: 13px; cursor: pointer" *ngIf="!(formUserRoles.indexOf('Admin') > -1)" (click)="addRole('Admin')">Add as Admin</span>
-                        <span class="badge text-bg-primary" style="font-size: 13px; cursor: pointer" *ngIf="!(formUserRoles.indexOf('User') > -1)" (click)="addRole('User')">Add as User</span>
+                </div>
+
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="province" class="form-label m-0 p-0">Province</label>
                     </div>
-
-                </div>
-
-            </div>
-        </div>
-        <div class="row data-row py-2 pt-4">
-            <span class="fw-bold">Shipping Address Details: </span>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="region" class="form-label m-0 p-0">Region</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <select class="form-select" id="region" [(ngModel)]="selectedRegion" name="selectedRegion" (change)="onRegionSelect()">
-                    <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
-                </select>
-            </div>
-            <div class="col-5 p-0 d-flex align-items-center">
-                <div class="validation" *ngIf="selectedUser">
-                    <div *ngIf="formRegion == selectedUser.region">
-                        <span *ngIf="!(selectedUser.region == null)">Assigned region: {{selectedUser.region}}</span>
+                    <div class="col-5 d-flex align-items-center">
+                        <select class="form-select" id="province" [(ngModel)]="selectedProvince" name="selectedProvince" (change)="onProvinceSelect()">
+                            <option selected>Select Province</option>
+                            <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
+                        </select>
                     </div>
-                    <span class="invalid validation p-0" *ngIf="selectedUser.region == null && formRegion == undefined">No assigned region.</span>
-                </div>
-                <div class="validation invalid" *ngIf="selectedUser">
-                    <span *ngIf="formRegion != selectedUser.region" class="will-change">Region will be changed</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="province" class="form-label m-0 p-0">Province</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <select class="form-select" id="province" [(ngModel)]="selectedProvince" name="selectedProvince" (change)="onProvinceSelect()">
-                    <option selected>Select Province</option>
-                    <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
-                </select>
-            </div>
-            <div class="col-5 p-0 d-flex align-items-center">
-                <div class="validation" *ngIf="selectedUser">
-                    <div *ngIf="formProvince == selectedUser.province">
-                        <span *ngIf="!(selectedUser.province == null)">Assigned province: {{selectedUser.province}}</span>
-                    </div>
-                    <span class="invalid validation p-0" *ngIf="selectedUser.province == null && !selectedProvince">No assigned province.</span>
-                </div>
-                <div class="validation invalid" *ngIf="selectedUser">
-                    <span *ngIf="(formProvince != selectedUser.province) && (selectedProvince?.name != selectedUser.province)" class="will-change">Province will be changed</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="municipality" class="form-label m-0 p-0">Municipality</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <select class="form-select" id="municipality" [(ngModel)]="selectedMunicipality" name="selectedMunicipality" (change)="onMunicipalitySelect()">
-                    <option selected>Select Municipality</option>
-                    <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
-                </select>
-            </div>
-            <div class="col-5 p-0 d-flex align-items-center">
-                <div class="validation" *ngIf="selectedUser">
-                    <div *ngIf="formMunicipality == selectedUser.municipality">
-                        <span *ngIf="!(selectedUser.municipality == null)">Assigned municipality: {{selectedUser.municipality}}</span>
-                    </div>
-                    <span class="invalid validation p-0" *ngIf="(selectedUser.municipality == null) && (!selectedMunicipality)">No assigned municipality.</span>
-                </div>
-                <div class="validation invalid" *ngIf="selectedUser">
-                    <span *ngIf="(formMunicipality != selectedUser.municipality) && (selectedMunicipality?.name != selectedUser.municipality)" class="will-change">Municipality will be changed</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="barangay" class="form-label m-0 p-0">Barangay</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <select class="form-select" id="barangay" [(ngModel)]="selectedBarangay" name="selectedBarangay" (change)="onBarangaySelect()">
-                    <option selected>Select Barangay</option>
-                    <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
-                </select>
-            </div>
-            <div class="col-5 p-0 d-flex align-items-center">
-                <div class="validation" *ngIf="selectedUser">
-                    <div *ngIf="formBarangay == selectedUser.barangay">
-                        <span *ngIf="!(selectedUser.barangay == null)">Assigned barangay: {{selectedUser.barangay}}</span>
-                    </div>
-                    <span class="invalid validation p-0" *ngIf="(selectedUser.barangay == null) && (!selectedBarangay)">No assigned barangay.</span>
-                </div>
-                <div class="validation invalid" *ngIf="selectedUser">
-                    <span *ngIf="(formBarangay != selectedUser.barangay) && (selectedBarangay?.name != selectedUser.barangay)" class="will-change">Barangay will be changed</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="street" class="form-label m-0 p-0">Street</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <input type="text" class="form-control" id="street" [(ngModel)]="formStreet" name="street">
-            </div>
-            <div class="col-5 d-flex align-items-center validation invalid p-0" *ngIf="selectedUser">
-                <span *ngIf="formStreet != selectedUser.street" class="will-change">Street will be changed</span>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="zipCode" class="form-label m-0 p-0">Zip Code</label>
-            </div>
-            <div class="col-5 d-flex align-items-center">
-                <input type="number" class="form-control" id="zipCode" [(ngModel)]="formZipCode" name="zipCode">
-            </div>
-            <div class="col-5 validation invalid d-flex align-items-center p-0" *ngIf="selectedUser">
-                <span *ngIf="formZipCode != selectedUser.zipCode" class="will-change">Zipcode will be changed</span>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="modal-footer d-flex justify-content-between">
-        <div>
-            <button type="button" class="btn btn-outline-danger fs-6" (click)="deleteUser(deleteUserModal)">Delete User</button>
-
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary fs-6 me-3" (click)="updateUser()">Update User</button>
-            <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-        </div>
-
-    </div>
-</ng-template>
-
-<ng-template #addNewUser let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            <i class="fa-regular fa-user me-2" style="color: #183153; font-size: 17px"></i>
-            Add New User
-        </div>
-        <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-
-    <div class="modal-body">
-
-        <label class="fw-bold text-danger" #formCompleteLabel id="formCompleteLabel" *ngIf="!areAllFieldsForNewUserFilled()">*All fields are required.</label>
-
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="newUserDisplayName">Display Name</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="newUserDisplayName" [(ngModel)]="newUserDisplayName">
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="newUserEmail">Email</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="email" class="form-control" id="newUserEmail" [(ngModel)]="newUserEmail">
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="newUserPassword">Password</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="newUserPassword" [(ngModel)]="newUserPassword">
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="newUserFirstName">First Name</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="newUserFirstName" [(ngModel)]="newUserFirstName">
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 h-auto d-flex align-items-center">
-                <label for="newUserLastName">Last Name</label>
-            </div>
-            <div class="col-10 position-relative">
-                <input type="text" class="form-control" id="newUserLastName" [(ngModel)]="newUserLastName">
-            </div>
-        </div>
-
-        <div class="row data-row py-2 pt-4">
-            <span class="fw-bold">Shipping Address Details: </span>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserRegion" class="form-label m-0 p-0">Region</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <select class="form-select" id="newUserRegion" [(ngModel)]="newSelectUserRegion" name="newUserRegion" (change)="onNewRegionSelect()">
-                    <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
-                </select>
-            </div>
-        </div>
-
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserProvince" class="form-label m-0 p-0">Province</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <select class="form-select" id="newUserProvince" [(ngModel)]="newSelectUserProvince" name="newUserProvince" (change)="onNewProvinceSelect()">
-                    <option selected>Select Province</option>
-                    <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserMunicipality" class="form-label m-0 p-0">Municipality</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <select class="form-select" id="newUserMunicipality" [(ngModel)]="newSelectUserMunicipality" name="newUserMunicipality" (change)="onNewMunicipalitySelect()">
-                    <option selected>Select Municipality</option>
-                    <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserBarangay" class="form-label m-0 p-0">Barangay</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <select class="form-select" id="newUserBarangay" [(ngModel)]="newSelectUserBarangay" name="newUserBarangay" (change)="onNewBarangaySelect()">
-                    <option selected>Select Barangay</option>
-                    <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserStreet" class="form-label m-0 p-0">Street</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <input type="text" class="form-control" id="newUserStreet" [(ngModel)]="newUserStreet" name="newUserStreet">
-            </div>
-        </div>
-
-        <div class="row data-row">
-            <div class="col-2 d-flex align-items-center">
-                <label for="newUserZipCode" class="form-label m-0 p-0">Zip Code</label>
-            </div>
-            <div class="col-10 d-flex align-items-center">
-                <input type="number" class="form-control" id="newUserZipCode" [(ngModel)]="newUserZipCode" name="newUserZipCode">
-            </div>
-        </div>
-
-        <div class="row data-row">
-
-            <div class="col-2 d-flex align-items-center">
-                <label class="form-label m-0 p-0">User Roles</label>
-            </div>
-
-            <div class="col-10 d-flex align-items-center">
-                <div *ngIf="newUserRoles.length == 0" class="col">
-                    <span class="badge text-bg-danger" style="font-size: 13px">Not assigned</span>
-                </div>
-                <div class="col" *ngIf="newUserRoles.length != 0">
-                    <div *ngFor="let role of newUserRoles" class="d-inline me-4 align-middle">
-                        <span class="badge mx-1 position-relative" [ngClass]="userRollBadgeClass(role)" style="font-size: 13px">{{role}}</span>
-                        <span class="position-absolute" (click)="removeNewUserRole(role)" style="cursor: pointer">X</span>
+                    <div class="col-5 p-0 d-flex align-items-center">
+                        <div class="validation" *ngIf="selectedUser">
+                            <div *ngIf="formProvince == selectedUser.province">
+                                <span *ngIf="!(selectedUser.province == null)">Assigned province: {{selectedUser.province}}</span>
+                            </div>
+                            <span class="invalid validation p-0" *ngIf="selectedUser.province == null && !selectedProvince">No assigned province.</span>
+                        </div>
+                        <div class="validation invalid" *ngIf="selectedUser">
+                            <span *ngIf="(formProvince != selectedUser.province) && (selectedProvince?.name != selectedUser.province)" class="will-change">Province will be changed</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <span class="badge text-bg-success me-3 ms-2" style="font-size: 13px; cursor: pointer" *ngIf="!(newUserRoles.indexOf('Admin') > -1)" (click)="addNewUserRole('Admin')">Add as Admin</span>
-                    <span class="badge text-bg-primary" style="font-size: 13px; cursor: pointer" *ngIf="!(newUserRoles.indexOf('User') > -1)" (click)="addNewUserRole('User')">Add as User</span>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="municipality" class="form-label m-0 p-0">Municipality</label>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <select class="form-select" id="municipality" [(ngModel)]="selectedMunicipality" name="selectedMunicipality" (change)="onMunicipalitySelect()">
+                            <option selected>Select Municipality</option>
+                            <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-5 p-0 d-flex align-items-center">
+                        <div class="validation" *ngIf="selectedUser">
+                            <div *ngIf="formMunicipality == selectedUser.municipality">
+                                <span *ngIf="!(selectedUser.municipality == null)">Assigned municipality: {{selectedUser.municipality}}</span>
+                            </div>
+                            <span class="invalid validation p-0" *ngIf="(selectedUser.municipality == null) && (!selectedMunicipality)">No assigned municipality.</span>
+                        </div>
+                        <div class="validation invalid" *ngIf="selectedUser">
+                            <span *ngIf="(formMunicipality != selectedUser.municipality) && (selectedMunicipality?.name != selectedUser.municipality)" class="will-change">Municipality will be changed</span>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="barangay" class="form-label m-0 p-0">Barangay</label>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <select class="form-select" id="barangay" [(ngModel)]="selectedBarangay" name="selectedBarangay" (change)="onBarangaySelect()">
+                            <option selected>Select Barangay</option>
+                            <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-5 p-0 d-flex align-items-center">
+                        <div class="validation" *ngIf="selectedUser">
+                            <div *ngIf="formBarangay == selectedUser.barangay">
+                                <span *ngIf="!(selectedUser.barangay == null)">Assigned barangay: {{selectedUser.barangay}}</span>
+                            </div>
+                            <span class="invalid validation p-0" *ngIf="(selectedUser.barangay == null) && (!selectedBarangay)">No assigned barangay.</span>
+                        </div>
+                        <div class="validation invalid" *ngIf="selectedUser">
+                            <span *ngIf="(formBarangay != selectedUser.barangay) && (selectedBarangay?.name != selectedUser.barangay)" class="will-change">Barangay will be changed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="street" class="form-label m-0 p-0">Street</label>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <input type="text" class="form-control" id="street" [(ngModel)]="formStreet" name="street">
+                    </div>
+                    <div class="col-5 d-flex align-items-center validation invalid p-0" *ngIf="selectedUser">
+                        <span *ngIf="formStreet != selectedUser.street" class="will-change">Street will be changed</span>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="zipCode" class="form-label m-0 p-0">Zip Code</label>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <input type="number" class="form-control" id="zipCode" [(ngModel)]="formZipCode" name="zipCode">
+                    </div>
+                    <div class="col-5 validation invalid d-flex align-items-center p-0" *ngIf="selectedUser">
+                        <span *ngIf="formZipCode != selectedUser.zipCode" class="will-change">Zipcode will be changed</span>
+                    </div>
+                </div>
+
             </div>
+
+            <div class="modal-footer d-flex justify-content-between">
+                <div>
+                    <button type="button" class="btn btn-outline-danger fs-6" (click)="deleteUser(deleteUserModal)">Delete User</button>
+
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary fs-6 me-3" (click)="updateUser()">Update User</button>
+                    <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+                </div>
+
+            </div>
+        </ng-template>
+
+        <ng-template #addNewUser let-modal>
+            <div class="modal-header">
+                <div class="fw-bold fs-5 d-flex align-items-center">
+                    <i class="fa-regular fa-user me-2" style="color: #183153; font-size: 17px"></i>
+                    Add New User
+                </div>
+                <button type="button" class="btn-close " aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <label class="fw-bold text-danger" #formCompleteLabel id="formCompleteLabel" *ngIf="!areAllFieldsForNewUserFilled()">*All fields are required.</label>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="newUserDisplayName">Display Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="newUserDisplayName" [(ngModel)]="newUserDisplayName">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="newUserEmail">Email</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="email" class="form-control" id="newUserEmail" [(ngModel)]="newUserEmail">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="newUserPassword">Password</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="newUserPassword" [(ngModel)]="newUserPassword">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="newUserFirstName">First Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="newUserFirstName" [(ngModel)]="newUserFirstName">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 h-auto d-flex align-items-center">
+                        <label for="newUserLastName">Last Name</label>
+                    </div>
+                    <div class="col-10 position-relative">
+                        <input type="text" class="form-control" id="newUserLastName" [(ngModel)]="newUserLastName">
+                    </div>
+                </div>
+
+                <div class="row data-row py-2 pt-4">
+                    <span class="fw-bold">Shipping Address Details: </span>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserRegion" class="form-label m-0 p-0">Region</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <select class="form-select" id="newUserRegion" [(ngModel)]="newSelectUserRegion" name="newUserRegion" (change)="onNewRegionSelect()">
+                            <option *ngFor="let region of listOfRegions" [ngValue]="region">{{region.regionName}} - {{region.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserProvince" class="form-label m-0 p-0">Province</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <select class="form-select" id="newUserProvince" [(ngModel)]="newSelectUserProvince" name="newUserProvince" (change)="onNewProvinceSelect()">
+                            <option selected>Select Province</option>
+                            <option *ngFor="let province of listOfProvinces" [ngValue]="province">{{province.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserMunicipality" class="form-label m-0 p-0">Municipality</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <select class="form-select" id="newUserMunicipality" [(ngModel)]="newSelectUserMunicipality" name="newUserMunicipality" (change)="onNewMunicipalitySelect()">
+                            <option selected>Select Municipality</option>
+                            <option *ngFor="let municipality of listOfMunicipalities" [ngValue]="municipality">{{municipality.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserBarangay" class="form-label m-0 p-0">Barangay</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <select class="form-select" id="newUserBarangay" [(ngModel)]="newSelectUserBarangay" name="newUserBarangay" (change)="onNewBarangaySelect()">
+                            <option selected>Select Barangay</option>
+                            <option *ngFor="let barangay of listOfBarangays" [ngValue]="barangay">{{barangay.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserStreet" class="form-label m-0 p-0">Street</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="text" class="form-control" id="newUserStreet" [(ngModel)]="newUserStreet" name="newUserStreet">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+                    <div class="col-2 d-flex align-items-center">
+                        <label for="newUserZipCode" class="form-label m-0 p-0">Zip Code</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="number" class="form-control" id="newUserZipCode" [(ngModel)]="newUserZipCode" name="newUserZipCode">
+                    </div>
+                </div>
+
+                <div class="row data-row">
+
+                    <div class="col-2 d-flex align-items-center">
+                        <label class="form-label m-0 p-0">User Roles</label>
+                    </div>
+
+                    <div class="col-10 d-flex align-items-center">
+                        <div *ngIf="newUserRoles.length == 0" class="col">
+                            <span class="badge text-bg-danger" style="font-size: 13px">Not assigned</span>
+                        </div>
+                        <div class="col" *ngIf="newUserRoles.length != 0">
+                            <div *ngFor="let role of newUserRoles" class="d-inline me-4 align-middle">
+                                <span class="badge mx-1 position-relative" [ngClass]="userRollBadgeClass(role)" style="font-size: 13px">{{role}}</span>
+                                <span class="position-absolute" (click)="removeNewUserRole(role)" style="cursor: pointer">X</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <span class="badge text-bg-success me-3 ms-2" style="font-size: 13px; cursor: pointer" *ngIf="!(newUserRoles.indexOf('Admin') > -1)" (click)="addNewUserRole('Admin')">Add as Admin</span>
+                            <span class="badge text-bg-primary" style="font-size: 13px; cursor: pointer" *ngIf="!(newUserRoles.indexOf('User') > -1)" (click)="addNewUserRole('User')">Add as User</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary fs-6" (click)="addNewUserBtnClick()">Add New User</button>
+                <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+            </div>
+        </ng-template>
+
+        <!-- Snackbar -->
+        <div class="toast shadow" id="snackbar" #snackbar>
+            <div class="toast-body"><strong>{{notifMessage}}</strong></div>
         </div>
 
-    </div>
+        <ng-template #deleteUserModal let-modal>
+            <div class="modal-header">
+                <div class="fw-bold fs-5 d-flex align-items-center">
+                    User Account Deletion
+                </div>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary fs-6" (click)="addNewUserBtnClick()">Add New User</button>
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
+            <div class="modal-body">
+                <span class="fw-bold d-block">Are you sure you want to delete accound under <span class="text-danger">{{selectedUser.email}}</span>?</span>
+                <br />
+                <span class="d-block">All information associated to this user will be permanently deleted. <span class="text-danger">This operation can not be undone.</span></span>
 
-<!-- Snackbar -->
-<div class="toast shadow" id="snackbar" #snackbar>
-    <div class="toast-body"><strong>{{notifMessage}}</strong></div>
-</div>
+            </div>
 
-<ng-template #deleteUserModal let-modal>
-    <div class="modal-header">
-        <div class="fw-bold fs-5 d-flex align-items-center">
-            User Account Deletion
-        </div>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-
-    <div class="modal-body">
-        <span class="fw-bold d-block">Are you sure you want to delete accound under <span class="text-danger">{{selectedUser.email}}</span>?</span>
-        <br />
-        <span class="d-block">All information associated to this user will be permanently deleted. <span class="text-danger">This operation can not be undone.</span></span>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger fs-6" (click)="confirmDeleteUser()">Confirm</button>
+                <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
+            </div>
+        </ng-template>
 
     </div>
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger fs-6" (click)="confirmDeleteUser()">Confirm</button>
-        <button type="button" class="btn btn-secondary fs-6" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>

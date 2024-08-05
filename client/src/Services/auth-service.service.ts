@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, afterNextRender, inject } from '@angular/core';
 import { IRegisterModel } from '../Models/registermodel';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ILoginModel } from '../Models/loginmodel';
 import { ICurrentUser } from '../Models/currentuser';
-import { DOCUMENT } from '@angular/common';
-import { BehaviorSubject, Observable, catchError, concatMap, first, map, mergeMap, of, pipe, switchMap, take } from 'rxjs';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { BehaviorSubject, Observable, catchError, concatMap, first, map, mergeMap, of, pipe, switchMap, take, tap} from 'rxjs';
 import { ICurrentUserProfileC } from '../Models/currentuserprofile';
 
 @Injectable({
@@ -26,19 +26,22 @@ export class AuthService {
   public isAdminBS = new BehaviorSubject<boolean>(this.isAdmin);
   public isUserBS = new BehaviorSubject<boolean>(this.isUser);
 
-  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
+  private isBrowser!: boolean;
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: object) {
   }
 
   checkIfUserIsStoredInLocal(): Observable<boolean> {
     const localStorage = this.document.defaultView?.localStorage;
 
-    if (localStorage) {
-      if (localStorage.getItem("currentAppUser")) {
+    if (localStorage !== undefined) {
+      if (localStorage.getItem("currentAppUser") !== null) {
         var currentUserLocal = localStorage.getItem("currentAppUser");
         this.currentUser = JSON.parse(currentUserLocal!);
         this.currentUserProfileBS.next(this.currentUserProfile);
         return of(true);
       };
+      return of(false);
     }
 
     return of(false);
@@ -132,33 +135,38 @@ export class AuthService {
   }
 
   initializeComponentLogin(): Observable<boolean> {
-    var initialization: Observable<any> = this.checkIfUserIsStoredInLocal().pipe(
-      take(1),
-      concatMap(userExists => this.validateUserToServer(userExists)),
-    );
 
-    var validation = initialization.pipe(
-      take(1),
-      map(data => {
-        if (typeof data !== "boolean") {
-          this.currentUserProfileBS.next(data);
-          this.getCurrentUserRoles().pipe(take(1)).subscribe(userRoles => {
-            if (userRoles.includes("User")) {
+    var initialization = of(false);
+
+    if (isPlatformBrowser(this.platformId)) {
+      initialization = this.checkIfUserIsStoredInLocal().pipe(
+        take(1),
+        concatMap(userExists => {
+          return this.validateUserToServer(userExists).pipe(take(1))
+        }),
+        tap(data => {
+          if (typeof data !== "boolean") {
+            this.currentUserProfileBS.next(data);
+          }
+        }),
+        concatMap((data) => typeof data !== "boolean" ? this.getCurrentUserRoles().pipe(take(1)) : of(false)),
+        tap((data => {
+          if (typeof data !== "boolean") {
+            if (data.includes("User")) {
               this.isUser = true;
               this.isUserBS.next(true);
             }
-            if (userRoles.includes("Admin")) {
+            if (data.includes("Admin")) {
               this.isAdmin = true;
               this.isAdminBS.next(true);
             }
-          });
-          return true;
-        }
-        return false;
-      })
-    )
+          }
+        })),
+        concatMap((data) => typeof data !== "boolean" ? of(true) : of(false))
+      );
+    }
 
-    return validation;
+    return initialization;
   }
 
 }

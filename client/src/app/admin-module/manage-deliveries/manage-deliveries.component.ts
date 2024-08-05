@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { IOrderDetailed } from '../../../Models/orderdetailed';
 import { AdminOrderService } from '../../../Services/admin-order.service';
 import { FormatHelpersService } from '../../../Services/format-helpers.service';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ManageDeliveriesComponent implements OnInit {
   orderStatusLinkClicked: ElementRef;
-  @ViewChild("allDeliveries", { static: true }) allDeliveries: ElementRef;
+  @ViewChild("allDeliveries", { static: false }) allDeliveries: ElementRef;
   @ViewChild("orderDetails", { static: true }) orderDetailsModal: ElementRef;
 
   ordersToShow: IOrderDetailed[] = [];
@@ -47,28 +47,33 @@ export class ManageDeliveriesComponent implements OnInit {
 
     this.authService.initializeComponentLogin().subscribe(isAuthenticated => {
       if (isAuthenticated) {
-        this.authService.isAdminBS.subscribe(isAdmin => {
-          this.isAdmin = isAdmin;
-          if (this.isAdmin) {
-            this.adminToken = this.authService.currentUser?.token!;
-            this.pagination.itemsToShow = 20;
 
-            this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
-            this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
-            this.getOrders();
-            this.orderStatusList = this.formatHelpers.orderStatusList;
+        this.isAdmin = this.authService.isAdmin;
 
-            this.adminOrderService.getOrdersCount("All Deliveries", this.adminToken).subscribe(data => {
-              this.pagination.allItemsCount = data;
-              this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
-              this.pagination.resetPaginationNumbering();
-              this.pagination.resetPageNumbersBasedOnCurrentPage();
-              this.pagination.enableDisableNextPageClick();
-            });
-          } else {
-            this.router.navigateByUrl("");
-          }
-        })
+        if (this.isAdmin) {
+          this.adminToken = this.authService.currentUser?.token!;
+          this.pagination.itemsToShow = 20;
+
+          this.orderStatusLinkClicked = this.allDeliveries.nativeElement;
+          this.renderer.addClass(this.orderStatusLinkClicked, "status-link-active");
+          this.getOrders();
+          this.orderStatusList = this.formatHelpers.orderStatusList;
+
+          this.adminOrderService.getOrdersCount("All Deliveries", this.adminToken).subscribe(data => {
+            this.pagination.allItemsCount = data;
+            this.pagination.maxPossiblePageNumber = Math.ceil(this.pagination.allItemsCount / this.pagination.itemsToShow);
+            this.pagination.resetPaginationNumbering();
+            this.pagination.resetPageNumbersBasedOnCurrentPage();
+            this.pagination.enableDisableNextPageClick();
+          });
+        } else {
+          this.router.navigateByUrl("");
+        }
+
+        //this.authService.isAdminBS.subscribe(isAdmin => {
+        //  console.log(this.isAdmin);
+          
+        //})
       } else {
         this.router.navigateByUrl("");
       }

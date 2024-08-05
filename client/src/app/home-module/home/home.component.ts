@@ -70,6 +70,9 @@ export class HomeComponent implements OnInit{
   }
 
   onSellerClick(sellerName: string) {
-    this.router.navigate(['/shop'], { queryParams: { seller: sellerName } })
+    this.shopService.changeSelectedSeller(sellerName);
+    this.shopService.getAllProducts();
+    this.router.navigate(['/shop'], { queryParams: { showSeller: sellerName } })
+    //this.router.navigate(['/shop']);
   };
 }

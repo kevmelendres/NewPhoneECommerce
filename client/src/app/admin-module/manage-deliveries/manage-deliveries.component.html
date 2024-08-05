@@ -1,29 +1,41 @@
-<div *ngIf="isAdmin">
+<div [class.d-none]="!isAdmin">
     <div class="container-fluid">
         <div class="row">
             <div class="position-fixed border-end" style="width:14rem; background-color: #F8FAFB;">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100">
-                    <div class="mt-3 mb-4">
-                        <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 w-100 justify-content-between">
+                    <div>
+                        <div class="mt-3 mb-4">
+                            <img _ngcontent-ng-c2605709781="" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-2/img/logo.svg" alt="Directory logo">
+                        </div>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
+                                <div class="d-inline">Dashboard</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-products">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                <div class="d-inline">Products</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-deliveries">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
+                                <div class="d-inline">Deliveries</div>
+                            </li>
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
+                                <div class="d-inline">Users</div>
+                            </li>
+
+                        </ul>
                     </div>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
-                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin">
-                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-chart-line"></i></div>
-                            <div class="d-inline">Dashboard</div>
-                        </li>
-                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-products">
-                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                            <div class="d-inline">Products</div>
-                        </li>
-                        <li class="d-flex sidebar-link hvr-grow active-admin-sidebar-link" routerLink="/admin/manage-deliveries">
-                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-truck"></i></div>
-                            <div class="d-inline">Deliveries</div>
-                        </li>
-                        <li class="d-flex sidebar-link hvr-grow" routerLink="/admin/manage-users">
-                            <div class="d-inline" style="width:30px"><i class="fa-solid fa-user"></i></div>
-                            <div class="d-inline">Users</div>
-                        </li>
-                    </ul>
+                    <div class="mb-3">
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-dark">
+                            <li class="d-flex sidebar-link hvr-grow" routerLink="/home">
+                                <div class="d-inline" style="width:30px"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+                                <div class="d-inline">Back to Shop</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </div>
             </div>
 

@@ -17,6 +17,7 @@ export class ShopComponent implements OnChanges{
   switchFilter: boolean;
 
   sellerName: string | null;
+  showSeller: string | null;
 
   pageNoItemsToShow: number;
 
@@ -41,6 +42,11 @@ export class ShopComponent implements OnChanges{
 
     if (this.sellerName) {
       this.shopService.getProductsBySeller(this.sellerName).subscribe(data => this.products = data);
+    }
+
+    this.showSeller = this.route.snapshot.queryParamMap.get("showSeller");
+    if (this.showSeller) {
+      
     }
 
     this.shopService.pageNoItemsToShow.subscribe(page => this.pageNoItemsToShow = page);
