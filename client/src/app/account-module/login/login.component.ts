@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit{
   @ViewChild("pageWrapper", { static: true }) pageWrapper: ElementRef;
   renderPage: boolean = false;
 
+  showIncorrectLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router,
     private renderer: Renderer2) {
   }
@@ -37,6 +38,11 @@ export class LoginComponent implements OnInit{
 
   onLoginClick() {
     this.authService.loginUser(this.loginForm.value).subscribe(isLoggedIn => {
+
+      if (!isLoggedIn) {
+        this.showIncorrectLogin = true;
+      }
+
       this._isAuthenticated = isLoggedIn;
       if (isLoggedIn) {
         this.router.navigate(["/shop"]);
@@ -48,6 +54,8 @@ export class LoginComponent implements OnInit{
     if (event.key == "Enter") {
       this.onLoginClick();
     }
+
+    this.showIncorrectLogin = false;
   }
 
 }

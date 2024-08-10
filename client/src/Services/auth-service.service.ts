@@ -48,8 +48,7 @@ export class AuthService {
   }
 
   register(data: IRegisterModel) {
-    this.http.post<ICurrentUser>(this.baseUrl + "register", data).subscribe(
-      response => console.log("registration success"));
+    return this.http.post<ICurrentUser>(this.baseUrl + "register", data);
   }
 
   loginUser(loginData: ILoginModel): Observable<boolean> {

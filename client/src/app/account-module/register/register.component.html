@@ -6,24 +6,26 @@
                     <h1 class="h3 fw-normal fw-bolder text-center mt-3 mb-5">Welcome</h1>
 
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="username" placeholder="Username" formControlName="displayName">
+                        <input type="text" class="form-control" id="username" placeholder="Username" formControlName="displayName" (keyup)="onInputTyping()">
                         <label for="username">Username</label>
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email" (keyup)="onInputTyping()">
                         <label for="floatingInput">Email address</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password" (keyup)="onInputTyping()">
                         <label for="floatingPassword">Password</label>
                     </div>
 
-                    <div class="form-check text-start mt-3 mb-5">
-                        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Remember me
+                    <div class="text-start fw-bold text-danger mt-2 mb-5" [hidden]="!showWrongInputs">
+                        <label class="form-check-label">
+                            Something went wrong.
+                        </label>
+                        <label class="form-check-label">
+                            Recheck username, email address, password.
                         </label>
                     </div>
 
@@ -39,3 +41,12 @@
     </div>
 
 </div>
+
+<ng-template #notification let-modal>
+    <div class="modal-header px-4 pb-3 pt-4">
+        <h4 class="modal-title">{{notificationHeader}}</h4>
+    </div>
+    <div class="modal-body px-4 pt-4">
+        <p>{{notificationMessage}}</p>
+    </div>
+</ng-template>
