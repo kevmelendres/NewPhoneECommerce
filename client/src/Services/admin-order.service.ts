@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { IOrderDetailed } from '../Models/orderdetailed';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { baseUrlDev } from '../Environment/dev.env';
+import { environment } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminOrderService {
 
-  private baseUrl: string = baseUrlDev + "/Admin";
+  private baseUrlForDev = environment.API_URL;
+  private baseUrl: string = this.baseUrlForDev + "/Admin";
 
   constructor(private http: HttpClient) { }
 

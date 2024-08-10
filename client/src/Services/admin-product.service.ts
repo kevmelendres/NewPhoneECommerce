@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { baseUrlDev } from '../Environment/dev.env';
 import { IProduct } from '../Models/product';
 import { IAdminManageProductParams } from '../Models/AdminManageProductParams';
 import { Observable, of } from 'rxjs';
@@ -8,12 +7,14 @@ import { IEditProduct } from '../Models/editproduct';
 import { ISeller } from '../Models/seller';
 import { IPreviousOwner } from '../Models/previousowner';
 import { IAddNewProduct } from '../Models/addnewproduct';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminProductService {
-  baseUrl: string = baseUrlDev;
+
+  private baseUrl = environment.API_URL;
 
   constructor(private http: HttpClient) { }
 

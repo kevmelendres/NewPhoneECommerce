@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { baseUrlDev } from '../Environment/dev.env';
+import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { IAdminAppUser } from '../Models/adminappuser';
 import { IAdminManageUsersParams } from '../Models/adminmanageusersparams';
@@ -12,8 +12,8 @@ import { IDeleteUserByAdmin } from '../Models/deleteuserbyadmin';
   providedIn: 'root'
 })
 export class AdminUserService {
-  baseUrl: string = baseUrlDev;
-  
+
+  private baseUrl = environment.API_URL;
   constructor(private http: HttpClient) { }
 
   getUsers(adminToken: string, pageNumber?: number, itemsToShow?: number, searchString?: string) {

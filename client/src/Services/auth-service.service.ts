@@ -6,13 +6,16 @@ import { ICurrentUser } from '../Models/currentuser';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable, catchError, concatMap, first, map, mergeMap, of, pipe, switchMap, take, tap} from 'rxjs';
 import { ICurrentUserProfileC } from '../Models/currentuserprofile';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private baseUrlForDev = environment.API_URL;
 
-  baseUrl: string = 'http://localhost:5064/api/Identity/';
+  baseUrl: string = this.baseUrlForDev + '/Identity/';
+
   private _isAuthenticatedInit: boolean = false;
   public currentUser: ICurrentUser | null = null;
   private currentUserProfile: ICurrentUserProfileC | null = null;

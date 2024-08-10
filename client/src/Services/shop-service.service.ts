@@ -3,14 +3,14 @@ import { EventEmitter, Injectable, OnChanges, OnInit, Output, SimpleChanges } fr
 import { map } from 'rxjs/operators';
 import { IProduct } from '../Models/product';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { baseUrlDev } from '../Environment/dev.env';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  baseUrl: string = baseUrlDev + "/";
+  private baseUrl = environment.API_URL;
 
   searchBarToggle: boolean = true;
   returnToPageOneVal: boolean = true;
