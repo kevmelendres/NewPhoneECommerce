@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 })
 export class ShopService {
 
-  private baseUrl = environment.API_URL;
+  private baseUrl = environment.API_URL + "/";
 
   searchBarToggle: boolean = true;
   returnToPageOneVal: boolean = true;
